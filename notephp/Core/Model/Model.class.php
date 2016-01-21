@@ -13,12 +13,14 @@ class Model {
     // 定义要执行的逻辑查询类成员$_sql
     private  $_sql = array(
         "fid" => "*" , //默认为查询所有字段
-        "lit" => "" ,
-        "ord" => "" ,
-        "wre" => "" ,
-        "exe" => "" ,
-        "num" => "" ,
-        "dat" => "" ,
+        "lit" => "" ,  //查询行限制
+        "ord" => "" ,  //查询排序
+        "wre" => "" ,  // 条件查询
+        "exe" => "" , // 执行查询
+        "num" => "" , // 表行数
+        "dat" => "" , // 输入数据
+        "gro" => "" , // 组查询
+        "hav" => "" , // 与组查询并用
     );
 
     // 定义数据库的用户条件权限
@@ -101,6 +103,37 @@ class Model {
         return $this ;
     }
 
+    // 过滤用户输入数据
+    public function data ( $data ) {
+        foreach ( $data as $k => $v ){
+
+            // $v 为数组则是多行插入数据
+            if ( is_array($v)  ) {
+                while( list($field , $value) = each ($v)  ) {
+                    $v[$field] = $this->mysql_filter($value) ;
+                }
+
+            }else{
+                $data[$k] = $this->mysql_filter($v);
+            }
+        }
+         // 返回到sql
+        $this->_sql['dat'] = $data;
+        return $this;
+    }
+
+    // 过滤group by 数据
+    public function gronp( $qstr ) {
+        $this->_sql['gro'] = $this->mysql_filter($qstr);
+        return $this;
+    }
+
+    // 过滤having 数据
+    public function having ($hstr) {
+        $this->_sql['hav'] = $this->mysql_filter($hstr);
+        return $this;
+    }
+
     // 对数据库进行读操作
     public function execute ($id) {
 
@@ -109,7 +142,7 @@ class Model {
         $result ;
         // 非组合查询id
         if( is_numeric($id)  ) {
-            $result = $this->query("SELECT * FROM {$this->_mysqlinfo['DB_TABLE']} WHERE id={$id}");
+            $result = $this->query("SELECT * FROM {$this->_mysqlinfo['DB_TABLE']} WHERE id='{$id}'");
             $returndata[0] = mysql_fetch_assoc($result);
         } else (empty($id)) { 
                    
@@ -152,7 +185,7 @@ class Model {
         // 通过id删除表数据
         $result ;
         if( is_numeric($id) ) {
-            $result = $this->query("DELETE * FROM {$this->_mysqlinfo['DB_TABLE']} WHERE id={$id}");
+            $result = $this->query("DELETE * FROM {$this->_mysqlinfo['DB_TABLE']} WHERE id='{$id}'");
         }else{ 
 
             //定义删除query语句
@@ -172,12 +205,9 @@ class Model {
 
         //过滤data数据
         $filterData ;
-        foreach( $data as $k -> $va ) {
-            $filterData[$this->mysql_filter($k)] => $this->mysql_filter($va);
-        } 
-        $fields      = array_keys($filterData);
-        $values      = array_values($filterData);
-        $queryString = "INSERT INTO {$this->_mysqlinfo['DB_TABLE']} (".implode(',',$fields).") VALUES (".implode(',',$values).")";
+        $HEAD        = $this->data($data);
+        $filterData  = $HEAD->_sql['data'];
+        $queryString = "INSERT INTO {$this->_mysqlinfo['DB_TABLE']} (".implode(',',$filterData)." ) VALUES (".implode(',',$filterData).")";
         $result      = $this->query($queryString) ;
         // 获取刚输入数据的ID
         $insertID    = mysql_insert_id($result) ;
@@ -198,24 +228,99 @@ class Model {
         $sql      = $this->_sql;
         switch ($handle) {
         case "SELECT": // 查询模式
-            $returnString = "SELECT {$sql['fid']} FORM {$table} WHERE ";
-            if( is_string($sql['wre']) ) {
-                $returnString .= $sql['wre'];
-            }elseif( is_array($sql['wre']) ) {
-                
-                // 数组方式为组合查询                
-                while( list($fids , $cond) = each($sql['wre']) ) {
+            $returnString = "SELECT {$sql['fid']} FORM {$table} ";
+            $this->full_query_where( $returnString );
+            break;
+        case "UPDATE": // 修改模式
+            $returnString = "UPDATE {$table} SET ";
+            $setData[] = array();
+            foreach($sql['dat'] as $key => $val) {
+                $setData[] = $key."='{$val}'";
+            }
+            $returnString .= implode(',',$setData)." ";
+            $this->full_query_where( $returnString );
+            break;
+        case "DELETE": //删除模式
+            $returnString = "DELETE * FROM {$table} ";
+            $this->full_query_where( $returnString );
+            break;
+            
+        }
+        return $returnString;
+    }
 
+    // 整合查询条件字符串
+    public function full_query_where (&$string) {
+        $cond = $this->_sql;
+        if(!empty($w = $cond['wre'])) {
+            if(is_string($w)) {
+                $string .= "WHERE ".$w;
+            }elseif(is_array($w)) {
+                $fieldArr = array_keys($w);
+                $valueArr = array_values($w);
+                $len  = count($w) ;
+                switch ($len) {
+                case 1:
+                    if(is_string($valueArr[0])) {
+                        $string .= "WHERE {$fieldArr[0]}='{$valueArr[0]}' ";
+                    }elseif( is_array($valueArr[0]) ) {
+                        
+                        $string .= "WHERE {$fieldArr[0]} {$valueArr[0]} '{$valueArr[1]}' ";
+                    }
+                    break;
+                default:
+                    $ao = $len > 2 ? "OR" : "AND";
+                    if(is_string($valueArr[0]) ) {
+                        $string .= "WHERE ({$fieldArr[0]}='{$valueArr[0]}') {$ao} ({$fieldArr[1]}='{$valueArr[1]}') ";
+                    }elseif(is_array($valueArr[0])) {
+                        $string .= "WHERE  ({$fieldArr[0]} {$valueArr[0][0]} '{$valueArr[0][1]}') {$ao} ({$fieldArr[1]} {$valueArr[1][0]} '{$valueArr[1][1]}') ";
+                    }
                 }
             }
         }
+        // 组查询GROUP BY
+        if( !empty($cond['gro'])) {
+            $string = "SELECT ".$cond['fid']." GROUP BY ".$cond['gro']." ";
+            if($h = $cond['hav']) {
+                $string .= $h ;
+            }
+        }
+        if(!empty($cond['ord'])) {
+            $string .= "ORDER BY "$cond['ord']." ";
+        }
+        if(!empty($cond['lit'])) {
+            $linenu = explode("," , $cond['lit']);;
+            if(count($linenu) >1) {
+                $string .= "LIMIT ".intval($linenu[0])." ,".intval($linenu[1]);
+            }else{
+                $string .= "LIMIT ".intval($linenu[0]);
+            }
+        }
+    } 
+
+    // 随用户输入数据进行mysql_escape_string过滤
+    public function mysql_filter($filsr) {
+
+        $s =  mysql_escape_string($filsr);
+        return $s;
+    }
+
+    // 执行数据库操作
+    public function query ($quer) {
+
+        $results = mysql_query($quer , $this->conn);
+        return $results;
+    }
+
+    //断开数据库链接
+    public function close () {
+
+        mysql_close($this->conn);
+
     }
 
 
 
-
-
-
-
-
 } 
+
+?>
