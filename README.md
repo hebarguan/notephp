@@ -19,13 +19,12 @@ holle world !
 这里前面加了两个ＴＡＢ键
 这里也是啊
 这里有`强调`,再次强调`haha blan ba `
-[百度一下](https://www.baidu.com)
-[淘宝坑爹](https://www.taobao.com "逃不出手心")
-*这是圆点符号啊
-
+    [百度一下](https://www.baidu.com)
+    [淘宝坑爹](https://www.taobao.com "逃不出手心")
+*zhishi
 >缩进
 >>缩进
 >>>缩进
 >>>>缩进
-![图片](htps://www.baiud.com/img/bdlogo.gif)
+![图片](https://www.baiud.com/img/bdlogo.gif)
 
