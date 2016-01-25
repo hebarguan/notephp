@@ -1,31 +1,7 @@
-
-##readme first
-this is for notephp readme.md
-Holle 
-====
-holle world ! 
-----
-一级标题
-#
-二级标题
-##
-三级标题
-###
-四级标题
-####
-五级标题
-#####
-这是普通文本<br/>
-这里前面加了两个ＴＡＢ键
-这里也是啊
-这里有`强调`,再次强调`haha blan ba `
-[百度一下](https://www.baidu.com)
-[淘宝坑爹](https://www.taobao.com "逃不出手心")
-*这是圆点符号啊
-
->缩进
->>缩进
->>>缩进
->>>>缩进
-![图片](htps://www.baiud.com/img/bdlogo.gif)
-
+##框架手记
+###条件查询Ｗhere
+* 字符串 ：where("id=5"); where("name='{变量}'") 
+* 数组：where(array("id" =>1,"name" => "hebar")) 或　array("department"=>array("=","s10"),"salary"=>array(">",3000)); 错误方式：where(array("department"=>"s10","salary"=>array(">",30000)));
+###条件查询Having
+* 正确：having('SUM(SALARY) > 20'); having("name ='{变量}'");
+* 错误：having("name = $变量名");
