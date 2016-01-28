@@ -1,6 +1,4 @@
 <?php
-
-namespace NotePHP;
  /*
   * Edited by hebarguan 2016-1-20
   * Email hebarguan@hotmail.com
