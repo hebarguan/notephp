@@ -1,5 +1,4 @@
 <?php
-namespace NotePHP;
 
 class Controller {
 

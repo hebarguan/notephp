@@ -6,17 +6,21 @@
  */
 class URL {
     // 定义路由模式
-    private $UrlMode = '';
+    private $UrlMode         = "";
     // 查询字段
-    private $QueryString = '';
+    private $QueryString     = "";
     // 完整路由
-    private $FullUrl = '';
+    private $FullUrl         = "";
     // 路由重写
-    private $UrlRewrite = '';
+    private $UrlRewrite      = "";
     // 路由重写
-    private $UrlMap = '';
+    private $UrlMap          = "";
     //　定义GET参数数组
-    private $HttpBuildQuery = array();
+    private $HttpBuildQuery  = array();
+    // 控制器名
+    private $Controller      = "";
+    // 操作方法
+    private $Action          = "";
     // 定义构造函数
     public function __construct() {
         $this->UrlMode = C('URL_MODE');
@@ -70,11 +74,73 @@ class URL {
         case 1 :
             $spiltQuery = explode("?" ,$ths->FullUrl) ;
             $index_handle = $spiltQuery[0];
+            // 获取控制器与动作
+            if( "/" == $index_handle ) {
+                $this->Controller = C("DEFAULT_INDEX");
+                $this->Action     = C("DEFAULT_HANDLE");
+            }else{
+                $C_A = explode("/",$index_handle);
+                $this->Controller = $C_A[1];
+                $this->Action     = $C_A[2];
+            }
             // 只截取第一个?
             $GetData = join("?",array_shift($spiltQuery));
             // 数据返回$_GET
             parse_str($GetData ,$_GET);
+            break;
+        case 2 :
+            $spiltQuery = explode("/" ,$this->FullUrl);
+            $this->Controller   = $spiltQuery[1];
+            $this->Action       = $spiltQuery[2];
+            for($k = 3 ; $k<count($spiltQuery) ; $k++) {
+                $this->HttpBuildQuery[$spiltQuery[$k]] = $spiltQuery[$k+1];
+            }
+            // 返回$_GET数据
+            $_GET = $this->HttpBuildQuery;
+            break;
         }
-
+        // 将数据交给控制器处理
+        $this->WorkControllerClass();
+    }
+    // 控制器处理与检测
+    public function WorkControllerClass () {
+        // 控制器名
+        $ControllerName = ucfirst(strtolower($this->Controller))."Controller";
+        // 检查是否默认控制与动作
+        if($this->Controller == C("DEFAULT_INDEX") AND $this->Action == C("DEFAULT_HANDLE")) {
+            if( !file_exists(PRO_PATH."/controller/".$ControllerName.EXTS) ) {
+                // 加载欢迎界面
+                $this->outputWelcomePage();
+                exit;
+            }
+        }
+        // 操作方法名
+        $ActionName = $this->Action;
+        // 实例化控制器
+        $ControllerHandle = new $ControllerName();
+        // 获取控制器所有操作方法
+        $allMethod = get_class_methods($ControllerHandle);
+        // 检测是否开启路由大小写
+        // 与匹配的方式检测，方便大小写规则
+        $ActionPattern = C("URL_CASE_INSENSITIVE") ? "/{$ActionName}/" : "/{$ActionName}/i";
+        if( !preg_match($ActionPattern ,join(" ",$allMethod)) ) {
+            // 不存在操作方法，放回错误
+            trigger_error("不存在动作{$ActionName}",E_USER_ERROR);
+            exit;
+        }
+        // 否则运行操作方法
+        $ControllerHandle->$ActionName();
+    }
+    // 写入欢迎界面
+    public function outputWelcomePage () {
+        $ControllerName = ucfirst(strtolower($this->Controller))."Controller";
+        $welcomeClassName = PRO_PATH."/controller/".$ControllerName.EXTS;
+        $fileHandler       = fopen($welcomeClassName ,"a+");
+        fwrite("<?php class {$ControllerName} extends Controller { public function {$Action} () { $this->show("<center><h2>欢迎使用notephp,使用愉快，哈哈</h2></center>"); } } ?>" , $fileHandler);
+        fclose($fileHandler);
+        $newCtrl = new $ControllerName();
+        $newCtrl->$Action();
+        exit;
     }
 }
+?>
