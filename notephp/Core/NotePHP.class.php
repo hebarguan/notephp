@@ -40,7 +40,7 @@ class NotePHP {
         // 加载核心文件
         foreach ( self::Core as $file ) {
             $coreFile = __NOTEPHP__."/Core/".$file.EXTS;
-            if( file_exists( $coreFile  ) ) {
+            if( is_file( $coreFile  ) ) {
                 require_once($coreFile);
             }
         }
@@ -90,7 +90,8 @@ class NotePHP {
     public static function autoLoad ( $classname ) {
         // 自动加载项目类文件
         $classname = ucfirst(strtolower($cassname));
-        $pro_class = array(PRO_PATH."/controller/".$classname."Controller".EXTS , PRO_PATH."/Model/".$classname."Model".EXTS);
+        $proPath   = __ROOT__.($GLOBALS['PROJECT_REQUEST_MODULE'] ? $GLOBALS['PROJECT_REQUEST_MODULE'] : APP_NAME);
+        $pro_class = array($proPath."/controller/".$classname."Controller".EXTS , $proPath."/Model/".$classname."Model".EXTS);
         $core_class= array(__NOTEPHP__."/Core/".$classname.EXTS);
         if( is_file($pro_class[0]) ) {
             include $p_c;

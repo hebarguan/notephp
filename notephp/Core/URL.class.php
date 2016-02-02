@@ -17,6 +17,8 @@ class URL {
     private $UrlMap          = "";
     //　定义GET参数数组
     private $HttpBuildQuery  = array();
+    // 当前路由请求的模块
+    private $RequestModule   = "",
     // 控制器名
     private $Controller      = "";
     // 操作方法
@@ -69,27 +71,42 @@ class URL {
                 }
             }
         }
+        // 检测是否以开启自动路由隐藏模块
+        if( C('URL_HIDE_MODULE') ) {
+            // 检测是否开启子域名部署
+            if( !empty($DomainDeploy = C('SUB_DOMAIN_RULES')) ) {
+                foreach( $DomainDeploy as $subDomain => $mapModule ) {
+                    // 若部署子域名与当前服务器名不同，跳过本次循环
+                    if (SERVER_HOST !== $subDomain) continue;
+                    // 以全局变量定义请求模块
+                    $GLOBALS['PROJECT_REQUEST_MODULE'] = $mapModule ;
+                    $this->FullUrl = __ROOT__.$mapModule.$this->FullUrl;
+                }
+
+            }else{
+                // 整合项目模块名，或APP_NAME
+                $this->FullUrl = __ROOT__.APP_NAME.$this->FullUrl;
+            }
+        }
+
         //  处理$_GET与$_POST
         switch ($this->UrlMode) {
         case 1 :
             $spiltQuery = explode("?" ,$ths->FullUrl) ;
             $index_handle = $spiltQuery[0];
             // 获取控制器与动作
-            if( "/" == $index_handle ) {
-                $this->Controller = C("DEFAULT_INDEX");
-                $this->Action     = C("DEFAULT_HANDLE");
-            }else{
-                $C_A = explode("/",$index_handle);
-                $this->Controller = $C_A[1];
-                $this->Action     = $C_A[2];
-            }
+            $C_A = array_shift(explode("/",$index_handle));
+            $this->RequestModule = $C_A[0];
+            $this->Controller = $C_A[1];
+            $this->Action     = $C_A[2];
             // 只截取第一个?
             $GetData = join("?",array_shift($spiltQuery));
             // 数据返回$_GET
             parse_str($GetData ,$_GET);
             break;
         case 2 :
-            $spiltQuery = explode("/" ,$this->FullUrl);
+            $spiltQuery = array_shift(explode("/" ,$this->FullUrl));
+            $this->RequestModule = $spiltQuery[0];
             $this->Controller   = $spiltQuery[1];
             $this->Action       = $spiltQuery[2];
             for($k = 3 ; $k<count($spiltQuery) ; $k++) {
@@ -99,16 +116,54 @@ class URL {
             $_GET = $this->HttpBuildQuery;
             break;
         }
+        // 判断处理后的模块／控制器／操作方法是否为空
+        // 以全球变量声明模块
+        $this->RequestModule = $GLOBALS['PROJECT_REQUEST_MODULE'] ? $GLOBALS['PROJECT_REQUEST_MODULE'] : APP_NAME ;
+        $this->Controller =  $this->Controller ? $this->Controller : C("DEFAULT_INDEX");
+        $this->Action     =  $this->Action ? $this->Action : C("DEFAULT_HANDLE");
         // 将数据交给控制器处理
         $this->WorkControllerClass();
     }
+    // 文件路由处理
+    public function UrlFileHandler () {
+        // 文件目录
+        $filePath = explode('?',$this->FullUrl)[0];
+        if( is_file($filePath = ".".$filePath) ) {
+            $UrlFileInfo = pathinfo($filePath);
+            // 检测是否为允许的文件后缀
+            if(FALSE !== array_search($UrlFileInfo['extension'],C('URL_FILE_SUFFIX')) ) {
+                // 获取文件的MIME类型
+                $finfo = finfo_open(FILEINFO_MIME_TYPE);
+                $mimeType = finfo_file($finfo ,$filePath);
+                finfo_close($finfo);
+                $fileType = explode("/" ,$mimeType);
+                switch ($fileType) {
+                case "image" :
+                    // 图片类型返回data:mime;base64,
+                    $base64photo = base64_encode(file_get_contents($filePath));
+                    // 输出数据
+                    echo "data:{$mimeType};base64,".$base64photo;
+                    break;
+                case "text" :
+                    // 若为文件则直接以字符串形式输出
+                    echo file_get_contents($filePath);
+                    break;
+                }
+                exit ;
+            }
+            // 不允许文件后缀返回0
+            exit(0);
+        }
+    }
     // 控制器处理与检测
     public function WorkControllerClass () {
+        // 模块名
+        $ModuleName  = ucfirst($this->RequestModule) ;
         // 控制器名
         $ControllerName = ucfirst(strtolower($this->Controller))."Controller";
         // 检查是否默认控制与动作
         if($this->Controller == C("DEFAULT_INDEX") AND $this->Action == C("DEFAULT_HANDLE")) {
-            if( !file_exists(PRO_PATH."/controller/".$ControllerName.EXTS) ) {
+            if( !is_file(__ROOT__.$ModuleName."/controller/".$ControllerName.EXTS) ) {
                 // 加载欢迎界面
                 $this->outputWelcomePage();
                 exit;
