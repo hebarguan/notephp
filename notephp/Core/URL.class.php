@@ -118,9 +118,14 @@ class URL {
         }
         // 判断处理后的模块／控制器／操作方法是否为空
         // 以全球变量声明模块
-        $this->RequestModule = $GLOBALS['PROJECT_REQUEST_MODULE'] ? $GLOBALS['PROJECT_REQUEST_MODULE'] : APP_NAME ;
+        if( !isset($GLOBALS['PROJECT_REQUEST_MODULE']) ) {
+            $GLOBALS['PROJECT_REQUEST_MODULE'] = APP_NAME;
+        }
+        $this->RequestModule = $GLOBALS['PROJECT_REQUEST_MODULE'] ;
         $this->Controller =  $this->Controller ? $this->Controller : C("DEFAULT_INDEX");
         $this->Action     =  $this->Action ? $this->Action : C("DEFAULT_HANDLE");
+        $GLOBALS['PROJECT_REQUEST_CONTROLLER'] = $this->Controller;
+        $GLOBALS['PROJECT_REQUEST_ACTION']     = $this->Action;
         // 将数据交给控制器处理
         $this->WorkControllerClass();
     }
