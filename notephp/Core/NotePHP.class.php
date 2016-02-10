@@ -9,16 +9,17 @@ class NotePHP {
     // 定义组合配置文件
     private static $_conf = array();
     // 定义核心文件名
-    private static $Core  = array("Model" ,"Controller" ,"URL" ,"View" ,"Log");
+    private static $Core  = array("Controller" ,"URL" ,"View" ,"Log");
     // 定义调试参数
     private static $trace = array();
     // 定义项目结构目录
     private static $struDir = array(
-        "cache"      =>  "",   // 项目缓存目录
-        "Model"      =>  "",   // 项目模型目录
-        "Controller" => "",  // 项目动作控制器
+        "functions"  =>  "", // 项目公共函数目录
+        "conf"       =>  "", // 项目配置文件
+        "runtime"    =>  array("cache","complier","log","data"),   // 项目缓存目录
+        "model"      =>  "",   // 项目模型目录
+        "controller" => "",  // 项目动作控制器
         "html"       => "",  // 项目模板目录
-        "log"        =>  "",   // 项目日志目录
         "extends"    =>  "",   // 项目自定义扩展目录
     );
 
@@ -33,8 +34,8 @@ class NotePHP {
         // 是否开启调试模式
         if(  DEBUG_ON ) {
             // 加载错误与日志文件
-            self::trace['log_file'] = require_once(PRO_PATH."/log/error.log");
-            self::trace['error_file'] = require_once(__NOTEPHP__."/Templates/error.tpl");
+            self::trace['log_file'] = "/runtime/log/error.log" ;
+            self::trace['error_file'] = C('ERROR_FILE');
         }
 
         // 加载核心文件
@@ -51,6 +52,11 @@ class NotePHP {
             if(mkdir(PRO_PATH)) {
                 while(list($sdir , $val) = each(self::struDir)) {
                     mkdir(PRO_PATH.$sdir);
+                    if(is_array($val) AND !empty($val)) {
+                        for($i=0;$i<count($val);$i++) {
+                            mkdir(PRO_PATH.$sdir."/".$val[$i]);
+                        }
+                    }
                 }
             }else{
                 // 创建失败则提示手动创建
