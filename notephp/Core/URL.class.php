@@ -18,7 +18,7 @@ class URL {
     //　定义GET参数数组
     private $HttpBuildQuery  = array();
     // 当前路由请求的模块
-    private $RequestModule   = "",
+    private $RequestModule   = "";
     // 控制器名
     private $Controller      = "";
     // 操作方法
@@ -55,7 +55,7 @@ class URL {
                     $ModeQueryString = $val;
                     while(list($k ,$v) = each($this->HttpBuildQuery) ) {
                         if( !($k AND $v) )  continue;
-                        $ModeQueryString .= "/".$k."/",$v;
+                        $ModeQueryString .= "/".$k."/".$v;
                     }
                     // 返回模式２的完整路由
                     $this->FullUrl = $ModeQueryString;
@@ -92,23 +92,29 @@ class URL {
         //  处理$_GET与$_POST
         switch ($this->UrlMode) {
         case 1 :
-            $spiltQuery = explode("?" ,$ths->FullUrl) ;
-            $index_handle = $spiltQuery[0];
+            $spiltQuery = explode("?" ,$this->FullUrl) ;
+            $index_handle = array_shift($spiltQuery);
             // 获取控制器与动作
-            $C_A = array_shift(explode("/",$index_handle));
-            $this->RequestModule = $C_A[0];
-            $this->Controller = $C_A[1];
-            $this->Action     = $C_A[2];
+            $queryArr = explode("/",$index_handle);
+            array_shift($queryArr);
+            $C_A = $queryArr;
+            $this->RequestModule = !empty($C_A[0]) ? $C_A[0] : null;
+            $this->Controller = !empty($C_A[1]) ? $C_A[1] : C('DEFAULT_INDEX') ;
+            $this->Action     = !empty($C_A[2]) ? $C_A[2] : C("DEFAULT_HANDLE");
             // 只截取第一个?
-            $GetData = join("?",array_shift($spiltQuery));
-            // 数据返回$_GET
-            parse_str($GetData ,$_GET);
+            if( !empty($spiltQuery) ){
+                $GetData = join("?",$spiltQuery);
+                // 数据返回$_GET
+                parse_str($GetData ,$_GET);
+            }
             break;
         case 2 :
-            $spiltQuery = array_shift(explode("/" ,$this->FullUrl));
-            $this->RequestModule = $spiltQuery[0];
-            $this->Controller   = $spiltQuery[1];
-            $this->Action       = $spiltQuery[2];
+            $queryArr = explode("/" ,$this->FullUrl);
+            array_shift($queryArr);
+            $spiltQuery = $queryArr ;
+            $this->RequestModule = !empty($spiltQuery[0]) ? $spiltQuery[0] : null;
+            $this->Controller   = !empty($spiltQuery[1]) ? $spiltQuery[1] : C("DEFAULT_INDEX");
+            $this->Action       = !empty($spiltQuery[2]) ? $spiltQuery[2] : C('DEFAULT_HANDLE');
             for($k = 3 ; $k<count($spiltQuery) ; $k++) {
                 $this->HttpBuildQuery[$spiltQuery[$k]] = $spiltQuery[$k+1];
             }
@@ -118,14 +124,16 @@ class URL {
         }
         // 判断处理后的模块／控制器／操作方法是否为空
         // 以全球变量声明模块
-        if( !isset($GLOBALS['PROJECT_REQUEST_MODULE']) ) {
+        if( empty($GLOBALS['PROJECT_REQUEST_MODULE']) ) {
             $GLOBALS['PROJECT_REQUEST_MODULE'] = APP_NAME;
         }
         $this->RequestModule = $GLOBALS['PROJECT_REQUEST_MODULE'] ;
-        $this->Controller =  $this->Controller ? $this->Controller : C("DEFAULT_INDEX");
-        $this->Action     =  $this->Action ? $this->Action : C("DEFAULT_HANDLE");
         $GLOBALS['PROJECT_REQUEST_CONTROLLER'] = $this->Controller;
         $GLOBALS['PROJECT_REQUEST_ACTION']     = $this->Action;
+        // 加载特定模块的函数库
+        if(  is_file($proLibsFunc = __ROOT__.$this->RequestModule."/functions/function.php") ) {
+            require($proLibsFunc);
+        }
         // 将数据交给控制器处理
         $this->WorkControllerClass();
     }
@@ -194,12 +202,13 @@ class URL {
     // 写入欢迎界面
     public function outputWelcomePage () {
         $ControllerName = ucfirst(strtolower($this->Controller))."Controller";
+        $ActionName = $this->Action;
         $welcomeClassName = PRO_PATH."/controller/".$ControllerName.EXTS;
         $fileHandler       = fopen($welcomeClassName ,"a+");
-        fwrite("<?php class {$ControllerName} extends Controller { public function {$Action} () { $this->show("<center><h2>欢迎使用notephp,使用愉快，哈哈</h2></center>"); } } ?>" , $fileHandler);
         fclose($fileHandler);
+        file_put_contents($welcomeClassName,"<?php class {$ControllerName} extends Controller { public function {$this->Action} () { \$this->show('<center><h2>欢迎使用notePHP框架 使用愉快 ^_^</h2></center>'); } } ?>");
         $newCtrl = new $ControllerName();
-        $newCtrl->$Action();
+        $newCtrl->$ActionName();
         exit;
     }
 }

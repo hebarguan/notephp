@@ -15,10 +15,10 @@ class Log {
         // 不开启则直接发送HTTP/1.1 400 NOT FOUND 错误
         if( DEBUG_ON ) {
             $LogFile = __ROOT__.$GLOBALS['PROJECT_REQUEST_MODULE'].$LogFile;
-            $this->LogFileHandle = fopen($LogFile , "a+");
-            $recordMsg = "[".date(time(),"Y-m-d H:i:s")."]"."[ERROR]:".$msg."in File".$file." line ".$line."\n";
-            fwrite($recordMsg,$this->LogFileHandle);
-            fclose($this->LogFileHandle);
+            self::$LogFileHandle = fopen($LogFile , "a+");
+            $recordMsg = "[".date('Y-m-d H:i:s')."]"."[ERROR]:".$msg."in File".$file." line ".$line."\n";
+            fwrite(self::$LogFileHandle ,$recordMsg);
+            fclose(self::$LogFileHandle);
             $printMsg = "<h1>>_<</h1><br/>"."<h2>{$msg}</h2><br/>"."File:{$file} in line <strong>{$line}</strong>";
             exit($printMsg);
         }else{

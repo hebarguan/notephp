@@ -21,7 +21,7 @@ function A($ctrl) {
 function C ($val) {
     $split = explode(".",$val);
     $keyNum = count($split);
-    $userConfFile = __ROOT__.$GLOBALS['PROJECT_REQUEST_MODULE']."/conf/conf.php";
+    $userConfFile = __ROOT__.(!empty(@$GLOBALS['PROJECT_REQUEST_MODULE']) ? @$GLOBALS['PROJECT_REQUEST_MODULE '] :APP_NAME)."/conf/conf.php";
     $defaultConfFile = __NOTEPHP__."/Conf/default.php"; 
     // 加载用户配置文件
     $userConf = is_file($userConfFile) ? require($userConfFile) : array();
@@ -37,19 +37,30 @@ function C ($val) {
 // 加载php扩展文件
 function loadFile ($filePath) {
     $outlinePath = explode(".",$filePath);
-    switch ($outlinePath[0]) {
-    case "@" :
-        $ergodicPath = __ROOT__.$GLOBALS['PROJECT_REQUEST_MODULE']."/{$outlinePath[1]}/{$outlinePath[2]}";
-        if(is_dir($ergodicPath)) {
-            $fp = opendir($ergodicPath);
-            while ($item = readdir($fp)) {
-                $secondPath = $ergodicPath."/".$item;
-                if(is_file($secondPath.EXTS)) {
-                    require_once($secondPath.EXTS);
-                }elseif( is_dir($) )
+    $ergodicPath = "";
+    if( $outlinePath[0] == "@" ) {
+        $ergodicPath = __ROOT__.($GLOBALS['PROJECT_REQUEST_MODULE']?$GLOBALS['PROJECT_REQUEST_MODULE']:APP_NAME)."/extends/".ucfirst($outlinePath[1])."/".$outlinePath[2];
+    }else{
+        $ergodicPath = __NOTEPHP__."/Extends/".ucfirst($outlinePath[1])."/".$outlinePath[2];
+    }
+    $rPath = ergodicPath($ergodicPath ,ucfirst($outlinePath[2]).EXTS);
+    return $rPath;
+}
+// 遍历目录
+function ergodicPath ($path ,$fileNameToSearch) {
+    if(is_dir($path)) {
+        $fp = opendir($path);
+        while ($item = readdir($fp)) {
+            if( $item == "." OR $item == ".." ) continue;
+            $secondPath = $path."/";
+            if($item == $fileNameToSearch) {
+                return require_once($secondPath.$item);
+            }elseif(is_dir($loopEgiPath = $secondPath.$item)) {
+                ergodicPath($loopEgiPath ,$fileNameToSearch);
             }
         }
+    }else{
+        trigger_error("类目录{$path} 不存在" ,E_USER_ERROR);
     }
 }
-
 ?>

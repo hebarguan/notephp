@@ -55,7 +55,7 @@ class Controller {
             break;
         case 'xml' :
             $xmlData = "<xml>";
-            foreach ($data as $node as $val) {
+            foreach ($data as $node => $val) {
                 $childNode = '';
                 if(is_array($val)) {
                     while(list($secondNode ,$secondVal) = each($val)) {
@@ -87,9 +87,8 @@ class Controller {
         exit;
     }
     // 显示文本或html
-    public function show($str) {
-        $text = htmlentities($str);
-        echo $text;
+    public function show($str = "") {
+        echo $str;
         exit;
     }
     // 错误页面

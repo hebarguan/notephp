@@ -21,7 +21,7 @@
     ],
     "support": {
         "irc": "irc://irc.freenode.org/smarty",
-        "issues": "https://github.com/smarty-php/smarty/issues",
+        "issues": "http://code.google.com/p/smarty-php/issues/list",
         "forum": "http://www.smarty.net/forums/"
     },
     "require": {
@@ -31,7 +31,7 @@
         "classmap": [
             "libs/Smarty.class.php",
             "libs/SmartyBC.class.php",
-            "libs/sysplugins/"
+            "libs/sysplugins/smarty_security.php"
         ]
     },
     "extra": {

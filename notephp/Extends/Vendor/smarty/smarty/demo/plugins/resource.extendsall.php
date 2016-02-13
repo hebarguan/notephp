@@ -22,44 +22,39 @@ class Smarty_Resource_Extendsall extends Smarty_Internal_Resource_Extends
     {
         $uid = '';
         $sources = array();
-        $timestamp = 0;
+        $exists = true;
         foreach ($_template->smarty->getTemplateDir() as $key => $directory) {
             try {
-                $s = Smarty_Resource::source(null, $source->smarty, 'file:' . '[' . $key . ']' . $source->name);
+                $s = Smarty_Resource::source(null, $source->smarty, '[' . $key . ']' . $source->name);
                 if (!$s->exists) {
                     continue;
                 }
-                $sources[ $s->uid ] = $s;
+                $sources[$s->uid] = $s;
                 $uid .= $s->filepath;
-                $timestamp = $s->timestamp > $timestamp ? $s->timestamp : $timestamp;
             }
             catch (SmartyException $e) {
             }
         }
+
         if (!$sources) {
             $source->exists = false;
+            $source->template = $_template;
+
             return;
         }
 
         $sources = array_reverse($sources, true);
         reset($sources);
         $s = current($sources);
+
         $source->components = $sources;
         $source->filepath = $s->filepath;
-        $source->uid = sha1($uid . $_template->smarty->_joined_template_dir);
-        $source->exists = true;
-        $source->timestamp = $timestamp;
+        $source->uid = sha1($uid);
+        $source->exists = $exists;
+        if ($_template && $_template->smarty->compile_check) {
+            $source->timestamp = $s->timestamp;
+        }
+        // need the template at getContent()
+        $source->template = $_template;
     }
-
-    /*
-     * Disable timestamp checks for extendsall resource.
-     * The individual source components will be checked.
-     *
-     * @return bool
-     */
-    public function checkTimestamps()
-    {
-        return false;
-    }
-
 }

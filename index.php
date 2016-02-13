@@ -15,7 +15,7 @@
   // 开启调试模式
   define("DEBUG_ON" , TRUE);
   // 加载初始化文件
-  require_once("./notephp/NotePHP.class.php");
+  require_once("./notephp/NotePHP.php");
 
 
 ?>
