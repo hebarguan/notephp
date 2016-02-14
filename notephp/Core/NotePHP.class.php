@@ -111,8 +111,12 @@ class NotePHP {
             include_once $p_m;
         }elseif( is_file($c_c = $core_class[0]) ) {
             include_once $c_c;
-        }else{
-            trigger_error("未找到类{$classname}" , E_USER_ERROR);
+        }
+        else{
+            return false;
+            /*
+             *trigger_error("未找到类{$classname}" , E_USER_ERROR);
+             */
         }
     }
     // 自定义异常处理

@@ -35,7 +35,7 @@ class View {
     // 模板显示
     public function asHtml ($tempFile = '') {
         // 变量赋值
-        $this->tempEngine->assgin($this->assginArr);
+        $this->tempEngine->assign($this->assginArr);
         if(file_exists($tempFile)) {
             $this->tempEngine->display($tempFile);
         }else{

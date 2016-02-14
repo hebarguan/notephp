@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "70e40bfb2e8168e57dec7d239503ceb2",
-    "content-hash": "4395bd0926d37d662008a361a55e6fe3",
+    "hash": "9d33547e9d6d22f6c00f699479d8026f",
+    "content-hash": "510286fbe1a783b5e109910d27837435",
     "packages": [
         {
             "name": "alchemy/binary-driver",
@@ -400,16 +400,16 @@
         },
         {
             "name": "smarty/smarty",
-            "version": "v3.1.19",
+            "version": "v3.1.29",
             "source": {
                 "type": "git",
                 "url": "https://github.com/smarty-php/smarty.git",
-                "reference": "be0fd3186ceec57e4da9a44031f517c06ae2418a"
+                "reference": "35480f10e7ce9b0fdaf23d3799d7b79463919b1e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/smarty-php/smarty/zipball/be0fd3186ceec57e4da9a44031f517c06ae2418a",
-                "reference": "be0fd3186ceec57e4da9a44031f517c06ae2418a",
+                "url": "https://api.github.com/repos/smarty-php/smarty/zipball/35480f10e7ce9b0fdaf23d3799d7b79463919b1e",
+                "reference": "35480f10e7ce9b0fdaf23d3799d7b79463919b1e",
                 "shasum": ""
             },
             "require": {
@@ -425,7 +425,7 @@
                 "classmap": [
                     "libs/Smarty.class.php",
                     "libs/SmartyBC.class.php",
-                    "libs/sysplugins/smarty_security.php"
+                    "libs/sysplugins/"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -451,7 +451,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2014-10-31 01:29:14"
+            "time": "2015-12-21 01:57:06"
         },
         {
             "name": "symfony/filesystem",

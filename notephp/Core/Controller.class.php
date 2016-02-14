@@ -25,7 +25,7 @@ class Controller {
         $this->view = new View();
     }
     // 模板赋值处理
-    public function assgin () {
+    public function assign () {
         // 获取函数参数
         $argsNum  = func_num_args();
         // 参数数组
