@@ -21,7 +21,7 @@ function A($ctrl) {
 function C ($val) {
     $split = explode(".",$val);
     $keyNum = count($split);
-    $userConfFile = __ROOT__.(!empty(@$GLOBALS['PROJECT_REQUEST_MODULE']) ? @$GLOBALS['PROJECT_REQUEST_MODULE '] :APP_NAME)."/conf/conf.php";
+    $userConfFile = __ROOT__.(!empty($GLOBALS['PROJECT_REQUEST_MODULE']) ? $GLOBALS['PROJECT_REQUEST_MODULE '] :APP_NAME)."/conf/conf.php";
     $defaultConfFile = __NOTEPHP__."/Conf/default.php"; 
     // 加载用户配置文件
     $userConf = is_file($userConfFile) ? require($userConfFile) : array();
@@ -61,6 +61,21 @@ function ergodicPath ($path ,$fileNameToSearch) {
         }
     }else{
         trigger_error("类目录{$path} 不存在" ,E_USER_ERROR);
+    }
+}
+// 实例化模型
+function M ($model ,$bool = true) {
+    // 如$boo 为true 表示模型存在
+    if ($bool) {
+        $modelName = $model."Model";
+        if (is_file(__ROOT__.$GLOBALS['PROJECT_REQUEST_MODULE']."/model/".$modelName.EXTS)) {
+            return new $model();
+        }else{
+            trigger_error($modelName."模型类不存在" ,E_USER_ERROR);
+        }
+    }else{
+        // 表示不存在模型
+        return new Model($model);
     }
 }
 ?>

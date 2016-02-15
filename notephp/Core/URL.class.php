@@ -25,6 +25,7 @@ class URL {
     private $Action          = "";
     // 定义构造函数
     public function __construct() {
+
         $this->UrlMode = C('URL_MODE');
         $this->QueryString = $_SERVER['REQUEST_URI'];
         $this->UrlRewrite  = C('URL_REWRITE_RULES');

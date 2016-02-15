@@ -9,7 +9,9 @@ class NotePHP {
     // 定义组合配置文件
     private static $_conf = array();
     // 定义核心文件名
-    private static $Core  = array("Controller" ,"URL" ,"View" ,"Log");
+    /*
+     *private static $Core  = array("Controller" ,"URL" ,"View" ,"Log");
+     */
     // 定义调试参数
     private static $trace = array("log_file" => "", "error_file" => "");
     // 定义项目结构目录
@@ -32,12 +34,14 @@ class NotePHP {
         spl_autoload_register('NotePHP::autoLoad');
 
         // 加载核心文件
-        foreach ( self::$Core as $file ) {
-            $coreFile = __NOTEPHP__."/Core/".$file.EXTS;
-            if( is_file( $coreFile  ) ) {
-                require_once($coreFile);
-            }
-        }
+        /*
+         *foreach ( self::$Core as $file ) {
+         *    $coreFile = __NOTEPHP__."/Core/".$file.EXTS;
+         *    if( is_file( $coreFile  ) ) {
+         *        require_once($coreFile);
+         *    }
+         *}
+         */
         // 尝试创建项目目录结构
         if( !is_dir(PRO_PATH) ) {
             if(mkdir(PRO_PATH)) {
@@ -61,7 +65,7 @@ class NotePHP {
         $GLOBALS['PROJECT_REQUEST_CONTROLLER'] = null;
         $GLOBALS['PROJECT_REQUEST_ACTION'] = null;
         // 加载框架公共函数库
-        require_once(__NOTEPHP__."/Common/functions.php");
+        include_once(__NOTEPHP__."/Common/functions.php");
 
         // 是否开启调试模式
         if(  DEBUG_ON ) {
@@ -96,14 +100,13 @@ class NotePHP {
         default :
             echo "UNKOWN ERROR : [{$code}] File: {$file} $msg in line $line ";
         }
-        exit ;
     } 
     // 自动加载类函数
     public static function autoLoad ( $classname ) {
         // 自动加载项目类文件
         $classname = ucfirst($classname);
         $proPath   = __ROOT__.($GLOBALS['PROJECT_REQUEST_MODULE'] ? $GLOBALS['PROJECT_REQUEST_MODULE'] : APP_NAME);
-        $pro_class = array($proPath."/controller/".$classname.EXTS , $proPath."/Model/".$classname."Model".EXTS);
+        $pro_class = array($proPath."/controller/".$classname.EXTS , $proPath."/model/".$classname."Model".EXTS);
         $core_class= array(__NOTEPHP__."/Core/".$classname.EXTS);
         if( is_file($p_c = $pro_class[0]) ) {
             include_once $p_c;

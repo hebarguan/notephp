@@ -23,30 +23,49 @@ class Model {
 
     // 定义数据库的用户条件权限
     private  $_mysqlinfo = array(
-        "HOSTS"    => $Userconf["HOSTS"] ,// 服务器名称或iP地址
-        "ROOT"     => $Userconf["ROOT"] ,// 数据库用户名
-        "PASSWORD" => $Userconf["password"] ,// 数据库用户密码
-        "DB_NAME"  => $Userconf["DB_NAME"] , //数据库名
-        "DB_TABLE" => $Userconf['DB_TABLE'] ,//数据库表
+        "HOSTS"    => "" ,// 服务器名称或iP地址
+        "ROOT"     => "" ,// 数据库用户名
+        "PASSWORD" => "" ,// 数据库用户密码
+        "DB_NAME"  => "" , //数据库名
+        "DB_TABLE" => "" , // 数据库表
     );
 
+    // 数据库表列表
+    public $dbTableList = array();
+    // 数据库链接柄
+    private $conn = false;
+
     // 定义构造函数
-    public function __construct() {
+    public function __construct($tab = '') {
 
         // 链接数据库，失败退出进程
         $this->connect();
+        $this->_mysqlinfo['HOSTS'] = (SERVER_HOST) ? SERVER_HOST : SERVER_IP ;
+        $this->_mysqlinfo['ROOT']  = C('DB_USER');
+        $this->_mysqlinfo['PASSWORD'] = C('DB_PASSWORD');
+        $this->_mysqlinfo['DB_NAME']  = C('DB_NAME');
+        $callModel = get_called_class();
+        $this->getTables();
+        if ($tab AND in_array(strtolower($tab) ,$this->dbTableList) ) {
+            $this->_mysqlinfo['DB_TABLE'] = $tab ;
+        }elseif( $callModel !== get_class($this) AND !empty($classname) ) {
+            $this->_mysqlinfo['DB_NAME'] = explode("Model",$classname)[0];
+        }else{
+            trigger_error("找不到数据库表",E_USER_ERROR);
+        }
 
     }
 
     // 数据库链接函数
     private function connect() {
 
-        $this->conn = mysql_connect( $this->_mysqlinfo['HOSTS'] , $this->_mysqlinfo['ROOT'] , $this->_mysqlinfo['PASSWORD'] )
-            OR die("can't not connect mysql :".mysql_error()) ;
+        $this->conn = mysql_connect( $this->_mysqlinfo['HOSTS'] ,"root" ,"guan");
+        if(!$this->conn) {
+            die("can't not connect mysql :".mysql_error()) ;
+        }
+        mysql_select_db("test2");
     }
     
-    // 数据库链接柄
-    $conn = false ;
 
     // 字段选择过滤
     public function fields ( $field_string ) {
@@ -62,7 +81,7 @@ class Model {
 
         list( $set , $row  ) = array( $this->filter($offset) , $this->filter($rows ) );
         if( isset($set) && isset($row)  ) {
-            $this->_sql['num'] => array( $set ,$row ) ;
+            $this->_sql['num'] = array( $set ,$row ) ;
         }
 
         if( isset($set) && !isset($row)  ) {
@@ -133,7 +152,7 @@ class Model {
     }
 
     // 对数据库进行读操作
-    public function execute ($id) {
+    public function execute ($id = null) {
 
         // 定义返回结果数组
         $returndata = array() ;
@@ -142,8 +161,7 @@ class Model {
         if( is_numeric($id)  ) {
             $result = $this->query("SELECT * FROM {$this->_mysqlinfo['DB_TABLE']} WHERE id='{$id}'");
             $returndata[0] = mysql_fetch_assoc($result);
-        } else (empty($id)) { 
-                   
+        }elseif(empty($id)) { 
             //组合查询语句
             $queryString = $this->full_query_string('SELECT');
             $result = $this->query($queryString) ;
@@ -199,7 +217,7 @@ class Model {
     } 
 
     // 添加表数据
-    public function add ($data) {
+    public function add ($data = null) {
 
         //过滤data数据
         $filterData ;
@@ -209,7 +227,7 @@ class Model {
         $result      = $this->query($queryString) ;
         // 获取刚输入数据的ID
         $insertID    = mysql_insert_id($result) ;
-        if is_int($insertID) && $insertID ) {
+        if (is_int($insertID) && $insertID ) {
             return $insertID;
         }else{
             return false;
@@ -284,7 +302,7 @@ class Model {
             }
         }
         if(!empty($cond['ord'])) {
-            $string .= "ORDER BY "$cond['ord']." ";
+            $string .= "ORDER BY ".$cond['ord']." ";
         }
         if(!empty($cond['lit'])) {
             $linenu = explode("," , $cond['lit']);;
@@ -295,11 +313,19 @@ class Model {
             }
         }
     } 
+    // 获取数据库表列表
+    public function getTables () {
+        $tables = mysql_query("SHOW TABLES" ,$this->conn);
+        while ($row = mysql_fetch_array($tables)) {
+            $this->dbTableList[] = $row[0];
+        }
+        mysql_free_result($tables);
+    }
 
     // 随用户输入数据进行mysql_escape_string过滤
     public function mysql_filter($filsr) {
 
-        $s =  mysql_escape_string($filsr);
+        $s =  mysql_real_escape_string($filsr);
         return $s;
     }
 
@@ -316,9 +342,5 @@ class Model {
         mysql_close($this->conn);
 
     }
-
-
-
 } 
-
 ?>
