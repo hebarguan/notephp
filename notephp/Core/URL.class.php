@@ -140,7 +140,7 @@ class URL {
         $proLibsFuncPath = __COMMON__."/Function/";
         $funcPathHandler = opendir($proLibsFuncPath);
         while ($item = readdir($funcPathHandler)) {
-            if (is_file($proLibsFuncPath.$item)) {
+            if (is_file($proLibsFuncPath.$item AND "php" == pathinfo($item ,PATHINFO_EXTENSION))) {
                 require_once($proLibsFuncPath.$item);
             }
         }
