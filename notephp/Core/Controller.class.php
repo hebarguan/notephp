@@ -18,9 +18,9 @@ class Controller {
     private $templateVal = array();
     // 初始化控制器类
     public function __construct () {
-        $this->module = $GLOBALS['PROJECT_REQUEST_MODULE'] ;
-        $this->controller = $GLOBALS['PROJECT_REQUEST_CONTROLLER'] ;
-        $this->action  = $GLOBALS['PROJECT_REQUEST_ACTION'] ;
+        $this->module     = ucfirst($GLOBALS['PROJECT_REQUEST_MODULE']) ;
+        $this->controller = ucfirst($GLOBALS['PROJECT_REQUEST_CONTROLLER']) ;
+        $this->action     = $GLOBALS['PROJECT_REQUEST_ACTION'] ;
         // 封装模式控制视图类
         $this->view = new View();
     }
@@ -77,7 +77,7 @@ class Controller {
     public function display ($Template = 0) {
         // 默认模板后缀
         $TemplateSuffix = C("TEMP_DEFAULT_SUFFIX");
-        $viewPath = __ROOT__.$this->module."/html/".$this->controller;
+        $viewPath = PRO_PATH."/".$this->module."/View/".$this->controller;
         // 模板文件
         $tempFile = (C('TEMP_METHOD') == 1) ? $viewPath."/".$this->action.".".$TemplateSuffix : $viewPath."_".$this->action.".".$TemplateSuffix; 
         // 编译模板文件

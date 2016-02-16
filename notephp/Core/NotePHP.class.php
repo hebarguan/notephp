@@ -9,20 +9,15 @@ class NotePHP {
     // 定义组合配置文件
     private static $_conf = array();
     // 定义核心文件名
-    /*
-     *private static $Core  = array("Controller" ,"URL" ,"View" ,"Log");
-     */
+    private static $Core  = array("URL");
     // 定义调试参数
-    private static $trace = array("log_file" => "", "error_file" => "");
+    private static $trace = array("error_file" => "");
     // 定义项目结构目录
     private static $struDir = array(
-        "functions"  =>  "", // 项目公共函数目录
-        "conf"       =>  "", // 项目配置文件
-        "runtime"    =>  array("cache","compiler","log","data"),   // 项目缓存目录
-        "model"      =>  "",   // 项目模型目录
-        "controller" => "",  // 项目动作控制器
-        "html"       => "",  // 项目模板目录
-        "extends"    =>  "",   // 项目自定义扩展目录
+        "Runtime"    =>  array("Cache","Compile","Log","Data"),   // 项目缓存目录
+        "Model"      =>  "",   // 项目模型目录
+        "Controller" => "",  // 项目动作控制器
+        "View"       => "",  // 项目模板目录
     );
 
     // 框架初始运行
@@ -34,19 +29,17 @@ class NotePHP {
         spl_autoload_register('NotePHP::autoLoad');
 
         // 加载核心文件
-        /*
-         *foreach ( self::$Core as $file ) {
-         *    $coreFile = __NOTEPHP__."/Core/".$file.EXTS;
-         *    if( is_file( $coreFile  ) ) {
-         *        require_once($coreFile);
-         *    }
-         *}
-         */
+        foreach ( self::$Core as $file ) {
+            $coreFile = __NOTEPHP__."/Core/".$file.EXTS;
+            if( is_file( $coreFile  ) ) {
+                require_once($coreFile);
+            }
+        }
         // 尝试创建项目目录结构
-        if( !is_dir(PRO_PATH) ) {
-            if(mkdir(PRO_PATH)) {
+        if( !is_dir(MODULE_PATH) ) {
+            if(mkdir(MODULE_PATH)) {
                 while(list($sdir , $val) = each(self::$struDir)) {
-                    $subPath = PRO_PATH."/".$sdir;
+                    $subPath = MODULE_PATH."/".$sdir;
                     mkdir($subPath);
                     if(is_array($val) AND !empty($val)) {
                         for($i=0;$i<count($val);$i++) {
@@ -60,17 +53,13 @@ class NotePHP {
             }
 
         }
-        // 定义全局请求模块索引,控制器，动作
-        $GLOBALS['PROJECT_REQUEST_MODULE'] = null;
-        $GLOBALS['PROJECT_REQUEST_CONTROLLER'] = null;
-        $GLOBALS['PROJECT_REQUEST_ACTION'] = null;
         // 加载框架公共函数库
         include_once(__NOTEPHP__."/Common/functions.php");
 
         // 是否开启调试模式
         if(  DEBUG_ON ) {
             // 加载错误与日志文件
-            self::$trace['log_file'] = "/runtime/log/error.log" ;
+            self::$trace['log_file'] = "/Runtime/Log/error.log" ;
         }
         // 开启路由处理
         self::AppRun();
@@ -104,18 +93,19 @@ class NotePHP {
     // 自动加载类函数
     public static function autoLoad ( $classname ) {
         // 自动加载项目类文件
-        $classname = ucfirst($classname);
-        $proPath   = __ROOT__.($GLOBALS['PROJECT_REQUEST_MODULE'] ? $GLOBALS['PROJECT_REQUEST_MODULE'] : APP_NAME);
-        $pro_class = array($proPath."/controller/".$classname.EXTS , $proPath."/model/".$classname."Model".EXTS);
-        $core_class= array(__NOTEPHP__."/Core/".$classname.EXTS);
-        if( is_file($p_c = $pro_class[0]) ) {
+        $classname    = ucfirst($classname);
+        $modulePath   = PRO_PATH."/".($GLOBALS['PROJECT_REQUEST_MODULE'] ? $GLOBALS['PROJECT_REQUEST_MODULE'] : APP_NAME);
+        $projectClass = array($modulePath."/Controller/".$classname.EXTS , $modulePath."/Model/".$classname."Model".EXTS);
+        $coreClass    = array(__NOTEPHP__."/Core/".$classname.EXTS);
+        if( is_file($p_c = $projectClass[0]) ) {
             include_once $p_c;
-        }elseif( is_file($p_m = $pro_class[1]) ) {
+        }elseif( is_file($p_m = $projectClass[1]) ) {
             include_once $p_m;
-        }elseif( is_file($c_c = $core_class[0]) ) {
+        }elseif( is_file($c_c = $coreClass[0]) ) {
             include_once $c_c;
         }
         else{
+            // 加载失败则返回FALSE,让队列函数继续加载
             return false;
             /*
              *trigger_error("未找到类{$classname}" , E_USER_ERROR);
@@ -126,7 +116,7 @@ class NotePHP {
     public static function MyException ($e) {
         // 获取异常模板文件
         $excptionFile = C('EXCEPTION_FILE'); 
-        header("Location :".$_SERVER['SERVER_NAME'].$excptionFile);
+        header("Location :".SERVER_HOST.$excptionFile);
         exit ;
     }
     // 打印调试跟踪信息

@@ -21,7 +21,7 @@ function A($ctrl) {
 function C ($val) {
     $split = explode(".",$val);
     $keyNum = count($split);
-    $userConfFile = __ROOT__.(!empty($GLOBALS['PROJECT_REQUEST_MODULE']) ? $GLOBALS['PROJECT_REQUEST_MODULE '] :APP_NAME)."/conf/conf.php";
+    $userConfFile = __COMMON__."/Conf/configure.php";
     $defaultConfFile = __NOTEPHP__."/Conf/default.php"; 
     // 加载用户配置文件
     $userConf = is_file($userConfFile) ? require($userConfFile) : array();
@@ -38,8 +38,8 @@ function C ($val) {
 function loadFile ($filePath) {
     $outlinePath = explode(".",$filePath);
     $ergodicPath = "";
-    if( $outlinePath[0] == "@" ) {
-        $ergodicPath = __ROOT__.($GLOBALS['PROJECT_REQUEST_MODULE']?$GLOBALS['PROJECT_REQUEST_MODULE']:APP_NAME)."/extends/".ucfirst($outlinePath[1])."/".$outlinePath[2];
+    if( $outlinePath[0] == "Custom" ) {
+        $ergodicPath = PRO_PATH."/Extends/".ucfirst($outlinePath[1])."/".$outlinePath[2];
     }else{
         $ergodicPath = __NOTEPHP__."/Extends/".ucfirst($outlinePath[1])."/".$outlinePath[2];
     }

@@ -26,7 +26,7 @@ class URL {
     // 定义构造函数
     public function __construct() {
 
-        $this->UrlMode = C('URL_MODE');
+        $this->UrlMode     = C('URL_MODE');
         $this->QueryString = $_SERVER['REQUEST_URI'];
         $this->UrlRewrite  = C('URL_REWRITE_RULES');
         $this->UrlMap      = C('URL_MAP_RULES');
@@ -123,17 +123,26 @@ class URL {
             $_GET = $this->HttpBuildQuery;
             break;
         }
-        // 判断处理后的模块／控制器／操作方法是否为空
-        // 以全球变量声明模块
+       /*
+        * 判断处理后的模块／控制器／操作方法是否为空
+        * 以全球变量声明模块
+        */
         if( empty($GLOBALS['PROJECT_REQUEST_MODULE']) ) {
             $GLOBALS['PROJECT_REQUEST_MODULE'] = APP_NAME;
         }
         $this->RequestModule = $GLOBALS['PROJECT_REQUEST_MODULE'] ;
         $GLOBALS['PROJECT_REQUEST_CONTROLLER'] = $this->Controller;
         $GLOBALS['PROJECT_REQUEST_ACTION']     = $this->Action;
-        // 加载特定模块的函数库
-        if(  is_file($proLibsFunc = __ROOT__.$this->RequestModule."/functions/function.php") ) {
-            require($proLibsFunc);
+       /*
+        * 加载特定模块的函数库
+        * 以遍历的方式加载目录函数文件
+        */
+        $proLibsFuncPath = __COMMON__."/Function/";
+        $funcPathHandler = opendir($proLibsFuncPath);
+        while ($item = readdir($funcPathHandler)) {
+            if (is_file($proLibsFuncPath.$item)) {
+                require_once($proLibsFuncPath.$item);
+            }
         }
         // 将数据交给控制器处理
         $this->WorkControllerClass();
@@ -177,7 +186,7 @@ class URL {
         $ControllerName = ucfirst(strtolower($this->Controller))."Controller";
         // 检查是否默认控制与动作
         if($this->Controller == C("DEFAULT_INDEX") AND $this->Action == C("DEFAULT_HANDLE")) {
-            if( !is_file(__ROOT__.$ModuleName."/controller/".$ControllerName.EXTS) ) {
+            if( !is_file(PRO_PATH."/".$ModuleName."/Controller/".$ControllerName.EXTS) ) {
                 // 加载欢迎界面
                 $this->outputWelcomePage();
                 exit;
@@ -188,23 +197,23 @@ class URL {
         // 实例化控制器
         $ControllerHandle = new $ControllerName();
         // 获取控制器所有操作方法
-        $allMethod = get_class_methods($ControllerHandle);
+        $allMethod = get_class_methods($ControllerName);
         // 检测是否开启路由大小写
         // 与匹配的方式检测，方便大小写规则
         $ActionPattern = C("URL_CASE_INSENSITIVE") ? "/{$ActionName}/" : "/{$ActionName}/i";
         if( !preg_match($ActionPattern ,join(" ",$allMethod)) ) {
             // 不存在操作方法，放回错误
             trigger_error("不存在动作{$ActionName}",E_USER_ERROR);
-            exit;
+        }else{
+            // 否则运行操作方法
+            call_user_func(array($ControllerHandle ,$ActionName));
         }
-        // 否则运行操作方法
-        $ControllerHandle->$ActionName();
     }
     // 写入欢迎界面
     public function outputWelcomePage () {
         $ControllerName = ucfirst(strtolower($this->Controller))."Controller";
         $ActionName = $this->Action;
-        $welcomeClassName = PRO_PATH."/controller/".$ControllerName.EXTS;
+        $welcomeClassName = PRO_PATH."/".ucfirst($this->RequestModule)."/Controller/".$ControllerName.EXTS;
         $fileHandler       = fopen($welcomeClassName ,"a+");
         fclose($fileHandler);
         file_put_contents($welcomeClassName,"<?php class {$ControllerName} extends Controller { public function {$this->Action} () { \$this->show('<center><h2>欢迎使用notePHP框架 使用愉快 ^_^</h2></center>'); } } ?>");

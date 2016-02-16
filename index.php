@@ -11,7 +11,7 @@
 
   define("APP_PATH" , "./");
   // 定义项目名称
-  define("APP_NAME" , "Webapp");
+  define("APP_NAME" , "Home");
   // 开启调试模式
   define("DEBUG_ON" , TRUE);
   // 加载初始化文件

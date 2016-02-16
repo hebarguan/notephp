@@ -16,15 +16,15 @@ class View {
         if( "NoteEng" == $tempEngineSelect ) {
             $this->tempEngine = new Templates();
         }else{
-            loadFile('Notephp.Vendor.'.strtolower($tempEngineSelect));
+            loadFile('Notephp.Vendor.'.$tempEngineSelect);
             $this->tempEngine = new $tempEngineSelect();
         }
         $this->tempEngine->left_delimiter = C('SMARTY_LEFT_DELIMITER');
         $this->tempEngine->right_delimiter = C('SMARTY_RIGHT_DELIMITER');
         $this->tempEngine->caching = C('SMARTY_LEFT_DELIMITER');
         $this->tempEngine->cache_lifetime = C('SMARTY_CACHE_LIFETIME');
-        $this->tempEngine->cache_dir = __ROOT__.$GLOBALS['PROJECT_REQUEST_MODULE']."/runtime/cache";
-        $this->tempEngine->compile_dir = __ROOT__.$GLOBALS['PROJECT_REQUEST_MODULE']."/runtime/compiler";
+        $this->tempEngine->cache_dir = PRO_PATH."/".ucfirst($GLOBALS['PROJECT_REQUEST_MODULE'])."/Runtime/Cache";
+        $this->tempEngine->compile_dir = __ROOT__.ucfirst($GLOBALS['PROJECT_REQUEST_MODULE'])."/Runtime/Compile";
     }
     // 模板赋值
     public function set ($assginmentArr) {
@@ -36,7 +36,7 @@ class View {
     public function asHtml ($tempFile = '') {
         // 变量赋值
         $this->tempEngine->assign($this->assginArr);
-        if(file_exists($tempFile)) {
+        if(is_file($tempFile)) {
             $this->tempEngine->display($tempFile);
         }else{
             trigger_error("模板文件{$tempFile}不存在",E_USER_ERROR);

@@ -1,4 +1,6 @@
 /vendor
 /composer.lock
 /composer.phar
-/WebApp
+/Webapp/*
+!/Webapp/Common
+!/Webapp/Extends
