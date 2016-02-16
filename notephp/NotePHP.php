@@ -20,8 +20,6 @@ define("__EXTENDS__","./Webapp/Extends");
 // 定义项目目录
 define("PRO_PATH" , "./Webapp");
 // 定义模块目录
-define("APP_PATH" ,PRO_PATH."/".APP_NAME);
-// 定义模块目录
 define("MODULE_PATH",PRO_PATH."/".APP_NAME);
 //　定义公共目录
 define("__PUBLIC__","./Public");

@@ -127,11 +127,9 @@ class URL {
         * 判断处理后的模块／控制器／操作方法是否为空
         * 以全球变量声明模块
         */
-        if( empty($GLOBALS['PROJECT_REQUEST_MODULE']) ) {
-            $GLOBALS['PROJECT_REQUEST_MODULE'] = APP_NAME;
-        }
+        $GLOBALS['PROJECT_REQUEST_MODULE'] = ucfirst($this->RequestModule ? $this->RequestModule : APP_NAME) ;
         $this->RequestModule = $GLOBALS['PROJECT_REQUEST_MODULE'] ;
-        $GLOBALS['PROJECT_REQUEST_CONTROLLER'] = $this->Controller;
+        $GLOBALS['PROJECT_REQUEST_CONTROLLER'] = ucfirst($this->Controller);
         $GLOBALS['PROJECT_REQUEST_ACTION']     = $this->Action;
        /*
         * 加载特定模块的函数库
@@ -184,29 +182,35 @@ class URL {
         $ModuleName  = ucfirst($this->RequestModule) ;
         // 控制器名
         $ControllerName = ucfirst(strtolower($this->Controller))."Controller";
-        // 检查是否默认控制与动作
-        if($this->Controller == C("DEFAULT_INDEX") AND $this->Action == C("DEFAULT_HANDLE")) {
-            if( !is_file(PRO_PATH."/".$ModuleName."/Controller/".$ControllerName.EXTS) ) {
-                // 加载欢迎界面
-                $this->outputWelcomePage();
-                exit;
+        // 模块目录
+        $modulePath = PRO_PATH."/".$ModuleName;
+        if( is_dir($modulePath) ) {
+            // 检查是否默认控制与动作
+            if($this->Controller == C("DEFAULT_INDEX") AND $this->Action == C("DEFAULT_HANDLE")) {
+                if( !is_file($modulePath."/Controller/".$ControllerName.EXTS) ) {
+                    // 加载欢迎界面
+                    $this->outputWelcomePage();
+                    exit;
+                }
             }
-        }
-        // 操作方法名
-        $ActionName = $this->Action;
-        // 实例化控制器
-        $ControllerHandle = new $ControllerName();
-        // 获取控制器所有操作方法
-        $allMethod = get_class_methods($ControllerName);
-        // 检测是否开启路由大小写
-        // 与匹配的方式检测，方便大小写规则
-        $ActionPattern = C("URL_CASE_INSENSITIVE") ? "/{$ActionName}/" : "/{$ActionName}/i";
-        if( !preg_match($ActionPattern ,join(" ",$allMethod)) ) {
-            // 不存在操作方法，放回错误
-            trigger_error("不存在动作{$ActionName}",E_USER_ERROR);
+            // 操作方法名
+            $ActionName = $this->Action;
+            // 实例化控制器
+            $ControllerHandle = new $ControllerName();
+            // 获取控制器所有操作方法
+            $allMethod = get_class_methods($ControllerName);
+            // 检测是否开启路由大小写
+            // 与匹配的方式检测，方便大小写规则
+            $ActionPattern = C("URL_CASE_INSENSITIVE") ? "/{$ActionName}/" : "/{$ActionName}/i";
+            if( !preg_match($ActionPattern ,join(" ",$allMethod)) ) {
+                // 不存在操作方法，放回错误
+                trigger_error("不存在动作{$ActionName}",E_USER_ERROR);
+            }else{
+                // 否则运行操作方法
+                call_user_func(array($ControllerHandle ,$ActionName));
+            }
         }else{
-            // 否则运行操作方法
-            call_user_func(array($ControllerHandle ,$ActionName));
+            trigger_error("不存在模块{$ModuleName}",E_USER_ERROR);   
         }
     }
     // 写入欢迎界面

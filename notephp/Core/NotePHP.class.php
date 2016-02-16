@@ -25,6 +25,7 @@ class NotePHP {
         // 定义错误与异常函数
         set_error_handler('NotePHP::MyError');
         set_exception_handler('NotePHP::MyException');
+        register_shutdown_function('NotePHP::LastErr');
         // 定义自动加载类函数
         spl_autoload_register('NotePHP::autoLoad');
 
@@ -110,6 +111,32 @@ class NotePHP {
             /*
              *trigger_error("未找到类{$classname}" , E_USER_ERROR);
              */
+        }
+    }
+    // 获取脚本执行完后的最后一条错误
+    public static function LastErr () {
+        $err = error_get_last();
+        if ($err['type']) {
+            switch ($err['type']) {
+            case 1 :
+            case 2 :
+            case 4 :
+            case 8 :
+            case 256 :
+            case 512 :
+            case 1024 :
+                /*
+                 *if( $logfile = self::$trace['log_file'] AND  $errfile = self::$trace['error_file'] ) {
+                 *    Log::record($logfile ,$errfile ,$msg ,$file ,$line);
+                 *}
+                 */
+                echo "<h2>{$err['message']}</h2>\n<h3>File :{$err['file']} in line {$err['line']}</h3>\n";
+                $debugTrace = debug_backtrace();
+                self::printDebugMsg($debugTrace);
+                break;
+            default :
+                echo "UNKOWN ERROR : [{$err['type']}] File: {$err['file']} {$err['file']} in line {$err['line']} ";
+            }
         }
     }
     // 自定义异常处理
