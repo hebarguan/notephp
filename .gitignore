@@ -4,3 +4,4 @@
 /Webapp/*
 !/Webapp/Common
 !/Webapp/Extends
+!/Webapp/Log

@@ -1,0 +1,4 @@
+[2016-02-17 16:44:55][ERROR][8192]:mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO insteadin File/home/hebar/notephp/notephp/Core/Model.class.php line 63
+[2016-02-17 16:44:57][ERROR][8192]:mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO insteadin File/home/hebar/notephp/notephp/Core/Model.class.php line 63
+[2016-02-17 16:46:54][ERROR][8192]:mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO insteadin File/home/hebar/notephp/notephp/Core/Model.class.php line 63
+[2016-02-17 19:56:17][ERROR][4]:syntax error, unexpected '$this' (T_VARIABLE)in File/home/hebar/notephp/Webapp/Home/Controller/IndexController.class.php line 8
