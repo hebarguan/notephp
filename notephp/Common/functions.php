@@ -68,8 +68,9 @@ function M ($model ,$bool = true) {
     // 如$boo 为true 表示模型存在
     if ($bool) {
         $modelName = $model."Model";
-        if (is_file(__ROOT__.$GLOBALS['PROJECT_REQUEST_MODULE']."/model/".$modelName.EXTS)) {
-            return new $model();
+        if (is_file(PRO_PATH."/".$GLOBALS['PROJECT_REQUEST_MODULE']."/Model/".$modelName.EXTS)) {
+            $modelClassName = $model."Model";
+            return new $modelClassName();
         }else{
             trigger_error($modelName."模型类不存在" ,E_USER_ERROR);
         }

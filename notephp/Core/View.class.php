@@ -24,7 +24,7 @@ class View {
         $this->tempEngine->caching = C('SMARTY_LEFT_DELIMITER');
         $this->tempEngine->cache_lifetime = C('SMARTY_CACHE_LIFETIME');
         $this->tempEngine->cache_dir = PRO_PATH."/".ucfirst($GLOBALS['PROJECT_REQUEST_MODULE'])."/Runtime/Cache";
-        $this->tempEngine->compile_dir = __ROOT__.ucfirst($GLOBALS['PROJECT_REQUEST_MODULE'])."/Runtime/Compile";
+        $this->tempEngine->compile_dir = PRO_PATH."/".ucfirst($GLOBALS['PROJECT_REQUEST_MODULE'])."/Runtime/Compile";
     }
     // 模板赋值
     public function set ($assginmentArr) {

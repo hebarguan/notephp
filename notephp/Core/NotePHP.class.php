@@ -9,12 +9,12 @@ class NotePHP {
     // 定义组合配置文件
     private static $_conf = array();
     // 定义核心文件名
-    private static $Core  = array("URL");
+    private static $Core  = array("URL" , "Log");
     // 定义调试参数
-    private static $trace = array("error_file" => "");
+    private static $errData = array();
     // 定义项目结构目录
     private static $struDir = array(
-        "Runtime"    =>  array("Cache","Compile","Log","Data"),   // 项目缓存目录
+        "Runtime"    =>  array("Cache","Compile","Data"),   // 项目缓存目录
         "Model"      =>  "",   // 项目模型目录
         "Controller" => "",  // 项目动作控制器
         "View"       => "",  // 项目模板目录
@@ -56,12 +56,6 @@ class NotePHP {
         }
         // 加载框架公共函数库
         include_once(__NOTEPHP__."/Common/functions.php");
-
-        // 是否开启调试模式
-        if(  DEBUG_ON ) {
-            // 加载错误与日志文件
-            self::$trace['log_file'] = "/Runtime/Log/error.log" ;
-        }
         // 开启路由处理
         self::AppRun();
     }
@@ -70,33 +64,18 @@ class NotePHP {
         if( !($code  AND error_reporting()) ) {
             return ;
         }
-        switch ($code) {
-        case 1 :
-        case 2 :
-        case 4 :
-        case 8 :
-        case 256 :
-        case 512 :
-        case 1024 :
-            /*
-             *if( $logfile = self::$trace['log_file'] AND  $errfile = self::$trace['error_file'] ) {
-             *    Log::record($logfile ,$errfile ,$msg ,$file ,$line);
-             *}
-             */
-            echo "<h2>{$msg}</h2>\n<h3>File :{$file} in line {$line}</h3>\n";
-            $debugTrace = debug_backtrace();
-            self::printDebugMsg($debugTrace);
-            break;
-        default :
-            echo "UNKOWN ERROR : [{$code}] File: {$file} $msg in line $line ";
-        }
+        $err = array($code,$msg ,$file ,$line);
+        $errType = self::selectErrorType($code);
+        $debugTraceData = debug_backtrace();
+        self::$errData = array($errType,$debugTraceData ,$err);
+        self::writeLog();
     } 
     // 自动加载类函数
     public static function autoLoad ( $classname ) {
         // 自动加载项目类文件
         $classname    = ucfirst($classname);
         $modulePath   = PRO_PATH."/".($GLOBALS['PROJECT_REQUEST_MODULE'] ? $GLOBALS['PROJECT_REQUEST_MODULE'] : APP_NAME);
-        $projectClass = array($modulePath."/Controller/".$classname.EXTS , $modulePath."/Model/".$classname."Model".EXTS);
+        $projectClass = array($modulePath."/Controller/".$classname.EXTS , $modulePath."/Model/".$classname.EXTS);
         $coreClass    = array(__NOTEPHP__."/Core/".$classname.EXTS);
         if( is_file($p_c = $projectClass[0]) ) {
             include_once $p_c;
@@ -116,27 +95,17 @@ class NotePHP {
     // 获取脚本执行完后的最后一条错误
     public static function LastErr () {
         $err = error_get_last();
-        if ($err['type']) {
-            switch ($err['type']) {
-            case 1 :
-            case 2 :
-            case 4 :
-            case 8 :
-            case 256 :
-            case 512 :
-            case 1024 :
-                /*
-                 *if( $logfile = self::$trace['log_file'] AND  $errfile = self::$trace['error_file'] ) {
-                 *    Log::record($logfile ,$errfile ,$msg ,$file ,$line);
-                 *}
-                 */
-                echo "<h2>{$err['message']}</h2>\n<h3>File :{$err['file']} in line {$err['line']}</h3>\n";
-                $debugTrace = debug_backtrace();
-                self::printDebugMsg($debugTrace);
-                break;
-            default :
-                echo "UNKOWN ERROR : [{$err['type']}] File: {$err['file']} {$err['file']} in line {$err['line']} ";
-            }
+        if (empty($err))  return ;
+        $errType = self::selectErrorType($err['type']);
+        $debugTraceData = debug_backtrace();
+        $err = array($err['type'],$err['message'],$err['file'],$err['line']);
+        self::$errData = array($errType,$debugTraceData ,$err);
+        self::writeLog();
+    }
+    // 写入日志
+    public static function writeLog () {
+        if( !empty(self::$errData) ) {
+            Log::record(self::$errData[0] ,self::$errData[1] ,self::$errData[2]);
         }
     }
     // 自定义异常处理
@@ -156,10 +125,29 @@ class NotePHP {
             $function = $debugData[$i]['function'];
             $echoMsg .= "Function $function ] File : $file in line $line With ";
             foreach($debugData[$i]['args'] as $key => $val) {
-                $echoMsg .= (is_object($val) ? "Object" : $val)." ";
+                $echoMsg .= (is_object($val) ? "Object" : is_array($val) ? "Array" : $val)." ";
             }
             echo "{$echoMsg} </span><br/>";
         }
+    }
+    // 选择错误类型
+    public static function selectErrorType ($code) {
+        $errType = null;
+        switch ($code) {
+        case 1 :   $errType = "E_ERROR";            break;
+        case 2 :   $errType = "E_WARNING";          break;
+        case 4 :   $errType = "E_PARSE";            break;
+        case 8 :   $errType = "E_NOTICE";           break;
+        case 256 : $errType = "E_USER_ERROR";       break;
+        case 512 : $errType = "E_USER_WARNING";     break;
+        case 1024 :$errType = "E_USER_NOTICE";      break;
+        case 2048 :$errType = "E_SCRICT";           break;
+        case 4096 :$errType = "E_RECOVERABLE_ERROR";break;
+        case 8192 :$errType = "E_DEPRECATED";       break;
+        default :
+            $errType = "UNKOWN ERROR";
+        }
+        return $errType;
     }
     public static function AppRun () {
         $URI = new URL();

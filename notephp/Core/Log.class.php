@@ -10,20 +10,26 @@ class Log {
     // 错误日志文件
     private static $LogFileHandle = "";
     // 日志记录方法
-    public static function record ($LogFile ,$ErrFile ,$msg ,$file ,$line) {
+    public static function record ($errType ,$debugData,$err) {
         // 是否开启调试模式
-        // 不开启则直接发送HTTP/1.1 400 NOT FOUND 错误
+        // 不开启则直接发送HTTP/1.1 404 NOT FOUND 错误
+        $ignoreErrType = explode(",",ERROR_IGNORE_TYPE);
+        if( in_array($errType ,$ignoreErrType) ) return ;
+        list($code ,$msg ,$file,$line) = $err;
+        if( !is_dir($logPath = DOCUMENT_ROOT."/Webapp/Log") ) mkdir($logPath);
         if( DEBUG_ON ) {
-            $LogFile = __ROOT__.$GLOBALS['PROJECT_REQUEST_MODULE'].$LogFile;
-            self::$LogFileHandle = fopen($LogFile , "a+");
-            $recordMsg = "[".date('Y-m-d H:i:s')."]"."[ERROR]:".$msg."in File".$file." line ".$line."\n";
+            $recordMsg = "[".date('Y-m-d H:i:s')."]"."[ERROR][$code]:".$msg."in File".$file." line ".$line."\n";
+            $printMsg = "<h1>>_<</h1>  <h2>{$msg}</h2><br/>"."[$errType] File:{$file} in line <strong>{$line}</strong><br/>";
+            print($printMsg);
+            NotePHP::printDebugMsg($debugData);
+            self::$LogFileHandle = fopen($logPath."/error.log","a+");
             fwrite(self::$LogFileHandle ,$recordMsg);
             fclose(self::$LogFileHandle);
-            $printMsg = "<h1>>_<</h1><br/>"."<h2>{$msg}</h2><br/>"."File:{$file} in line <strong>{$line}</strong>";
-            exit($printMsg);
+            exit();
         }else{
-            header("Content-language : en");
-            header($_SERVER['SERVER_PROTOCOL']." 404 Not Found");
+            header('HTTP/1.1 404 Not Found');
+            header("Status:404 Not Found");
         }
     }
 }
+?>

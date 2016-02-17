@@ -37,20 +37,21 @@ class Model {
 
     // 定义构造函数
     public function __construct($tab = '') {
-
-        // 链接数据库，失败退出进程
-        $this->connect();
+        // 初始化数据库信息
         $this->_mysqlinfo['HOSTS'] = (SERVER_HOST) ? SERVER_HOST : SERVER_IP ;
         $this->_mysqlinfo['ROOT']  = C('DB_USER');
         $this->_mysqlinfo['PASSWORD'] = C('DB_PASSWORD');
         $this->_mysqlinfo['DB_NAME']  = C('DB_NAME');
+        // 链接数据库，失败退出进程
+        $this->connect();
         $callModel = get_called_class();
         $this->getTables();
         if ($tab AND in_array(strtolower($tab) ,$this->dbTableList) ) {
             $this->_mysqlinfo['DB_TABLE'] = $tab ;
-        }elseif( $callModel !== get_class($this) AND !empty($classname) ) {
-            $this->_mysqlinfo['DB_NAME'] = explode("Model",$classname)[0];
+        }elseif( ($callModel !== "Model") AND (!empty($callModel)) ) {
+            $this->_mysqlinfo['DB_TABLE'] = strtolower(explode("Model",$callModel)[0]);
         }else{
+            var_dump(strtolower(explode("Model",$callModel)[0]));
             trigger_error("找不到数据库表",E_USER_ERROR);
         }
 
@@ -59,11 +60,11 @@ class Model {
     // 数据库链接函数
     private function connect() {
 
-        $this->conn = mysql_connect( $this->_mysqlinfo['HOSTS'] ,"root" ,"guan");
+        $this->conn = mysql_connect( $this->_mysqlinfo['HOSTS'] ,$this->_mysqlinfo['ROOT'] ,$this->_mysqlinfo['PASSWORD']);
         if(!$this->conn) {
             die("can't not connect mysql :".mysql_error()) ;
         }
-        mysql_select_db("test2");
+        mysql_select_db($this->_mysqlinfo['DB_NAME']);
     }
     
 

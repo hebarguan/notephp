@@ -15,6 +15,9 @@ defined("APP_NAME") OR  define("APP_NAME" , "Home");
 define("SERVER_HOST" ,!empty($_SERVER['SERVER_NAME']) ? $_SERVER['SERVER_NAME'] : $_SERVER['SERVER_ADDR']);
 // 项目公共配置和函数库目录
 define("__COMMON__" ,"./Webapp/Common");
+define("SERVER_PROTOCOL" ,$_SERVER['SERVER_PROTOCOL']);
+// 定义本地项目根目录
+define("DOCUMENT_ROOT" ,$_SERVER['DOCUMENT_ROOT']);
 // 项目扩展目录
 define("__EXTENDS__","./Webapp/Extends");
 // 定义项目目录
