@@ -89,17 +89,14 @@ class Model {
     }
 
     // 查找行数限制
-    public function limit ( $offset ,$rows ) {
+    public function limit ( $offset = 0 ,$rows = 0 ) {
 
-        list( $set , $row  ) = array( $this->filter($offset) , $this->filter($rows ) );
-        if( isset($set) && isset($row)  ) {
-            $this->_sql['num'] = array( $set ,$row ) ;
+        if( !is_numeric($offset) AND !is_numeric($rows) ) return false;
+        if( $offset && $rows ) {
+            $this->_sql['lit'] = array( $offset ,$rows ) ;
+        }else{
+            $this->_sql['lit'] = $offset;
         }
-
-        if( isset($set) && !isset($row)  ) {
-            $this->_sql['num'] = $set ;
-        }
-
         return $this;
     }
 
@@ -134,7 +131,8 @@ class Model {
 
     // 过滤用户输入数据
     public function data ( $data ) {
-        foreach ( $data as $k => $v ){
+        if( !is_array($data) ) return false;
+        foreach( $data as $k => $v ){
 
             // $v 为数组则是多行插入数据
             if ( is_array($v)  ) {
@@ -152,13 +150,15 @@ class Model {
     }
 
     // 过滤group by 数据
-    public function gronp( $qstr ) {
+    public function group( $qstr = null ) {
+        if( is_null($qstr) ) return false;
         $this->_sql['gro'] = $this->mysql_filter($qstr);
         return $this;
     }
 
     // 过滤having 数据
-    public function having ($hstr) {
+    public function having ($hstr = null) {
+        if( is_null($hstr) ) return false;
         $this->_sql['hav'] = $this->mysql_filter($hstr);
         return $this;
     }
@@ -177,6 +177,7 @@ class Model {
             //组合查询语句
             $queryString = $this->full_query_string('SELECT');
             $result = $this->query($queryString) ;
+            if( !$result ) return false;
             while( $row = mysql_fetch_assoc($result) ) {
                 $returndata[] = $row ;
             }
@@ -196,11 +197,11 @@ class Model {
 
         // 定义修改query语句
         $updateString = $this->full_query_string('UPDATE') ;
-        $return = $this->query($updateString);
+        $result = $this->query($updateString);
         if( $result ) {
 
             // 如果修改正确返回影响行数
-            return mysql_affected_rows($row);
+            return mysql_affected_rows();
         }else{
             return false;
         }
@@ -208,7 +209,7 @@ class Model {
     }
 
     // 删除表数据
-    public function delete ($id) {
+    public function delete ($id = null) {
 
         // 通过id删除表数据
         $result ;
@@ -221,7 +222,7 @@ class Model {
             $result = $this->query($deleteString) ;
         }
         if( $result ) {
-            return mysql_affected_rows($result);
+            return mysql_affected_rows();
         }else{
             return false;
         }
@@ -233,16 +234,21 @@ class Model {
 
         //过滤data数据
         $filterData ;
-        $HEAD        = $this->data($data);
-        $filterData  = $HEAD->_sql['data'];
-        $queryString = "INSERT INTO {$this->_mysqlinfo['DB_TABLE']} (".implode(',',$filterData)." ) VALUES (".implode(',',$filterData).")";
+        if( !is_null($data) ) {
+            // 数据不为空则过滤数据
+            $HEAD        = $this->data($data);
+            $filterData  = $HEAD->_sql['dat'];
+        }
+        $filterData = isset($filterData) ? $filterData : $this->_sql['dat'];
+        $queryString = "INSERT INTO {$this->_mysqlinfo['DB_TABLE']} (".implode(',',array_keys($filterData))." ) VALUES ('".implode("','",$filterData)."')";
         $result      = $this->query($queryString) ;
+        if( !$result ) return false;
         // 获取刚输入数据的ID
-        $insertID    = mysql_insert_id($result) ;
+        $insertID    = mysql_insert_id() ;
         if (is_int($insertID) && $insertID ) {
             return $insertID;
         }else{
-            return false;
+            return $result;
         }
     }
 
@@ -261,7 +267,7 @@ class Model {
             break;
         case "UPDATE": // 修改模式
             $returnString = "UPDATE {$table} SET ";
-            $setData[] = array();
+            $setData = array();
             foreach($sql['dat'] as $key => $val) {
                 $setData[] = $key."='{$val}'";
             }
@@ -269,7 +275,7 @@ class Model {
             $this->full_query_where( $returnString );
             break;
         case "DELETE": //删除模式
-            $returnString = "DELETE * FROM {$table} ";
+            $returnString = "DELETE FROM {$table} ";
             $this->full_query_where( $returnString );
             break;
             
@@ -282,7 +288,7 @@ class Model {
         $cond = $this->_sql;
         if(!empty($w = $cond['wre'])) {
             if(is_string($w)) {
-                $string .= "WHERE ".$w;
+                $string .= "WHERE $w ";
             }elseif(is_array($w)) {
                 // where(array("id"=>array(array(">",2),array("<",10),"OR")));
                 // $fieldArr[0] = "id";
@@ -328,7 +334,7 @@ class Model {
                             $groupContainer[] = "({$fieldArr[0]} {$arrayOneKey} ".join(" AND ",$explanBet).')';
                             break;
                         default :
-                            $groupContainer[] = "({$fieldArr[0]} {$arrayOneKey} ".$arrayOneVal.")";
+                            $groupContainer[] = "({$fieldArr[0]} {$arrayOneKey} "."'{$arrayOneVal}'".")";
                         }
                     }
                     $string .= "WHERE ".join(" $range ",$groupContainer)." ";
@@ -337,20 +343,26 @@ class Model {
         }
         // 组查询GROUP BY
         if( !empty($cond['gro'])) {
-            $string = "SELECT ".$cond['fid']." GROUP BY ".$cond['gro']." ";
+            $string = "SELECT ".$cond['fid']." FROM {$this->_mysqlinfo['DB_TABLE']} GROUP BY ".$cond['gro']." ";
             if($h = $cond['hav']) {
-                $string .= $h ;
+                // having条件与group 组合使用
+                list($havingCdiKey ,$havingCdiVal) = each($cond['hav']);
+                $string .= "HAVING $havingCdiKey {$havingCdiVal[0]} '{$havingCdiVal[1]}' ";
+            }else{
+                return false;
             }
         }
+        // 条件排序
         if(!empty($cond['ord'])) {
             $string .= "ORDER BY ".$cond['ord']." ";
         }
+        // 条件限制
         if(!empty($cond['lit'])) {
-            $linenu = explode("," , $cond['lit']);;
-            if(count($linenu) >1) {
-                $string .= "LIMIT ".intval($linenu[0])." ,".intval($linenu[1]);
+            if( is_array($cond['lit']) ) {
+                $linenu = join("," ,$cond['lit']);
+                $string .= "LIMIT ".$linenu." ";
             }else{
-                $string .= "LIMIT ".intval($linenu[0]);
+                $string .= "LIMIT ".intval($linenu[0])." ";
             }
         }
     } 
@@ -386,7 +398,11 @@ class Model {
 
     // 执行数据库操作
     public function query ($quer) {
+        /*
+         *die($quer);
+         */
         $results = mysql_query($quer , $this->conn);
+        if( !$results ) trigger_error(mysql_error(),E_USER_ERROR);
         return $results;
     }
 
