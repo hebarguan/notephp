@@ -30,10 +30,13 @@ class Model {
         "DB_TABLE" => "" , // 数据库表
     );
 
+    // 数据链接编码
+    public $connectEncoding = null;
     // 数据库表列表
     public $dbTableList = array();
     // 数据库链接柄
-    private $conn = false;
+    // 方便用户自定义数据库操作
+   public  $conn = false;
 
     // 定义构造函数
     public function __construct($tab = '') {
@@ -42,9 +45,17 @@ class Model {
         $this->_mysqlinfo['ROOT']  = C('DB_USER');
         $this->_mysqlinfo['PASSWORD'] = C('DB_PASSWORD');
         $this->_mysqlinfo['DB_NAME']  = C('DB_NAME');
+        $this->connectEncoding = C('MYSQL_CONNECT_ENCODING');
         // 链接数据库，失败退出进程
         $this->connect();
+        // 获取数据库客户端编码
+        $clientEncoding = mysql_client_encoding($this->conn);
+        if( $clientEncoding !== $this->connectEncoding ) {
+            // 自定义用户链接查询字符集编码
+            mysql_query("SET NAMES {$this->connectEncoding}",$this->conn);
+        }
         $callModel = get_called_class();
+        // 获取数据库表列表
         $this->getTables();
         if ($tab AND in_array(strtolower($tab) ,$this->dbTableList) ) {
             $this->_mysqlinfo['DB_TABLE'] = $tab ;
@@ -245,7 +256,7 @@ class Model {
         $sql      = $this->_sql;
         switch ($handle) {
         case "SELECT": // 查询模式
-            $returnString = "SELECT {$sql['fid']} FORM {$table} ";
+            $returnString = "SELECT {$sql['fid']} FROM {$table} ";
             $this->full_query_where( $returnString );
             break;
         case "UPDATE": // 修改模式
@@ -273,25 +284,54 @@ class Model {
             if(is_string($w)) {
                 $string .= "WHERE ".$w;
             }elseif(is_array($w)) {
+                // where(array("id"=>array(array(">",2),array("<",10),"OR")));
+                // $fieldArr[0] = "id";
                 $fieldArr = array_keys($w);
+                /*
+                * $valueArr[0] = array(array(">",2),array("<",10),"OR");
+                */
                 $valueArr = array_values($w);
-                $len  = count($w) ;
-                switch ($len) {
+                $assembleCond  = $valueArr[0];
+                $conditionLen  = count($assembleCond);
+                switch ($conditionLen) {
                 case 1:
-                    if(is_string($valueArr[0])) {
-                        $string .= "WHERE {$fieldArr[0]}='{$valueArr[0]}' ";
-                    }elseif( is_array($valueArr[0]) ) {
-                        
-                        $string .= "WHERE {$fieldArr[0]} {$valueArr[0]} '{$valueArr[1]}' ";
+                /*
+                 * $valueArr[0] = array("=",10);
+                 * $valueArr[0] = 10;
+                 */
+                    if(is_string($assembleCond)) {
+                        $string .= "WHERE {$fieldArr[0]}='{$assembleCond}' ";
+                    }elseif( is_array($assembleCond) ) {
+                        list($key ,$val)  = $assembleCond;
+                        $string .= "WHERE {$fieldArr[0]} {$key} '{$val}' ";
                     }
                     break;
                 default:
-                    $ao = $len > 2 ? "OR" : "AND";
-                    if(is_string($valueArr[0]) ) {
-                        $string .= "WHERE ({$fieldArr[0]}='{$valueArr[0]}') {$ao} ({$fieldArr[1]}='{$valueArr[1]}') ";
-                    }elseif(is_array($valueArr[0])) {
-                        $string .= "WHERE  ({$fieldArr[0]} {$valueArr[0][0]} '{$valueArr[0][1]}') {$ao} ({$fieldArr[1]} {$valueArr[1][0]} '{$valueArr[1][1]}') ";
+                    /*
+                     * $valueArr[0] = array(array(),array());
+                     * $valueArr[0] = array(array(),array(),'OR');
+                     * $range = OR ,AND ,BETWEEN ,IN ,NOT IN ;
+                     */
+                    $range = $assembleCond[2];
+                    $groupContainer = array();
+                    for($i=0 ;$i < $conditionLen; $i++) {
+                        if( is_string($assembleCond[$i]) ) continue;
+                        list($arrayOneKey ,$arrayOneVal) = $assembleCond[$i];
+                        switch(strtoupper($arrayOneKey)) {
+                        case "NOT IN" :
+                        case "IN" :
+                            $groupContainer[] = "({$fieldArr[0]} {$arrayOneKey} ".join(",",$arrayOneVal).")";
+                            break;
+                        case "BETWEEN" :
+                        case "NOT BETWEEN" :
+                            $explanBet = explode(",",$arrayOneVal);
+                            $groupContainer[] = "({$fieldArr[0]} {$arrayOneKey} ".join(" AND ",$explanBet).')';
+                            break;
+                        default :
+                            $groupContainer[] = "({$fieldArr[0]} {$arrayOneKey} ".$arrayOneVal.")";
+                        }
                     }
+                    $string .= "WHERE ".join(" $range ",$groupContainer)." ";
                 }
             }
         }
@@ -324,15 +364,28 @@ class Model {
     }
 
     // 随用户输入数据进行mysql_escape_string过滤
-    public function mysql_filter($filsr) {
-
-        $s =  mysql_real_escape_string($filsr);
-        return $s;
+    public function mysql_filter($fd) {
+        if( is_string($fd) ) return mysql_real_escape_string($fd);
+        if( is_array($fd) ) {
+            $fd = $this->filterArray($fd);
+        }
+        return $fd;
+    }
+    // 遍历过滤数组
+    public function filterArray ($data) {
+        foreach($data as $key => $val) {
+            if( is_string($val)) {
+                $data[$key] = mysql_real_escape_string($val);
+            }
+            if( is_array($val) ) {
+                $this->filterArray($val);
+            }
+        }
+        return $data;
     }
 
     // 执行数据库操作
     public function query ($quer) {
-
         $results = mysql_query($quer , $this->conn);
         return $results;
     }
