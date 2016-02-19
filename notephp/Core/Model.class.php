@@ -5,6 +5,16 @@
   * 这个模型只能运行在mysql数据库内
   * 暂时不支持用在其它数据库上
   */
+ /*
+  * @param $m = M("employee",false); 
+  * @param $d = $m->where(array("id"=>array("IN",array(1,3))))->execute();
+  * @param $d = $m->where(array("id"=>array("BETWEEN","2,4")))->execute();
+  * @param $d = $m->where(array("name"=>"zhao"))->execute();
+  * @param $d = $m->add(array("id"=>5,"name" => "老王"));
+  * @param $d = $m->where("id=5")->delete();
+  * @param $d = $m->fields("sex,COUNT(sex)")->group("sex")->having(array("sex"=>array("=","M")))->execute();
+  * @param $d = $m->data(array("name"=>"赵"))->where("id=2")->save();
+  */
 
 class Model {
 
@@ -173,7 +183,7 @@ class Model {
         if( is_numeric($id)  ) {
             $result = $this->query("SELECT * FROM {$this->_mysqlinfo['DB_TABLE']} WHERE id='{$id}'");
             $returndata[0] = mysql_fetch_assoc($result);
-        }elseif(empty($id)) { 
+        }elseif(is_null($id)) { 
             //组合查询语句
             $queryString = $this->full_query_string('SELECT');
             $result = $this->query($queryString) ;
@@ -253,7 +263,7 @@ class Model {
     }
 
     // 组合query 语句查询
-    public function full_query_string( $handle ) {
+    public function full_query_string ( $handle ) {
 
         // 定义返回查询字符串
         $returnString ;
@@ -301,6 +311,7 @@ class Model {
                 $conditionLen  = count($assembleCond);
                 switch ($conditionLen) {
                 case 1:
+                case 2:
                 /*
                  * $valueArr[0] = array("=",10);
                  * $valueArr[0] = 10;
@@ -308,8 +319,21 @@ class Model {
                     if(is_string($assembleCond)) {
                         $string .= "WHERE {$fieldArr[0]}='{$assembleCond}' ";
                     }elseif( is_array($assembleCond) ) {
-                        list($key ,$val)  = $assembleCond;
-                        $string .= "WHERE {$fieldArr[0]} {$key} '{$val}' ";
+                        list($key ,$val)  = $assembleCond ;
+                        switch ($key = strtoupper($key)) {
+                        case "NOT IN" :
+                        case "IN" :
+                            $string .= "WHERE {$fieldArr[0]} {$key} ('".join("','",$val)."')";
+                            break;
+                        case "BETWEEN" :
+                        case "NOT BETWEEN" :
+                            $val = explode(",",$val);
+                            $string .= "WHERE {$fieldArr[0]} {$key} ".join(" AND ",$val)." ";
+                            break;
+                        default :
+                            $string .= "WHERE {$fieldArr[0]} {$key} '{$val}' ";
+                        }
+
                     }
                     break;
                 default:
@@ -326,7 +350,7 @@ class Model {
                         switch(strtoupper($arrayOneKey)) {
                         case "NOT IN" :
                         case "IN" :
-                            $groupContainer[] = "({$fieldArr[0]} {$arrayOneKey} ".join(",",$arrayOneVal).")";
+                            $groupContainer[] = "({$fieldArr[0]} {$arrayOneKey} ('".join("','",$arrayOneVal)."'))";
                             break;
                         case "BETWEEN" :
                         case "NOT BETWEEN" :
@@ -378,6 +402,7 @@ class Model {
     // 随用户输入数据进行mysql_escape_string过滤
     public function mysql_filter($fd) {
         if( is_string($fd) ) return mysql_real_escape_string($fd);
+        if( is_numeric($fd) ) return $fd;
         if( is_array($fd) ) {
             $fd = $this->filterArray($fd);
         }
@@ -388,6 +413,9 @@ class Model {
         foreach($data as $key => $val) {
             if( is_string($val)) {
                 $data[$key] = mysql_real_escape_string($val);
+            }
+            if( is_numeric($val) ) {
+                $data[$key] = $val;
             }
             if( is_array($val) ) {
                 $this->filterArray($val);

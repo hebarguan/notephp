@@ -66,10 +66,9 @@ class URL {
         // 是否开启路由重写,只使用模式１
         if( !empty($this->UrlRewrite) AND 1 == $this->UrlMode ) {
             // 直接正则匹配
-            while( list($pattern ,$object) = each($this->UrlRewrite) ) {
-                if($afterReplace = preg_replace($pattern ,$object,$this->QueryString)) {
-                    $this->FullUrl = $afterReplace;
-                }
+            $pattern = array_keys($this->UrlRewrite);
+            $replacement = array_values($this->UrlRewrite);
+            $this->FullUrl = preg_replace($pattern ,$replacement ,$this->QueryString);
             }
         }
         // 检测是否以开启自动路由隐藏模块

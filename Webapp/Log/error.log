@@ -201,3 +201,110 @@
 [2016-02-19 00:46:06][ERROR][256]:Unknown column 'M' in 'having clause'in File/home/hebar/notephp/notephp/Core/Model.class.php line 405
 [2016-02-19 00:46:06][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 199
 [2016-02-19 00:47:08][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 199
+[2016-02-19 13:30:53][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 199
+[2016-02-19 13:31:25][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 199
+[2016-02-19 13:46:17][ERROR][2]:join(): Invalid arguments passedin File/home/hebar/notephp/notephp/Core/Model.class.php line 341
+[2016-02-19 13:46:17][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 199
+[2016-02-19 13:49:54][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 199
+[2016-02-19 13:51:37][ERROR][4]:syntax error, unexpected '->' (T_OBJECT_OPERATOR)in File/home/hebar/notephp/Webapp/Home/Controller/IndexController.class.php line 7
+[2016-02-19 13:51:37][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 199
+[2016-02-19 13:51:57][ERROR][8]:Undefined offset: 1in File/home/hebar/notephp/notephp/Core/Model.class.php line 311
+[2016-02-19 13:51:57][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 199
+[2016-02-19 13:53:02][ERROR][8]:Undefined offset: 2in File/home/hebar/notephp/notephp/Core/Model.class.php line 333
+[2016-02-19 13:53:02][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 199
+[2016-02-19 13:53:05][ERROR][8]:Undefined offset: 2in File/home/hebar/notephp/notephp/Core/Model.class.php line 333
+[2016-02-19 13:53:05][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 199
+[2016-02-19 13:53:06][ERROR][8]:Undefined offset: 2in File/home/hebar/notephp/notephp/Core/Model.class.php line 333
+[2016-02-19 13:53:06][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 199
+[2016-02-19 13:54:15][ERROR][8]:Undefined offset: 2in File/home/hebar/notephp/notephp/Core/Model.class.php line 333
+[2016-02-19 13:54:15][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 199
+[2016-02-19 13:54:16][ERROR][8]:Undefined offset: 2in File/home/hebar/notephp/notephp/Core/Model.class.php line 333
+[2016-02-19 13:54:17][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 199
+[2016-02-19 13:54:45][ERROR][8]:Undefined offset: 2in File/home/hebar/notephp/notephp/Core/Model.class.php line 334
+[2016-02-19 13:54:45][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 199
+[2016-02-19 13:54:47][ERROR][8]:Undefined offset: 2in File/home/hebar/notephp/notephp/Core/Model.class.php line 334
+[2016-02-19 13:54:47][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 199
+[2016-02-19 13:54:49][ERROR][8]:Undefined offset: 2in File/home/hebar/notephp/notephp/Core/Model.class.php line 334
+[2016-02-19 13:54:49][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 199
+[2016-02-19 13:55:29][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 199
+[2016-02-19 13:58:04][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 199
+[2016-02-19 14:00:28][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 199
+[2016-02-19 14:01:30][ERROR][4]:syntax error, unexpected '->' (T_OBJECT_OPERATOR)in File/home/hebar/notephp/Webapp/Home/Controller/IndexController.class.php line 10
+[2016-02-19 14:01:30][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 199
+[2016-02-19 14:01:39][ERROR][4]:syntax error, unexpected '->' (T_OBJECT_OPERATOR)in File/home/hebar/notephp/Webapp/Home/Controller/IndexController.class.php line 10
+[2016-02-19 14:01:39][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 199
+[2016-02-19 14:01:52][ERROR][2]:join(): Invalid arguments passedin File/home/hebar/notephp/notephp/Core/Model.class.php line 319
+[2016-02-19 14:01:52][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 199
+[2016-02-19 14:03:12][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 199
+[2016-02-19 14:07:58][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 199
+[2016-02-19 14:10:59][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 199
+[2016-02-19 14:11:03][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 199
+[2016-02-19 14:11:05][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 199
+[2016-02-19 14:13:00][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 199
+[2016-02-19 14:13:01][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 199
+[2016-02-19 14:13:03][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 199
+[2016-02-19 14:13:03][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 199
+[2016-02-19 14:13:39][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 199
+[2016-02-19 14:13:41][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 199
+[2016-02-19 14:13:42][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 199
+[2016-02-19 14:14:08][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 199
+[2016-02-19 14:15:54][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 199
+[2016-02-19 14:17:20][ERROR][1]:Call to a member function execute() on a non-objectin File/home/hebar/notephp/Webapp/Home/Controller/IndexController.class.php line 13
+[2016-02-19 14:17:20][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 199
+[2016-02-19 14:18:45][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 199
+[2016-02-19 14:19:07][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 199
+[2016-02-19 14:20:24][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 199
+[2016-02-19 14:20:49][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 199
+[2016-02-19 14:21:33][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 199
+[2016-02-19 14:22:41][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 199
+[2016-02-19 14:24:28][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 199
+[2016-02-19 14:25:37][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 199
+[2016-02-19 14:26:15][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 199
+[2016-02-19 14:26:42][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 199
+[2016-02-19 14:51:04][ERROR][4]:syntax error, unexpected ';', expecting ')'in File/home/hebar/notephp/Webapp/Common/Conf/configure.php line 8
+[2016-02-19 14:51:04][ERROR][4]:syntax error, unexpected ';', expecting ')'in File/home/hebar/notephp/Webapp/Common/Conf/configure.php line 8
+[2016-02-19 14:51:21][ERROR][2]:preg_replace(): No ending delimiter '/' foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 70
+[2016-02-19 14:51:21][ERROR][2]:preg_replace(): No ending delimiter '/' foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 70
+[2016-02-19 14:54:05][ERROR][4]:syntax error, unexpected '"/emp"' (T_CONSTANT_ENCAPSED_STRING), expecting ')'in File/home/hebar/notephp/Webapp/Common/Conf/configure.php line 10
+[2016-02-19 14:54:05][ERROR][4]:syntax error, unexpected '"/emp"' (T_CONSTANT_ENCAPSED_STRING), expecting ')'in File/home/hebar/notephp/Webapp/Common/Conf/configure.php line 10
+[2016-02-19 14:54:55][ERROR][2]:preg_replace(): No ending delimiter '/' foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 70
+[2016-02-19 14:54:55][ERROR][2]:preg_replace(): No ending delimiter '/' foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 70
+[2016-02-19 14:58:31][ERROR][1]:Class 'PsController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 199
+[2016-02-19 14:58:31][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 199
+[2016-02-19 15:10:42][ERROR][2]:preg_replace(): Unknown modifier 'p'in File/home/hebar/notephp/notephp/Core/URL.class.php line 70
+[2016-02-19 15:10:42][ERROR][2]:preg_replace(): Unknown modifier 'p'in File/home/hebar/notephp/notephp/Core/URL.class.php line 70
+[2016-02-19 15:11:55][ERROR][2]:preg_replace(): Unknown modifier 'p'in File/home/hebar/notephp/notephp/Core/URL.class.php line 70
+[2016-02-19 15:11:55][ERROR][2]:preg_replace(): Unknown modifier 'p'in File/home/hebar/notephp/notephp/Core/URL.class.php line 70
+[2016-02-19 15:13:35][ERROR][2]:preg_replace(): Unknown modifier 'p'in File/home/hebar/notephp/notephp/Core/URL.class.php line 70
+[2016-02-19 15:13:35][ERROR][2]:preg_replace(): Unknown modifier 'p'in File/home/hebar/notephp/notephp/Core/URL.class.php line 70
+[2016-02-19 15:13:37][ERROR][2]:preg_replace(): Unknown modifier 'p'in File/home/hebar/notephp/notephp/Core/URL.class.php line 70
+[2016-02-19 15:13:37][ERROR][2]:preg_replace(): Unknown modifier 'p'in File/home/hebar/notephp/notephp/Core/URL.class.php line 70
+[2016-02-19 15:13:38][ERROR][2]:preg_replace(): Unknown modifier 'p'in File/home/hebar/notephp/notephp/Core/URL.class.php line 70
+[2016-02-19 15:13:38][ERROR][2]:preg_replace(): Unknown modifier 'p'in File/home/hebar/notephp/notephp/Core/URL.class.php line 70
+[2016-02-19 15:16:36][ERROR][2]:preg_replace(): Unknown modifier 'p'in File/home/hebar/notephp/notephp/Core/URL.class.php line 70
+[2016-02-19 15:16:36][ERROR][2]:preg_replace(): Unknown modifier 'p'in File/home/hebar/notephp/notephp/Core/URL.class.php line 70
+[2016-02-19 15:19:40][ERROR][2]:preg_replace(): Unknown modifier 'p'in File/home/hebar/notephp/notephp/Core/URL.class.php line 70
+[2016-02-19 15:19:41][ERROR][2]:preg_replace(): Unknown modifier 'p'in File/home/hebar/notephp/notephp/Core/URL.class.php line 70
+[2016-02-19 15:19:42][ERROR][2]:preg_replace(): Unknown modifier 'p'in File/home/hebar/notephp/notephp/Core/URL.class.php line 70
+[2016-02-19 15:19:42][ERROR][2]:preg_replace(): Unknown modifier 'p'in File/home/hebar/notephp/notephp/Core/URL.class.php line 70
+[2016-02-19 15:22:27][ERROR][2]:preg_replace(): Unknown modifier ')'in File/home/hebar/notephp/notephp/Core/URL.class.php line 70
+[2016-02-19 15:22:27][ERROR][2]:preg_replace(): Unknown modifier ')'in File/home/hebar/notephp/notephp/Core/URL.class.php line 70
+[2016-02-19 15:32:29][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 205
+[2016-02-19 15:34:38][ERROR][2]:preg_replace(): No ending delimiter '/' foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 71
+[2016-02-19 15:34:38][ERROR][2]:preg_replace(): No ending delimiter '/' foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 71
+[2016-02-19 15:35:27][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 205
+[2016-02-19 15:36:33][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 205
+[2016-02-19 15:38:51][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 205
+[2016-02-19 15:38:53][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 205
+[2016-02-19 15:38:55][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 205
+[2016-02-19 15:40:51][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 205
+[2016-02-19 15:40:52][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 205
+[2016-02-19 15:40:54][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 205
+[2016-02-19 22:08:47][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 205
+[2016-02-19 23:37:03][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 205
+[2016-02-19 23:37:10][ERROR][1]:Class 'LController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 205
+[2016-02-19 23:37:10][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 205
+[2016-02-19 23:37:20][ERROR][1]:Class 'HtisController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 205
+[2016-02-19 23:37:20][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 205
+[2016-02-19 23:37:29][ERROR][1]:Class 'HomeController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 205
+[2016-02-19 23:37:29][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 205

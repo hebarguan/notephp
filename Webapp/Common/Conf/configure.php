@@ -4,5 +4,10 @@ return array(
     "DB_NAME"     => "db_user",
     "DB_PASSWORD" => "guan",
     "URL_HIDE_MODULE" => true,
+    "URL_HIDE_MODULE" => true,
+    "URL_REWRITE_RULES" => array(
+        "/^(\/ps)/"  => "/Index/out",
+        "/^(\/emp)/" => "/Index/index",
+    ),
 );
 ?>
