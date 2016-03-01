@@ -308,3 +308,27 @@
 [2016-02-19 23:37:20][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 205
 [2016-02-19 23:37:29][ERROR][1]:Class 'HomeController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 205
 [2016-02-19 23:37:29][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 205
+[2016-03-01 23:59:51][ERROR][4]:syntax error, unexpected 'if' (T_IF), expecting function (T_FUNCTION)in File/home/hebar/notephp/notephp/Core/URL.class.php line 75
+[2016-03-01 23:59:51][ERROR][4]:syntax error, unexpected 'if' (T_IF), expecting function (T_FUNCTION)in File/home/hebar/notephp/notephp/Core/URL.class.php line 75
+[2016-03-02 00:00:57][ERROR][4]:syntax error, unexpected 'if' (T_IF), expecting function (T_FUNCTION)in File/home/hebar/notephp/notephp/Core/URL.class.php line 75
+[2016-03-02 00:00:58][ERROR][4]:syntax error, unexpected 'if' (T_IF), expecting function (T_FUNCTION)in File/home/hebar/notephp/notephp/Core/URL.class.php line 75
+[2016-03-02 00:04:40][ERROR][8]:Undefined variable: min File/home/hebar/notephp/Webapp/Home/Controller/IndexController.class.php line 7
+[2016-03-02 00:04:40][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 196
+[2016-03-02 00:05:35][ERROR][8]:Undefined variable: min File/home/hebar/notephp/Webapp/Home/Controller/IndexController.class.php line 7
+[2016-03-02 00:09:04][ERROR][1]:Call to undefined function get_count()in File/home/hebar/notephp/Webapp/Home/Controller/IndexController.class.php line 22
+[2016-03-02 00:09:04][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 196
+[2016-03-02 00:10:04][ERROR][1]:Call to undefined function get_count()in File/home/hebar/notephp/Webapp/Home/Controller/IndexController.class.php line 23
+[2016-03-02 00:10:04][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 196
+[2016-03-02 00:12:47][ERROR][8]:Undefined variable: assin File/home/hebar/notephp/Webapp/Home/Controller/IndexController.class.php line 27
+[2016-03-02 00:12:47][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 196
+[2016-03-02 00:13:30][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 196
+[2016-03-02 00:29:04][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 196
+[2016-03-02 00:37:30][ERROR][8]:Undefined variable: sin File/home/hebar/notephp/Webapp/Home/Controller/IndexController.class.php line 47
+[2016-03-02 00:37:30][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 196
+[2016-03-02 00:37:51][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 196
+[2016-03-02 00:42:24][ERROR][8]:Undefined index: valin File/home/hebar/notephp/Webapp/Home/Controller/IndexController.class.php line 51
+[2016-03-02 00:42:24][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 196
+[2016-03-02 00:43:20][ERROR][4]:syntax error, unexpected 'var_dump' (T_STRING)in File/home/hebar/notephp/Webapp/Home/Controller/IndexController.class.php line 52
+[2016-03-02 00:43:20][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 196
+[2016-03-02 00:43:47][ERROR][8]:Undefined index: valin File/home/hebar/notephp/Webapp/Home/Controller/IndexController.class.php line 51
+[2016-03-02 00:43:47][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/URL.class.php line 196

@@ -9,7 +9,7 @@ class NotePHP {
     // 定义组合配置文件
     private static $_conf = array();
     // 定义核心文件名
-    private static $Core  = array("URL" , "Log");
+    private static $Core  = array("Log" ,"URL");
     // 定义调试参数
     private static $errData = array();
     // 定义项目结构目录
@@ -77,12 +77,12 @@ class NotePHP {
         $modulePath   = PRO_PATH."/".($GLOBALS['PROJECT_REQUEST_MODULE'] ? $GLOBALS['PROJECT_REQUEST_MODULE'] : APP_NAME);
         $projectClass = array($modulePath."/Controller/".$classname.EXTS , $modulePath."/Model/".$classname.EXTS);
         $coreClass    = array(__NOTEPHP__."/Core/".$classname.EXTS);
-        if( is_file($p_c = $projectClass[0]) ) {
-            include_once $p_c;
-        }elseif( is_file($p_m = $projectClass[1]) ) {
-            include_once $p_m;
-        }elseif( is_file($c_c = $coreClass[0]) ) {
-            include_once $c_c;
+        if( is_file($projectControllerClassFile = $projectClass[0]) ) {
+            include_once $projectControllerClassFile;
+        }elseif( is_file($projectModelClassFile = $projectClass[1]) ) {
+            include_once $projectModelClassFile;
+        }elseif( is_file($coreClassFile = $coreClass[0]) ) {
+            include_once $coreClassFile;
         }
         else{
             // 加载失败则返回FALSE,让队列函数继续加载

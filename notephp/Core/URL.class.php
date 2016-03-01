@@ -69,7 +69,6 @@ class URL {
             $pattern = array_keys($this->UrlRewrite);
             $replacement = array_values($this->UrlRewrite);
             $this->FullUrl = preg_replace($pattern ,$replacement ,$this->QueryString);
-            }
         }
         // 检测是否以开启自动路由隐藏模块
         if( C('URL_HIDE_MODULE') ) {
@@ -82,7 +81,6 @@ class URL {
                     $GLOBALS['PROJECT_REQUEST_MODULE'] = $mapModule ;
                     $this->FullUrl = __ROOT__.$mapModule.$this->FullUrl;
                 }
-
             }else{
                 // 整合项目模块名，或APP_NAME
                 $this->FullUrl = __ROOT__.APP_NAME.$this->FullUrl;
@@ -137,7 +135,7 @@ class URL {
         $proLibsFuncPath = __COMMON__."/Function/";
         $funcPathHandler = opendir($proLibsFuncPath);
         while ($item = readdir($funcPathHandler)) {
-            if (is_file($proLibsFuncPath.$item AND "php" == pathinfo($item ,PATHINFO_EXTENSION))) {
+            if (is_file($proLibsFuncPath.$item) AND ("php" == pathinfo($item ,PATHINFO_EXTENSION))) {
                 require_once($proLibsFuncPath.$item);
             }
         }
