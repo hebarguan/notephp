@@ -9,7 +9,7 @@ class NotePHP {
     // 定义组合配置文件
     private static $_conf = array();
     // 定义核心文件名
-    private static $Core  = array("Log" ,"URL");
+    private static $Core  = array("Log" ,"Url");
     // 定义调试参数
     private static $errData = array();
     // 定义项目结构目录
@@ -150,7 +150,7 @@ class NotePHP {
         return $errType;
     }
     public static function AppRun () {
-        $URI = new URL();
+        $URI = new Url();
         $URI->start();
     }
 }

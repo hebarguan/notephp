@@ -4,7 +4,7 @@
  * Email : hebarguan@hotmail.com
  * URL 模式支持两种/id/1/name/hebar , 或?id=1&name=hebar
  */
-class URL {
+class Url {
     // 定义路由模式
     private $UrlMode         = "";
     // 查询字段

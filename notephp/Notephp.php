@@ -29,6 +29,6 @@ define("__PUBLIC__","./Public");
 // 定义类文件后缀
 define("EXTS" , ".class.php");
 // 加载框架运行文件
-require_once(__NOTEPHP__."/Core/NotePHP".EXTS);
+require_once(__NOTEPHP__."/Core/Notephp".EXTS);
 NotePHP::initialize();
 ?>
