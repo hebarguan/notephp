@@ -12,7 +12,7 @@ define('__NOTEPHP__',"./notephp");
 // 默认app_name 为Home 
 defined("APP_NAME") OR  define("APP_NAME" , "Home");
 // 服务里主机名
-define("SERVER_HOST" ,!empty($_SERVER['SERVER_NAME']) ? $_SERVER['SERVER_NAME'] : $_SERVER['SERVER_ADDR']);
+define("SERVER_HOST" ,$_SERVER['HTTP_HOST']);
 // 项目公共配置和函数库目录
 define("__COMMON__" ,"./Webapp/Common");
 define("SERVER_PROTOCOL" ,$_SERVER['SERVER_PROTOCOL']);

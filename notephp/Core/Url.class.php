@@ -27,7 +27,7 @@ class Url {
     public function __construct() {
 
         $this->UrlMode     = C('URL_MODE');
-        $this->QueryString = $_SERVER['REQUEST_URI'];
+        $this->QueryString = $_SERVER['QUERY_STRING'];
         $this->UrlRewrite  = C('URL_REWRITE_RULES');
         $this->UrlMap      = C('URL_MAP_RULES');
         // 自动开启session 
@@ -141,37 +141,6 @@ class Url {
         }
         // 将数据交给控制器处理
         $this->WorkControllerClass();
-    }
-    // 文件路由处理
-    public function UrlFileHandler () {
-        // 文件目录
-        $filePath = explode('?',$this->FullUrl)[0];
-        if( is_file($filePath = ".".$filePath) ) {
-            $UrlFileInfo = pathinfo($filePath);
-            // 检测是否为允许的文件后缀
-            if(FALSE !== array_search($UrlFileInfo['extension'],C('URL_FILE_SUFFIX')) ) {
-                // 获取文件的MIME类型
-                $finfo = finfo_open(FILEINFO_MIME_TYPE);
-                $mimeType = finfo_file($finfo ,$filePath);
-                finfo_close($finfo);
-                $fileType = explode("/" ,$mimeType);
-                switch ($fileType) {
-                case "image" :
-                    // 图片类型返回data:mime;base64,
-                    $base64photo = base64_encode(file_get_contents($filePath));
-                    // 输出数据
-                    echo "data:{$mimeType};base64,".$base64photo;
-                    break;
-                case "text" :
-                    // 若为文件则直接以字符串形式输出
-                    echo file_get_contents($filePath);
-                    break;
-                }
-                exit ;
-            }
-            // 不允许文件后缀返回0
-            exit(0);
-        }
     }
     // 控制器处理与检测
     public function WorkControllerClass () {

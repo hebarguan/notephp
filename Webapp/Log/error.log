@@ -342,3 +342,22 @@
 [2016-03-03 22:35:06][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 196
 [2016-03-03 22:36:44][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 196
 [2016-03-03 22:36:49][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 196
+[2016-03-04 14:46:50][ERROR][1]:Class 'MuieblackcatController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 196
+[2016-03-04 23:59:25][ERROR][1]:Class 'CacheController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 196
+[2016-03-05 17:44:16][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 196
+[2016-03-05 17:44:16][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 196
+[2016-03-05 18:44:57][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 196
+[2016-03-05 18:44:57][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 196
+[2016-03-13 19:40:59][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 196
+[2016-03-13 19:43:02][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 196
+[2016-03-13 19:44:59][ERROR][4]:syntax error, unexpected '$val' (T_VARIABLE), expecting function (T_FUNCTION)in File/home/hebar/notephp/Webapp/Home/Controller/IndexController.class.php line 43
+[2016-03-13 19:44:59][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 196
+[2016-03-13 19:45:32][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 196
+[2016-03-13 21:24:11][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 196
+[2016-03-13 22:35:24][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 196
+[2016-03-13 22:36:37][ERROR][1]:Class 'Index.phpController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 196
+[2016-03-13 22:36:37][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 196
+[2016-03-13 22:37:00][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 196
+[2016-03-13 22:49:58][ERROR][2]:explode() expects parameter 2 to be string, array givenin File/home/hebar/notephp/notephp/Core/Url.class.php line 96
+[2016-03-13 22:49:58][ERROR][2]:explode() expects parameter 2 to be string, array givenin File/home/hebar/notephp/notephp/Core/Url.class.php line 96
+[2016-03-13 23:04:31][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 165
