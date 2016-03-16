@@ -50,11 +50,9 @@ class Url {
             foreach( $this->UrlMap as $map => $val ) {
                 if(!preg_match_all($patternString."/",$map ,$matches, PREG_SET_ORDER)) continue;
                 $maarr = $matches[0];
-                var_dump($maarr);
                 if(!empty($maarr)) {
                     $UrlPattern = "|({$maarr[1]})([^/]+)".$patternFields."|";
                     preg_match_all($UrlPattern,$this->QueryString , $valMatches, PREG_SET_ORDER);
-                    var_dump($valMatches);
                     for($i = 2;$i<count($maarr); $i++) {
                         $GetKey = preg_replace("/[:|\/]*([\S]+)$/","$1",$maarr[$i]);
                         $GetVal = preg_replace("/[:|\/]*([\S]+)$/","$1",$valMatches[0][$i]);
