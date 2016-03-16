@@ -41,15 +41,23 @@ class Url {
         }else{
             // 整合路由映射，返回完整路由
             $maarr = array();
+            $patternString = "/(\/[^:]+)(:[^\/]+)";
+            //限制get字段长度
+            for( $i=0; $i < C("GET_FIELDS_LENGTH"); $i++ ) {
+                $patternString .= "(\/:[^\/]+)?";
+                $patternFields .= "(\/[^/]+)?";
+            }
             foreach( $this->UrlMap as $map => $val ) {
-                if(!preg_match_all("|(/[^:]*)*(\:[^/]+)(\/\:[^/]+)*(\/\:[^/]+)*|",$map ,$matches)) continue;
-                $maarr = $matches;
+                if(!preg_match_all($patternString."/",$map ,$matches, PREG_SET_ORDER)) continue;
+                $maarr = $matches[0];
+                var_dump($maarr);
                 if(!empty($maarr)) {
-                    $UrlPattern = "|({$maarr[1][0]})*([^/]+)(\/[^/]+)*(\/[^/]+)*(\/[^/]+)*|";
-                    preg_match_all($UrlPattern,$this->QueryString , $valMatches);
-                    for($i = 2;$i<count($valMatches); $i++) {
-                        $GetKey = preg_replace("/[:|/]*([\S]+)$/","$1",$matches[$i][0]);
-                        $GetVal = preg_replace("/[:|/]*([\S]+)$/","$1",$valMatches[$i][0]);
+                    $UrlPattern = "|({$maarr[1]})([^/]+)".$patternFields."|";
+                    preg_match_all($UrlPattern,$this->QueryString , $valMatches, PREG_SET_ORDER);
+                    var_dump($valMatches);
+                    for($i = 2;$i<count($maarr); $i++) {
+                        $GetKey = preg_replace("/[:|\/]*([\S]+)$/","$1",$maarr[$i]);
+                        $GetVal = preg_replace("/[:|\/]*([\S]+)$/","$1",$valMatches[0][$i]);
                         $this->HttpBuildQuery[$GetKey] = $GetVal;
                     }
                     // 模式２的路由方式
@@ -97,8 +105,8 @@ class Url {
             array_shift($queryArr);
             $C_A = $queryArr;
             $this->RequestModule = !empty($C_A[0]) ? $C_A[0] : null;
-            $this->Controller = !empty($C_A[1]) ? $C_A[1] : C('DEFAULT_INDEX') ;
-            $this->Action     = !empty($C_A[2]) ? $C_A[2] : C("DEFAULT_HANDLE");
+            $this->Controller    = !empty($C_A[1]) ? $C_A[1] : C('DEFAULT_INDEX') ;
+            $this->Action        = !empty($C_A[2]) ? $C_A[2] : C("DEFAULT_HANDLE");
             // 只截取第一个?
             if( !empty($spiltQuery) ){
                 $GetData = join("?",$spiltQuery);
@@ -109,12 +117,11 @@ class Url {
         case 2 :
             $queryArr = explode("/" ,$this->FullUrl);
             array_shift($queryArr);
-            $spiltQuery = $queryArr ;
-            $this->RequestModule = !empty($spiltQuery[0]) ? $spiltQuery[0] : null;
-            $this->Controller   = !empty($spiltQuery[1]) ? $spiltQuery[1] : C("DEFAULT_INDEX");
-            $this->Action       = !empty($spiltQuery[2]) ? $spiltQuery[2] : C('DEFAULT_HANDLE');
-            for($k = 3 ; $k<count($spiltQuery) ; $k++) {
-                $this->HttpBuildQuery[$spiltQuery[$k]] = $spiltQuery[$k+1];
+            $this->RequestModule = !empty($queryArr[0]) ? $queryArr[0] : null;
+            $this->Controller    = !empty($queryArr[1]) ? $queryArr[1] : C("DEFAULT_INDEX");
+            $this->Action        = !empty($queryArr[2]) ? $queryArr[2] : C('DEFAULT_HANDLE');
+            for( $k=3; $k<count($queryArr); $k+=2 ) {
+                $this->HttpBuildQuery[$queryArr[$k]] = $queryArr[$k+1];
             }
             // 返回$_GET数据
             $_GET = $this->HttpBuildQuery;

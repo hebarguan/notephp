@@ -14,8 +14,8 @@
   define("APP_NAME" , "Home");
   // 开启调试模式
   define("DEBUG_ON" , true);
-  // 定义不现实的错误类型
-  define("ERROR_IGNORE_TYPE" ,"E_DEPRECATED,E_STRICT");
+  // 定义不显实的错误类型
+  define("ERROR_IGNORE_TYPE" ,"E_DEPRECATED,E_STRICT,E_NOTICE");
   // 加载初始化文件
   require_once("./notephp/Notephp.php");
 

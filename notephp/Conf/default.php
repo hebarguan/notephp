@@ -17,6 +17,7 @@ return array(
     "COOKIE_EXPIRES"           =>  "3600" , // 默认１小时
     "COOKIE_PATH"              =>  "/" ,
     "SESSION_EXPIRES"          =>  "3600" ,
+    "SESSION_AUTO_START"       =>  true , // session自动开启
     "TEMP_METHOD"              =>  "1" , // 模板方式1,在html文件夹中是index/index.html . 2,是html下index_index.html
     "TEMP_DEFAULT_SUFFIX"      =>  "tpl", // 模板后缀
     "TEMP_L_DELIM"             =>  "{" , // 模板普通开始标签
@@ -27,8 +28,8 @@ return array(
     "URL_HIDE_MODULE"          =>  false , // 自动隐藏路由模块
     "URL_CASE_INSENSITIVE"     =>  "true" , // 路由不区分大小写
     "URL_MODE"                 =>  "1" , // 有两种模式,1,2 . 默认为1
-    "URL_MAP_RULES"            =>  array() , // 路由映射
-    "URL_REWRITE_RULES"        =>  array() , // 路由重写规则
+    "URL_MAP_RULES"            =>  array() , // 路由映射适合路由2模式
+    "URL_REWRITE_RULES"        =>  array() , // 路由重写规则适合路由1模式
     "URL_STATIC_SUFFIX"        =>  "html", // 路由伪静态后缀
     "MODULE_LIST"              =>  "" , // 例如 Home,Admin,Manager
     "MODULE_DEFAULT"           =>  "" , // 例如Home 为你的项目目录
@@ -39,5 +40,6 @@ return array(
     "SMARTY_RIGHT_DELIMITER"   =>  "}", // smarty 模板引擎结束标签
     "SMARTY_TEMPLATE_CACHE"    =>  FALSE , // smarty 模板缓存
     "SMARTY_CACHE_LIFETIME"    =>  "3600", // smarty模板缓存时间
+    "GET_FIELDS_LENGTH"        =>  6 , // $_GET的最大字段长度
 )
 ?>
