@@ -73,24 +73,14 @@ class NotePHP {
     // 自动加载类函数
     public static function autoLoad ( $classname ) {
         // 自动加载项目类文件
-        $classname    = ucfirst($classname);
         $modulePath   = PRO_PATH."/".($GLOBALS['PROJECT_REQUEST_MODULE'] ? $GLOBALS['PROJECT_REQUEST_MODULE'] : APP_NAME);
-        $projectClass = array($modulePath."/Controller/".$classname.EXTS , $modulePath."/Model/".$classname.EXTS);
-        $coreClass    = array(__NOTEPHP__."/Core/".$classname.EXTS);
-        if( is_file($projectControllerClassFile = $projectClass[0]) ) {
-            include_once $projectControllerClassFile;
-        }elseif( is_file($projectModelClassFile = $projectClass[1]) ) {
-            include_once $projectModelClassFile;
-        }elseif( is_file($coreClassFile = $coreClass[0]) ) {
-            include_once $coreClassFile;
+        $corePath     = __NOTEPHP__."/Core";
+        $autoLoadPath = array($modulePath, $corePath);
+        foreach( $autoLoadPath as $path ) {
+            if( $fileHandler = ergodicPath($path, $classname.EXTS) ) break;
         }
-        else{
-            // 加载失败则返回FALSE,让队列函数继续加载
-            return false;
-            /*
-             *trigger_error("未找到类{$classname}" , E_USER_ERROR);
-             */
-        }
+        // 加载失败则返回FALSE,让队列函数继续加载
+        if( $fileHandler === false ) return false;
     }
     // 获取脚本执行完后的最后一条错误
     public static function LastErr () {

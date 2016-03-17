@@ -4,7 +4,7 @@ return array(
     "DB_NAME"               => "db_user",
     "DB_PASSWORD"           => "guan",
     "URL_HIDE_MODULE"       => true,
-    "URL_MODE"              => 2 ,
+    "URL_MODE"              => 1 ,
     "URL_MAP_RULES"         => array(
         "/view/:id/:var/:ps/:oc/:cop"  => "/index/index",
     ),

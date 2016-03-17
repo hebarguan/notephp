@@ -44,6 +44,7 @@ function loadFile ($filePath) {
         $ergodicPath = __NOTEPHP__."/Extends/".ucfirst($outlinePath[1])."/".$outlinePath[2];
     }
     $rPath = ergodicPath($ergodicPath ,ucfirst($outlinePath[2]).EXTS);
+    if( $rPath === false ) trigger_error("类扩展不存在" ,E_USER_ERROR);
     return $rPath;
 }
 // 遍历目录
@@ -60,7 +61,7 @@ function ergodicPath ($path ,$fileNameToSearch) {
             }
         }
     }else{
-        trigger_error("类目录{$path} 不存在" ,E_USER_ERROR);
+        return false;
     }
 }
 // 实例化模型

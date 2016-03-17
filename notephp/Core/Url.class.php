@@ -7,8 +7,8 @@
 class Url {
     // 定义路由模式
     private $UrlMode         = "";
-    // 查询字段
-    private $QueryString     = "";
+    // 请求路由
+    private $RequestUri      = "";
     // 完整路由
     private $FullUrl         = "";
     // 路由重写
@@ -27,7 +27,7 @@ class Url {
     public function __construct() {
 
         $this->UrlMode     = C('URL_MODE');
-        $this->QueryString = $_SERVER['QUERY_STRING'];
+        $this->RequestUri  = $_SERVER['REQUEST_URI'];
         $this->UrlRewrite  = C('URL_REWRITE_RULES');
         $this->UrlMap      = C('URL_MAP_RULES');
         // 自动开启session 
@@ -35,10 +35,9 @@ class Url {
     }
     // 开始路由处理
     public function start () {
+        $this->FullUrl = str_replace("/index.php?", "", $this->RequestUri);
         // 检查是否开启路由映射
-        if( empty($this->UrlMap) ) {
-            $this->FullUrl = $this->QueryString ;
-        }else{
+        if( !empty($this->UrlMap) && ($this->UrlMode == 2) ) {
             // 整合路由映射，返回完整路由
             $maarr = array();
             $patternString = "/(\/[^:]+)(:[^\/]+)";
@@ -52,7 +51,7 @@ class Url {
                 $maarr = $matches[0];
                 if(!empty($maarr)) {
                     $UrlPattern = "|({$maarr[1]})([^/]+)".$patternFields."|";
-                    preg_match_all($UrlPattern,$this->QueryString , $valMatches, PREG_SET_ORDER);
+                    if( !preg_match_all($UrlPattern,$this->FullUrl , $valMatches, PREG_SET_ORDER) ) continue;
                     for($i = 2;$i<count($maarr); $i++) {
                         $GetKey = preg_replace("/[:|\/]*([\S]+)$/","$1",$maarr[$i]);
                         $GetVal = preg_replace("/[:|\/]*([\S]+)$/","$1",$valMatches[0][$i]);
@@ -74,7 +73,7 @@ class Url {
             // 直接正则匹配
             $pattern = array_keys($this->UrlRewrite);
             $replacement = array_values($this->UrlRewrite);
-            $this->FullUrl = preg_replace($pattern ,$replacement ,$this->QueryString);
+            $this->FullUrl = preg_replace($pattern ,$replacement ,$this->FullUrl);
         }
         // 检测是否以开启自动路由隐藏模块
         if( C('URL_HIDE_MODULE') ) {
@@ -110,6 +109,8 @@ class Url {
                 $GetData = join("?",$spiltQuery);
                 // 数据返回$_GET
                 parse_str($GetData ,$_GET);
+            }else{
+                $_GET = array();
             }
             break;
         case 2 :
@@ -122,7 +123,11 @@ class Url {
                 $this->HttpBuildQuery[$queryArr[$k]] = $queryArr[$k+1];
             }
             // 返回$_GET数据
-            $_GET = $this->HttpBuildQuery;
+            if( !empty($this->HttpBuildQuery) ) {
+                $_GET = $this->HttpBuildQuery;
+            }else{
+                $_GET = array();
+            }
             break;
         }
        /*
