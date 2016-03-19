@@ -17,7 +17,7 @@ class Controller {
     // 模板值
     private $templateVal = array();
     // 初始化控制器类
-    public function __construct () {
+    public  function __construct () {
         $this->module     = ucfirst($GLOBALS['PROJECT_REQUEST_MODULE']) ;
         $this->controller = ucfirst($GLOBALS['PROJECT_REQUEST_CONTROLLER']) ;
         $this->action     = $GLOBALS['PROJECT_REQUEST_ACTION'] ;
@@ -25,7 +25,7 @@ class Controller {
         $this->view = new View();
     }
     // 模板赋值处理
-    public function assign () {
+    protected function assign () {
         // 获取函数参数
         $argsNum  = func_num_args();
         // 参数数组
@@ -45,7 +45,7 @@ class Controller {
         return true;
     }
     // 数据返回
-    public function dataReturn ($data) {
+    protected function dataReturn ($data) {
         // 数据类型
         $dataType = C('DATA_RETURN_TYPE');
         switch ($dataType) {
@@ -74,7 +74,7 @@ class Controller {
         exit ;
     }
     // 模板显示
-    public function display ($Template = 0) {
+    protected function display ($Template = 0) {
         // 默认模板后缀
         $TemplateSuffix = C("TEMP_DEFAULT_SUFFIX");
         $viewPath = PRO_PATH."/".$this->module."/View/".$this->controller;
@@ -87,12 +87,12 @@ class Controller {
         exit;
     }
     // 显示文本或html
-    public function show($str = "") {
+    protected function show($str = "") {
         echo $str;
         exit;
     }
     // 错误页面
-    public function error ($message = '') {
+    protected function error ($message = '') {
         // 错误提示
         $errorMsg = $message ? $message : C('DEFAULT_ERROR_MESSAGE');
         // 错误模板
@@ -103,7 +103,7 @@ class Controller {
         return true;
     }
     // 重定向处理
-    public function redirect ($url ,$msg = '',$time = 0) {
+    protected function redirect ($url ,$msg = '',$time = 0) {
         if ($msg) {
             $redirectFile = C("REDIRECT_FILE");
             $assginment = array("redirectMsg" => $msg ,"redirectTime" => $time ,"url" => $url) ;
