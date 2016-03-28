@@ -4,6 +4,7 @@
 
 return array(
     "DB_TYPE"                  =>  "" , //　数据库类型
+    "DB_HOST"                  =>  "" , //  数据库主机
     "DB_USER"                  =>  "" , //  数据库用户
     "DB_PASSWORD"              =>  "" , // 　数据库密码
     "DB_NAME"                  =>  "" , //  数据库名
@@ -38,8 +39,8 @@ return array(
     "DATA_RETURN_TYPE"         =>  "json", // 默认数据返回类型,json,xml,jason
     "SMARTY_LEFT_DELIMITER"    =>  "{", // smarty 模板引擎开始标签
     "SMARTY_RIGHT_DELIMITER"   =>  "}", // smarty 模板引擎结束标签
-    "SMARTY_TEMPLATE_CACHE"    =>  FALSE , // smarty 模板缓存
-    "SMARTY_CACHE_LIFETIME"    =>  "3600", // smarty模板缓存时间
+    "SMARTY_TEMPLATE_CACHE"    =>  false , // smarty 模板缓存
+    "SMARTY_CACHE_LIFETIME"    =>  -1, // smarty模板缓存时间
     "GET_FIELDS_LENGTH"        =>  6 , // $_GET的最大字段长度
 )
 ?>

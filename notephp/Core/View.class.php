@@ -21,7 +21,7 @@ class View {
         }
         $this->tempEngine->left_delimiter = C('SMARTY_LEFT_DELIMITER');
         $this->tempEngine->right_delimiter = C('SMARTY_RIGHT_DELIMITER');
-        $this->tempEngine->caching = C('SMARTY_LEFT_DELIMITER');
+        $this->tempEngine->caching = C('SMARTY_TEMPLATE_CACHE');
         $this->tempEngine->cache_lifetime = C('SMARTY_CACHE_LIFETIME');
         $this->tempEngine->cache_dir = PRO_PATH."/".ucfirst($GLOBALS['PROJECT_REQUEST_MODULE'])."/Runtime/Cache";
         $this->tempEngine->compile_dir = PRO_PATH."/".ucfirst($GLOBALS['PROJECT_REQUEST_MODULE'])."/Runtime/Compile";

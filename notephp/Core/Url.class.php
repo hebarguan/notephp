@@ -84,10 +84,15 @@ class Url {
                     if (SERVER_HOST !== $subDomain) continue;
                     // 以全局变量定义请求模块
                     $GLOBALS['PROJECT_REQUEST_MODULE'] = $mapModule ;
-                    $this->FullUrl = __ROOT__.$mapModule.$this->FullUrl;
                 }
+            }
+            /*
+             * 整合项目模块名，或APP_NAME
+             * 判断子域名是否部署成功
+             */
+            if( isset($GLOBALS['PROJECT_REQUEST_MODULE']) ) {
+                $this->FullUrl = __ROOT__.$GLOBALS['PROJECT_REQUEST_MODULE'].$this->FullUrl;
             }else{
-                // 整合项目模块名，或APP_NAME
                 $this->FullUrl = __ROOT__.APP_NAME.$this->FullUrl;
             }
         }
