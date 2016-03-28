@@ -2,7 +2,7 @@
 return array(
     "DB_USER"               => "root" ,
     "DB_HOST"               => "localhost",
-    "DB_NAME"               => "ik",
+    "DB_NAME"               => "notephp",
     "DB_PASSWORD"           => "guan",
     "URL_HIDE_MODULE"       => true,
     "URL_MODE"              => 1 ,

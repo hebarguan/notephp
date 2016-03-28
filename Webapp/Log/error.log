@@ -1103,3 +1103,7 @@
 [2016-03-28 21:35:45][ERROR][2]:mysql_fetch_array() expects parameter 1 to be resource, boolean givenin File/home/hebar/notephp/notephp/Core/Model.class.php line 396
 [2016-03-28 21:38:28][ERROR][2]:mysql_select_db() expects at least 1 parameter, 0 givenin File/home/hebar/notephp/notephp/Core/Model.class.php line 88
 [2016-03-28 21:42:08][ERROR][4]:syntax error, unexpected '{'in File/home/hebar/notephp/notephp/Core/Model.class.php line 88
+[2016-03-28 22:32:22][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-03-28 23:45:17][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-03-29 00:55:53][ERROR][1]:Class 'CacheController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-03-29 00:57:47][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
