@@ -1107,3 +1107,348 @@
 [2016-03-28 23:45:17][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
 [2016-03-29 00:55:53][ERROR][1]:Class 'CacheController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
 [2016-03-29 00:57:47][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-03-29 02:09:12][ERROR][1]:Class 'CacheController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-03-29 11:15:50][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-03-29 11:15:50][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-03-29 11:56:49][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-03-29 13:10:22][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-03-29 13:25:19][ERROR][1]:Class 'CacheController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-03-29 14:22:51][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-03-29 14:30:06][ERROR][1]:Class 'Robots.txtController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-03-29 14:30:08][ERROR][1]:Class 'Sitemap.xmlController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-03-29 15:36:09][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-03-29 16:48:57][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-03-29 18:02:22][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-03-30 18:03:14][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-03-30 19:16:33][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-03-30 18:19:56][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-03-30 19:33:18][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-03-30 20:46:41][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-03-30 21:44:15][ERROR][1]:Class 'CacheController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-03-30 22:00:04][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-03-31 01:40:54][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-03-31 12:42:52][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-03-31 13:56:27][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-03-31 15:10:09][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-03-31 15:42:09][ERROR][1]:Class 'CacheController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-03-31 15:46:04][ERROR][1]:Class 'Robots.txtController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-03-31 16:23:45][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-03-31 17:37:36][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-03-31 18:52:12][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-03-31 20:07:19][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-03-31 21:22:58][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-03-31 22:31:10][ERROR][1]:Class 'CacheController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-03-31 22:38:54][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-01 01:09:26][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-01 01:09:27][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-01 12:32:14][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-05 17:07:12][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-05 18:22:38][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-05 19:30:03][ERROR][1]:Class 'CacheController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-05 19:38:36][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-05 19:42:32][ERROR][1]:Class 'Ncsi.txtController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-05 20:52:45][ERROR][256]:不存在动作Publicin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-05 20:52:45][ERROR][256]:不存在动作Publicin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-05 20:52:45][ERROR][256]:不存在动作Publicin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-05 20:52:45][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-05 20:52:45][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-05 20:53:27][ERROR][256]:不存在动作Publicin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-05 20:53:33][ERROR][256]:不存在动作Publicin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-05 20:53:35][ERROR][256]:不存在动作Publicin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-05 20:54:13][ERROR][256]:不存在动作Publicin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-05 20:54:13][ERROR][256]:不存在动作Publicin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-05 20:54:13][ERROR][256]:不存在动作Publicin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-05 20:54:15][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-05 20:54:33][ERROR][256]:不存在动作Publicin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-05 20:54:33][ERROR][256]:不存在动作Publicin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-05 20:54:33][ERROR][256]:不存在动作Publicin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-05 20:54:57][ERROR][256]:不存在动作Publicin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-05 20:54:57][ERROR][256]:不存在动作Publicin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-05 20:54:57][ERROR][256]:不存在动作Publicin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-05 21:05:16][ERROR][256]:不存在动作Publicin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-05 21:05:16][ERROR][256]:不存在动作Publicin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-05 21:05:16][ERROR][256]:不存在动作Publicin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-05 21:13:32][ERROR][256]:不存在动作Publicin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-05 21:13:32][ERROR][256]:不存在动作Publicin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-05 21:13:32][ERROR][256]:不存在动作Publicin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-05 21:13:32][ERROR][256]:不存在动作Publicin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-05 21:25:38][ERROR][256]:不存在动作Publicin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-05 21:25:38][ERROR][256]:不存在动作Publicin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-05 21:25:38][ERROR][256]:不存在动作Publicin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-05 21:25:38][ERROR][256]:不存在动作Publicin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-05 22:09:48][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-05 23:54:36][ERROR][1]:Class 'Changelog.txtController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-05 23:54:42][ERROR][1]:Class 'Joomla.xmlController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-05 23:54:44][ERROR][1]:Class 'AdministratorController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-06 00:40:45][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-06 13:16:05][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-06 13:22:03][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-06 13:22:22][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-06 13:22:23][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-06 14:31:32][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-06 14:39:31][ERROR][1]:Class 'CacheController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-06 16:12:37][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-06 16:36:30][ERROR][1]:Class 'CacheController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-06 17:24:50][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-06 18:37:47][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-06 19:35:52][ERROR][1]:Class 'CacheController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-06 19:51:15][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-06 21:04:28][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-06 21:17:37][ERROR][1]:Class 'CacheController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-06 22:17:40][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-06 23:30:59][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-07 00:44:26][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-07 01:57:40][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-07 11:44:23][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-07 12:57:02][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-07 14:09:50][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-07 15:22:26][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-07 16:23:37][ERROR][1]:Class 'CacheController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-07 16:35:45][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-07 17:48:49][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-07 19:02:11][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-07 20:15:40][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-07 21:29:18][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-07 22:47:27][ERROR][1]:Class '20160407231226Controller' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-07 22:47:30][ERROR][1]:Class '20160407231226Controller' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-07 22:47:31][ERROR][1]:Class '20160407231230Controller' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-07 22:47:36][ERROR][1]:Class '20160407231230Controller' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-07 22:47:42][ERROR][1]:Class '20160407231230Controller' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-07 22:47:46][ERROR][1]:Class '20160407231230Controller' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-07 22:47:51][ERROR][1]:Class '20160407231230Controller' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-07 22:49:02][ERROR][1]:Class 'CacheController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-07 23:56:08][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-08 00:16:03][ERROR][1]:Class 'RokformController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-08 00:26:39][ERROR][1]:Class 'App.min.jsController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-08 00:27:12][ERROR][1]:Class 'HtmlController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-08 13:20:28][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-08 14:34:30][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-08 15:47:34][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-08 17:27:20][ERROR][1]:Class 'CacheController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-08 18:12:04][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-08 19:25:20][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 180
+[2016-04-08 20:38:49][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 185
+[2016-04-08 20:50:18][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 185
+[2016-04-08 20:50:18][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 185
+[2016-04-08 20:55:56][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 185
+[2016-04-08 20:58:32][ERROR][4]:syntax error, unexpected 'login' (T_STRING), expecting variable (T_VARIABLE)in File/home/hebar/notephp/Webapp/Home/Controller/IndexController.class.php line 16
+[2016-04-08 20:58:32][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 185
+[2016-04-08 20:59:06][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 185
+[2016-04-08 20:59:25][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 185
+[2016-04-08 21:01:42][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 185
+[2016-04-08 21:01:50][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 185
+[2016-04-08 21:03:06][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 185
+[2016-04-08 21:03:08][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 185
+[2016-04-08 21:03:09][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 185
+[2016-04-08 21:05:57][ERROR][4]:syntax error, unexpected ','in File/home/hebar/notephp/notephp/Core/Driver/Session.class.php line 42
+[2016-04-08 21:05:57][ERROR][4]:syntax error, unexpected ','in File/home/hebar/notephp/notephp/Core/Driver/Session.class.php line 42
+[2016-04-08 21:08:56][ERROR][1]:Class Session contains 1 abstract method and must therefore be declared abstract or implement the remaining methods (SessionHandlerInterface::destroy)in File/home/hebar/notephp/notephp/Core/Driver/Session.class.php line 75
+[2016-04-08 21:08:56][ERROR][1]:Class Session contains 1 abstract method and must therefore be declared abstract or implement the remaining methods (SessionHandlerInterface::destroy)in File/home/hebar/notephp/notephp/Core/Driver/Session.class.php line 75
+[2016-04-08 21:10:04][ERROR][1]:Class Session contains 1 abstract method and must therefore be declared abstract or implement the remaining methods (SessionHandlerInterface::destroy)in File/home/hebar/notephp/notephp/Core/Driver/Session.class.php line 75
+[2016-04-08 21:10:04][ERROR][1]:Class Session contains 1 abstract method and must therefore be declared abstract or implement the remaining methods (SessionHandlerInterface::destroy)in File/home/hebar/notephp/notephp/Core/Driver/Session.class.php line 75
+[2016-04-08 21:10:05][ERROR][1]:Class Session contains 1 abstract method and must therefore be declared abstract or implement the remaining methods (SessionHandlerInterface::destroy)in File/home/hebar/notephp/notephp/Core/Driver/Session.class.php line 75
+[2016-04-08 21:10:05][ERROR][1]:Class Session contains 1 abstract method and must therefore be declared abstract or implement the remaining methods (SessionHandlerInterface::destroy)in File/home/hebar/notephp/notephp/Core/Driver/Session.class.php line 75
+[2016-04-08 21:11:00][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 185
+[2016-04-08 21:11:16][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 185
+[2016-04-08 21:11:18][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 185
+[2016-04-08 21:11:26][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 185
+[2016-04-08 21:11:41][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 185
+[2016-04-08 21:11:42][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 185
+[2016-04-08 21:11:43][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 185
+[2016-04-08 21:13:00][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 185
+[2016-04-08 21:14:37][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 185
+[2016-04-08 21:14:39][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 185
+[2016-04-08 21:14:40][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 185
+[2016-04-08 21:49:15][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 185
+[2016-04-08 21:49:19][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 185
+[2016-04-08 21:49:20][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 185
+[2016-04-08 21:51:06][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 185
+[2016-04-08 21:51:35][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 185
+[2016-04-08 22:05:47][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 185
+[2016-04-08 22:05:52][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 185
+[2016-04-08 22:11:44][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 184
+[2016-04-08 22:11:45][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 184
+[2016-04-08 22:11:47][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 184
+[2016-04-08 22:11:56][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 184
+[2016-04-08 22:17:59][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 189
+[2016-04-08 22:18:06][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 189
+[2016-04-08 22:18:12][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 189
+[2016-04-08 22:18:14][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 189
+[2016-04-08 22:19:33][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 185
+[2016-04-08 22:19:38][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 185
+[2016-04-08 22:19:44][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 185
+[2016-04-08 22:26:22][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 185
+[2016-04-08 22:26:27][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 185
+[2016-04-08 22:26:31][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 185
+[2016-04-08 22:27:08][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 185
+[2016-04-08 22:27:11][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 185
+[2016-04-08 22:32:14][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-08 22:32:21][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-08 22:32:26][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-08 22:32:27][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-08 22:32:28][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-08 22:32:29][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-08 22:34:10][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-08 22:34:10][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-08 22:34:57][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-08 22:35:02][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-08 22:36:57][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-08 22:37:02][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-08 22:37:06][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-08 22:52:46][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 190
+[2016-04-08 22:55:36][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 190
+[2016-04-08 23:00:20][ERROR][256]:Unknown column '08gel6vajmj034d6gk3jj54a04' in 'where clause'in File/home/hebar/notephp/notephp/Core/Model.class.php line 435
+[2016-04-08 23:00:20][ERROR][256]:Unknown column '08gel6vajmj034d6gk3jj54a04' in 'where clause'in File/home/hebar/notephp/notephp/Core/Model.class.php line 435
+[2016-04-08 23:00:43][ERROR][256]:Unknown column '08gel6vajmj034d6gk3jj54a04' in 'where clause'in File/home/hebar/notephp/notephp/Core/Model.class.php line 435
+[2016-04-08 23:00:43][ERROR][256]:Unknown column '08gel6vajmj034d6gk3jj54a04' in 'where clause'in File/home/hebar/notephp/notephp/Core/Model.class.php line 435
+[2016-04-08 23:02:44][ERROR][256]:Unknown column '08gel6vajmj034d6gk3jj54a04' in 'where clause'in File/home/hebar/notephp/notephp/Core/Model.class.php line 435
+[2016-04-08 23:02:44][ERROR][256]:Unknown column '08gel6vajmj034d6gk3jj54a04' in 'where clause'in File/home/hebar/notephp/notephp/Core/Model.class.php line 435
+[2016-04-08 23:04:48][ERROR][256]:Unknown column 'chvptsjb2am3td695gdnq80fl1' in 'where clause'in File/home/hebar/notephp/notephp/Core/Model.class.php line 435
+[2016-04-08 23:05:45][ERROR][256]:Unknown column 'nhq4nu6lh8nrvfvfkdk6j55d15' in 'where clause'in File/home/hebar/notephp/notephp/Core/Model.class.php line 435
+[2016-04-08 23:05:47][ERROR][256]:Unknown column 'm9dir6l6r764tga8mp3frgtfh5' in 'where clause'in File/home/hebar/notephp/notephp/Core/Model.class.php line 435
+[2016-04-08 23:16:01][ERROR][256]:Unknown column '08gel6vajmj034d6gk3jj54a04' in 'where clause'in File/home/hebar/notephp/notephp/Core/Model.class.php line 435
+[2016-04-08 23:16:02][ERROR][256]:Unknown column '08gel6vajmj034d6gk3jj54a04' in 'where clause'in File/home/hebar/notephp/notephp/Core/Model.class.php line 435
+[2016-04-08 23:16:03][ERROR][256]:Unknown column '08gel6vajmj034d6gk3jj54a04' in 'where clause'in File/home/hebar/notephp/notephp/Core/Model.class.php line 435
+[2016-04-08 23:16:03][ERROR][256]:Unknown column '08gel6vajmj034d6gk3jj54a04' in 'where clause'in File/home/hebar/notephp/notephp/Core/Model.class.php line 435
+[2016-04-08 23:16:04][ERROR][256]:Unknown column '08gel6vajmj034d6gk3jj54a04' in 'where clause'in File/home/hebar/notephp/notephp/Core/Model.class.php line 435
+[2016-04-08 23:16:04][ERROR][256]:Unknown column '08gel6vajmj034d6gk3jj54a04' in 'where clause'in File/home/hebar/notephp/notephp/Core/Model.class.php line 435
+[2016-04-08 23:17:55][ERROR][256]:Unknown column '08gel6vajmj034d6gk3jj54a04' in 'where clause'in File/home/hebar/notephp/notephp/Core/Model.class.php line 435
+[2016-04-08 23:17:58][ERROR][256]:Unknown column '08gel6vajmj034d6gk3jj54a04' in 'where clause'in File/home/hebar/notephp/notephp/Core/Model.class.php line 435
+[2016-04-08 23:17:58][ERROR][256]:Unknown column '08gel6vajmj034d6gk3jj54a04' in 'where clause'in File/home/hebar/notephp/notephp/Core/Model.class.php line 435
+[2016-04-08 23:21:02][ERROR][256]:Unknown column '08gel6vajmj034d6gk3jj54a04' in 'where clause'in File/home/hebar/notephp/notephp/Core/Model.class.php line 435
+[2016-04-08 23:21:03][ERROR][256]:Unknown column '08gel6vajmj034d6gk3jj54a04' in 'where clause'in File/home/hebar/notephp/notephp/Core/Model.class.php line 435
+[2016-04-08 23:25:14][ERROR][256]:Unknown column '08gel6vajmj034d6gk3jj54a04' in 'where clause'in File/home/hebar/notephp/notephp/Core/Model.class.php line 435
+[2016-04-08 23:25:14][ERROR][256]:Unknown column '08gel6vajmj034d6gk3jj54a04' in 'where clause'in File/home/hebar/notephp/notephp/Core/Model.class.php line 435
+[2016-04-08 23:25:17][ERROR][256]:Unknown column '08gel6vajmj034d6gk3jj54a04' in 'where clause'in File/home/hebar/notephp/notephp/Core/Model.class.php line 435
+[2016-04-08 23:25:17][ERROR][256]:Unknown column '08gel6vajmj034d6gk3jj54a04' in 'where clause'in File/home/hebar/notephp/notephp/Core/Model.class.php line 435
+[2016-04-08 23:25:19][ERROR][256]:Unknown column '08gel6vajmj034d6gk3jj54a04' in 'where clause'in File/home/hebar/notephp/notephp/Core/Model.class.php line 435
+[2016-04-08 23:25:19][ERROR][256]:Unknown column '08gel6vajmj034d6gk3jj54a04' in 'where clause'in File/home/hebar/notephp/notephp/Core/Model.class.php line 435
+[2016-04-08 23:25:21][ERROR][256]:Unknown column '08gel6vajmj034d6gk3jj54a04' in 'where clause'in File/home/hebar/notephp/notephp/Core/Model.class.php line 435
+[2016-04-08 23:25:21][ERROR][256]:Unknown column '08gel6vajmj034d6gk3jj54a04' in 'where clause'in File/home/hebar/notephp/notephp/Core/Model.class.php line 435
+[2016-04-08 23:25:23][ERROR][256]:Unknown column '08gel6vajmj034d6gk3jj54a04' in 'where clause'in File/home/hebar/notephp/notephp/Core/Model.class.php line 435
+[2016-04-08 23:25:23][ERROR][256]:Unknown column '08gel6vajmj034d6gk3jj54a04' in 'where clause'in File/home/hebar/notephp/notephp/Core/Model.class.php line 435
+[2016-04-08 23:48:36][ERROR][256]:Unknown column 'ugeebvv89bl69cmi0f3eqh9m70' in 'where clause'in File/home/hebar/notephp/notephp/Core/Model.class.php line 435
+[2016-04-09 00:17:14][ERROR][256]:Unknown column '20kqlgph5bbjp2o2d92m5qoom1' in 'where clause'in File/home/hebar/notephp/notephp/Core/Model.class.php line 435
+[2016-04-09 00:17:49][ERROR][256]:Unknown column 'cqrpqouekravoutdf1ffsfflf3' in 'where clause'in File/home/hebar/notephp/notephp/Core/Model.class.php line 435
+[2016-04-09 00:17:52][ERROR][256]:Unknown column '3d62pfir7p50fnjcblco6fq9s1' in 'where clause'in File/home/hebar/notephp/notephp/Core/Model.class.php line 435
+[2016-04-09 00:26:21][ERROR][256]:Unknown column '08gel6vajmj034d6gk3jj54a04' in 'where clause'in File/home/hebar/notephp/notephp/Core/Model.class.php line 435
+[2016-04-09 00:26:21][ERROR][256]:Unknown column '08gel6vajmj034d6gk3jj54a04' in 'where clause'in File/home/hebar/notephp/notephp/Core/Model.class.php line 435
+[2016-04-09 00:26:22][ERROR][256]:Unknown column '08gel6vajmj034d6gk3jj54a04' in 'where clause'in File/home/hebar/notephp/notephp/Core/Model.class.php line 435
+[2016-04-09 00:26:22][ERROR][256]:Unknown column '08gel6vajmj034d6gk3jj54a04' in 'where clause'in File/home/hebar/notephp/notephp/Core/Model.class.php line 435
+[2016-04-09 00:26:23][ERROR][256]:Unknown column '08gel6vajmj034d6gk3jj54a04' in 'where clause'in File/home/hebar/notephp/notephp/Core/Model.class.php line 435
+[2016-04-09 00:26:23][ERROR][256]:Unknown column '08gel6vajmj034d6gk3jj54a04' in 'where clause'in File/home/hebar/notephp/notephp/Core/Model.class.php line 435
+[2016-04-09 00:34:14][ERROR][2]:mysql_real_escape_string(): Access denied for user 'www-data'@'localhost' (using password: NO)in File/home/hebar/notephp/notephp/Core/Model.class.php line 406
+[2016-04-09 00:34:14][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 00:34:14][ERROR][2]:mysql_real_escape_string(): Access denied for user 'www-data'@'localhost' (using password: NO)in File/home/hebar/notephp/notephp/Core/Model.class.php line 406
+[2016-04-09 00:35:14][ERROR][2]:mysql_real_escape_string(): Access denied for user 'www-data'@'localhost' (using password: NO)in File/home/hebar/notephp/notephp/Core/Model.class.php line 406
+[2016-04-09 00:35:14][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 00:35:14][ERROR][2]:mysql_real_escape_string(): Access denied for user 'www-data'@'localhost' (using password: NO)in File/home/hebar/notephp/notephp/Core/Model.class.php line 406
+[2016-04-09 00:35:17][ERROR][2]:mysql_real_escape_string(): Access denied for user 'www-data'@'localhost' (using password: NO)in File/home/hebar/notephp/notephp/Core/Model.class.php line 406
+[2016-04-09 00:35:17][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 00:35:17][ERROR][2]:mysql_real_escape_string(): Access denied for user 'www-data'@'localhost' (using password: NO)in File/home/hebar/notephp/notephp/Core/Model.class.php line 406
+[2016-04-09 00:37:06][ERROR][2]:mysql_real_escape_string(): Access denied for user 'www-data'@'localhost' (using password: NO)in File/home/hebar/notephp/notephp/Core/Model.class.php line 406
+[2016-04-09 00:37:07][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 00:37:07][ERROR][2]:mysql_real_escape_string(): Access denied for user 'www-data'@'localhost' (using password: NO)in File/home/hebar/notephp/notephp/Core/Model.class.php line 406
+[2016-04-09 00:39:26][ERROR][2]:mysql_real_escape_string(): Access denied for user 'www-data'@'localhost' (using password: NO)in File/home/hebar/notephp/notephp/Core/Model.class.php line 406
+[2016-04-09 00:39:26][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 00:39:26][ERROR][2]:mysql_real_escape_string(): Access denied for user 'www-data'@'localhost' (using password: NO)in File/home/hebar/notephp/notephp/Core/Model.class.php line 406
+[2016-04-09 00:39:27][ERROR][2]:mysql_real_escape_string(): Access denied for user 'www-data'@'localhost' (using password: NO)in File/home/hebar/notephp/notephp/Core/Model.class.php line 406
+[2016-04-09 00:39:27][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 00:39:27][ERROR][2]:mysql_real_escape_string(): Access denied for user 'www-data'@'localhost' (using password: NO)in File/home/hebar/notephp/notephp/Core/Model.class.php line 406
+[2016-04-09 00:39:29][ERROR][2]:mysql_real_escape_string(): Access denied for user 'www-data'@'localhost' (using password: NO)in File/home/hebar/notephp/notephp/Core/Model.class.php line 406
+[2016-04-09 00:39:29][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 00:39:29][ERROR][2]:mysql_real_escape_string(): Access denied for user 'www-data'@'localhost' (using password: NO)in File/home/hebar/notephp/notephp/Core/Model.class.php line 406
+[2016-04-09 00:44:24][ERROR][2]:mysql_real_escape_string(): Access denied for user 'www-data'@'localhost' (using password: NO)in File/home/hebar/notephp/notephp/Core/Model.class.php line 419
+[2016-04-09 00:44:24][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 00:44:24][ERROR][2]:mysql_real_escape_string(): Access denied for user 'www-data'@'localhost' (using password: NO)in File/home/hebar/notephp/notephp/Core/Model.class.php line 419
+[2016-04-09 00:48:41][ERROR][2]:mysql_real_escape_string(): Access denied for user 'www-data'@'localhost' (using password: NO)in File/home/hebar/notephp/notephp/Core/Model.class.php line 419
+[2016-04-09 00:48:41][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 00:48:41][ERROR][2]:mysql_real_escape_string(): Access denied for user 'www-data'@'localhost' (using password: NO)in File/home/hebar/notephp/notephp/Core/Model.class.php line 419
+[2016-04-09 00:51:38][ERROR][2]:mysql_real_escape_string(): Access denied for user 'www-data'@'localhost' (using password: NO)in File/home/hebar/notephp/notephp/Core/Model.class.php line 419
+[2016-04-09 00:51:38][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 00:51:38][ERROR][2]:mysql_real_escape_string(): Access denied for user 'www-data'@'localhost' (using password: NO)in File/home/hebar/notephp/notephp/Core/Model.class.php line 419
+[2016-04-09 00:51:40][ERROR][2]:mysql_real_escape_string(): Access denied for user 'www-data'@'localhost' (using password: NO)in File/home/hebar/notephp/notephp/Core/Model.class.php line 419
+[2016-04-09 00:51:40][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 00:51:40][ERROR][2]:mysql_real_escape_string(): Access denied for user 'www-data'@'localhost' (using password: NO)in File/home/hebar/notephp/notephp/Core/Model.class.php line 419
+[2016-04-09 00:51:41][ERROR][2]:mysql_real_escape_string(): Access denied for user 'www-data'@'localhost' (using password: NO)in File/home/hebar/notephp/notephp/Core/Model.class.php line 419
+[2016-04-09 00:51:41][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 00:51:41][ERROR][2]:mysql_real_escape_string(): Access denied for user 'www-data'@'localhost' (using password: NO)in File/home/hebar/notephp/notephp/Core/Model.class.php line 419
+[2016-04-09 00:51:41][ERROR][2]:mysql_real_escape_string(): Access denied for user 'www-data'@'localhost' (using password: NO)in File/home/hebar/notephp/notephp/Core/Model.class.php line 419
+[2016-04-09 00:51:41][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 00:51:41][ERROR][2]:mysql_real_escape_string(): Access denied for user 'www-data'@'localhost' (using password: NO)in File/home/hebar/notephp/notephp/Core/Model.class.php line 419
+[2016-04-09 00:52:11][ERROR][2]:mysql_real_escape_string(): 27 is not a valid MySQL-Link resourcein File/home/hebar/notephp/notephp/Core/Model.class.php line 419
+[2016-04-09 00:52:11][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 00:52:11][ERROR][2]:mysql_real_escape_string(): 26 is not a valid MySQL-Link resourcein File/home/hebar/notephp/notephp/Core/Model.class.php line 419
+[2016-04-09 00:53:41][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 00:53:44][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 00:59:06][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 00:59:08][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 00:59:22][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 01:06:01][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 01:06:11][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 01:06:39][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 01:06:41][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 01:06:45][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 01:07:01][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 01:07:13][ERROR][1]:Class 'CacheController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 01:09:30][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 01:09:37][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 01:17:31][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 01:17:37][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 01:28:21][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 01:28:33][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 01:29:12][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 01:29:19][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 01:30:20][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 11:45:55][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 11:45:56][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 12:30:17][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 12:31:55][ERROR][1]:Class 'CacheController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 13:43:14][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 14:55:44][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 14:58:15][ERROR][4]:syntax error, unexpected 'unset' (T_UNSET)in File/home/hebar/notephp/Webapp/Home/Controller/IndexController.class.php line 54
+[2016-04-09 15:01:00][ERROR][4]:syntax error, unexpected 'unset' (T_UNSET)in File/home/hebar/notephp/Webapp/Home/Controller/IndexController.class.php line 54
+[2016-04-09 16:08:24][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 16:21:46][ERROR][256]:Unknown column 'ukb1om132gvlvomthnbjvgfkv7' in 'where clause'in File/home/hebar/notephp/notephp/Core/Model.class.php line 421
+[2016-04-09 16:22:19][ERROR][256]:Unknown column 'ukb1om132gvlvomthnbjvgfkv7' in 'where clause'in File/home/hebar/notephp/notephp/Core/Model.class.php line 421
+[2016-04-09 16:22:20][ERROR][256]:Unknown column 'ukb1om132gvlvomthnbjvgfkv7' in 'where clause'in File/home/hebar/notephp/notephp/Core/Model.class.php line 421
+[2016-04-09 16:22:22][ERROR][256]:Unknown column 'ukb1om132gvlvomthnbjvgfkv7' in 'where clause'in File/home/hebar/notephp/notephp/Core/Model.class.php line 421
+[2016-04-09 16:22:26][ERROR][256]:Unknown column 'ukb1om132gvlvomthnbjvgfkv7' in 'where clause'in File/home/hebar/notephp/notephp/Core/Model.class.php line 421
+[2016-04-09 16:25:45][ERROR][256]:Unknown column 'session' in 'where clause'in File/home/hebar/notephp/notephp/Core/Model.class.php line 421
+[2016-04-09 16:26:57][ERROR][2]:Invalid argument supplied for foreach()in File/home/hebar/notephp/notephp/Core/Model.class.php line 269
+[2016-04-09 16:39:18][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 16:39:37][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 16:39:57][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 16:39:59][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 16:40:01][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 16:40:34][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 16:40:46][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 16:42:08][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 16:42:11][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 16:42:13][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 16:42:22][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 16:42:24][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 16:42:25][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 16:42:26][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 16:42:27][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 16:42:27][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 16:42:28][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 16:42:29][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 16:42:30][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 16:43:10][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 17:21:29][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 18:14:19][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 18:24:47][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 18:25:14][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 18:27:51][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 18:28:09][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 18:35:00][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 18:35:01][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 18:38:45][ERROR][4]:syntax error, unexpected 'echoSess' (T_STRING), expecting variable (T_VARIABLE)in File/home/hebar/notephp/Webapp/Home/Controller/IndexController.class.php line 56
+[2016-04-09 18:39:13][ERROR][4]:syntax error, unexpected 'echoSess' (T_STRING), expecting variable (T_VARIABLE)in File/home/hebar/notephp/Webapp/Home/Controller/IndexController.class.php line 56
+[2016-04-09 18:43:01][ERROR][1]:Class 'CacheController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 19:36:53][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 19:36:56][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 19:39:45][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 19:39:48][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188
+[2016-04-09 19:47:12][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Url.class.php line 188

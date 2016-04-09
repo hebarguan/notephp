@@ -92,7 +92,7 @@ class Model {
     
 
     // 字段选择过滤
-    public function fields ( $field_string ) {
+    public function fields( $field_string ) {
 
         $fid = $this->mysql_filter($field_string);
         $this->_sql['fid'] = empty($fid) ? $this->_sql['fid'] : $fid ;
@@ -101,7 +101,7 @@ class Model {
     }
 
     // 查找行数限制
-    public function limit ( $offset = 0 ,$rows = 0 ) {
+    public function limit( $offset = 0 ,$rows = 0 ) {
 
         if( !is_numeric($offset) AND !is_numeric($rows) ) return false;
         if( $offset && $rows ) {
@@ -113,7 +113,7 @@ class Model {
     }
 
     // 依据排列顺序order by
-    public function order ( $order_word ) {
+    public function order( $order_word ) {
 
         // filter the user inputing 
         $word = $this->mysql_filter($order_word) ;
@@ -122,7 +122,7 @@ class Model {
     }
 
     // 条件组合查询或字符串查询
-    public function where ( $condition  ) {
+    public function where( $condition  ) {
 
         if ( is_string($condition) ) {
             $this->_sql['wre'] = $this->mysql_filter($condition) ;
@@ -142,21 +142,10 @@ class Model {
     }
 
     // 过滤用户输入数据
-    public function data ( $data ) {
+    public function data( $data ) {
         if( !is_array($data) ) return false;
-        foreach( $data as $k => $v ){
-
-            // $v 为数组则是多行插入数据
-            if ( is_array($v)  ) {
-                while( list($field , $value) = each ($v)  ) {
-                    $v[$field] = $this->mysql_filter($value) ;
-                }
-
-            }else{
-                $data[$k] = $this->mysql_filter($v);
-            }
-        }
-         // 返回到sql
+        $data = $this->mysql_filter($data);
+        // 返回到sql
         $this->_sql['dat'] = $data;
         return $this;
     }
@@ -169,14 +158,14 @@ class Model {
     }
 
     // 过滤having 数据
-    public function having ($hstr = null) {
+    public function having($hstr = null) {
         if( is_null($hstr) ) return false;
         $this->_sql['hav'] = $this->mysql_filter($hstr);
         return $this;
     }
 
     // 对数据库进行读操作
-    public function execute ($id = null) {
+    public function execute($id = null) {
 
         // 定义返回结果数组
         $returndata = array() ;
@@ -195,7 +184,6 @@ class Model {
             }
         }
         mysql_free_result($result);
-        $this->close();
         // 没有查询结果返回false
         if( empty($returndata) ) {
             return false ;
@@ -205,13 +193,11 @@ class Model {
     }
 
     // 修改表数据
-    public function save () {
-
+    public function save() {
         // 定义修改query语句
         $updateString = $this->full_query_string('UPDATE') ;
         $result = $this->query($updateString);
         if( $result ) {
-
             // 如果修改正确返回影响行数
             return mysql_affected_rows();
         }else{
@@ -221,7 +207,7 @@ class Model {
     }
 
     // 删除表数据
-    public function delete ($id = null) {
+    public function delete($id = null) {
 
         // 通过id删除表数据
         $result ;
@@ -242,7 +228,7 @@ class Model {
     } 
 
     // 添加表数据
-    public function add ($data = null) {
+    public function add($data = null) {
 
         //过滤data数据
         $filterData ;
@@ -265,7 +251,7 @@ class Model {
     }
 
     // 组合query 语句查询
-    public function full_query_string ( $handle ) {
+    public function full_query_string( $handle ) {
 
         // 定义返回查询字符串
         $returnString ;
@@ -296,7 +282,7 @@ class Model {
     }
 
     // 整合查询条件字符串
-    public function full_query_where (&$string) {
+    public function full_query_where(&$string) {
         $cond = $this->_sql;
         if(!empty($w = $cond['wre'])) {
             if(is_string($w)) {
@@ -393,7 +379,7 @@ class Model {
         }
     } 
     // 获取数据库表列表
-    public function getTables () {
+    public function getTables() {
         $tables = mysql_query("SHOW TABLES" ,$this->conn);
         while ($row = mysql_fetch_array($tables)) {
             $this->dbTableList[] = $row[0];
@@ -411,7 +397,7 @@ class Model {
         return $fd;
     }
     // 遍历过滤数组
-    public function filterArray ($data) {
+    public function filterArray($data) {
         foreach($data as $key => $val) {
             if( is_string($val)) {
                 $data[$key] = mysql_real_escape_string($val);
@@ -427,7 +413,7 @@ class Model {
     }
 
     // 执行数据库操作
-    public function query ($quer) {
+    public function query($quer) {
         /*
          *die($quer);
          */
@@ -436,11 +422,4 @@ class Model {
         return $results;
     }
 
-    //断开数据库链接
-    public function close () {
-
-        mysql_close($this->conn);
-
-    }
 } 
-?>

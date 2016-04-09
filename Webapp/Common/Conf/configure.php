@@ -4,6 +4,8 @@ return array(
     "DB_HOST"               => "localhost",
     "DB_NAME"               => "notephp",
     "DB_PASSWORD"           => "guan",
+    "SESSION_TABLE"         => "session",
+    "SESSION_DRIVER_OPEN"   => true,
     "URL_HIDE_MODULE"       => true,
     "URL_MODE"              => 1 ,
     "URL_MAP_RULES"         => array(

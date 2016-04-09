@@ -30,6 +30,14 @@ class Url {
         $this->RequestUri  = $_SERVER['REQUEST_URI'];
         $this->UrlRewrite  = C('URL_REWRITE_RULES');
         $this->UrlMap      = C('URL_MAP_RULES');
+        // 是否开启session驱动
+        if( C("SESSION_DRIVER_OPEN") ) {
+             /*
+              *require_once(__NOTEPHP__."/Core/Driver/Session".EXTS);
+              */
+            $sessionHandler = new Session();
+             session_set_save_handler($sessionHandler, true);
+        }
         // 自动开启session 
         session_start();
     }
