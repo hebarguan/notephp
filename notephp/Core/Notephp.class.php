@@ -24,7 +24,6 @@ class NotePHP {
     public static function initialize() {
         // 定义错误与异常函数
         set_error_handler('NotePHP::MyError');
-        set_exception_handler('NotePHP::MyException');
         register_shutdown_function('NotePHP::LastErr');
         // 定义自动加载类函数
         spl_autoload_register('NotePHP::autoLoad');
@@ -55,7 +54,7 @@ class NotePHP {
 
         }
         // 加载框架公共函数库
-        include_once(__NOTEPHP__."/Common/functions.php");
+        include_once(__NOTEPHP__."/Common/Function/functions.php");
         // 开启路由处理
         self::AppRun();
     }
@@ -97,13 +96,6 @@ class NotePHP {
         if( !empty(self::$errData) ) {
             Log::record(self::$errData[0] ,self::$errData[1] ,self::$errData[2]);
         }
-    }
-    // 自定义异常处理
-    public static function MyException ($e) {
-        // 获取异常模板文件
-        $excptionFile = C('EXCEPTION_FILE'); 
-        header("Location :".SERVER_HOST.$excptionFile);
-        exit ;
     }
     // 打印调试跟踪信息
     public static function printDebugMsg ($debugData) {

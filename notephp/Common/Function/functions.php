@@ -22,7 +22,7 @@ function C ($val) {
     $split = explode(".",$val);
     $keyNum = count($split);
     $userConfFile = __COMMON__."/Conf/configure.php";
-    $defaultConfFile = __NOTEPHP__."/Conf/default.php"; 
+    $defaultConfFile = __NOTEPHP__."/Common/Conf/default.php"; 
     // 加载用户配置文件
     $userConf = is_file($userConfFile) ? require($userConfFile) : array();
     // 默认配置文件

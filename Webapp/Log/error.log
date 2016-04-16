@@ -1649,3 +1649,8 @@
 [2016-04-16 23:12:32][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
 [2016-04-16 23:13:49][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
 [2016-04-16 23:14:04][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-16 23:41:58][ERROR][2]:include_once(/home/hebar/notephp/notephp/Common/functions.php): failed to open stream: No such file or directoryin File/home/hebar/notephp/notephp/Core/Notephp.class.php line 58
+[2016-04-16 23:41:58][ERROR][2]:Invalid argument supplied for foreach()in File/home/hebar/notephp/notephp/Core/Notephp.class.php line 117
+[2016-04-16 23:44:29][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-16 23:44:31][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-16 23:44:37][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
