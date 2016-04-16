@@ -17,9 +17,8 @@
   */
 
 class Model {
-
     // 定义要执行的逻辑查询类成员$_sql
-    private  $_sql = array(
+    public $_sql = array(
         "fid" => "*" , //默认为查询所有字段
         "lit" => "" ,  //查询行限制
         "ord" => "" ,  //查询排序
@@ -30,79 +29,63 @@ class Model {
         "gro" => "" , // 组查询
         "hav" => "" , // 与组查询并用
     );
-
     // 定义数据库的用户条件权限
-    private  $_mysqlinfo = array(
+    private  $mysqlInfo = array(
         "HOSTS"    => "" ,// 服务器名称或iP地址
         "ROOT"     => "" ,// 数据库用户名
         "PASSWORD" => "" ,// 数据库用户密码
         "DB_NAME"  => "" , //数据库名
-        "DB_TABLE" => "" , // 数据库表
     );
-
+    // 数据库链接表
+    public $dbTable = null;
     // 数据链接编码
     public $connectEncoding = null;
     // 数据库表列表
     public $dbTableList = array();
-    // 数据库链接柄
-    // 方便用户自定义数据库操作
-   public  $conn = false;
-
+    // 数据库链接柄 用户自定义数据库操作
+    public $curd = false;
+    // 数据库CURD操作类型，默认是PDO
+    public $curdType = null;
     // 定义构造函数
-    public function __construct($tab = '') {
+    public function __construct( $tab = null ) {
         // 初始化数据库信息
-        $this->_mysqlinfo['HOSTS']    = C('DB_HOST');
-        $this->_mysqlinfo['ROOT']     = C('DB_USER');
-        $this->_mysqlinfo['PASSWORD'] = C('DB_PASSWORD');
-        $this->_mysqlinfo['DB_NAME']  = C('DB_NAME');
-        $this->connectEncoding        = C('MYSQL_CONNECT_ENCODING');
-        // 链接数据库，失败退出进程
+        $this->mysqlInfo['HOSTS']    = C('DB_HOST');
+        $this->mysqlInfo['ROOT']     = C('DB_USER');
+        $this->mysqlInfo['PASSWORD'] = C('DB_PASSWORD');
+        $this->mysqlInfo['DB_NAME']  = C('DB_NAME');
+        $this->connectEncoding       = C('MYSQL_CONNECT_ENCODING');
+        $this->curdType              = C('CURD_TYPE');
+        // 开始数据库连接
         $this->connect();
-        // 获取数据库客户端编码
-        $clientEncoding = mysql_client_encoding($this->conn);
-        if( $clientEncoding !== $this->connectEncoding ) {
-            // 自定义用户链接查询字符集编码
-            mysql_query("SET NAMES {$this->connectEncoding}",$this->conn);
-        }
+        // 获取调用该基类的子类
         $callModel = get_called_class();
         // 获取数据库表列表
-        $this->getTables();
-        if ($tab AND in_array(strtolower($tab) ,$this->dbTableList) ) {
-            $this->_mysqlinfo['DB_TABLE'] = $tab ;
-        }elseif( ($callModel !== "Model") AND (!empty($callModel)) ) {
-            $this->_mysqlinfo['DB_TABLE'] = strtolower(explode("Model",$callModel)[0]);
+        $this->dbTableList = $this->curd->getTables();
+        if (!is_null($tab) AND in_array(strtolower($tab), $this->dbTableList)) {
+            $this->dbTable = $tab ;
+        }elseif( $callModel !== "Model" AND !empty($callModel) ) {
+            $this->dbTable = strtolower(explode("Model",$callModel)[0]);
         }else{
-            var_dump(strtolower(explode("Model",$callModel)[0]));
+            /*
+             *var_dump(strtolower(explode("Model",$callModel)[0]));
+             */
             trigger_error("找不到数据库表",E_USER_ERROR);
         }
-
     }
-
     // 数据库链接函数
     private function connect() {
-
-        $this->conn = mysql_connect( $this->_mysqlinfo['HOSTS'] ,$this->_mysqlinfo['ROOT'] ,$this->_mysqlinfo['PASSWORD']);
-        if(!$this->conn) {
-            die("can't not connect mysql :".mysql_error()) ;
-        }
-        if(!mysql_select_db($this->_mysqlinfo['DB_NAME'])) {
-            die("can not select mysql database {$this->_mysqlinfo['DB_NAME']}");
-        }
+        $curdType = ucfirst($this->curdType);
+        $this->curd = new $curdType($this, $this->mysqlInfo['HOSTS'], 
+            $this->mysqlInfo['DB_NAME'], $this->mysqlInfo['ROOT'], $this->mysqlInfo['PASSWORD']);
     }
-    
-
     // 字段选择过滤
     public function fields( $field_string ) {
-
-        $fid = $this->mysql_filter($field_string);
+        $fid = $this->curd->mysqlFilter($field_string);
         $this->_sql['fid'] = empty($fid) ? $this->_sql['fid'] : $fid ;
-        return $this ;
-
+        return $this;
     }
-
     // 查找行数限制
     public function limit( $offset = 0 ,$rows = 0 ) {
-
         if( !is_numeric($offset) AND !is_numeric($rows) ) return false;
         if( $offset && $rows ) {
             $this->_sql['lit'] = array( $offset ,$rows ) ;
@@ -111,151 +94,54 @@ class Model {
         }
         return $this;
     }
-
     // 依据排列顺序order by
     public function order( $order_word ) {
-
         // filter the user inputing 
-        $word = $this->mysql_filter($order_word) ;
+        $word = $this->curd->mysqlFilter($order_word) ;
         $this->_sql['ord'] = $word;
         return $this;
     }
-
     // 条件组合查询或字符串查询
     public function where( $condition  ) {
-
         if ( is_string($condition) ) {
-            $this->_sql['wre'] = $this->mysql_filter($condition) ;
+            $this->_sql['wre'] = $this->curd->mysqlFilter($condition) ;
         }
-
         if ( is_array($condition) ) {
-
             // 过滤keys 与 values 
-            $newcondition = array();
+            $newCondition = array();
             foreach( $condition as $key => $value ) {
-                $newcondition[$this->mysql_filter($key)] = $this->mysql_filter($value) ;
+                $newCondition[$this->curd->mysqlFilter($key)] = $this->curd->mysqlFilter($value) ;
             }
             //返回新条件数组
-            $this->_sql['wre'] = $newcondition ;
+            $this->_sql['wre'] = $newCondition ;
         }
         return $this ;
     }
-
     // 过滤用户输入数据
     public function data( $data ) {
         if( !is_array($data) ) return false;
-        $data = $this->mysql_filter($data);
+        $data = $this->curd->mysqlFilter($data);
         // 返回到sql
         $this->_sql['dat'] = $data;
         return $this;
     }
-
     // 过滤group by 数据
     public function group( $qstr = null ) {
         if( is_null($qstr) ) return false;
-        $this->_sql['gro'] = $this->mysql_filter($qstr);
+        $this->_sql['gro'] = $this->curd->mysqlFilter($qstr);
         return $this;
     }
-
     // 过滤having 数据
-    public function having($hstr = null) {
+    public function having( $hstr = null ) {
         if( is_null($hstr) ) return false;
-        $this->_sql['hav'] = $this->mysql_filter($hstr);
+        $this->_sql['hav'] = $this->curd->mysqlFilter($hstr);
         return $this;
     }
-
-    // 对数据库进行读操作
-    public function execute($id = null) {
-
-        // 定义返回结果数组
-        $returndata = array() ;
-        $result ;
-        // 非组合查询id
-        if( is_numeric($id)  ) {
-            $result = $this->query("SELECT * FROM {$this->_mysqlinfo['DB_TABLE']} WHERE id='{$id}'");
-            $returndata[0] = mysql_fetch_assoc($result);
-        }elseif(is_null($id)) { 
-            //组合查询语句
-            $queryString = $this->full_query_string('SELECT');
-            $result = $this->query($queryString) ;
-            if( !$result ) return false;
-            while( $row = mysql_fetch_assoc($result) ) {
-                $returndata[] = $row ;
-            }
-        }
-        mysql_free_result($result);
-        // 没有查询结果返回false
-        if( empty($returndata) ) {
-            return false ;
-        }else{
-            return $returndata;
-        } 
-    }
-
-    // 修改表数据
-    public function save() {
-        // 定义修改query语句
-        $updateString = $this->full_query_string('UPDATE') ;
-        $result = $this->query($updateString);
-        if( $result ) {
-            // 如果修改正确返回影响行数
-            return mysql_affected_rows();
-        }else{
-            return false;
-        }
-        
-    }
-
-    // 删除表数据
-    public function delete($id = null) {
-
-        // 通过id删除表数据
-        $result ;
-        if( is_numeric($id) ) {
-            $result = $this->query("DELETE * FROM {$this->_mysqlinfo['DB_TABLE']} WHERE id='{$id}'");
-        }else{ 
-
-            //定义删除query语句
-            $deleteString = $this->full_query_string('DELETE') ;
-            $result = $this->query($deleteString) ;
-        }
-        if( $result ) {
-            return mysql_affected_rows();
-        }else{
-            return false;
-        }
-
-    } 
-
-    // 添加表数据
-    public function add($data = null) {
-
-        //过滤data数据
-        $filterData ;
-        if( !is_null($data) ) {
-            // 数据不为空则过滤数据
-            $HEAD        = $this->data($data);
-            $filterData  = $HEAD->_sql['dat'];
-        }
-        $filterData = isset($filterData) ? $filterData : $this->_sql['dat'];
-        $queryString = "INSERT INTO {$this->_mysqlinfo['DB_TABLE']} (".implode(',',array_keys($filterData))." ) VALUES ('".implode("','",$filterData)."')";
-        $result      = $this->query($queryString) ;
-        if( !$result ) return false;
-        // 获取刚输入数据的ID
-        $insertID    = mysql_insert_id() ;
-        if (is_int($insertID) && $insertID ) {
-            return $insertID;
-        }else{
-            return $result;
-        }
-    }
-
     // 组合query 语句查询
     public function full_query_string( $handle ) {
-
         // 定义返回查询字符串
         $returnString ;
-        $table    = $this->_mysqlinfo['DB_TABLE'];
+        $table    = $this->dbTable;
         // 字段数组
         $sql      = $this->_sql;
         switch ($handle) {
@@ -280,7 +166,6 @@ class Model {
         }
         return $returnString;
     }
-
     // 整合查询条件字符串
     public function full_query_where(&$string) {
         $cond = $this->_sql;
@@ -321,7 +206,6 @@ class Model {
                         default :
                             $string .= "WHERE {$fieldArr[0]} {$key} '{$val}' ";
                         }
-
                     }
                     break;
                 default:
@@ -355,7 +239,7 @@ class Model {
         }
         // 组查询GROUP BY
         if( !empty($cond['gro'])) {
-            $string = "SELECT ".$cond['fid']." FROM {$this->_mysqlinfo['DB_TABLE']} GROUP BY ".$cond['gro']." ";
+            $string = "SELECT ".$cond['fid']." FROM {$this->dbTable} GROUP BY ".$cond['gro']." ";
             if($h = $cond['hav']) {
                 // having条件与group 组合使用
                 list($havingCdiKey ,$havingCdiVal) = each($cond['hav']);
@@ -378,48 +262,27 @@ class Model {
             }
         }
     } 
-    // 获取数据库表列表
-    public function getTables() {
-        $tables = mysql_query("SHOW TABLES" ,$this->conn);
-        while ($row = mysql_fetch_array($tables)) {
-            $this->dbTableList[] = $row[0];
-        }
-        mysql_free_result($tables);
+    public function execute( $id = null ) {
+        // 定义返回结果数组
+        $result = $this->curd->R($id);
+        return $result;
     }
-
-    // 随用户输入数据进行mysql_escape_string过滤
-    public function mysql_filter($fd) {
-        if( is_string($fd) ) return mysql_real_escape_string($fd);
-        if( is_numeric($fd) ) return $fd;
-        if( is_array($fd) ) {
-            $fd = $this->filterArray($fd);
-        }
-        return $fd;
+    // 修改表数据
+    public function save() {
+        // 定义修改query语句
+        $result = $this->curd->U();
+        return $result;
     }
-    // 遍历过滤数组
-    public function filterArray($data) {
-        foreach($data as $key => $val) {
-            if( is_string($val)) {
-                $data[$key] = mysql_real_escape_string($val);
-            }
-            if( is_numeric($val) ) {
-                $data[$key] = $val;
-            }
-            if( is_array($val) ) {
-                $this->filterArray($val);
-            }
-        }
-        return $data;
+    // 删除表数据
+    public function delete($id = null) {
+        // 通过id删除表数据
+        $result = $this->curd->D($id);
+        return $result;
+    } 
+    // 添加表数据
+    public function add($data = null) {
+        //过滤data数据
+        $result = $this->curd->C($data);
+        return $result;
     }
-
-    // 执行数据库操作
-    public function query($quer) {
-        /*
-         *die($quer);
-         */
-        $results = mysql_query($quer , $this->conn);
-        if( !$results ) trigger_error(mysql_error(),E_USER_ERROR);
-        return $results;
-    }
-
 } 

@@ -9,6 +9,7 @@ return array(
     "DB_PASSWORD"              =>  "" , // 　数据库密码
     "DB_NAME"                  =>  "" , //  数据库名
     "MYSQL_CONNECT_ENCODING"   =>  "utf8" , // 数据库链接编码
+    "CURD_TYPE"                =>  "mysql", // curd处理类型mysql,pdo两种，默认是pdo
     "DEFAULT_INDEX"            =>  "Index", // 默认控制器
     "DEFAULT_HANDLE"           =>  "index", // 默认操作方法
     "EXCEPTION_FILE"           =>  __NOTEPHP__."/Tpl/exception.tpl",// 默认异常文件
