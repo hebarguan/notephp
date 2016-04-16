@@ -91,17 +91,6 @@ class Controller {
         echo $str;
         exit;
     }
-    // 错误页面
-    protected function error ($message = '') {
-        // 错误提示
-        $errorMsg = $message ? $message : C('DEFAULT_ERROR_MESSAGE');
-        // 错误模板
-        $errorFile = C('ERROR_FILE');
-        $errData  = array("errMsgVar" => $errorMsg);
-        $this->view->set($errData);
-        $this->asHtml($errorFile);
-        return true;
-    }
     // 重定向处理
     protected function redirect ($url ,$msg = '',$time = 0) {
         if ($msg) {
