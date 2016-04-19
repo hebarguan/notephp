@@ -1656,3 +1656,369 @@
 [2016-04-16 23:44:37][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
 [2016-04-16 23:46:59][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
 [2016-04-16 23:47:04][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-16 23:53:14][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-16 23:53:15][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-17 00:27:10][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-17 11:39:38][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-17 11:42:30][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-17 11:59:35][ERROR][1]:Class 'CacheController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-17 14:13:16][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-17 15:28:54][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-17 16:43:48][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-17 18:00:32][ERROR][2]:Missing argument 6 for Mysql::__construct(), called in /home/hebar/notephp/notephp/Core/Model.class.php on line 79 and definedin File/home/hebar/notephp/notephp/Core/Mysql.class.php line 15
+[2016-04-17 18:02:07][ERROR][2]:Missing argument 6 for Mysql::__construct(), called in /home/hebar/notephp/notephp/Core/Model.class.php on line 79 and definedin File/home/hebar/notephp/notephp/Core/Mysql.class.php line 15
+[2016-04-17 18:02:10][ERROR][2]:Missing argument 6 for Mysql::__construct(), called in /home/hebar/notephp/notephp/Core/Model.class.php on line 79 and definedin File/home/hebar/notephp/notephp/Core/Mysql.class.php line 15
+[2016-04-17 18:12:58][ERROR][2]:Missing argument 6 for Mysql::__construct(), called in /home/hebar/notephp/notephp/Core/Model.class.php on line 79 and definedin File/home/hebar/notephp/notephp/Core/Mysql.class.php line 15
+[2016-04-17 18:17:17][ERROR][2]:Missing argument 6 for Mysql::__construct(), called in /home/hebar/notephp/notephp/Core/Model.class.php on line 79 and definedin File/home/hebar/notephp/notephp/Core/Mysql.class.php line 15
+[2016-04-17 19:12:03][ERROR][2]:Missing argument 6 for Mysql::__construct(), called in /home/hebar/notephp/notephp/Core/Model.class.php on line 79 and definedin File/home/hebar/notephp/notephp/Core/Mysql.class.php line 15
+[2016-04-17 19:12:36][ERROR][2]:Missing argument 6 for Mysql::__construct(), called in /home/hebar/notephp/notephp/Core/Model.class.php on line 79 and definedin File/home/hebar/notephp/notephp/Core/Mysql.class.php line 15
+[2016-04-17 19:12:37][ERROR][2]:Missing argument 6 for Mysql::__construct(), called in /home/hebar/notephp/notephp/Core/Model.class.php on line 79 and definedin File/home/hebar/notephp/notephp/Core/Mysql.class.php line 15
+[2016-04-17 20:23:17][ERROR][2]:Missing argument 6 for Mysql::__construct(), called in /home/hebar/notephp/notephp/Core/Model.class.php on line 79 and definedin File/home/hebar/notephp/notephp/Core/Mysql.class.php line 15
+[2016-04-17 20:23:58][ERROR][2]:Missing argument 6 for Mysql::__construct(), called in /home/hebar/notephp/notephp/Core/Model.class.php on line 79 and definedin File/home/hebar/notephp/notephp/Core/Mysql.class.php line 15
+[2016-04-17 20:24:01][ERROR][2]:Missing argument 6 for Mysql::__construct(), called in /home/hebar/notephp/notephp/Core/Model.class.php on line 79 and definedin File/home/hebar/notephp/notephp/Core/Mysql.class.php line 15
+[2016-04-17 21:34:44][ERROR][2]:Missing argument 6 for Mysql::__construct(), called in /home/hebar/notephp/notephp/Core/Model.class.php on line 79 and definedin File/home/hebar/notephp/notephp/Core/Mysql.class.php line 15
+[2016-04-17 21:35:25][ERROR][2]:Missing argument 6 for Mysql::__construct(), called in /home/hebar/notephp/notephp/Core/Model.class.php on line 79 and definedin File/home/hebar/notephp/notephp/Core/Mysql.class.php line 15
+[2016-04-17 21:35:27][ERROR][2]:Missing argument 6 for Mysql::__construct(), called in /home/hebar/notephp/notephp/Core/Model.class.php on line 79 and definedin File/home/hebar/notephp/notephp/Core/Mysql.class.php line 15
+[2016-04-18 14:13:50][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-18 15:24:58][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-18 15:52:55][ERROR][1]:Class 'MuieblackcatController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-18 16:36:12][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-18 17:47:44][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-18 18:59:09][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-18 19:14:27][ERROR][2]:mysqli_fetch_array() expects parameter 1 to be mysqli_result, integer givenin File/home/hebar/notephp/notephp/Core/Mysql.class.php line 136
+[2016-04-18 19:14:27][ERROR][2]:mysqli_fetch_array() expects parameter 1 to be mysqli_result, integer givenin File/home/hebar/notephp/notephp/Core/Mysql.class.php line 136
+[2016-04-18 19:15:42][ERROR][256]:找不到数据库表in File/home/hebar/notephp/notephp/Core/Model.class.php line 73
+[2016-04-18 19:15:42][ERROR][256]:找不到数据库表in File/home/hebar/notephp/notephp/Core/Model.class.php line 73
+[2016-04-18 19:22:12][ERROR][2]:mysqli_real_escape_string() expects exactly 2 parameters, 1 givenin File/home/hebar/notephp/notephp/Core/Mysql.class.php line 102
+[2016-04-18 19:22:12][ERROR][2]:mysqli_real_escape_string() expects exactly 2 parameters, 1 givenin File/home/hebar/notephp/notephp/Core/Mysql.class.php line 102
+[2016-04-18 19:23:44][ERROR][2]:mysql_free_result() expects parameter 1 to be resource, object givenin File/home/hebar/notephp/notephp/Core/Mysql.class.php line 76
+[2016-04-18 19:23:44][ERROR][2]:mysql_free_result() expects parameter 1 to be resource, object givenin File/home/hebar/notephp/notephp/Core/Mysql.class.php line 76
+[2016-04-18 19:24:08][ERROR][256]:操作方法out不存在，类IndexControllerin File/home/hebar/notephp/notephp/Core/Controller.class.php line 110
+[2016-04-18 19:24:08][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-18 19:24:18][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-18 19:24:39][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-18 19:25:32][ERROR][256]:找不到数据库表in File/home/hebar/notephp/notephp/Core/Model.class.php line 73
+[2016-04-18 19:25:32][ERROR][256]:找不到数据库表in File/home/hebar/notephp/notephp/Core/Model.class.php line 73
+[2016-04-18 19:25:58][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-18 19:27:48][ERROR][256]:找不到数据库表in File/home/hebar/notephp/notephp/Core/Model.class.php line 73
+[2016-04-18 19:27:48][ERROR][256]:找不到数据库表in File/home/hebar/notephp/notephp/Core/Model.class.php line 73
+[2016-04-18 19:29:22][ERROR][256]:找不到数据库表in File/home/hebar/notephp/notephp/Core/Model.class.php line 73
+[2016-04-18 19:29:22][ERROR][256]:找不到数据库表in File/home/hebar/notephp/notephp/Core/Model.class.php line 73
+[2016-04-18 19:29:23][ERROR][256]:找不到数据库表in File/home/hebar/notephp/notephp/Core/Model.class.php line 73
+[2016-04-18 19:29:23][ERROR][256]:找不到数据库表in File/home/hebar/notephp/notephp/Core/Model.class.php line 73
+[2016-04-18 19:34:11][ERROR][1]:Call to undefined method mysqli_result::fetch()in File/home/hebar/notephp/notephp/Core/Mysql.class.php line 136
+[2016-04-18 19:34:11][ERROR][1]:Call to undefined method mysqli_result::fetch()in File/home/hebar/notephp/notephp/Core/Mysql.class.php line 136
+[2016-04-18 19:43:16][ERROR][2]:mysqli_result::fetch_array() expects parameter 1 to be long, string givenin File/home/hebar/notephp/notephp/Core/Mysql.class.php line 136
+[2016-04-18 19:43:16][ERROR][2]:mysqli_result::fetch_array() expects parameter 1 to be long, string givenin File/home/hebar/notephp/notephp/Core/Mysql.class.php line 136
+[2016-04-18 19:43:32][ERROR][2]:mysqli_result::fetch_array() expects parameter 1 to be long, string givenin File/home/hebar/notephp/notephp/Core/Mysql.class.php line 136
+[2016-04-18 19:43:32][ERROR][2]:mysqli_result::fetch_array() expects parameter 1 to be long, string givenin File/home/hebar/notephp/notephp/Core/Mysql.class.php line 136
+[2016-04-18 19:43:34][ERROR][2]:mysqli_result::fetch_array() expects parameter 1 to be long, string givenin File/home/hebar/notephp/notephp/Core/Mysql.class.php line 136
+[2016-04-18 19:43:34][ERROR][2]:mysqli_result::fetch_array() expects parameter 1 to be long, string givenin File/home/hebar/notephp/notephp/Core/Mysql.class.php line 136
+[2016-04-18 19:46:13][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-18 19:46:51][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-18 19:47:37][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-18 19:47:39][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-18 19:47:52][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-18 19:49:44][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-18 19:50:33][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-18 19:50:35][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-18 19:53:32][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-18 19:53:33][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-18 19:55:20][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-18 19:55:21][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-18 19:55:22][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-18 19:55:31][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-18 19:56:31][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-18 19:56:50][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-18 20:01:44][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-18 20:10:22][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-18 20:13:22][ERROR][1]:Class 'CacheController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-18 20:17:17][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-18 20:17:18][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-18 20:18:06][ERROR][2]:mysqli_affected_rows() expects exactly 1 parameter, 0 givenin File/home/hebar/notephp/notephp/Core/Mysql.class.php line 95
+[2016-04-18 20:18:06][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-18 20:19:03][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-18 20:19:18][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-18 20:19:57][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-18 20:20:32][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-18 20:26:51][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-18 20:26:54][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-18 20:27:13][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-18 21:00:06][ERROR][1]:Call to a member function fetch_assoc() on a non-objectin File/home/hebar/notephp/notephp/Core/Mysql.class.php line 74
+[2016-04-18 21:00:06][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-18 21:01:20][ERROR][1]:Call to a member function fetch() on a non-objectin File/home/hebar/notephp/notephp/Core/Mysql.class.php line 74
+[2016-04-18 21:01:20][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-18 21:01:40][ERROR][2]:mysqli_free_result() expects parameter 1 to be mysqli_result, boolean givenin File/home/hebar/notephp/notephp/Core/Mysql.class.php line 86
+[2016-04-18 21:01:40][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-18 21:02:21][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-18 21:02:41][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-18 21:07:12][ERROR][2]:mysqli_stmt::bind_result(): Number of bind variables doesn't match number of fields in prepared statementin File/home/hebar/notephp/notephp/Core/Mysql.class.php line 74
+[2016-04-18 21:07:12][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-18 21:08:12][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-18 21:08:58][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-18 21:09:24][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-18 21:10:16][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-18 21:10:18][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-18 21:13:13][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-18 21:14:55][ERROR][2]:mysqli_stmt::bind_param(): Number of variables doesn't match number of parameters in prepared statementin File/home/hebar/notephp/notephp/Core/Mysql.class.php line 72
+[2016-04-18 21:14:55][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-18 21:21:56][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-18 21:59:32][ERROR][1]:Class 'ManagerController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-18 22:15:56][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-18 22:33:06][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-18 23:44:58][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-19 00:56:09][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-19 02:07:40][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-19 12:50:06][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-19 13:22:12][ERROR][1]:Class 'CacheController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-19 14:01:17][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-19 15:12:39][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-19 15:53:27][ERROR][1]:Class 'CacheController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-19 16:20:06][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-19 16:23:57][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-19 17:35:14][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-19 18:33:24][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-19 19:47:11][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-19 21:00:18][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-19 22:14:44][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-19 22:24:59][ERROR][1]:Class 'CacheController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-19 22:34:07][ERROR][2]:PDO::__construct() expects at most 4 parameters, 6 givenin File/home/hebar/notephp/notephp/Core/Model.class.php line 85
+[2016-04-19 22:34:07][ERROR][2]:PDO::__construct() expects at most 4 parameters, 6 givenin File/home/hebar/notephp/notephp/Core/Model.class.php line 85
+[2016-04-19 22:42:24][ERROR][1]:Class 'PhpDataObject' not foundin File/home/hebar/notephp/notephp/Core/Model.class.php line 84
+[2016-04-19 22:42:24][ERROR][1]:Class 'PhpDataObject' not foundin File/home/hebar/notephp/notephp/Core/Model.class.php line 84
+[2016-04-19 22:43:16][ERROR][1]:Undefined class constant 'ARR_PERSISTENT'in File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 23
+[2016-04-19 22:43:16][ERROR][1]:Undefined class constant 'ARR_PERSISTENT'in File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 23
+[2016-04-19 22:46:12][ERROR][1]:Undefined class constant 'ARR_PERSISTENT'in File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 23
+[2016-04-19 22:46:12][ERROR][1]:Undefined class constant 'ARR_PERSISTENT'in File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 23
+[2016-04-19 22:46:13][ERROR][1]:Undefined class constant 'ARR_PERSISTENT'in File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 23
+[2016-04-19 22:46:13][ERROR][1]:Undefined class constant 'ARR_PERSISTENT'in File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 23
+[2016-04-19 22:49:54][ERROR][1]:Undefined class constant 'ARR_PERSISTENT'in File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 28
+[2016-04-19 22:49:54][ERROR][1]:Undefined class constant 'ARR_PERSISTENT'in File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 28
+[2016-04-19 22:49:55][ERROR][1]:Undefined class constant 'ARR_PERSISTENT'in File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 28
+[2016-04-19 22:49:55][ERROR][1]:Undefined class constant 'ARR_PERSISTENT'in File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 28
+[2016-04-19 22:49:56][ERROR][1]:Undefined class constant 'ARR_PERSISTENT'in File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 28
+[2016-04-19 22:49:56][ERROR][1]:Undefined class constant 'ARR_PERSISTENT'in File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 28
+[2016-04-19 22:53:47][ERROR][1]:Undefined class constant 'ARR_PERSISTENT'in File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 28
+[2016-04-19 22:53:47][ERROR][1]:Undefined class constant 'ARR_PERSISTENT'in File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 28
+[2016-04-19 22:54:31][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-19 23:11:08][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-19 23:11:09][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-19 23:11:10][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-19 23:11:11][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-19 23:12:52][ERROR][1]:Undefined class constant 'ARR_PERSISTENT'in File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 23
+[2016-04-19 23:12:52][ERROR][1]:Undefined class constant 'ARR_PERSISTENT'in File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 23
+[2016-04-19 23:13:15][ERROR][256]:could not find driverin File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 29
+[2016-04-19 23:13:15][ERROR][256]:could not find driverin File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 29
+[2016-04-19 23:16:03][ERROR][1]:Uncaught exception 'PDOException' with message 'could not find driver' in /home/hebar/notephp/notephp/Core/PhpDataObject.class.php:33
+Stack trace:
+#0 /home/hebar/notephp/notephp/Core/PhpDataObject.class.php(33): PDO->__construct(':dbname=notephp...', 'root', 'guan', Array)
+#1 /home/hebar/notephp/notephp/Core/Model.class.php(85): PhpDataObject->__construct(Object(Model), '', 'localhost', 'notephp', 'root', 'guan')
+#2 /home/hebar/notephp/notephp/Core/Model.class.php(68): Model->connect()
+#3 /home/hebar/notephp/notephp/Common/Function/functions.php(80): Model->__construct('session')
+#4 /home/hebar/notephp/notephp/Core/Driver/Session.class.php(26): M('session', false)
+#5 [internal function]: Session->open('/var/lib/php5', 'PHPSESSID')
+#6 /home/hebar/notephp/notephp/Core/Url.class.php(42): session_start()
+#7 /home/hebar/notephp/notephp/Core/Notephp.class.php(135): Url->__construct()
+#8 /home/hebar/notephp/notephp/Core/Notephp.class.php(59): NotePHP::AppRun()
+#9 /home/hebar/notephp/notephp/Tunnel.php(35): NotePHP::in File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 33
+[2016-04-19 23:16:03][ERROR][1]:Uncaught exception 'PDOException' with message 'could not find driver' in /home/hebar/notephp/notephp/Core/PhpDataObject.class.php:33
+Stack trace:
+#0 /home/hebar/notephp/notephp/Core/PhpDataObject.class.php(33): PDO->__construct(':dbname=notephp...', 'root', 'guan', Array)
+#1 /home/hebar/notephp/notephp/Core/Model.class.php(85): PhpDataObject->__construct(Object(Model), '', 'localhost', 'notephp', 'root', 'guan')
+#2 /home/hebar/notephp/notephp/Core/Model.class.php(68): Model->connect()
+#3 /home/hebar/notephp/notephp/Common/Function/functions.php(80): Model->__construct('session')
+#4 /home/hebar/notephp/notephp/Core/Driver/Session.class.php(26): M('session', false)
+#5 [internal function]: Session->open('/var/lib/php5', 'PHPSESSID')
+#6 /home/hebar/notephp/notephp/Core/Url.class.php(42): session_start()
+#7 /home/hebar/notephp/notephp/Core/Notephp.class.php(135): Url->__construct()
+#8 /home/hebar/notephp/notephp/Core/Notephp.class.php(59): NotePHP::AppRun()
+#9 /home/hebar/notephp/notephp/Tunnel.php(35): NotePHP::in File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 33
+[2016-04-19 23:21:31][ERROR][256]:could not find driverin File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 30
+[2016-04-19 23:21:31][ERROR][256]:could not find driverin File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 30
+[2016-04-19 23:26:55][ERROR][256]:could not find driverin File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 30
+[2016-04-19 23:28:53][ERROR][256]:could not find driverin File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 30
+[2016-04-19 23:28:53][ERROR][256]:could not find driverin File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 30
+[2016-04-19 23:28:54][ERROR][256]:could not find driverin File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 30
+[2016-04-19 23:28:54][ERROR][256]:could not find driverin File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 30
+[2016-04-19 23:29:19][ERROR][256]:could not find driverin File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 30
+[2016-04-19 23:29:19][ERROR][256]:could not find driverin File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 30
+[2016-04-19 23:29:23][ERROR][256]:could not find driverin File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 30
+[2016-04-19 23:29:23][ERROR][256]:could not find driverin File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 30
+[2016-04-19 23:29:25][ERROR][256]:could not find driverin File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 30
+[2016-04-19 23:29:25][ERROR][256]:could not find driverin File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 30
+[2016-04-19 23:29:28][ERROR][256]:could not find driverin File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 30
+[2016-04-19 23:29:28][ERROR][256]:could not find driverin File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 30
+[2016-04-19 23:35:33][ERROR][256]:could not find driverin File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 30
+[2016-04-19 23:35:33][ERROR][256]:could not find driverin File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 30
+[2016-04-19 23:35:34][ERROR][256]:could not find driverin File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 30
+[2016-04-19 23:35:34][ERROR][256]:could not find driverin File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 30
+[2016-04-19 23:35:58][ERROR][256]:could not find driverin File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 30
+[2016-04-19 23:35:58][ERROR][256]:could not find driverin File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 30
+[2016-04-19 23:36:31][ERROR][256]:could not find driverin File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 30
+[2016-04-19 23:36:31][ERROR][256]:could not find driverin File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 30
+[2016-04-19 23:36:31][ERROR][256]:could not find driverin File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 30
+[2016-04-19 23:36:32][ERROR][256]:could not find driverin File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 30
+[2016-04-19 23:37:04][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-19 23:43:38][ERROR][4]:syntax error, unexpected 'try' (T_TRY)in File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 28
+[2016-04-19 23:43:38][ERROR][4]:syntax error, unexpected 'try' (T_TRY)in File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 28
+[2016-04-19 23:44:18][ERROR][256]:找不到数据库表in File/home/hebar/notephp/notephp/Core/Model.class.php line 78
+[2016-04-19 23:44:18][ERROR][256]:找不到数据库表in File/home/hebar/notephp/notephp/Core/Model.class.php line 78
+[2016-04-19 23:45:43][ERROR][2]:in_array() expects parameter 2 to be array, null givenin File/home/hebar/notephp/notephp/Core/Model.class.php line 73
+[2016-04-19 23:45:43][ERROR][2]:in_array() expects parameter 2 to be array, null givenin File/home/hebar/notephp/notephp/Core/Model.class.php line 73
+[2016-04-19 23:46:23][ERROR][2]:in_array() expects parameter 2 to be array, null givenin File/home/hebar/notephp/notephp/Core/Model.class.php line 73
+[2016-04-19 23:46:23][ERROR][2]:in_array() expects parameter 2 to be array, null givenin File/home/hebar/notephp/notephp/Core/Model.class.php line 73
+[2016-04-19 23:49:35][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-19 23:51:22][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-19 23:51:23][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-19 23:51:39][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-19 23:51:41][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-19 23:51:42][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-19 23:51:50][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-19 23:52:10][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-19 23:55:54][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-19 23:56:36][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-19 23:58:49][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-20 00:01:25][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-20 00:01:40][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-20 00:01:41][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-20 00:02:27][ERROR][1]:Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1065 Query was empty' in /home/hebar/notephp/notephp/Core/PhpDataObject.class.php:112
+Stack trace:
+#0 /home/hebar/notephp/notephp/Core/PhpDataObject.class.php(112): PDO->query('')
+#1 /home/hebar/notephp/notephp/Core/PhpDataObject.class.php(68): PhpDataObject->query(NULL)
+#2 /home/hebar/notephp/notephp/Core/Model.class.php(309): PhpDataObject->C(NULL)
+#3 /home/hebar/notephp/Webapp/Home/Controller/IndexController.class.php(17): Model->add()
+#4 [internal function]: IndexController->dout()
+#5 /home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php(39): call_user_func(Array)
+#6 /home/hebar/notephp/notephp/Core/Url.class.php(99): ControllerDriver::work('Home', 'index', 'dout')
+#7 /home/hebar/notephp/notephp/Core/Notephp.class.php(136): Url->start()
+#8 /home/hebar/notephp/notephp/Core/Notephp.class.php(59): NotePHP::AppRun()
+#9 /home/hebar/notephp/notephp/Tunnel.php(35): NotePHP::initialize()
+#10 /home/hebarin File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 112
+[2016-04-20 00:02:27][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-20 00:06:09][ERROR][1]:Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1065 Query was empty' in /home/hebar/notephp/notephp/Core/PhpDataObject.class.php:112
+Stack trace:
+#0 /home/hebar/notephp/notephp/Core/PhpDataObject.class.php(112): PDO->query('')
+#1 /home/hebar/notephp/notephp/Core/PhpDataObject.class.php(68): PhpDataObject->query(NULL)
+#2 /home/hebar/notephp/notephp/Core/Model.class.php(309): PhpDataObject->C(NULL)
+#3 /home/hebar/notephp/Webapp/Home/Controller/IndexController.class.php(17): Model->add()
+#4 [internal function]: IndexController->dout()
+#5 /home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php(39): call_user_func(Array)
+#6 /home/hebar/notephp/notephp/Core/Url.class.php(99): ControllerDriver::work('Home', 'index', 'dout')
+#7 /home/hebar/notephp/notephp/Core/Notephp.class.php(136): Url->start()
+#8 /home/hebar/notephp/notephp/Core/Notephp.class.php(59): NotePHP::AppRun()
+#9 /home/hebar/notephp/notephp/Tunnel.php(35): NotePHP::initialize()
+#10 /home/hebarin File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 112
+[2016-04-20 00:06:09][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-20 00:09:44][ERROR][1]:Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1065 Query was empty' in /home/hebar/notephp/notephp/Core/PhpDataObject.class.php:112
+Stack trace:
+#0 /home/hebar/notephp/notephp/Core/PhpDataObject.class.php(112): PDO->query('')
+#1 /home/hebar/notephp/notephp/Core/PhpDataObject.class.php(68): PhpDataObject->query(NULL)
+#2 /home/hebar/notephp/notephp/Core/Model.class.php(309): PhpDataObject->C(NULL)
+#3 /home/hebar/notephp/Webapp/Home/Controller/IndexController.class.php(17): Model->add()
+#4 [internal function]: IndexController->dout()
+#5 /home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php(39): call_user_func(Array)
+#6 /home/hebar/notephp/notephp/Core/Url.class.php(99): ControllerDriver::work('Home', 'index', 'dout')
+#7 /home/hebar/notephp/notephp/Core/Notephp.class.php(136): Url->start()
+#8 /home/hebar/notephp/notephp/Core/Notephp.class.php(59): NotePHP::AppRun()
+#9 /home/hebar/notephp/notephp/Tunnel.php(35): NotePHP::initialize()
+#10 /home/hebarin File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 112
+[2016-04-20 00:09:44][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-20 00:09:45][ERROR][1]:Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1065 Query was empty' in /home/hebar/notephp/notephp/Core/PhpDataObject.class.php:112
+Stack trace:
+#0 /home/hebar/notephp/notephp/Core/PhpDataObject.class.php(112): PDO->query('')
+#1 /home/hebar/notephp/notephp/Core/PhpDataObject.class.php(68): PhpDataObject->query(NULL)
+#2 /home/hebar/notephp/notephp/Core/Model.class.php(309): PhpDataObject->C(NULL)
+#3 /home/hebar/notephp/Webapp/Home/Controller/IndexController.class.php(17): Model->add()
+#4 [internal function]: IndexController->dout()
+#5 /home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php(39): call_user_func(Array)
+#6 /home/hebar/notephp/notephp/Core/Url.class.php(99): ControllerDriver::work('Home', 'index', 'dout')
+#7 /home/hebar/notephp/notephp/Core/Notephp.class.php(136): Url->start()
+#8 /home/hebar/notephp/notephp/Core/Notephp.class.php(59): NotePHP::AppRun()
+#9 /home/hebar/notephp/notephp/Tunnel.php(35): NotePHP::initialize()
+#10 /home/hebarin File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 112
+[2016-04-20 00:09:45][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-20 00:11:40][ERROR][1]:Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1065 Query was empty' in /home/hebar/notephp/notephp/Core/PhpDataObject.class.php:112
+Stack trace:
+#0 /home/hebar/notephp/notephp/Core/PhpDataObject.class.php(112): PDO->query('')
+#1 /home/hebar/notephp/notephp/Core/PhpDataObject.class.php(68): PhpDataObject->query(NULL)
+#2 /home/hebar/notephp/notephp/Core/Model.class.php(309): PhpDataObject->C(NULL)
+#3 /home/hebar/notephp/Webapp/Home/Controller/IndexController.class.php(17): Model->add()
+#4 [internal function]: IndexController->dout()
+#5 /home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php(39): call_user_func(Array)
+#6 /home/hebar/notephp/notephp/Core/Url.class.php(99): ControllerDriver::work('Home', 'index', 'dout')
+#7 /home/hebar/notephp/notephp/Core/Notephp.class.php(136): Url->start()
+#8 /home/hebar/notephp/notephp/Core/Notephp.class.php(59): NotePHP::AppRun()
+#9 /home/hebar/notephp/notephp/Tunnel.php(35): NotePHP::initialize()
+#10 /home/hebarin File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 112
+[2016-04-20 00:11:40][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-20 00:13:21][ERROR][1]:Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1065 Query was empty' in /home/hebar/notephp/notephp/Core/PhpDataObject.class.php:112
+Stack trace:
+#0 /home/hebar/notephp/notephp/Core/PhpDataObject.class.php(112): PDO->query('')
+#1 /home/hebar/notephp/notephp/Core/PhpDataObject.class.php(68): PhpDataObject->query(NULL)
+#2 /home/hebar/notephp/notephp/Core/Model.class.php(309): PhpDataObject->C(NULL)
+#3 /home/hebar/notephp/Webapp/Home/Controller/IndexController.class.php(17): Model->add()
+#4 [internal function]: IndexController->dout()
+#5 /home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php(39): call_user_func(Array)
+#6 /home/hebar/notephp/notephp/Core/Url.class.php(99): ControllerDriver::work('Home', 'index', 'dout')
+#7 /home/hebar/notephp/notephp/Core/Notephp.class.php(136): Url->start()
+#8 /home/hebar/notephp/notephp/Core/Notephp.class.php(59): NotePHP::AppRun()
+#9 /home/hebar/notephp/notephp/Tunnel.php(35): NotePHP::initialize()
+#10 /home/hebarin File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 112
+[2016-04-20 00:13:21][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-20 00:13:22][ERROR][1]:Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1065 Query was empty' in /home/hebar/notephp/notephp/Core/PhpDataObject.class.php:112
+Stack trace:
+#0 /home/hebar/notephp/notephp/Core/PhpDataObject.class.php(112): PDO->query('')
+#1 /home/hebar/notephp/notephp/Core/PhpDataObject.class.php(68): PhpDataObject->query(NULL)
+#2 /home/hebar/notephp/notephp/Core/Model.class.php(309): PhpDataObject->C(NULL)
+#3 /home/hebar/notephp/Webapp/Home/Controller/IndexController.class.php(17): Model->add()
+#4 [internal function]: IndexController->dout()
+#5 /home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php(39): call_user_func(Array)
+#6 /home/hebar/notephp/notephp/Core/Url.class.php(99): ControllerDriver::work('Home', 'index', 'dout')
+#7 /home/hebar/notephp/notephp/Core/Notephp.class.php(136): Url->start()
+#8 /home/hebar/notephp/notephp/Core/Notephp.class.php(59): NotePHP::AppRun()
+#9 /home/hebar/notephp/notephp/Tunnel.php(35): NotePHP::initialize()
+#10 /home/hebarin File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 112
+[2016-04-20 00:13:22][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-20 00:15:09][ERROR][1]:Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1065 Query was empty' in /home/hebar/notephp/notephp/Core/PhpDataObject.class.php:113
+Stack trace:
+#0 /home/hebar/notephp/notephp/Core/PhpDataObject.class.php(113): PDO->query('')
+#1 /home/hebar/notephp/notephp/Core/PhpDataObject.class.php(69): PhpDataObject->query(NULL)
+#2 /home/hebar/notephp/notephp/Core/Model.class.php(309): PhpDataObject->C(NULL)
+#3 /home/hebar/notephp/Webapp/Home/Controller/IndexController.class.php(17): Model->add()
+#4 [internal function]: IndexController->dout()
+#5 /home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php(39): call_user_func(Array)
+#6 /home/hebar/notephp/notephp/Core/Url.class.php(99): ControllerDriver::work('Home', 'index', 'dout')
+#7 /home/hebar/notephp/notephp/Core/Notephp.class.php(136): Url->start()
+#8 /home/hebar/notephp/notephp/Core/Notephp.class.php(59): NotePHP::AppRun()
+#9 /home/hebar/notephp/notephp/Tunnel.php(35): NotePHP::initialize()
+#10 /home/hebarin File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 113
+[2016-04-20 00:15:09][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-20 00:15:10][ERROR][1]:Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1065 Query was empty' in /home/hebar/notephp/notephp/Core/PhpDataObject.class.php:113
+Stack trace:
+#0 /home/hebar/notephp/notephp/Core/PhpDataObject.class.php(113): PDO->query('')
+#1 /home/hebar/notephp/notephp/Core/PhpDataObject.class.php(69): PhpDataObject->query(NULL)
+#2 /home/hebar/notephp/notephp/Core/Model.class.php(309): PhpDataObject->C(NULL)
+#3 /home/hebar/notephp/Webapp/Home/Controller/IndexController.class.php(17): Model->add()
+#4 [internal function]: IndexController->dout()
+#5 /home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php(39): call_user_func(Array)
+#6 /home/hebar/notephp/notephp/Core/Url.class.php(99): ControllerDriver::work('Home', 'index', 'dout')
+#7 /home/hebar/notephp/notephp/Core/Notephp.class.php(136): Url->start()
+#8 /home/hebar/notephp/notephp/Core/Notephp.class.php(59): NotePHP::AppRun()
+#9 /home/hebar/notephp/notephp/Tunnel.php(35): NotePHP::initialize()
+#10 /home/hebarin File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 113
+[2016-04-20 00:15:10][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-20 00:18:23][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-20 00:19:28][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-20 00:19:30][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-20 00:20:12][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-20 00:22:42][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-20 00:22:43][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-20 00:33:38][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-20 00:38:57][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-20 00:39:40][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-20 00:40:41][ERROR][4]:syntax error, unexpected ':'in File/home/hebar/notephp/notephp/Core/Model.class.php line 171
+[2016-04-20 00:40:41][ERROR][4]:syntax error, unexpected ':'in File/home/hebar/notephp/notephp/Core/Model.class.php line 171
+[2016-04-20 00:41:48][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-20 00:41:52][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-20 00:42:15][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-20 00:43:41][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28

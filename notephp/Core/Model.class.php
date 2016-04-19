@@ -44,8 +44,15 @@ class Model {
     public $dbTableList = array();
     // 数据库链接柄 用户自定义数据库操作
     public $curd = false;
-    // 数据库CURD操作类型，默认是PDO
+    // 数据库CURD操作类型，默认是MYSQL
     public $curdType = null;
+    // 是否只是执行查询，为true只返回查询影响行数
+    public $dbCheck    = false;
+    // 是否开启是否开启事务滚动
+    public $transaction = false;
+    // 是否开启预处理
+    public $pretreatment = false;
+    // 是否开启持久链接
     // 定义构造函数
     public function __construct( $tab = null ) {
         // 初始化数据库信息
@@ -53,8 +60,10 @@ class Model {
         $this->mysqlInfo['ROOT']     = C('DB_USER');
         $this->mysqlInfo['PASSWORD'] = C('DB_PASSWORD');
         $this->mysqlInfo['DB_NAME']  = C('DB_NAME');
+        $this->mysqlInfo['DB_TYPE']  = C('DB_TYPE');
         $this->connectEncoding       = C('MYSQL_CONNECT_ENCODING');
         $this->curdType              = C('CURD_TYPE');
+        $this->dbPersistentLink      = C('DB_PERSISTENT_LINK');
         // 开始数据库连接
         $this->connect();
         // 获取调用该基类的子类
@@ -66,16 +75,13 @@ class Model {
         }elseif( $callModel !== "Model" AND !empty($callModel) ) {
             $this->dbTable = strtolower(explode("Model",$callModel)[0]);
         }else{
-            /*
-             *var_dump(strtolower(explode("Model",$callModel)[0]));
-             */
             trigger_error("找不到数据库表",E_USER_ERROR);
         }
     }
     // 数据库链接函数
     private function connect() {
         $curdType = ucfirst($this->curdType);
-        $this->curd = new $curdType($this, $this->mysqlInfo['HOSTS'], 
+        $this->curd = new $curdType($this, $this->mysqlInfo['DB_TYPE'], $this->mysqlInfo['HOSTS'], 
             $this->mysqlInfo['DB_NAME'], $this->mysqlInfo['ROOT'], $this->mysqlInfo['PASSWORD']);
     }
     // 字段选择过滤
@@ -137,17 +143,39 @@ class Model {
         $this->_sql['hav'] = $this->curd->mysqlFilter($hstr);
         return $this;
     }
+    // 是否只执行查询
+    public function check ($val = false) 
+    {
+        $this->dbCheck = $val;
+        return $this;
+    }
+    // 是否开启事务滚动
+    public function trans ($trans = false) 
+    {
+        $this->transaction = $trans;
+        return $this;
+    }
+    // 是否开启预处理
+    public function stmt ($statement = false) 
+    {
+        $this->pretreatment = $statement;
+        return $this;
+    }
     // 组合query 语句查询
-    public function full_query_string( $handle ) {
+    public function fullQueryString( $handle ) {
         // 定义返回查询字符串
         $returnString ;
         $table    = $this->dbTable;
         // 字段数组
         $sql      = $this->_sql;
         switch ($handle) {
+        case "INSERT":
+            $returnString = "INSERT INTO {$table} 
+            (".implode(',',array_keys($sql['dat']))." ) VALUES ('".implode("','",$sql['dat'])."')";
+            break;
         case "SELECT": // 查询模式
             $returnString = "SELECT {$sql['fid']} FROM {$table} ";
-            $this->full_query_where( $returnString );
+            $this->fullQueryWhere( $returnString );
             break;
         case "UPDATE": // 修改模式
             $returnString = "UPDATE {$table} SET ";
@@ -156,18 +184,18 @@ class Model {
                 $setData[] = $key."='{$val}'";
             }
             $returnString .= implode(',',$setData)." ";
-            $this->full_query_where( $returnString );
+            $this->fullQueryWhere( $returnString );
             break;
         case "DELETE": //删除模式
             $returnString = "DELETE FROM {$table} ";
-            $this->full_query_where( $returnString );
+            $this->fullQueryWhere( $returnString );
             break;
             
         }
         return $returnString;
     }
     // 整合查询条件字符串
-    public function full_query_where(&$string) {
+    public function fullQueryWhere(&$string) {
         $cond = $this->_sql;
         if(!empty($w = $cond['wre'])) {
             if(is_string($w)) {
