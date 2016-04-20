@@ -67,7 +67,7 @@ class PhpDataObject
         }
         $queryString = $this->modeInstance->fullQueryString('INSERT');
         $stmt = $this->query($queryString);
-        if ($insertId = $this->dbLink->lastInsertId) 
+        if ($insertId = $this->dbLink->lastInsertId())
         {
             return $insertId;
         } else {

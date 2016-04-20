@@ -52,6 +52,8 @@ class Model {
     public $transaction = false;
     // 是否开启预处理
     public $pretreatment = false;
+    // 特殊字段查询符号
+    public $specialQuerySymbol = array('NOT IN', 'IN', 'BETWEEN', 'NOT BETWEEN');
     // 是否开启持久链接
     // 定义构造函数
     public function __construct( $tab = null ) {
@@ -163,132 +165,105 @@ class Model {
     }
     // 组合query 语句查询
     public function fullQueryString( $handle ) {
-        // 定义返回查询字符串
-        $returnString ;
-        $table    = $this->dbTable;
-        // 字段数组
-        $sql      = $this->_sql;
+        // 要查询的数据表
+        $table = $this->dbTable;
+        $dataCondition = $this->_sql['dat'];
+        $fieldsCondition = $this->_sql['fid'];
         switch ($handle) {
         case "INSERT":
-            $returnString = "INSERT INTO {$table} 
-            (".implode(',',array_keys($sql['dat']))." ) VALUES ('".implode("','",$sql['dat'])."')";
+            $returnString = "INSERT INTO $table 
+            (".implode(',',array_keys($dataCondition))." ) VALUES ('".implode("','",$dataCondition)."')";
             break;
         case "SELECT": // 查询模式
-            $returnString = "SELECT {$sql['fid']} FROM {$table} ";
-            $this->fullQueryWhere( $returnString );
+            $returnString = "SELECT $fieldsCondition FROM $table ";
+            $returnString.= $this->fullQueryWhere( $returnString );
             break;
         case "UPDATE": // 修改模式
-            $returnString = "UPDATE {$table} SET ";
-            $setData = array();
-            foreach($sql['dat'] as $key => $val) {
-                $setData[] = $key."='{$val}'";
+            $returnString = "UPDATE $table SET ";
+            foreach($dataCondition as $key => $val) {
+                $setData[] = $key."='$val'";
             }
             $returnString .= implode(',',$setData)." ";
-            $this->fullQueryWhere( $returnString );
+            $returnString .= $this->fullQueryWhere( $returnString );
             break;
         case "DELETE": //删除模式
             $returnString = "DELETE FROM {$table} ";
-            $this->fullQueryWhere( $returnString );
+            $returnString.= $this->fullQueryWhere( $returnString );
             break;
             
         }
         return $returnString;
     }
     // 整合查询条件字符串
-    public function fullQueryWhere(&$string) {
-        $cond = $this->_sql;
-        if(!empty($w = $cond['wre'])) {
-            if(is_string($w)) {
-                $string .= "WHERE $w ";
-            }elseif(is_array($w)) {
-                // where(array("id"=>array(array(">",2),array("<",10),"OR")));
-                // $fieldArr[0] = "id";
-                $fieldArr = array_keys($w);
-                /*
-                * $valueArr[0] = array(array(">",2),array("<",10),"OR");
-                */
-                $valueArr = array_values($w);
-                $assembleCond  = $valueArr[0];
-                $conditionLen  = count($assembleCond);
-                switch ($conditionLen) {
-                case 1:
-                case 2:
-                /*
-                 * $valueArr[0] = array("=",10);
-                 * $valueArr[0] = 10;
-                 */
-                    if(is_string($assembleCond)) {
-                        $string .= "WHERE {$fieldArr[0]}='{$assembleCond}' ";
-                    }elseif( is_array($assembleCond) ) {
-                        list($key ,$val)  = $assembleCond ;
-                        switch ($key = strtoupper($key)) {
-                        case "NOT IN" :
-                        case "IN" :
-                            $string .= "WHERE {$fieldArr[0]} {$key} ('".join("','",$val)."')";
-                            break;
-                        case "BETWEEN" :
-                        case "NOT BETWEEN" :
-                            $val = explode(",",$val);
-                            $string .= "WHERE {$fieldArr[0]} {$key} ".join(" AND ",$val)." ";
-                            break;
-                        default :
-                            $string .= "WHERE {$fieldArr[0]} {$key} '{$val}' ";
-                        }
+    public function fullQueryWhere(&$sqlString) {
+        $condition = $this->_sql;
+        $whereCondition = $condition['wre'];
+        $groupCondition = $condition['gro'];
+        $orderCondition = $condition['ord'];
+        $limitCondition = $condition['lit'];
+        $queryCommand = "WHERE";
+        if(!empty($whereCondition) {
+            if (is_string($whereCondition)) 
+            {
+                $sqlString = "$queryCommand $whereCondition ";
+            }
+            if (is_array($whereCondition))
+            {
+                // 计算数据长度判断是否为多字段查询
+                $whereArrayLen = count($whereCondition);
+                if ($whereArrayLen > 1) {
+                    $sqlString = $this->multiFields($whereCondition);
+                }
+                list($checkField, $fieldCondition) = each($whereCondition);
+                // 不是数组为一般字段查询
+                if (!is_array($fieldCondition))
+                {
+                    $sqlString = is_numeric($fieldCondition) : $checkField."=".$fieldCondition : $checkField."='$fieldCondition'";
+                    $sqlString = "$queryCommand $sqlString ";
+                }
+                // 计算字段查询长度
+                $checkFieldLen = count($fieldCondition);
+                if ($checkFieldLen > 1) {
+                    $sqlString = $this->groupFields($fieldCondition);
+                }
+                $querySymbol = strtoupper($fieldCondition[0]);
+                $querySymbolValue = $fieldCondition[1];
+                $specialSymbolArray = $this->specialQuerySymbol;
+                $integrateCondition = "$queryCommand $checkField $querySymbol ";
+                if (in_array($querySymbol, $specialSymbolArray))
+                {
+                    if (is_string($querySymbolValue))
+                    {
+                        $sqlString = $integrateCondition."($querySymbolValue) ";
+                    } else {
+                        $arrayToString = join("','", $querySymbolValue);
+                        $sqlString = $integrateCondition."('$arrayToString') "
                     }
-                    break;
-                default:
-                    /*
-                     * $valueArr[0] = array(array(),array());
-                     * $valueArr[0] = array(array(),array(),'OR');
-                     * $range = OR ,AND ,BETWEEN ,IN ,NOT IN ;
-                     */
-                    $range = $assembleCond[2];
-                    $groupContainer = array();
-                    for($i=0 ;$i < $conditionLen; $i++) {
-                        if( is_string($assembleCond[$i]) ) continue;
-                        list($arrayOneKey ,$arrayOneVal) = $assembleCond[$i];
-                        switch(strtoupper($arrayOneKey)) {
-                        case "NOT IN" :
-                        case "IN" :
-                            $groupContainer[] = "({$fieldArr[0]} {$arrayOneKey} ('".join("','",$arrayOneVal)."'))";
-                            break;
-                        case "BETWEEN" :
-                        case "NOT BETWEEN" :
-                            $explanBet = explode(",",$arrayOneVal);
-                            $groupContainer[] = "({$fieldArr[0]} {$arrayOneKey} ".join(" AND ",$explanBet).')';
-                            break;
-                        default :
-                            $groupContainer[] = "({$fieldArr[0]} {$arrayOneKey} "."'{$arrayOneVal}'".")";
-                        }
-                    }
-                    $string .= "WHERE ".join(" $range ",$groupContainer)." ";
+                } else {
+                    $sqlString = $integrateCondition.$querySymbolValue." ";
                 }
             }
         }
         // 组查询GROUP BY
-        if( !empty($cond['gro'])) {
-            $string = "SELECT ".$cond['fid']." FROM {$this->dbTable} GROUP BY ".$cond['gro']." ";
-            if($h = $cond['hav']) {
+        if( !empty($groupCondition)) {
+            $sqlString .= "GROUP BY $groupCondition ";
+            if($h = $havingCondition) {
                 // having条件与group 组合使用
-                list($havingCdiKey ,$havingCdiVal) = each($cond['hav']);
-                $string .= "HAVING $havingCdiKey {$havingCdiVal[0]} '{$havingCdiVal[1]}' ";
+                list($havingCdiKey ,$havingCdiVal) = each($havingCondition);
+                $sqlString .= "HAVING $havingCdiKey = '$havingCdiVal' ";
             }else{
                 return false;
             }
         }
         // 条件排序
-        if(!empty($cond['ord'])) {
-            $string .= "ORDER BY ".$cond['ord']." ";
+        if(!empty($orderCondition)) {
+            $sqlString .= "ORDER BY $orderCondition ";
         }
         // 条件限制
-        if(!empty($cond['lit'])) {
-            if( is_array($cond['lit']) ) {
-                $linenu = join("," ,$cond['lit']);
-                $string .= "LIMIT ".$linenu." ";
-            }else{
-                $string .= "LIMIT ".intval($linenu[0])." ";
-            }
+        if(!empty($limitCondition)) {
+            $sqlString .= "LIMIT $limitCondition ";
         }
+        return $sqlString;
     } 
     public function execute( $id = null ) {
         // 定义返回结果数组
