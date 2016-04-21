@@ -2061,3 +2061,215 @@ Stack trace:
 [2016-04-20 23:44:58][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
 [2016-04-21 00:36:17][ERROR][1]:Class 'CacheController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
 [2016-04-21 00:58:17][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-21 12:50:56][ERROR][4]:syntax error, unexpected '{'in File/home/hebar/notephp/notephp/Core/Model.class.php line 205
+[2016-04-21 13:06:25][ERROR][4]:syntax error, unexpected '{'in File/home/hebar/notephp/notephp/Core/Model.class.php line 205
+[2016-04-21 13:40:36][ERROR][4]:syntax error, unexpected '{'in File/home/hebar/notephp/notephp/Core/Model.class.php line 205
+[2016-04-21 13:53:31][ERROR][4]:syntax error, unexpected '{'in File/home/hebar/notephp/notephp/Core/Model.class.php line 205
+[2016-04-21 14:19:17][ERROR][4]:syntax error, unexpected '{'in File/home/hebar/notephp/notephp/Core/Model.class.php line 205
+[2016-04-21 15:31:36][ERROR][4]:syntax error, unexpected '{'in File/home/hebar/notephp/notephp/Core/Model.class.php line 205
+[2016-04-21 16:44:34][ERROR][4]:syntax error, unexpected '{'in File/home/hebar/notephp/notephp/Core/Model.class.php line 205
+[2016-04-21 17:41:33][ERROR][4]:syntax error, unexpected '{'in File/home/hebar/notephp/notephp/Core/Model.class.php line 205
+[2016-04-21 17:41:33][ERROR][4]:syntax error, unexpected '{'in File/home/hebar/notephp/notephp/Core/Model.class.php line 205
+[2016-04-21 17:57:25][ERROR][4]:syntax error, unexpected '{'in File/home/hebar/notephp/notephp/Core/Model.class.php line 205
+[2016-04-21 19:09:13][ERROR][4]:syntax error, unexpected ':'in File/home/hebar/notephp/notephp/Core/Model.class.php line 221
+[2016-04-21 19:09:13][ERROR][4]:syntax error, unexpected ':'in File/home/hebar/notephp/notephp/Core/Model.class.php line 221
+[2016-04-21 19:09:35][ERROR][4]:syntax error, unexpected '}'in File/home/hebar/notephp/notephp/Core/Model.class.php line 241
+[2016-04-21 19:09:35][ERROR][4]:syntax error, unexpected '}'in File/home/hebar/notephp/notephp/Core/Model.class.php line 241
+[2016-04-21 19:09:54][ERROR][1]:Call to undefined method Model::groupFields()in File/home/hebar/notephp/notephp/Core/Model.class.php line 227
+[2016-04-21 19:09:54][ERROR][1]:Call to undefined method Model::groupFields()in File/home/hebar/notephp/notephp/Core/Model.class.php line 227
+[2016-04-21 19:10:02][ERROR][1]:Call to undefined method Model::groupFields()in File/home/hebar/notephp/notephp/Core/Model.class.php line 227
+[2016-04-21 19:23:40][ERROR][1]:Call to undefined method Model::groupFields()in File/home/hebar/notephp/notephp/Core/Model.class.php line 227
+[2016-04-21 20:39:13][ERROR][1]:Call to undefined method Model::groupFields()in File/home/hebar/notephp/notephp/Core/Model.class.php line 227
+[2016-04-21 20:53:28][ERROR][1]:Call to undefined method Model::groupFields()in File/home/hebar/notephp/notephp/Core/Model.class.php line 227
+[2016-04-21 20:53:32][ERROR][1]:Call to undefined method Model::groupFields()in File/home/hebar/notephp/notephp/Core/Model.class.php line 227
+[2016-04-21 21:15:17][ERROR][4]:syntax error, unexpected '$oc' (T_VARIABLE)in File/home/hebar/notephp/notephp/Core/Model.class.php line 209
+[2016-04-21 21:15:17][ERROR][4]:syntax error, unexpected '$oc' (T_VARIABLE)in File/home/hebar/notephp/notephp/Core/Model.class.php line 209
+[2016-04-21 21:16:04][ERROR][1]:Call to undefined method Model::groupFields()in File/home/hebar/notephp/notephp/Core/Model.class.php line 283
+[2016-04-21 21:16:04][ERROR][1]:Call to undefined method Model::groupFields()in File/home/hebar/notephp/notephp/Core/Model.class.php line 283
+[2016-04-21 21:16:50][ERROR][1]:Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1' in /home/hebar/notephp/notephp/Core/PhpDataObject.class.php:113
+Stack trace:
+#0 /home/hebar/notephp/notephp/Core/PhpDataObject.class.php(113): PDO->query('SELECT session_...')
+#1 /home/hebar/notephp/notephp/Core/PhpDataObject.class.php(53): PhpDataObject->query('SELECT session_...')
+#2 /home/hebar/notephp/notephp/Core/Model.class.php(311): PhpDataObject->R(NULL)
+#3 /home/hebar/notephp/notephp/Core/Driver/Session.class.php(43): Model->execute()
+#4 [internal function]: Session->read('3igdv9ek1apt7ov...')
+#5 /home/hebar/notephp/notephp/Core/Url.class.php(42): session_start()
+#6 /home/hebar/notephp/notephp/Core/Notephp.class.php(135): Url->__construct()
+#7 /home/hebar/notephp/notephp/Core/Notephp.class.php(59): NotePHP::AppRun()
+#8 /home/hebar/notephp/notephp/Tunnelin File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 113
+[2016-04-21 21:16:50][ERROR][1]:Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1' in /home/hebar/notephp/notephp/Core/PhpDataObject.class.php:113
+Stack trace:
+#0 /home/hebar/notephp/notephp/Core/PhpDataObject.class.php(113): PDO->query('SELECT session_...')
+#1 /home/hebar/notephp/notephp/Core/PhpDataObject.class.php(53): PhpDataObject->query('SELECT session_...')
+#2 /home/hebar/notephp/notephp/Core/Model.class.php(311): PhpDataObject->R(NULL)
+#3 /home/hebar/notephp/notephp/Core/Driver/Session.class.php(43): Model->execute()
+#4 [internal function]: Session->read('3igdv9ek1apt7ov...')
+#5 /home/hebar/notephp/notephp/Core/Url.class.php(42): session_start()
+#6 /home/hebar/notephp/notephp/Core/Notephp.class.php(135): Url->__construct()
+#7 /home/hebar/notephp/notephp/Core/Notephp.class.php(59): NotePHP::AppRun()
+#8 /home/hebar/notephp/notephp/Tunnelin File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 113
+[2016-04-21 21:19:01][ERROR][1]:Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1' in /home/hebar/notephp/notephp/Core/PhpDataObject.class.php:113
+Stack trace:
+#0 /home/hebar/notephp/notephp/Core/PhpDataObject.class.php(113): PDO->query('SELECT session_...')
+#1 /home/hebar/notephp/notephp/Core/PhpDataObject.class.php(53): PhpDataObject->query('SELECT session_...')
+#2 /home/hebar/notephp/notephp/Core/Model.class.php(311): PhpDataObject->R(NULL)
+#3 /home/hebar/notephp/notephp/Core/Driver/Session.class.php(43): Model->execute()
+#4 [internal function]: Session->read('3igdv9ek1apt7ov...')
+#5 /home/hebar/notephp/notephp/Core/Url.class.php(42): session_start()
+#6 /home/hebar/notephp/notephp/Core/Notephp.class.php(135): Url->__construct()
+#7 /home/hebar/notephp/notephp/Core/Notephp.class.php(59): NotePHP::AppRun()
+#8 /home/hebar/notephp/notephp/Tunnelin File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 113
+[2016-04-21 21:19:01][ERROR][1]:Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1' in /home/hebar/notephp/notephp/Core/PhpDataObject.class.php:113
+Stack trace:
+#0 /home/hebar/notephp/notephp/Core/PhpDataObject.class.php(113): PDO->query('SELECT session_...')
+#1 /home/hebar/notephp/notephp/Core/PhpDataObject.class.php(53): PhpDataObject->query('SELECT session_...')
+#2 /home/hebar/notephp/notephp/Core/Model.class.php(311): PhpDataObject->R(NULL)
+#3 /home/hebar/notephp/notephp/Core/Driver/Session.class.php(43): Model->execute()
+#4 [internal function]: Session->read('3igdv9ek1apt7ov...')
+#5 /home/hebar/notephp/notephp/Core/Url.class.php(42): session_start()
+#6 /home/hebar/notephp/notephp/Core/Notephp.class.php(135): Url->__construct()
+#7 /home/hebar/notephp/notephp/Core/Notephp.class.php(59): NotePHP::AppRun()
+#8 /home/hebar/notephp/notephp/Tunnelin File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 113
+[2016-04-21 21:19:02][ERROR][1]:Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1' in /home/hebar/notephp/notephp/Core/PhpDataObject.class.php:113
+Stack trace:
+#0 /home/hebar/notephp/notephp/Core/PhpDataObject.class.php(113): PDO->query('SELECT session_...')
+#1 /home/hebar/notephp/notephp/Core/PhpDataObject.class.php(53): PhpDataObject->query('SELECT session_...')
+#2 /home/hebar/notephp/notephp/Core/Model.class.php(311): PhpDataObject->R(NULL)
+#3 /home/hebar/notephp/notephp/Core/Driver/Session.class.php(43): Model->execute()
+#4 [internal function]: Session->read('3igdv9ek1apt7ov...')
+#5 /home/hebar/notephp/notephp/Core/Url.class.php(42): session_start()
+#6 /home/hebar/notephp/notephp/Core/Notephp.class.php(135): Url->__construct()
+#7 /home/hebar/notephp/notephp/Core/Notephp.class.php(59): NotePHP::AppRun()
+#8 /home/hebar/notephp/notephp/Tunnelin File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 113
+[2016-04-21 21:19:02][ERROR][1]:Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1' in /home/hebar/notephp/notephp/Core/PhpDataObject.class.php:113
+Stack trace:
+#0 /home/hebar/notephp/notephp/Core/PhpDataObject.class.php(113): PDO->query('SELECT session_...')
+#1 /home/hebar/notephp/notephp/Core/PhpDataObject.class.php(53): PhpDataObject->query('SELECT session_...')
+#2 /home/hebar/notephp/notephp/Core/Model.class.php(311): PhpDataObject->R(NULL)
+#3 /home/hebar/notephp/notephp/Core/Driver/Session.class.php(43): Model->execute()
+#4 [internal function]: Session->read('3igdv9ek1apt7ov...')
+#5 /home/hebar/notephp/notephp/Core/Url.class.php(42): session_start()
+#6 /home/hebar/notephp/notephp/Core/Notephp.class.php(135): Url->__construct()
+#7 /home/hebar/notephp/notephp/Core/Notephp.class.php(59): NotePHP::AppRun()
+#8 /home/hebar/notephp/notephp/Tunnelin File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 113
+[2016-04-21 22:10:46][ERROR][4]:syntax error, unexpected ')', expecting '='in File/home/hebar/notephp/notephp/Core/Model.class.php line 242
+[2016-04-21 22:10:46][ERROR][4]:syntax error, unexpected ')', expecting '='in File/home/hebar/notephp/notephp/Core/Model.class.php line 242
+[2016-04-21 22:15:16][ERROR][2]:Variable passed to each() is not an array or objectin File/home/hebar/notephp/notephp/Core/Model.class.php line 240
+[2016-04-21 22:15:16][ERROR][2]:Variable passed to each() is not an array or objectin File/home/hebar/notephp/notephp/Core/Model.class.php line 240
+[2016-04-21 22:15:48][ERROR][2]:Variable passed to each() is not an array or objectin File/home/hebar/notephp/notephp/Core/Model.class.php line 281
+[2016-04-21 22:15:48][ERROR][2]:Variable passed to each() is not an array or objectin File/home/hebar/notephp/notephp/Core/Model.class.php line 281
+[2016-04-21 22:17:08][ERROR][2]:Variable passed to each() is not an array or objectin File/home/hebar/notephp/notephp/Core/Model.class.php line 281
+[2016-04-21 22:17:08][ERROR][2]:Variable passed to each() is not an array or objectin File/home/hebar/notephp/notephp/Core/Model.class.php line 281
+[2016-04-21 22:18:36][ERROR][2]:Variable passed to each() is not an array or objectin File/home/hebar/notephp/notephp/Core/Model.class.php line 281
+[2016-04-21 22:18:36][ERROR][2]:Variable passed to each() is not an array or objectin File/home/hebar/notephp/notephp/Core/Model.class.php line 281
+[2016-04-21 22:22:42][ERROR][1]:Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ANDsession_expires > 1461248562' at line 1' in /home/hebar/notephp/notephp/Core/PhpDataObject.class.php:113
+Stack trace:
+#0 /home/hebar/notephp/notephp/Core/PhpDataObject.class.php(113): PDO->query('SELECT session_...')
+#1 /home/hebar/notephp/notephp/Core/PhpDataObject.class.php(53): PhpDataObject->query('SELECT session_...')
+#2 /home/hebar/notephp/notephp/Core/Model.class.php(319): PhpDataObject->R(NULL)
+#3 /home/hebar/notephp/notephp/Core/Driver/Session.class.php(50): Model->execute()
+#4 [internal function]: Session->read('3igdv9ek1apt7ov...')
+#5 /home/hebar/notephp/notephp/Core/Url.class.php(42): session_start()
+#6 /home/hebar/notephp/notephp/Core/Notephp.class.php(135): Url->__construct()
+#7 /home/hebar/notephp/notephp/Core/Notephp.class.php(59): NotePHP::AppRun()
+#8 /hoin File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 113
+[2016-04-21 22:22:42][ERROR][1]:Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ANDsession_expires > 1461248562' at line 1' in /home/hebar/notephp/notephp/Core/PhpDataObject.class.php:113
+Stack trace:
+#0 /home/hebar/notephp/notephp/Core/PhpDataObject.class.php(113): PDO->query('SELECT session_...')
+#1 /home/hebar/notephp/notephp/Core/PhpDataObject.class.php(53): PhpDataObject->query('SELECT session_...')
+#2 /home/hebar/notephp/notephp/Core/Model.class.php(319): PhpDataObject->R(NULL)
+#3 /home/hebar/notephp/notephp/Core/Driver/Session.class.php(50): Model->execute()
+#4 [internal function]: Session->read('3igdv9ek1apt7ov...')
+#5 /home/hebar/notephp/notephp/Core/Url.class.php(42): session_start()
+#6 /home/hebar/notephp/notephp/Core/Notephp.class.php(135): Url->__construct()
+#7 /home/hebar/notephp/notephp/Core/Notephp.class.php(59): NotePHP::AppRun()
+#8 /hoin File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 113
+[2016-04-21 22:24:53][ERROR][1]:Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ANDsession_expires > 1461248693' at line 1' in /home/hebar/notephp/notephp/Core/PhpDataObject.class.php:113
+Stack trace:
+#0 /home/hebar/notephp/notephp/Core/PhpDataObject.class.php(113): PDO->query('SELECT session_...')
+#1 /home/hebar/notephp/notephp/Core/PhpDataObject.class.php(53): PhpDataObject->query('SELECT session_...')
+#2 /home/hebar/notephp/notephp/Core/Model.class.php(323): PhpDataObject->R(NULL)
+#3 /home/hebar/notephp/notephp/Core/Driver/Session.class.php(50): Model->execute()
+#4 [internal function]: Session->read('3igdv9ek1apt7ov...')
+#5 /home/hebar/notephp/notephp/Core/Url.class.php(42): session_start()
+#6 /home/hebar/notephp/notephp/Core/Notephp.class.php(135): Url->__construct()
+#7 /home/hebar/notephp/notephp/Core/Notephp.class.php(59): NotePHP::AppRun()
+#8 /hoin File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 113
+[2016-04-21 22:24:53][ERROR][1]:Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ANDsession_expires > 1461248693' at line 1' in /home/hebar/notephp/notephp/Core/PhpDataObject.class.php:113
+Stack trace:
+#0 /home/hebar/notephp/notephp/Core/PhpDataObject.class.php(113): PDO->query('SELECT session_...')
+#1 /home/hebar/notephp/notephp/Core/PhpDataObject.class.php(53): PhpDataObject->query('SELECT session_...')
+#2 /home/hebar/notephp/notephp/Core/Model.class.php(323): PhpDataObject->R(NULL)
+#3 /home/hebar/notephp/notephp/Core/Driver/Session.class.php(50): Model->execute()
+#4 [internal function]: Session->read('3igdv9ek1apt7ov...')
+#5 /home/hebar/notephp/notephp/Core/Url.class.php(42): session_start()
+#6 /home/hebar/notephp/notephp/Core/Notephp.class.php(135): Url->__construct()
+#7 /home/hebar/notephp/notephp/Core/Notephp.class.php(59): NotePHP::AppRun()
+#8 /hoin File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 113
+[2016-04-21 22:25:51][ERROR][1]:Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ANDsession_expires > 1461248751' at line 1' in /home/hebar/notephp/notephp/Core/PhpDataObject.class.php:113
+Stack trace:
+#0 /home/hebar/notephp/notephp/Core/PhpDataObject.class.php(113): PDO->query('SELECT session_...')
+#1 /home/hebar/notephp/notephp/Core/PhpDataObject.class.php(53): PhpDataObject->query('SELECT session_...')
+#2 /home/hebar/notephp/notephp/Core/Model.class.php(323): PhpDataObject->R(NULL)
+#3 /home/hebar/notephp/notephp/Core/Driver/Session.class.php(50): Model->execute()
+#4 [internal function]: Session->read('3igdv9ek1apt7ov...')
+#5 /home/hebar/notephp/notephp/Core/Url.class.php(42): session_start()
+#6 /home/hebar/notephp/notephp/Core/Notephp.class.php(135): Url->__construct()
+#7 /home/hebar/notephp/notephp/Core/Notephp.class.php(59): NotePHP::AppRun()
+#8 /hoin File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 113
+[2016-04-21 22:25:51][ERROR][1]:Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ANDsession_expires > 1461248751' at line 1' in /home/hebar/notephp/notephp/Core/PhpDataObject.class.php:113
+Stack trace:
+#0 /home/hebar/notephp/notephp/Core/PhpDataObject.class.php(113): PDO->query('SELECT session_...')
+#1 /home/hebar/notephp/notephp/Core/PhpDataObject.class.php(53): PhpDataObject->query('SELECT session_...')
+#2 /home/hebar/notephp/notephp/Core/Model.class.php(323): PhpDataObject->R(NULL)
+#3 /home/hebar/notephp/notephp/Core/Driver/Session.class.php(50): Model->execute()
+#4 [internal function]: Session->read('3igdv9ek1apt7ov...')
+#5 /home/hebar/notephp/notephp/Core/Url.class.php(42): session_start()
+#6 /home/hebar/notephp/notephp/Core/Notephp.class.php(135): Url->__construct()
+#7 /home/hebar/notephp/notephp/Core/Notephp.class.php(59): NotePHP::AppRun()
+#8 /hoin File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 113
+[2016-04-21 22:28:02][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-21 22:28:43][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-21 22:29:34][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-21 22:29:59][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-21 22:34:36][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-21 22:34:38][ERROR][256]:数据库删除数据错误in File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 88
+[2016-04-21 22:34:38][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-21 22:34:43][ERROR][256]:数据库删除数据错误in File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 88
+[2016-04-21 22:34:43][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-21 22:35:03][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-21 22:35:18][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-21 22:35:40][ERROR][256]:数据库删除数据错误in File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 88
+[2016-04-21 22:35:40][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-21 22:36:57][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-21 22:38:06][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-21 23:08:34][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-22 00:22:53][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-22 00:34:08][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-22 00:34:30][ERROR][1]:Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '0='salary=salary+1200' WHERE name='关怀海'' at line 1' in /home/hebar/notephp/notephp/Core/PhpDataObject.class.php:111
+Stack trace:
+#0 /home/hebar/notephp/notephp/Core/PhpDataObject.class.php(111): PDO->query('UPDATE employee...')
+#1 /home/hebar/notephp/notephp/Core/PhpDataObject.class.php(80): PhpDataObject->query('UPDATE employee...')
+#2 /home/hebar/notephp/notephp/Core/Model.class.php(329): PhpDataObject->U()
+#3 /home/hebar/notephp/Webapp/Home/Controller/IndexController.class.php(19): Model->save()
+#4 [internal function]: IndexController->dout()
+#5 /home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php(39): call_user_func(Array)
+#6 /home/hebar/notephp/notephp/Core/Url.class.php(99): ControllerDriver::work('Home', 'index', 'dout')
+#7 /home/hebar/notephp/notein File/home/hebar/notephp/notephp/Core/PhpDataObject.class.php line 111
+[2016-04-22 00:34:30][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-22 00:36:15][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-22 00:36:29][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-22 00:40:20][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-22 00:40:29][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-22 00:45:12][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-22 00:45:52][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-22 00:49:53][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-22 00:52:00][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-22 00:52:37][ERROR][4096]:Object of class PhpDataObject could not be converted to stringin File/home/hebar/notephp/Webapp/Home/Controller/IndexController.class.php line 24
+[2016-04-22 00:52:37][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-22 00:58:22][ERROR][1]:Class 'DataObject' not foundin File/home/hebar/notephp/notephp/Core/Model.class.php line 86
+[2016-04-22 00:58:22][ERROR][1]:Class 'DataObject' not foundin File/home/hebar/notephp/notephp/Core/Model.class.php line 86
+[2016-04-22 00:59:12][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-22 01:03:08][ERROR][256]:不存在动作dout.htmlin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 36
+[2016-04-22 01:03:08][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-22 01:03:16][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28

@@ -169,6 +169,7 @@ class Model {
         $table = $this->dbTable;
         $dataCondition = $this->_sql['dat'];
         $fieldsCondition = $this->_sql['fid'];
+        $conditionString = $this->fullQueryWhere();
         switch ($handle) {
         case "INSERT":
             $returnString = "INSERT INTO $table 
@@ -176,36 +177,44 @@ class Model {
             break;
         case "SELECT": // 查询模式
             $returnString = "SELECT $fieldsCondition FROM $table ";
-            $returnString.= $this->fullQueryWhere( $returnString );
             break;
         case "UPDATE": // 修改模式
             $returnString = "UPDATE $table SET ";
             foreach($dataCondition as $key => $val) {
-                $setData[] = $key."='$val'";
+                if ($val) 
+                {
+                    $val = is_numeric($val) ? $val : "'$val'";
+                    $setData[] = "$key=$val";
+                } else {
+                    // 若要使用score = score + 1,数据data数组是['score=score+1' => ''];
+                    $setData[] = $key;
+                }
             }
             $returnString .= implode(',',$setData)." ";
-            $returnString .= $this->fullQueryWhere( $returnString );
             break;
         case "DELETE": //删除模式
             $returnString = "DELETE FROM {$table} ";
-            $returnString.= $this->fullQueryWhere( $returnString );
             break;
             
         }
+        $returnString .= $conditionString;
         return $returnString;
     }
     // 整合查询条件字符串
-    public function fullQueryWhere(&$sqlString) {
+    public function fullQueryWhere () {
+        $sqlString = '';
         $condition = $this->_sql;
         $whereCondition = $condition['wre'];
-        $groupCondition = $condition['gro'];
-        $orderCondition = $condition['ord'];
-        $limitCondition = $condition['lit'];
+        $gc = $condition['gro'];
+        $hc = $condition['hav'];
+        $oc = $condition['ord'];
+        $lc = $condition['lit'];
+        $afterWreSql = $this->afterWhereQuery($gc, $hc, $oc, $lc);
         $queryCommand = "WHERE";
-        if(!empty($whereCondition) {
+        if(!empty($whereCondition)) {
             if (is_string($whereCondition)) 
             {
-                $sqlString = "$queryCommand $whereCondition ";
+                return "$queryCommand $whereCondition $afterWreSql";
             }
             if (is_array($whereCondition))
             {
@@ -213,41 +222,43 @@ class Model {
                 $whereArrayLen = count($whereCondition);
                 if ($whereArrayLen > 1) {
                     $sqlString = $this->multiFields($whereCondition);
+                    return "$queryCommand $sqlString $afterWreSql";
                 }
-                list($checkField, $fieldCondition) = each($whereCondition);
-                // 不是数组为一般字段查询
-                if (!is_array($fieldCondition))
-                {
-                    $sqlString = is_numeric($fieldCondition) : $checkField."=".$fieldCondition : $checkField."='$fieldCondition'";
-                    $sqlString = "$queryCommand $sqlString ";
-                }
-                // 计算字段查询长度
-                $checkFieldLen = count($fieldCondition);
-                if ($checkFieldLen > 1) {
-                    $sqlString = $this->groupFields($fieldCondition);
-                }
-                $querySymbol = strtoupper($fieldCondition[0]);
-                $querySymbolValue = $fieldCondition[1];
-                $specialSymbolArray = $this->specialQuerySymbol;
-                $integrateCondition = "$queryCommand $checkField $querySymbol ";
-                if (in_array($querySymbol, $specialSymbolArray))
-                {
-                    if (is_string($querySymbolValue))
-                    {
-                        $sqlString = $integrateCondition."($querySymbolValue) ";
-                    } else {
-                        $arrayToString = join("','", $querySymbolValue);
-                        $sqlString = $integrateCondition."('$arrayToString') "
-                    }
-                } else {
-                    $sqlString = $integrateCondition.$querySymbolValue." ";
-                }
+                $combineSql = $this->singleFieldCombine($whereCondition);
+                $sqlString = "$queryCommand $combineSql $afterWreSql"; 
+                return $sqlString;
             }
         }
+    } 
+    // 组合多字段查询
+    public function multiFields ($condition, $rollbackField = null) 
+    {
+        if (count($condition) == 2)
+        {
+            $querySymbol = "AND";
+        }
+        $querySymbol = isset($querySymbol) ? $querySymbol : array_pop($conditiona);
+        while (list($fieldName, $arrayValue) = each($condition))
+        {
+            if (is_numeric($fieldName))
+            {
+                if (!is_null($rollbackField))
+                {
+                    $queryBlock[] = $this->symbolToValue($rollbackField, $arrayValue);
+                }
+            } else {
+                $queryBlock[] = $this->singleFieldCombine([$fieldName => $arrayValue]);
+            }
+        }
+        $sqlWhereStentence = join(" $querySymbol ", $queryBlock);
+        return $sqlWhereStentence;
+    }
+    // 组合Where条件后的查询
+    public function afterWhereQuery ($groupCondition, $havingCondition, $orderCondition, $limitCondition) {
         // 组查询GROUP BY
         if( !empty($groupCondition)) {
             $sqlString .= "GROUP BY $groupCondition ";
-            if($h = $havingCondition) {
+            if($havingCondition) {
                 // having条件与group 组合使用
                 list($havingCdiKey ,$havingCdiVal) = each($havingCondition);
                 $sqlString .= "HAVING $havingCdiKey = '$havingCdiVal' ";
@@ -264,7 +275,46 @@ class Model {
             $sqlString .= "LIMIT $limitCondition ";
         }
         return $sqlString;
-    } 
+    }
+    // 单字段组合条件
+    public function singleFieldCombine ($whereCondition) 
+    {
+        list($checkField, $fieldCondition) = each($whereCondition);
+        // 不是数组为一般字段查询
+        if (!is_array($fieldCondition))
+        {
+            $sqlString = is_numeric($fieldCondition) ? $checkField."=".$fieldCondition : $checkField."='$fieldCondition'";
+            return $sqlString;
+        }
+        // 计算字段是否为并列查询
+        if (is_array($fieldCondition[0])) {
+            $sqlString = $this->multiFields($fieldCondition, $checkField);
+            return $sqlString;
+        }
+        return $this->symbolToValue($checkField, $fieldCondition);
+    }
+    // 把字段 符号 值连接在一起
+    public function symbolToValue ($checkField, $fieldCondition) 
+    {
+        $querySymbol = strtoupper($fieldCondition[0]);
+        $querySymbolValue = $fieldCondition[1];
+        // 使用特性字段查询符号检测
+        $specialSymbolArray = $this->specialQuerySymbol;
+        $integrateCondition = "$checkField $querySymbol ";
+        if (in_array($querySymbol, $specialSymbolArray))
+        {
+            if (is_string($querySymbolValue))
+            {
+                $sqlString = $integrateCondition."($querySymbolValue) ";
+            } else {
+                $arrayToString = join("','", $querySymbolValue);
+                $sqlString = $integrateCondition."('$arrayToString') ";
+            }
+        } else {
+            $sqlString = $integrateCondition.$querySymbolValue." ";
+        }
+        return $sqlString;
+    }
     public function execute( $id = null ) {
         // 定义返回结果数组
         $result = $this->curd->R($id);

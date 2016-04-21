@@ -7,7 +7,7 @@
   * PDO支持多种数据库的扩展
   * 更多请参考php的官网php.net/pdo
   */
-class PhpDataObject 
+class DatabaseObject 
 {
     // 模型实例
     private $modeInstance = null;
@@ -83,9 +83,7 @@ class PhpDataObject
     // 数据库删除数据操作
     public function D ()
     {
-        $affectedRows = $this->dbLink->exec($this->modeInstance->fullQueryString('DELETE')) 
-            OR 
-        trigger_error("数据库删除数据错误".$this->dbLink->errorInfo()[2], E_USER_ERROR);
+        $affectedRows = $this->dbLink->exec($this->modeInstance->fullQueryString('DELETE'));
         return $affectedRows;
     }
     // 执行数据库语句

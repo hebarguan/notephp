@@ -10,13 +10,9 @@ return array(
     "DB_NAME"                  =>  "" , //  数据库名
     "DB_PERSISTENT_LINK"       =>  false, // 数据库持久连接
     "MYSQL_CONNECT_ENCODING"   =>  "utf8" , // 数据库链接编码
-    "CURD_TYPE"                =>  "PhpDataObject", // curd处理类型mysql,pdo两种，默认是pdo
+    "CURD_TYPE"                =>  "DatabaseObject", // curd处理类型mysql,DatabaseObject两种，默认是pdo
     "DEFAULT_INDEX"            =>  "Index", // 默认控制器
     "DEFAULT_HANDLE"           =>  "index", // 默认操作方法
-    "EXCEPTION_FILE"           =>  __NOTEPHP__."/Tpl/exception.tpl",// 默认异常文件
-    "ERROR_FILE"               =>  __NOTEPHP__."/Tpl/error.tpl" , // 默认错误文件
-    "REDIRECT_FILE"            =>  __NOTEPHP__."/Tpl/redirect.tpl",// 重定向文件
-    "DEFAULT_ERROR_MESSAGE"    =>  "发生错误....", // 默认错误提示
     "COOKIE_EXPIRES"           =>  "3600" , // 默认１小时
     "COOKIE_PATH"              =>  "/" ,
     "SESSION_EXPIRES"          =>  "3600" ,
