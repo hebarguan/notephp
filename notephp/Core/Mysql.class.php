@@ -16,7 +16,7 @@ class Mysql {
     public function __construct(Model $mode, $dbType, $dbHost, $dbName, $dbRoot, $dbPwd) {
         $this->modeInstance = $mode;
         $this->dbLink = new mysqli($dbHost, $dbRoot, $dbPwd, $dbName) 
-            OR trigger_error("数据库链接错误".mysql_error(), E_USER_ERROR);
+            OR trigger_error("数据库链接错误".mysqli_error(), E_USER_ERROR);
         // 获取数据库客户端编码
         $clientEncoding = $this->dbLink->character_set_name();
         if( $clientEncoding !== $this->modeInstance->connectEncoding ) {

@@ -2273,3 +2273,97 @@ Stack trace:
 [2016-04-22 01:03:08][ERROR][256]:不存在动作dout.htmlin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 36
 [2016-04-22 01:03:08][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
 [2016-04-22 01:03:16][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-22 01:24:11][ERROR][1]:Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'BEWTEEN 2,4' at line 1' in /home/hebar/notephp/notephp/Core/DatabaseObject.class.php:111
+Stack trace:
+#0 /home/hebar/notephp/notephp/Core/DatabaseObject.class.php(111): PDO->query('SELECT * FROM e...')
+#1 /home/hebar/notephp/notephp/Core/DatabaseObject.class.php(53): DatabaseObject->query('SELECT * FROM e...')
+#2 /home/hebar/notephp/notephp/Core/Model.class.php(320): DatabaseObject->R(NULL)
+#3 /home/hebar/notephp/Webapp/Home/Controller/IndexController.class.php(22): Model->execute()
+#4 [internal function]: IndexController->dout()
+#5 /home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php(39): call_user_func(Array)
+#6 /home/hebar/notephp/notephp/Core/Url.class.php(99): ControllerDriver::work('Home', 'index', 'dout')
+#7 /home/hebar/notephp/notephp/Core/Notephp.classin File/home/hebar/notephp/notephp/Core/DatabaseObject.class.php line 111
+[2016-04-22 01:24:11][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-22 01:28:05][ERROR][1]:Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'BEWTEEN 2,4' at line 1' in /home/hebar/notephp/notephp/Core/DatabaseObject.class.php:111
+Stack trace:
+#0 /home/hebar/notephp/notephp/Core/DatabaseObject.class.php(111): PDO->query('SELECT * FROM e...')
+#1 /home/hebar/notephp/notephp/Core/DatabaseObject.class.php(53): DatabaseObject->query('SELECT * FROM e...')
+#2 /home/hebar/notephp/notephp/Core/Model.class.php(320): DatabaseObject->R(NULL)
+#3 /home/hebar/notephp/Webapp/Home/Controller/IndexController.class.php(22): Model->execute()
+#4 [internal function]: IndexController->dout()
+#5 /home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php(39): call_user_func(Array)
+#6 /home/hebar/notephp/notephp/Core/Url.class.php(99): ControllerDriver::work('Home', 'index', 'dout')
+#7 /home/hebar/notephp/notephp/Core/Notephp.classin File/home/hebar/notephp/notephp/Core/DatabaseObject.class.php line 111
+[2016-04-22 01:28:05][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-22 01:32:44][ERROR][1]:Class 'Robots.txtController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-22 01:37:19][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-22 01:48:51][ERROR][1]:Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'BEWTEEN 2,4' at line 1' in /home/hebar/notephp/notephp/Core/DatabaseObject.class.php:111
+Stack trace:
+#0 /home/hebar/notephp/notephp/Core/DatabaseObject.class.php(111): PDO->query('SELECT * FROM e...')
+#1 /home/hebar/notephp/notephp/Core/DatabaseObject.class.php(53): DatabaseObject->query('SELECT * FROM e...')
+#2 /home/hebar/notephp/notephp/Core/Model.class.php(331): DatabaseObject->R(NULL)
+#3 /home/hebar/notephp/Webapp/Home/Controller/IndexController.class.php(22): Model->execute()
+#4 [internal function]: IndexController->dout()
+#5 /home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php(39): call_user_func(Array)
+#6 /home/hebar/notephp/notephp/Core/Url.class.php(99): ControllerDriver::work('Home', 'index', 'dout')
+#7 /home/hebar/notephp/notephp/Core/Notephp.classin File/home/hebar/notephp/notephp/Core/DatabaseObject.class.php line 111
+[2016-04-22 01:48:51][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-22 01:49:54][ERROR][1]:Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'BEWTEEN 2,4' at line 1' in /home/hebar/notephp/notephp/Core/DatabaseObject.class.php:111
+Stack trace:
+#0 /home/hebar/notephp/notephp/Core/DatabaseObject.class.php(111): PDO->query('SELECT * FROM e...')
+#1 /home/hebar/notephp/notephp/Core/DatabaseObject.class.php(53): DatabaseObject->query('SELECT * FROM e...')
+#2 /home/hebar/notephp/notephp/Core/Model.class.php(332): DatabaseObject->R(NULL)
+#3 /home/hebar/notephp/Webapp/Home/Controller/IndexController.class.php(22): Model->execute()
+#4 [internal function]: IndexController->dout()
+#5 /home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php(39): call_user_func(Array)
+#6 /home/hebar/notephp/notephp/Core/Url.class.php(99): ControllerDriver::work('Home', 'index', 'dout')
+#7 /home/hebar/notephp/notephp/Core/Notephp.classin File/home/hebar/notephp/notephp/Core/DatabaseObject.class.php line 111
+[2016-04-22 01:49:54][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-22 01:49:56][ERROR][1]:Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'BEWTEEN 2,4' at line 1' in /home/hebar/notephp/notephp/Core/DatabaseObject.class.php:111
+Stack trace:
+#0 /home/hebar/notephp/notephp/Core/DatabaseObject.class.php(111): PDO->query('SELECT * FROM e...')
+#1 /home/hebar/notephp/notephp/Core/DatabaseObject.class.php(53): DatabaseObject->query('SELECT * FROM e...')
+#2 /home/hebar/notephp/notephp/Core/Model.class.php(332): DatabaseObject->R(NULL)
+#3 /home/hebar/notephp/Webapp/Home/Controller/IndexController.class.php(22): Model->execute()
+#4 [internal function]: IndexController->dout()
+#5 /home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php(39): call_user_func(Array)
+#6 /home/hebar/notephp/notephp/Core/Url.class.php(99): ControllerDriver::work('Home', 'index', 'dout')
+#7 /home/hebar/notephp/notephp/Core/Notephp.classin File/home/hebar/notephp/notephp/Core/DatabaseObject.class.php line 111
+[2016-04-22 01:49:56][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-22 01:49:57][ERROR][1]:Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'BEWTEEN 2,4' at line 1' in /home/hebar/notephp/notephp/Core/DatabaseObject.class.php:111
+Stack trace:
+#0 /home/hebar/notephp/notephp/Core/DatabaseObject.class.php(111): PDO->query('SELECT * FROM e...')
+#1 /home/hebar/notephp/notephp/Core/DatabaseObject.class.php(53): DatabaseObject->query('SELECT * FROM e...')
+#2 /home/hebar/notephp/notephp/Core/Model.class.php(332): DatabaseObject->R(NULL)
+#3 /home/hebar/notephp/Webapp/Home/Controller/IndexController.class.php(22): Model->execute()
+#4 [internal function]: IndexController->dout()
+#5 /home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php(39): call_user_func(Array)
+#6 /home/hebar/notephp/notephp/Core/Url.class.php(99): ControllerDriver::work('Home', 'index', 'dout')
+#7 /home/hebar/notephp/notephp/Core/Notephp.classin File/home/hebar/notephp/notephp/Core/DatabaseObject.class.php line 111
+[2016-04-22 01:49:57][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-22 01:50:30][ERROR][1]:Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'BEWTEEN 2,4' at line 1' in /home/hebar/notephp/notephp/Core/DatabaseObject.class.php:111
+Stack trace:
+#0 /home/hebar/notephp/notephp/Core/DatabaseObject.class.php(111): PDO->query('SELECT * FROM e...')
+#1 /home/hebar/notephp/notephp/Core/DatabaseObject.class.php(53): DatabaseObject->query('SELECT * FROM e...')
+#2 /home/hebar/notephp/notephp/Core/Model.class.php(332): DatabaseObject->R(NULL)
+#3 /home/hebar/notephp/Webapp/Home/Controller/IndexController.class.php(22): Model->execute()
+#4 [internal function]: IndexController->dout()
+#5 /home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php(39): call_user_func(Array)
+#6 /home/hebar/notephp/notephp/Core/Url.class.php(99): ControllerDriver::work('Home', 'index', 'dout')
+#7 /home/hebar/notephp/notephp/Core/Notephp.classin File/home/hebar/notephp/notephp/Core/DatabaseObject.class.php line 111
+[2016-04-22 01:50:30][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-22 01:52:31][ERROR][1]:Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'BEWTEEN 2,4' at line 1' in /home/hebar/notephp/notephp/Core/DatabaseObject.class.php:111
+Stack trace:
+#0 /home/hebar/notephp/notephp/Core/DatabaseObject.class.php(111): PDO->query('SELECT * FROM e...')
+#1 /home/hebar/notephp/notephp/Core/DatabaseObject.class.php(53): DatabaseObject->query('SELECT * FROM e...')
+#2 /home/hebar/notephp/notephp/Core/Model.class.php(332): DatabaseObject->R(NULL)
+#3 /home/hebar/notephp/Webapp/Home/Controller/IndexController.class.php(22): Model->execute()
+#4 [internal function]: IndexController->dout()
+#5 /home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php(39): call_user_func(Array)
+#6 /home/hebar/notephp/notephp/Core/Url.class.php(99): ControllerDriver::work('Home', 'index', 'dout')
+#7 /home/hebar/notephp/notephp/Core/Notephp.classin File/home/hebar/notephp/notephp/Core/DatabaseObject.class.php line 111
+[2016-04-22 01:52:31][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-22 01:54:57][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-22 01:57:13][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-22 01:58:36][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-04-22 01:58:53][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28

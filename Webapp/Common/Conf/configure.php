@@ -6,7 +6,7 @@ return array(
     "DB_NAME"               => "notephp",
     "DB_PASSWORD"           => "guan",
     "SESSION_TABLE"         => "session",
-    "SESSION_DRIVER_OPEN"   => true,
+    "SESSION_DRIVER_OPEN"   => false,
     "URL_HIDE_MODULE"       => true,
     "URL_MODE"              => 1 ,
     "URL_MAP_RULES"         => array(

@@ -303,16 +303,31 @@ class Model {
         $integrateCondition = "$checkField $querySymbol ";
         if (in_array($querySymbol, $specialSymbolArray))
         {
-            if (is_string($querySymbolValue))
+            switch ($querySymbol)
             {
-                $sqlString = $integrateCondition."($querySymbolValue) ";
-            } else {
-                $arrayToString = join("','", $querySymbolValue);
-                $sqlString = $integrateCondition."('$arrayToString') ";
+                case "IN" :
+                case "NOT IN" :
+                    if (is_string($querySymbolValue))
+                    {
+                        $sqlString = $integrateCondition."($querySymbolValue) ";
+                    } else {
+                        $arrayToString = join("','", $querySymbolValue);
+                        $sqlString = $integrateCondition."('$arrayToString') ";
+                    }
+                break;
+                case "BETWEEN" :
+                case "NOT BETWEEN" :
+                    $querySymbolValueString = str_replace(',', ' AND ', $querySymbolValue);
+                    $sqlString = "$integrateCondition $querySymbolValueString ";
+                break;
             }
         } else {
             $sqlString = $integrateCondition.$querySymbolValue." ";
         }
+        /*
+         *var_dump($specialSymbolArray);
+         *die($sqlString);
+         */
         return $sqlString;
     }
     public function execute( $id = null ) {
