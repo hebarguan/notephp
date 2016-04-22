@@ -198,6 +198,7 @@ class Model {
             
         }
         $returnString .= $conditionString;
+        //die($returnString);
         return $returnString;
     }
     // 整合查询条件字符串
@@ -237,7 +238,7 @@ class Model {
         {
             $querySymbol = "AND";
         }
-        $querySymbol = isset($querySymbol) ? $querySymbol : array_pop($conditiona);
+        $querySymbol = isset($querySymbol) ? $querySymbol : array_pop($condition);
         while (list($fieldName, $arrayValue) = each($condition))
         {
             if (is_numeric($fieldName))
@@ -247,7 +248,8 @@ class Model {
                     $queryBlock[] = $this->symbolToValue($rollbackField, $arrayValue);
                 }
             } else {
-                $queryBlock[] = $this->singleFieldCombine([$fieldName => $arrayValue]);
+                $conditionBlock = $this->singleFieldCombine([$fieldName => $arrayValue]);
+                $queryBlock[]  = "($conditionBlock)";
             }
         }
         $sqlWhereStentence = join(" $querySymbol ", $queryBlock);
@@ -258,13 +260,11 @@ class Model {
         // 组查询GROUP BY
         if( !empty($groupCondition)) {
             $sqlString .= "GROUP BY $groupCondition ";
-            if($havingCondition) {
-                // having条件与group 组合使用
-                list($havingCdiKey ,$havingCdiVal) = each($havingCondition);
-                $sqlString .= "HAVING $havingCdiKey = '$havingCdiVal' ";
-            }else{
-                return false;
-            }
+        }
+        if($havingCondition) {
+            // having条件与group 组合使用
+            list($havingCdiKey ,$havingCdiVal) = each($havingCondition);
+            $sqlString .= "HAVING $havingCdiKey = '$havingCdiVal' ";
         }
         // 条件排序
         if(!empty($orderCondition)) {
@@ -322,12 +322,12 @@ class Model {
                 break;
             }
         } else {
-            $sqlString = $integrateCondition.$querySymbolValue." ";
+            if (is_numeric($querySymbolValue)) {
+                $sqlString = $integrateCondition.$querySymbolValue." ";
+            } else {
+                $sqlString = $integrateCondition."'$querySymbolValue' ";
+            }
         }
-        /*
-         *var_dump($specialSymbolArray);
-         *die($sqlString);
-         */
         return $sqlString;
     }
     public function execute( $id = null ) {

@@ -101,7 +101,7 @@ class DatabaseObject
                } else {
                    $statement =  $this->dbLink->query($sqlSentence);
                }
-               $this->commit();
+               $this->dbLink->commit();
                return $statement;
             } catch (PDOException $e) {
                 $this->dbLink->rollback();
