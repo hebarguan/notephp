@@ -17,7 +17,7 @@ class ControllerDriver {
         $modulePath = PRO_PATH."/".$ModuleName;
         if( is_dir($modulePath) ) {
             // 检查是否默认控制与动作
-            if($ControllerName == C("DEFAULT_INDEX") AND $ActionName == C("DEFAULT_HANDLE")) {
+            if($ControllerName == C("DEFAULT_CONTROLLER") AND $ActionName == C("DEFAULT_METHOD")) {
                 if( !is_file($defaultControllerFile=$modulePath."/Controller/".$ControllerFileName.EXTS) ) {
                     // 加载欢迎界面
                     Welcome::outputWelcomePage($ModuleName, $ControllerName, $ActionName);

@@ -143,8 +143,8 @@ class Url {
             array_shift($queryArr);
             $C_A = $queryArr;
             $this->RequestModule = !empty($C_A[0]) ? $C_A[0] : null;
-            $this->Controller    = !empty($C_A[1]) ? $C_A[1] : C('DEFAULT_INDEX') ;
-            $this->Action        = !empty($C_A[2]) ? $C_A[2] : C("DEFAULT_HANDLE");
+            $this->Controller    = !empty($C_A[1]) ? $C_A[1] : C('DEFAULT_CONTROLLER') ;
+            $this->Action        = !empty($C_A[2]) ? $C_A[2] : C("DEFAULT_METHOD");
             // 只截取第一个?
             if( !empty($spiltQuery) ){
                 $GetData = join("?",$spiltQuery);
@@ -158,8 +158,8 @@ class Url {
             $queryArr = explode("/" ,$this->FullUrl);
             array_shift($queryArr);
             $this->RequestModule = !empty($queryArr[0]) ? $queryArr[0] : null;
-            $this->Controller    = !empty($queryArr[1]) ? $queryArr[1] : C("DEFAULT_INDEX");
-            $this->Action        = !empty($queryArr[2]) ? $queryArr[2] : C('DEFAULT_HANDLE');
+            $this->Controller    = !empty($queryArr[1]) ? $queryArr[1] : C("DEFAULT_CONTROLLER");
+            $this->Action        = !empty($queryArr[2]) ? $queryArr[2] : C('DEFAULT_METHOD');
             for( $k=3; $k<count($queryArr); $k+=2 ) {
                 $this->HttpBuildQuery[$queryArr[$k]] = $queryArr[$k+1];
             }

@@ -10,9 +10,9 @@ return array(
     "DB_NAME"                  =>  "" , //  数据库名
     "DB_PERSISTENT_LINK"       =>  false, // 数据库持久连接
     "MYSQL_CONNECT_ENCODING"   =>  "utf8" , // 数据库链接编码
-    "CURD_TYPE"                =>  "DatabaseObject", // curd处理类型mysql,DatabaseObject两种，默认是pdo
-    "DEFAULT_INDEX"            =>  "Index", // 默认控制器
-    "DEFAULT_HANDLE"           =>  "index", // 默认操作方法
+    "CURD_TYPE"                =>  "DatabaseObject", // curd处理类型mysql,DatabaseObject两种，默认是DOject 
+    "DEFAULT_CONTROLLER"       =>  "Index", // 默认控制器
+    "DEFAULT_METHOD"           =>  "index", // 默认操作方法
     "COOKIE_EXPIRES"           =>  "3600" , // 默认１小时
     "COOKIE_PATH"              =>  "/" ,
     "SESSION_EXPIRES"          =>  "3600" ,
