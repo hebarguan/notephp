@@ -36,7 +36,11 @@ class DatabaseObject
         $check = $this->modeInstance->dbCheck;
         if (is_numeric($id))
         {
-            $stmt = $this->dbLink->prepare("SELECT * FROM {$this->modeInstance->dbTable} WHERE id=$id");
+            $stmtSql = "SELECT * FROM {$this->modeInstance->dbTable} WHERE id=$id";
+            if ($this->modeInstance->returnSqlStent) {
+                return $stmtSql;
+            }
+            $stmt = $this->dbLink->prepare($stmtSql);
             if ($stmt->execute())
             {
                 if ($check)
@@ -50,7 +54,11 @@ class DatabaseObject
             }
         }
         // 组合查询
-        $groupCheckStmt = $this->query($this->modeInstance->fullQueryString('SELECT'));
+        $stmtSql = $this->modeInstance->fullQueryString('SELECT');
+        if ($this->modeInstance->returnSqlStent) {
+            return $stmtSql;
+        }
+        $groupCheckStmt = $this->query($stmtSql);
         if ($check)
         {
             return $groupCheckStmt->rowCount();
@@ -66,6 +74,9 @@ class DatabaseObject
             $this->modeInstance->data($data);
         }
         $queryString = $this->modeInstance->fullQueryString('INSERT');
+        if($this->modeInstance->returnSqlStent) {
+            return $queryString;
+        }
         $stmt = $this->query($queryString);
         if ($insertId = $this->dbLink->lastInsertId())
         {
@@ -77,13 +88,21 @@ class DatabaseObject
     // 数据库修改操作
     public function U () 
     {
-        $stmtResult = $this->query($this->modeInstance->fullQueryString('UPDATE'));
+        $stmtSql = $this->modeInstance->fullQueryString('UPDATE');
+        if ($this->modeInstance->returnSqlStent) {
+            return $stmtSql;
+        }
+        $stmtResult = $this->query($stmtSql);
         return $stmtResult->rowCount();
     }
     // 数据库删除数据操作
     public function D ()
     {
-        $affectedRows = $this->dbLink->exec($this->modeInstance->fullQueryString('DELETE'));
+        $stmtSql = $this->modeInstance->fullQueryString('DELETE');
+        if ($this->modeInstance->returnSqlStent) {
+            return $stmtSql;
+        }
+        $affectedRows = $this->dbLink->exec($stmtSql);
         return $affectedRows;
     }
     // 执行数据库语句

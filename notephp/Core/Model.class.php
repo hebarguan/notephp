@@ -52,6 +52,8 @@ class Model {
     public $transaction = false;
     // 是否开启预处理
     public $pretreatment = false;
+    // 是否返回sql语句
+    public $returnSqlStent = false;
     // 特殊字段查询符号
     public $specialQuerySymbol = array('NOT IN', 'IN', 'BETWEEN', 'NOT BETWEEN');
     // 是否开启持久链接
@@ -161,6 +163,11 @@ class Model {
     public function stmt ($statement = false) 
     {
         $this->pretreatment = $statement;
+        return $this;
+    }
+    // 返回sql语句
+    public function returnSql ($bool = false) {
+        $this->returnSqlStent = $bool;
         return $this;
     }
     // 组合query 语句查询

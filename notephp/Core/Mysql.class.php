@@ -26,12 +26,15 @@ class Mysql {
     }
     // 数据库创建CREATE
     public function C( $data = null ) {
-        $filterData ;
         if( !is_null($data) ) {
             // 数据不为空则过滤数据
             $this->modeInstance->data($data);
         }
-        $result = $this->query($this->modeInstance->fullQueryString('INSERT')) ;
+        $sqlStentence = $this->modeInstance->fullQueryString('INSERT');
+        if ($this->modeInstance->returnSqlStent) {
+            return $sqlStentence;
+        }
+        $result = $this->query($sqlStentence) ;
         if( !$result ) return false;
         // 获取刚输入数据的ID
         $insertID    = $this->dbLink->insert_id;
@@ -44,6 +47,9 @@ class Mysql {
     // 数据库修改UPDATE
     public function U() {
         $updateString = $this->modeInstance->fullQueryString('UPDATE') ;
+        if ($this->modeInstance->returnSqlStent) {
+            return $updateString;
+        }
         $result = $this->query($updateString);
         if( $result ) {
             // 如果修改正确返回影响行数
@@ -58,12 +64,19 @@ class Mysql {
         $result = null;
         // 非组合查询id
         if( is_numeric($id)  ) {
-            $result = $this->query("SELECT * FROM {$this->modeInstance->dbTable} WHERE id={$id}");
+            $sqlSentence = "SELECT * FROM {$this->modeInstance->dbTable} WHERE id={$id}";
+            if ($this->modeInstance->returnSqlStent) {
+                return $sqlSentence;
+            }
+            $result = $this->query($sqlSentence);
             if ($this->modeInstance->dbCheck) return $result->num_rows;
             $returndata[0] = $result->fetch_array(MYSQLI_ASSOC);
         }elseif(is_null($id)) { 
             //组合查询语句
             $queryString = $this->modeInstance->fullQueryString('SELECT');
+            if ($this->modeInstance->returnSqlStent) {
+                return $queryString;
+            }
             $result = $this->query($queryString) ;
             if( !$result ) return false;
             if ($this->modeInstance->dbCheck) return $result->num_rows;
@@ -86,6 +99,9 @@ class Mysql {
         }else{ 
             //定义删除query语句
             $deleteString = $this->modeInstance->fullQueryString('DELETE') ;
+            if ($this->modeInstance->returnSqlStent) {
+                return $deleteString;
+            }
             $result = $this->query($deleteString) ;
         }
         if( $result ) {
