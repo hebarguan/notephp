@@ -37,9 +37,6 @@ class DatabaseObject
         if (is_numeric($id))
         {
             $stmtSql = "SELECT * FROM {$this->modeInstance->dbTable} WHERE id=$id";
-            if ($this->modeInstance->returnSqlStent) {
-                return $stmtSql;
-            }
             $stmt = $this->dbLink->prepare($stmtSql);
             if ($stmt->execute())
             {
@@ -54,10 +51,7 @@ class DatabaseObject
             }
         }
         // 组合查询
-        $stmtSql = $this->modeInstance->fullQueryString('SELECT');
-        if ($this->modeInstance->returnSqlStent) {
-            return $stmtSql;
-        }
+        $stmtSql = $this->modeInstance->buildQueryString('SELECT');
         $groupCheckStmt = $this->query($stmtSql);
         if ($check)
         {
@@ -73,10 +67,7 @@ class DatabaseObject
         {
             $this->modeInstance->data($data);
         }
-        $queryString = $this->modeInstance->fullQueryString('INSERT');
-        if($this->modeInstance->returnSqlStent) {
-            return $queryString;
-        }
+        $queryString = $this->modeInstance->buildQueryString('INSERT');
         $stmt = $this->query($queryString);
         if ($insertId = $this->dbLink->lastInsertId())
         {
@@ -88,20 +79,14 @@ class DatabaseObject
     // 数据库修改操作
     public function U () 
     {
-        $stmtSql = $this->modeInstance->fullQueryString('UPDATE');
-        if ($this->modeInstance->returnSqlStent) {
-            return $stmtSql;
-        }
+        $stmtSql = $this->modeInstance->buildQueryString('UPDATE');
         $stmtResult = $this->query($stmtSql);
         return $stmtResult->rowCount();
     }
     // 数据库删除数据操作
     public function D ()
     {
-        $stmtSql = $this->modeInstance->fullQueryString('DELETE');
-        if ($this->modeInstance->returnSqlStent) {
-            return $stmtSql;
-        }
+        $stmtSql = $this->modeInstance->buildQueryString('DELETE');
         $affectedRows = $this->dbLink->exec($stmtSql);
         return $affectedRows;
     }

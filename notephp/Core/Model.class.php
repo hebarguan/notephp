@@ -52,8 +52,6 @@ class Model {
     public $transaction = false;
     // 是否开启预处理
     public $pretreatment = false;
-    // 是否返回sql语句
-    public $returnSqlStent = false;
     // 特殊字段查询符号
     public $specialQuerySymbol = array('NOT IN', 'IN', 'BETWEEN', 'NOT BETWEEN');
     // 是否开启持久链接
@@ -165,13 +163,13 @@ class Model {
         $this->pretreatment = $statement;
         return $this;
     }
-    // 返回sql语句
-    public function returnSql ($bool = false) {
-        $this->returnSqlStent = $bool;
-        return $this;
+    // 返回sql语句 默认sql查询模式是SELECT
+    public function returnSql ($execMode = "SELECT") {
+        $sqlString = $this->buildQueryString(strtoupper($execMode));
+        return $sqlString;
     }
     // 组合query 语句查询
-    public function fullQueryString( $handle ) {
+    public function buildQueryString( $handle ) {
         // 要查询的数据表
         $table = $this->dbTable;
         $dataCondition = $this->_sql['dat'];
