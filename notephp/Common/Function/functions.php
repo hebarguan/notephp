@@ -80,4 +80,26 @@ function M ($model ,$bool = true) {
         return new Model($model);
     }
 }
-?>
+/*
+ * 数据加密函数
+ * 更多请参考php.net/mcrypt
+ * @param $data 要加密的数据
+ * @param $secretKey 加密密钥
+ * @param $mode 加密或解密 encode 或 decode 默认加密
+ */
+function SysCrypt($data, $secretKey, $mode = "encode") {
+    $algorithm = MCRYPT_BLOWFISH;
+    $mcryptMode = MCRYPT_MODE_CBC;
+    $size = mcrypt_get_iv_size($algorithm, $mcryptMode);
+    $iv = mcrypt_create_iv($size, MCRYPT_DEV_URANDOM);
+    if ($mode == "encode") {
+        $mcryptData = mcrypt_encrypt($algorithm, $secretKey, $data, $mcryptMode, $iv);
+        //$encodeData = base64_encode($mcryptData);
+        return $mcryptData;
+    } else {
+        //$decodeData = base64_decode($data);
+        $originData = mcrypt_decrypt($algorithm, $secretKey, $data, $mcryptMode, $iv);
+        return $originData;
+    }
+    return false;
+}

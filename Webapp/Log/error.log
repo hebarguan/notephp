@@ -3165,3 +3165,23 @@ Stack trace:
 [2016-05-06 21:24:33][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
 [2016-05-06 21:30:49][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
 [2016-05-06 21:31:53][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-05-06 22:50:09][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-05-06 22:53:05][ERROR][1]:Call to undefined function mcrypt_get_iv_size()in File/home/hebar/notephp/notephp/Common/Function/functions.php line 93
+[2016-05-06 22:55:43][ERROR][1]:Call to undefined function mcrypt_get_iv_size()in File/home/hebar/notephp/notephp/Common/Function/functions.php line 93
+[2016-05-06 22:55:45][ERROR][1]:Call to undefined function mcrypt_get_iv_size()in File/home/hebar/notephp/notephp/Common/Function/functions.php line 93
+[2016-05-06 22:57:36][ERROR][1]:Call to undefined function mcrypt_get_iv_size()in File/home/hebar/notephp/notephp/Common/Function/functions.php line 93
+[2016-05-06 22:57:37][ERROR][1]:Call to undefined function mcrypt_get_iv_size()in File/home/hebar/notephp/notephp/Common/Function/functions.php line 93
+[2016-05-06 22:57:38][ERROR][1]:Call to undefined function mcrypt_get_iv_size()in File/home/hebar/notephp/notephp/Common/Function/functions.php line 93
+[2016-05-06 22:57:39][ERROR][1]:Call to undefined function mcrypt_get_iv_size()in File/home/hebar/notephp/notephp/Common/Function/functions.php line 93
+[2016-05-06 22:59:03][ERROR][1]:Call to undefined function mcrypt_get_iv_size()in File/home/hebar/notephp/notephp/Common/Function/functions.php line 93
+[2016-05-06 22:59:04][ERROR][1]:Call to undefined function mcrypt_get_iv_size()in File/home/hebar/notephp/notephp/Common/Function/functions.php line 93
+[2016-05-06 22:59:05][ERROR][1]:Call to undefined function mcrypt_get_iv_size()in File/home/hebar/notephp/notephp/Common/Function/functions.php line 93
+[2016-05-06 23:00:41][ERROR][1]:Class 'CacheController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-05-06 23:18:04][ERROR][1]:Call to undefined function mcrypt_get_iv_size()in File/home/hebar/notephp/notephp/Common/Function/functions.php line 93
+[2016-05-06 23:18:05][ERROR][1]:Call to undefined function mcrypt_get_iv_size()in File/home/hebar/notephp/notephp/Common/Function/functions.php line 93
+[2016-05-06 23:18:06][ERROR][1]:Call to undefined function mcrypt_get_iv_size()in File/home/hebar/notephp/notephp/Common/Function/functions.php line 93
+[2016-05-06 23:25:55][ERROR][1]:Class '20160506235054Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-05-06 23:25:59][ERROR][1]:Class '20160506235054Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-05-06 23:26:05][ERROR][1]:Class '20160506235054Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-05-06 23:34:05][ERROR][4]:syntax error, unexpected 'echo' (T_ECHO), expecting ',' or ';'in File/home/hebar/notephp/Webapp/Home/Controller/IndexController.class.php line 17
+[2016-05-07 01:12:55][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
