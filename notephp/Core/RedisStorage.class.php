@@ -4,28 +4,28 @@
  * Email hebarguan@hotmail.com
  * 该类为Redis缓存扩展提供支持
  * 并支持三种数据类型，String(字符串)，List(列表)，Set(集合)
- * 该类同时提供自定义操作链接柄$redisDB = Cache::getConnect();
+ * 该类同时提供自定义操作链接柄RedisStorage::init();$redisHandle = RedisStorage::$redisHandle;
  * 常见的phpredis命令将在该类使用
  * 更多命令请参考https://github.com/phpredis/phpredis
  */
-class Cache 
+class RedisStorage 
 {
     // 定义自定义操作链接柄
-    public static $redisDB = false;
+    public static $redisHandle = false;
     // 定义数据键过期时间
     public static $redisKeysExpire = -1;
     // 定义缓存数据设置操作方法
     public static $setTypeArray = array("str_" => "string", "list_" => "list", "set_" => "gather");
     // 定义设置数据缓存命令
     public static $redisSetCmd = array("string" => "SET", "list" => "LPUSH", "gather" => "SADD");
-    // 定义构造函数
+    // 定义初始化函数
     public static function init() 
     {
         $redisConf = C("REDIS_CONF");
         // 数据键过期时间
         self::$redisKeysExpire = $redisConf['REDIS_KEYS_EXPIRE'];
-        self::$redisDB = new Redis;
-        self::$redisDB->connect($redisConf['REDIS_HOST'], $redisConf['REDIS_PORT'], $redisConf['REDIS_TIMEOUT']);
+        self::$redisHandle = new Redis;
+        self::$redisHandle->connect($redisConf['REDIS_HOST'], $redisConf['REDIS_PORT'], $redisConf['REDIS_TIMEOUT']);
     }
     // 设置缓存数据
     public static function set($key, $cacheData = null, $expire = null)
@@ -62,10 +62,10 @@ class Cache
         $keyPrefixPos = strpos($key, "_");
         $setType = self::$setTypeArray[substr($key, 0, $keyPrefixPos+1)];
         $setCmd = self::$redisSetCmd[$setType];
-        $cacheResult = self::$redisDB->$setCmd($key, $cacheData);
+        $cacheResult = self::$redisHandle->$setCmd($key, $cacheData);
         // 设置过期时间,以秒开始-1为一直有效
         if ($expire !== -1) {
-            self::$redisDB->expire($key, $expire);
+            self::$redisHandle->expire($key, $expire);
         }
         return $cacheResult;
     }
@@ -85,21 +85,21 @@ class Cache
     public static function get($dataKey, $start = 0, $stop = -1) 
     {
         // 判断键是否存在
-        if (self::$redisDB->exists($dataKey)) {
+        if (self::$redisHandle->exists($dataKey)) {
             // 获取缓存类型
-            $getKeyType = self::$redisDB->type($dataKey);
+            $getKeyType = self::$redisHandle->type($dataKey);
             switch ($getKeyType) {
             case 0 :
                 $data = false;
                 break;
             case 1 :
-                $data = self::$redisDB->GET($dataKey);
+                $data = self::$redisHandle->GET($dataKey);
                 break;
             case 2 :
-                $data = self::$redisDB->SMEMBERS($dataKey);
+                $data = self::$redisHandle->SMEMBERS($dataKey);
                 break;
             case 3 :
-                $data = self::$redisDB->LRANGE($dataKey, $start, $stop);
+                $data = self::$redisHandle->LRANGE($dataKey, $start, $stop);
                 break;
             }
         }
@@ -114,20 +114,20 @@ class Cache
     public static function clear($delKey) 
     {
         // 检测键是否存在，防止进程阻塞
-        if (self::$redisDB->exists($delKey)) {
+        if (self::$redisHandle->exists($delKey)) {
             // 若键不存在强制删除服务器将导致502错误
-            return self::$redisDB->del($delKey);
+            return self::$redisHandle->del($delKey);
         }
         return false;
     }
     // 删除当前缓存数据库
     public static function clearDB() 
     {
-        return self::$redisDB->flushDB();
+        return self::$redisHandle->flushDB();
     }
     // 删除所有缓存数据库
     public static function clearAllDB() 
     {
-        return self::$redisDB->flushAll();
+        return self::$redisHandle->flushAll();
     }
 }

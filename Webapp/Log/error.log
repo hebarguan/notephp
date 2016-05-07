@@ -3419,3 +3419,29 @@ Stack trace:
 [2016-05-07 16:40:42][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
 [2016-05-07 16:40:43][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
 [2016-05-07 16:40:44][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-05-07 22:54:16][ERROR][1]:Class 'CacheController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-05-07 23:11:10][ERROR][4]:syntax error, unexpected '::' (T_PAAMAYIM_NEKUDOTAYIM)in File/home/hebar/notephp/Webapp/Home/Controller/IndexController.class.php line 24
+[2016-05-07 23:11:10][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-05-07 23:11:54][ERROR][1]:Class name must be a valid object or a stringin File/home/hebar/notephp/Webapp/Home/Controller/IndexController.class.php line 25
+[2016-05-07 23:11:54][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-05-07 23:12:49][ERROR][1]:Undefined class constant 'redisDB'in File/home/hebar/notephp/Webapp/Home/Controller/IndexController.class.php line 25
+[2016-05-07 23:12:49][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-05-07 23:13:02][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-05-07 23:13:15][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-05-07 23:13:17][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-05-07 23:13:49][ERROR][4]:syntax error, unexpected '::' (T_PAAMAYIM_NEKUDOTAYIM)in File/home/hebar/notephp/Webapp/Home/Controller/IndexController.class.php line 24
+[2016-05-07 23:13:49][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-05-07 23:21:56][ERROR][1]:Class 'RedisStorage' not foundin File/home/hebar/notephp/Webapp/Home/Controller/IndexController.class.php line 24
+[2016-05-07 23:21:56][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-05-07 23:22:42][ERROR][1]:Access to undeclared static property: RedisStorage::$redisDBin File/home/hebar/notephp/Webapp/Home/Controller/IndexController.class.php line 25
+[2016-05-07 23:22:42][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-05-07 23:23:21][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-05-07 23:25:29][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-05-07 23:25:47][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-05-07 23:25:48][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-05-07 23:25:49][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-05-07 23:25:50][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-05-07 23:26:05][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-05-07 23:26:37][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-05-07 23:26:58][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-05-07 23:28:27][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
