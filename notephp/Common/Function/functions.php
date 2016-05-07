@@ -87,19 +87,34 @@ function M ($model ,$bool = true) {
  * @param $secretKey 加密密钥
  * @param $mode 加密或解密 encode 或 decode 默认加密
  */
-function SysCrypt($data, $secretKey, $mode = "encode") {
-    $algorithm = MCRYPT_BLOWFISH;
-    $mcryptMode = MCRYPT_MODE_CBC;
-    $size = mcrypt_get_iv_size($algorithm, $mcryptMode);
-    $iv = mcrypt_create_iv($size, MCRYPT_DEV_URANDOM);
-    if ($mode == "encode") {
-        $mcryptData = mcrypt_encrypt($algorithm, $secretKey, $data, $mcryptMode, $iv);
-        //$encodeData = base64_encode($mcryptData);
-        return $mcryptData;
-    } else {
-        //$decodeData = base64_decode($data);
-        $originData = mcrypt_decrypt($algorithm, $secretKey, $data, $mcryptMode, $iv);
-        return $originData;
-    }
-    return false;
+function SysCrypt($data, $secretKey) {
+    // 将加密字符串进行sha1加密为十六进制数字再转化为字符
+    $key = pack('H*', sha1($secretKey));
+    //为 CBC 模式创建随机的初始向量
+    //注意 初始向量是随机唯一的
+    //所以必须保存至加密后的字符串中，才能加密
+    $iv_size = mcrypt_get_iv_size(MCRYPT_RIJNDAEL_128, MCRYPT_MODE_CBC);
+    $iv = mcrypt_create_iv($iv_size, MCRYPT_RAND);
+    //（因为默认是使用 0 来补齐数据）
+    $ciphertext = mcrypt_encrypt(MCRYPT_RIJNDAEL_128, $key, $data, MCRYPT_MODE_CBC, $iv);
+    //将初始向量附加在密文之后，以供解密时使用
+    $ciphertext = $iv . $ciphertext;
+    //对密文进行 base64 编码
+    $ciphertext_base64 = base64_encode($ciphertext);
+    return $ciphertext_base64;
+}
+
+function SysDecrypt($cryptData, $secretKey) {
+    // --- 解密 ---
+    // $iv_size 按加密模式默认是16
+    $iv_size = 16;
+    $key = pack('H*', sha1($secretKey));
+    $ciphertext_dec = base64_decode($cryptData);
+    // 初始向量大小，可以通过 mcrypt_get_iv_size() 来获得
+    $iv_dec = substr($ciphertext_dec, 0, $iv_size);
+    //获取除初始向量外的密文
+    $ciphertext_dec = substr($ciphertext_dec, $iv_size);
+    // 可能需要从明文末尾移除 0
+    $plaintext_dec = mcrypt_decrypt(MCRYPT_RIJNDAEL_128, $key, $ciphertext_dec, MCRYPT_MODE_CBC, $iv_dec);
+    return $plaintext_dec;
 }
