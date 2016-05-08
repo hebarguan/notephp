@@ -137,41 +137,28 @@ function Cache() {
     if ($paramNum === 0)  return $memInstance;
     // 获取参数列表
     $paramList = func_get_args();
-    // 检测第一个参数是否为数组
-    $setKeyType = is_array($paramOne = $paramList[0]) ? "Multi" : "";
-    if ($setKeyType) {
-        // 检测参数一是添加还是删除数组
-        $paramArrayKeys = array_keys($paramOne);
-        $checkSetOrDel = is_numeric($paramArrayKeys[0]);
-    }
     // 1个参数表示获取缓存数据，可以是数组
-    if ($paramNum === 1 && ($checkSetOrDel OR !$setKeyType)) {
-        $getCmd = "get".$setKeyType;
-        //exit($paramList[0]);
-        return $memInstance->$getCmd($paramOne);
-    } else {
-        list($setKey, $setValue, $expire) = $paramList;
-        if (!is_null($setValue) && empty($setValue)) {
-
+    if ($paramNum === 1) {
+        $getCmd = is_array($paramList[0]) ? "getMulti" : "get";
+        return $memInstance->$getCmd($paramList[0]);
+    }
+    list($setKey, $setValue, $expire) = each($paramList);
+    if ($paramNum >= 2) {
+        // 检测$setKey是否为数组
+        $setKeyType = is_array($setKey) ? "Multi" : "";
+        if (!is_null($setValue) && empty($set)) {
             // Cache($setKey, "", $delayed)模式为删除该键缓存数据
             $deleteCmd = "delete".$setKeyType;
             // 检测是否设置延迟删除
             $delayed = is_null($expire) ? 0 : $expire;
-            if (!$memInstance->$deleteCmd($setKey, $delayed)) {
-                return $memInstance->getResultCode();
-            }
+            return $memInstance->$deleteCmd($setKey, $delayed);
         } else {
             // 若数据被设置且不为空则缓存
-            //数组模式$setValue为
-            $expire = $setKeyType ? $setValue : $expire;
             $expire = is_null($expire) ? $expiration : $expire;
+            var_dump($paramList);
+            die();
             $setCmd = "set".$setKeyType;
-            if ($setKeyType) {
-                $setResult = $memInstance->$setCmd($setKey, $expire);
-            } else {
-                $setResult = $memInstance->$setCmd($setKey, $setValue, $expire);
-            }
-            return $setResult;
+            return $memInstance->$setCmd($setKey, $expire);
         }
     }
 }

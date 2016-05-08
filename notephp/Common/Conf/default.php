@@ -49,5 +49,9 @@ return array(
         "REDIS_PORT"        => 6379,
         "REDIS_TIMEOUT"     => 0 
     ),
+    "MEMCACHED_CONF"           =>  array( // Mencached配置
+        "SERVERS"    => array(array("localhost", 11211, 100)), // Mencached服务器连接池
+        "EXPIRATION" => 0       // 数据键过期时间，0为持久有效
+    ),
 )
 ?>
