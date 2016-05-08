@@ -101,7 +101,8 @@ function SysCrypt($data, $secretKey) {
     $ciphertext = $iv . $ciphertext;
     //对密文进行 base64 编码
     $ciphertext_base64 = base64_encode($ciphertext);
-    return $ciphertext_base64;
+    // 添加urlencode防止GET传输错误
+    return urlencode($ciphertext_base64);
 }
 
 function SysDecrypt($cryptData, $secretKey) {
@@ -109,7 +110,7 @@ function SysDecrypt($cryptData, $secretKey) {
     // $iv_size 按加密模式默认是16
     $iv_size = 16;
     $key = pack('H*', sha1($secretKey));
-    $ciphertext_dec = base64_decode($cryptData);
+    $ciphertext_dec = base64_decode(urldecode($cryptData));
     // 初始向量大小，可以通过 mcrypt_get_iv_size() 来获得
     $iv_dec = substr($ciphertext_dec, 0, $iv_size);
     //获取除初始向量外的密文

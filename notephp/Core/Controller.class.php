@@ -48,13 +48,15 @@ class Controller {
     protected function dataReturn ($data) {
         // 数据类型
         $dataType = C('DATA_RETURN_TYPE');
+        // 发送http头信息
+        header("Content-Type:text/$dataType");
         switch ($dataType) {
         case 'json' :
             $jsonEncode = json_encode($data);
             echo $jsonEncode;
             break;
         case 'xml' :
-            $xmlData = "<xml>";
+            $xmlData = '<?xml version="1.0"?>';
             foreach ($data as $node => $val) {
                 $childNode = '';
                 if(is_array($val)) {
@@ -66,7 +68,6 @@ class Controller {
                 }
                 $xmlData .= $childNode;
             }
-            $xmlData .= "</xml>";
             echo $xmlData;
             break;
         }

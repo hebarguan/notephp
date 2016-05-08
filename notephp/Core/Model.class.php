@@ -163,11 +163,6 @@ class Model {
         $this->pretreatment = $statement;
         return $this;
     }
-    // 返回sql语句 默认sql查询模式是SELECT
-    public function returnSql ($execMode = "SELECT") {
-        $sqlString = $this->buildQueryString(strtoupper($execMode));
-        return $sqlString;
-    }
     // 组合query 语句查询
     public function buildQueryString( $handle ) {
         // 要查询的数据表
@@ -333,6 +328,28 @@ class Model {
                 $sqlString = $integrateCondition."'$querySymbolValue' ";
             }
         }
+        return $sqlString;
+    }
+    // 下面的五个操作方法为该类的终止方法
+    // 而且应该被放在连贯操作的最后
+    // 用于返回查询者想要的数据或sql语句
+    // 返回sql语句  
+    function returnSql ($execMode = "execute") {
+        switch (strtolower($execMode)) {
+        case "execute" :
+            $curdCmd = "SELECT";
+            break;
+        case "save" :
+            $curdCmd = "UPDATE";
+            break;
+        case "delete" :
+            $curdCmd = "DELETE";
+            break;
+        case "add" :
+            $curdCmd = "INSERT";
+            break;
+        }
+        $sqlString = $this->buildQueryString($curdCmd);
         return $sqlString;
     }
     public function execute( $id = null ) {
