@@ -2,9 +2,8 @@
  /*
   * Edited By hebarguan in 2016-1-19
   * Email : hebarguan@hotmail.com
-  * 框架初始化文件
+  * 框架初始化全局常量设置文件
   */
-
 // 定义根目录
 define("__ROOT__", "./");
 // 定义notephp根目录
@@ -32,5 +31,6 @@ define("__PUBLIC__", "./Public");
 define("EXTS", ".class.php");
 // 加载框架运行文件
 require_once(__NOTEPHP__."/Core/Notephp".EXTS);
+// 运行初始文件
 NotePHP::initialize();
-?>
+

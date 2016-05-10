@@ -4,36 +4,48 @@
  * Email hebarguan@hotmail.com
  * 该类为Redis缓存扩展提供支持
  * 并支持三种数据类型，String(字符串)，List(列表)，Set(集合)
- * 该类同时提供自定义操作链接柄RedisStorage::init();$redisHandle = RedisStorage::$redisHandle;
+ * 该类同时提供自定义操作链接柄$redisHandle = new RedisStorage()->redisHandle;
  * 常见的phpredis命令将在该类使用
  * 更多命令请参考https://github.com/phpredis/phpredis
  */
 class RedisStorage 
 {
     // 定义自定义操作链接柄
-    public static $redisHandle = false;
+    public $redisHandle = false;
     // 定义数据键过期时间
-    public static $redisKeysExpire = -1;
+    public $redisKeysExpire = -1;
     // 定义缓存数据设置操作方法
-    public static $setTypeArray = array("str_" => "string", "list_" => "list", "set_" => "gather");
+    public $setTypeArray = array(
+        "str_"  => "string",
+        "list_" => "list",
+        "set_"  => "gather"
+    );
     // 定义设置数据缓存命令
-    public static $redisSetCmd = array("string" => "SET", "list" => "LPUSH", "gather" => "SADD");
+    public $redisSetCmd = array(
+        "string" => "SET",
+        "list"   => "LPUSH",
+        "gather" => "SADD"
+    );
     // 定义初始化函数
-    public static function init() 
+    public function __construct() 
     {
         $redisConf = C("REDIS_CONF");
         // 数据键过期时间
-        self::$redisKeysExpire = $redisConf['REDIS_KEYS_EXPIRE'];
-        self::$redisHandle = new Redis;
-        self::$redisHandle->connect($redisConf['REDIS_HOST'], $redisConf['REDIS_PORT'], $redisConf['REDIS_TIMEOUT']);
+        $this->redisKeysExpire = $redisConf['REDIS_KEYS_EXPIRE'];
+        $this->redisHandle = new Redis;
+        $this->redisHandle->connect(
+            $redisConf['REDIS_HOST'],
+            $redisConf['REDIS_PORT'],
+            $redisConf['REDIS_TIMEOUT']
+        );
     }
     // 设置缓存数据
-    public static function set($key, $cacheData = null, $expire = null)
+    public function set($key, $cacheData = null, $expire = null)
     {
         if (is_array($key)) {
-            while(list($keys,$value) = each($key)) {
+            while (list($keys,$value) = each($key)) {
                 if (is_numeric($keys)) {
-                    if (self::clear($value)) $affectedRows++;
+                    if ($this->clear($value)) $affectedRows++;
                 } else {
                     if (is_array($value)) {
                         $cacheData = $value[0];
@@ -42,30 +54,30 @@ class RedisStorage
                         $cacheData = $value;
                         $keyExpire = null;
                     }
-                    if (self::add($keys, $cacheData, $keyExpire)) $affectedRows++;
+                    if ($this->add($keys, $cacheData, $keyExpire)) $affectedRows++;
                 }
             }
             return $affectedRows;
         } else {
             // 如果$cache缓存数据为空，则删除该键
             if (is_null($cacheData)) {
-                return self::clear($key);
+                return $this->clear($key);
             }
-            return self::add($key, $cacheData, $expire);
+            return $this->add($key, $cacheData, $expire);
         }
     }
     // 添加缓存数据
-    public static function add($key, $cacheData, $expire) 
+    public function add($key, $cacheData, $expire) 
     {
         // 设置过期时间
-        $expire = is_null($expire) ? self::$redisKeysExpire : $expire;
+        $expire = is_null($expire) ? $this->redisKeysExpire : $expire;
         $keyPrefixPos = strpos($key, "_");
-        $setType = self::$setTypeArray[substr($key, 0, $keyPrefixPos+1)];
-        $setCmd = self::$redisSetCmd[$setType];
-        $cacheResult = self::$redisHandle->$setCmd($key, $cacheData);
+        $setType = $this->setTypeArray[substr($key, 0, $keyPrefixPos+1)];
+        $setCmd = $this->redisSetCmd[$setType];
+        $cacheResult = $this->redisHandle->$setCmd($key, $cacheData);
         // 设置过期时间,以秒开始-1为一直有效
         if ($expire !== -1) {
-            self::$redisHandle->expire($key, $expire);
+            $this->redisHandle->expire($key, $expire);
         }
         return $cacheResult;
     }
@@ -75,31 +87,31 @@ class RedisStorage
      * @param $dataIndex 获取的表值的索引
      * @param $endIndex 结束索引-1表示最后一个数据
      */
-    public static function mget($keysArray) 
+    public function mget($keysArray) 
     {
-        while(list(, $value) = each($keysArray)) {
-            $dataContainer[$value] = self::get($value);
+        while (list(, $value) = each($keysArray)) {
+            $dataContainer[$value] = $this->get($value);
         }
         return $dataContainer;
     }
-    public static function get($dataKey, $start = 0, $stop = -1) 
+    public function get($dataKey, $start = 0, $stop = -1) 
     {
         // 判断键是否存在
-        if (self::$redisHandle->exists($dataKey)) {
+        if ($this->redisHandle->exists($dataKey)) {
             // 获取缓存类型
-            $getKeyType = self::$redisHandle->type($dataKey);
+            $getKeyType = $this->redisHandle->type($dataKey);
             switch ($getKeyType) {
             case 0 :
                 $data = false;
                 break;
             case 1 :
-                $data = self::$redisHandle->GET($dataKey);
+                $data = $this->redisHandle->GET($dataKey);
                 break;
             case 2 :
-                $data = self::$redisHandle->SMEMBERS($dataKey);
+                $data = $this->redisHandle->SMEMBERS($dataKey);
                 break;
             case 3 :
-                $data = self::$redisHandle->LRANGE($dataKey, $start, $stop);
+                $data = $this->redisHandle->LRANGE($dataKey, $start, $stop);
                 break;
             }
         }
@@ -111,23 +123,24 @@ class RedisStorage
      * 如果键不存在则忽视该命令
      * @param $delKey可以是数组，表示删除多个键
      */
-    public static function clear($delKey) 
+    public function clear($delKey) 
     {
         // 检测键是否存在，防止进程阻塞
-        if (self::$redisHandle->exists($delKey)) {
+        if ($this->redisHandle->exists($delKey)) {
             // 若键不存在强制删除服务器将导致502错误
-            return self::$redisHandle->del($delKey);
+            return $this->redisHandle->del($delKey);
         }
         return false;
     }
     // 删除当前缓存数据库
-    public static function clearDB() 
+    public function clearDB() 
     {
-        return self::$redisHandle->flushDB();
+        return $this->redisHandle->flushDB();
     }
     // 删除所有缓存数据库
-    public static function clearAllDB() 
+    public function clearAllDB() 
     {
-        return self::$redisHandle->flushAll();
+        return $this->redisHandle->flushAll();
     }
 }
+

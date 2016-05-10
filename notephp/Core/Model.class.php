@@ -16,7 +16,8 @@
   * @param $d = $m->data(array("name"=>"赵"))->where("id=2")->save();
   */
 
-class Model {
+class Model
+{
     // 定义要执行的逻辑查询类成员$_sql
     public $_sql = array(
         "fid" => "*" , //默认为查询所有字段
@@ -56,7 +57,8 @@ class Model {
     public $specialQuerySymbol = array('NOT IN', 'IN', 'BETWEEN', 'NOT BETWEEN');
     // 是否开启持久链接
     // 定义构造函数
-    public function __construct( $tab = null ) {
+    public function __construct($tab = null)
+    {
         // 初始化数据库信息
         $this->mysqlInfo['HOSTS']    = C('DB_HOST');
         $this->mysqlInfo['ROOT']     = C('DB_USER');
@@ -74,50 +76,60 @@ class Model {
         $this->dbTableList = $this->curd->getTables();
         if (!is_null($tab) AND in_array(strtolower($tab), $this->dbTableList)) {
             $this->dbTable = $tab ;
-        }elseif( $callModel !== "Model" AND !empty($callModel) ) {
+        } elseif ($callModel !== "Model" AND !empty($callModel)) {
             $this->dbTable = strtolower(explode("Model",$callModel)[0]);
-        }else{
+        } else {
             trigger_error("找不到数据库表",E_USER_ERROR);
         }
     }
     // 数据库链接函数
-    private function connect() {
+    private function connect()
+    {
         $curdType = ucfirst($this->curdType);
-        $this->curd = new $curdType($this, $this->mysqlInfo['DB_TYPE'], $this->mysqlInfo['HOSTS'], 
-            $this->mysqlInfo['DB_NAME'], $this->mysqlInfo['ROOT'], $this->mysqlInfo['PASSWORD']);
+        $this->curd = new $curdType($this,
+            $this->mysqlInfo['DB_TYPE'],
+            $this->mysqlInfo['HOSTS'], 
+            $this->mysqlInfo['DB_NAME'],
+            $this->mysqlInfo['ROOT'],
+            $this->mysqlInfo['PASSWORD']
+        );
     }
     // 字段选择过滤
-    public function fields( $field_string ) {
+    public function fields($field_string)
+    {
         $fid = $this->curd->mysqlFilter($field_string);
         $this->_sql['fid'] = empty($fid) ? $this->_sql['fid'] : $fid ;
         return $this;
     }
     // 查找行数限制
-    public function limit( $offset = 0 ,$rows = 0 ) {
-        if( !is_numeric($offset) AND !is_numeric($rows) ) return false;
-        if( $offset && $rows ) {
+    public function limit($offset = 0 ,$rows = 0 )
+    {
+        if (!is_numeric($offset) AND !is_numeric($rows)) return false;
+        if ($offset && $rows) {
             $this->_sql['lit'] = array( $offset ,$rows ) ;
-        }else{
+        } else {
             $this->_sql['lit'] = $offset;
         }
         return $this;
     }
     // 依据排列顺序order by
-    public function order( $order_word ) {
+    public function order($order_word)
+    {
         // filter the user inputing 
         $word = $this->curd->mysqlFilter($order_word) ;
         $this->_sql['ord'] = $word;
         return $this;
     }
     // 条件组合查询或字符串查询
-    public function where( $condition  ) {
-        if ( is_string($condition) ) {
+    public function where($condition)
+    {
+        if (is_string($condition)) {
             $this->_sql['wre'] = $this->curd->mysqlFilter($condition) ;
         }
-        if ( is_array($condition) ) {
+        if (is_array($condition)) {
             // 过滤keys 与 values 
             $newCondition = array();
-            foreach( $condition as $key => $value ) {
+            foreach ($condition as $key => $value) {
                 $newCondition[$this->curd->mysqlFilter($key)] = $this->curd->mysqlFilter($value) ;
             }
             //返回新条件数组
@@ -126,45 +138,49 @@ class Model {
         return $this ;
     }
     // 过滤用户输入数据
-    public function data( $data ) {
-        if( !is_array($data) ) return false;
+    public function data($data)
+    {
+        if (!is_array($data)) return false;
         $data = $this->curd->mysqlFilter($data);
         // 返回到sql
         $this->_sql['dat'] = $data;
         return $this;
     }
     // 过滤group by 数据
-    public function group( $qstr = null ) {
-        if( is_null($qstr) ) return false;
+    public function group($qstr = null)
+    {
+        if (is_null($qstr)) return false;
         $this->_sql['gro'] = $this->curd->mysqlFilter($qstr);
         return $this;
     }
     // 过滤having 数据
-    public function having( $hstr = null ) {
-        if( is_null($hstr) ) return false;
+    public function having($hstr = null)
+    {
+        if (is_null($hstr)) return false;
         $this->_sql['hav'] = $this->curd->mysqlFilter($hstr);
         return $this;
     }
     // 是否只执行查询
-    public function check ($val = false) 
+    public function check($val = false) 
     {
         $this->dbCheck = $val;
         return $this;
     }
     // 是否开启事务滚动
-    public function trans ($trans = false) 
+    public function trans($trans = false) 
     {
         $this->transaction = $trans;
         return $this;
     }
     // 是否开启预处理
-    public function stmt ($statement = false) 
+    public function stmt($statement = false) 
     {
         $this->pretreatment = $statement;
         return $this;
     }
     // 组合query 语句查询
-    public function buildQueryString( $handle ) {
+    public function buildQueryString($handle)
+    {
         // 要查询的数据表
         $table = $this->dbTable;
         $dataCondition = $this->_sql['dat'];
@@ -180,9 +196,8 @@ class Model {
             break;
         case "UPDATE": // 修改模式
             $returnString = "UPDATE $table SET ";
-            foreach($dataCondition as $key => $val) {
-                if ($val) 
-                {
+            foreach ($dataCondition as $key => $val) {
+                if ($val) {
                     $val = is_numeric($val) ? $val : "'$val'";
                     $setData[] = "$key=$val";
                 } else {
@@ -202,7 +217,8 @@ class Model {
         return $returnString;
     }
     // 整合查询条件字符串
-    public function fullQueryWhere () {
+    public function fullQueryWhere()
+    {
         $sqlString = '';
         $condition = $this->_sql;
         $whereCondition = $condition['wre'];
@@ -212,13 +228,11 @@ class Model {
         $lc = $condition['lit'];
         $afterWreSql = $this->afterWhereQuery($gc, $hc, $oc, $lc);
         $queryCommand = "WHERE";
-        if(!empty($whereCondition)) {
-            if (is_string($whereCondition)) 
-            {
+        if (!empty($whereCondition)) {
+            if (is_string($whereCondition)) {
                 return "$queryCommand $whereCondition $afterWreSql";
             }
-            if (is_array($whereCondition))
-            {
+            if (is_array($whereCondition)) {
                 // 计算数据长度判断是否为多字段查询
                 $whereArrayLen = count($whereCondition);
                 if ($whereArrayLen > 1) {
@@ -232,17 +246,14 @@ class Model {
         }
     } 
     // 组合多字段查询
-    public function multiFields ($condition, $rollbackField = null) 
+    public function multiFields($condition, $rollbackField = null) 
     {
-        if (count($condition) == 2)
-        {
+        if (count($condition) == 2) {
             $querySymbol = "AND";
         }
         $querySymbol = isset($querySymbol) ? $querySymbol : array_pop($condition);
-        while (list($fieldName, $arrayValue) = each($condition))
-        {
-            if (is_numeric($fieldName))
-            {
+        while (list($fieldName, $arrayValue) = each($condition)) {
+            if (is_numeric($fieldName)) {
                 if (!is_null($rollbackField))
                 {
                     $queryBlock[] = $this->symbolToValue($rollbackField, $arrayValue);
@@ -256,34 +267,39 @@ class Model {
         return $sqlWhereStentence;
     }
     // 组合Where条件后的查询
-    public function afterWhereQuery ($groupCondition, $havingCondition, $orderCondition, $limitCondition) {
+    public function afterWhereQuery($groupCondition,
+        $havingCondition,
+        $orderCondition,
+        $limitCondition
+    ) {
         // 组查询GROUP BY
-        if( !empty($groupCondition)) {
+        if (!empty($groupCondition)) {
             $sqlString .= "GROUP BY $groupCondition ";
         }
-        if($havingCondition) {
+        if ($havingCondition) {
             // having条件与group 组合使用
-            list($havingCdiKey ,$havingCdiVal) = each($havingCondition);
+            list($havingCdiKey, $havingCdiVal) = each($havingCondition);
             $sqlString .= "HAVING $havingCdiKey = '$havingCdiVal' ";
         }
         // 条件排序
-        if(!empty($orderCondition)) {
+        if (!empty($orderCondition)) {
             $sqlString .= "ORDER BY $orderCondition ";
         }
         // 条件限制
-        if(!empty($limitCondition)) {
+        if (!empty($limitCondition)) {
             $sqlString .= "LIMIT $limitCondition ";
         }
         return $sqlString;
     }
     // 单字段组合条件
-    public function singleFieldCombine ($whereCondition) 
+    public function singleFieldCombine($whereCondition) 
     {
         list($checkField, $fieldCondition) = each($whereCondition);
         // 不是数组为一般字段查询
-        if (!is_array($fieldCondition))
-        {
-            $sqlString = is_numeric($fieldCondition) ? $checkField."=".$fieldCondition : $checkField."='$fieldCondition'";
+        if (!is_array($fieldCondition)) {
+            $sqlString = is_numeric($fieldCondition) ?
+                $checkField."=".$fieldCondition :
+                $checkField."='$fieldCondition'";
             return $sqlString;
         }
         // 计算字段是否为并列查询
@@ -294,21 +310,18 @@ class Model {
         return $this->symbolToValue($checkField, $fieldCondition);
     }
     // 把字段 符号 值连接在一起
-    public function symbolToValue ($checkField, $fieldCondition) 
+    public function symbolToValue($checkField, $fieldCondition) 
     {
         $querySymbol = strtoupper($fieldCondition[0]);
         $querySymbolValue = $fieldCondition[1];
         // 使用特性字段查询符号检测
         $specialSymbolArray = $this->specialQuerySymbol;
         $integrateCondition = "$checkField $querySymbol ";
-        if (in_array($querySymbol, $specialSymbolArray))
-        {
-            switch ($querySymbol)
-            {
+        if (in_array($querySymbol, $specialSymbolArray)) {
+            switch ($querySymbol) {
                 case "IN" :
                 case "NOT IN" :
-                    if (is_string($querySymbolValue))
-                    {
+                    if (is_string($querySymbolValue)) {
                         $sqlString = $integrateCondition."($querySymbolValue) ";
                     } else {
                         $arrayToString = join("','", $querySymbolValue);
@@ -334,45 +347,51 @@ class Model {
     // 而且应该被放在连贯操作的最后
     // 用于返回查询者想要的数据或sql语句
     // 返回sql语句  
-    function returnSql ($execMode = "execute") {
+    function returnSql($execMode = "execute")
+    {
         switch (strtolower($execMode)) {
-        case "execute" :
+        case "execute":
             $curdCmd = "SELECT";
             break;
-        case "save" :
+        case "save":
             $curdCmd = "UPDATE";
             break;
-        case "delete" :
+        case "delete":
             $curdCmd = "DELETE";
             break;
-        case "add" :
+        case "add":
             $curdCmd = "INSERT";
             break;
         }
         $sqlString = $this->buildQueryString($curdCmd);
         return $sqlString;
     }
-    public function execute( $id = null ) {
+    public function execute($id = null)
+    {
         // 定义返回结果数组
         $result = $this->curd->R($id);
         return $result;
     }
     // 修改表数据
-    public function save() {
+    public function save()
+    {
         // 定义修改query语句
         $result = $this->curd->U();
         return $result;
     }
     // 删除表数据
-    public function delete($id = null) {
+    public function delete($id = null)
+    {
         // 通过id删除表数据
         $result = $this->curd->D($id);
         return $result;
     } 
     // 添加表数据
-    public function add($data = null) {
+    public function add($data = null)
+    {
         //过滤data数据
         $result = $this->curd->C($data);
         return $result;
     }
 } 
+

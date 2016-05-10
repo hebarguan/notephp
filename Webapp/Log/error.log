@@ -3715,3 +3715,17 @@ Stack trace:
 [2016-05-08 21:18:06][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
 [2016-05-08 21:18:51][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
 [2016-05-08 21:19:15][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-05-08 21:48:50][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-05-09 11:44:37][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-05-09 12:37:22][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-05-09 14:09:17][ERROR][1]:Class 'CacheController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-05-09 15:05:27][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-05-09 21:38:05][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-05-10 00:31:08][ERROR][1]:Class 'CacheController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-05-10 00:58:49][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-05-10 02:15:39][ERROR][1]:Class 'ManagerController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-05-10 11:10:39][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-05-10 13:19:30][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-05-10 13:25:22][ERROR][1]:Class 'CacheController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-05-10 13:54:29][ERROR][1]:Class 'CacheController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28
+[2016-05-10 15:47:26][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 28

@@ -5,7 +5,8 @@
   * Email : hebarguan@hotmail.com
   */
 
-class NotePHP {
+class NotePHP
+{
     // 定义组合配置文件
     private static $_conf = array();
     // 定义核心文件名
@@ -21,7 +22,8 @@ class NotePHP {
     );
 
     // 框架初始运行
-    public static function initialize() {
+    public static function initialize()
+    {
         // 定义错误与异常函数
         set_error_handler('NotePHP::MyError');
         register_shutdown_function('NotePHP::LastErr');
@@ -29,29 +31,28 @@ class NotePHP {
         spl_autoload_register('NotePHP::autoLoad');
 
         // 加载核心文件
-        foreach ( self::$Core as $file ) {
+        foreach (self::$Core as $file ) {
             $coreFile = __NOTEPHP__."/Core/".$file.EXTS;
-            if( is_file( $coreFile  ) ) {
+            if (is_file($coreFile)) {
                 require_once($coreFile);
             }
         }
         // 尝试创建项目目录结构
-        if( !is_dir(MODULE_PATH) ) {
-            if(mkdir(MODULE_PATH)) {
-                while(list($sdir , $val) = each(self::$struDir)) {
+        if(!is_dir(MODULE_PATH)) {
+            if (mkdir(MODULE_PATH)) {
+                while (list($sdir , $val) = each(self::$struDir)) {
                     $subPath = MODULE_PATH."/".$sdir;
                     mkdir($subPath);
-                    if(is_array($val) AND !empty($val)) {
-                        for($i=0;$i<count($val);$i++) {
+                    if (is_array($val) AND !empty($val)) {
+                        for ($i=0;$i<count($val);$i++) {
                             mkdir($subPath."/".$val[$i]);
                         }
                     }
                 }
-            }else{
+            } else {
                 // 创建失败则提示手动创建
                 trigger_error(PRO_PATH."目录不能创建，请手动创建＠" , E_USER_ERROR);
             }
-
         }
         // 加载框架公共函数库
         include_once(__NOTEPHP__."/Common/Function/functions.php");
@@ -59,9 +60,10 @@ class NotePHP {
         self::AppRun();
     }
     // 自定义错误处理函数
-    public static function MyError( $code , $msg , $file , $line ) {
-        if( !($code  AND error_reporting()) ) {
-            return ;
+    public static function MyError($code , $msg , $file , $line)
+    {
+        if (!($code  AND error_reporting())) {
+            return;
         }
         $err = array($code,$msg ,$file ,$line);
         $errType = self::selectErrorType($code);
@@ -70,50 +72,58 @@ class NotePHP {
         self::writeLog();
     } 
     // 自动加载类函数
-    public static function autoLoad ( $classname ) {
+    public static function autoLoad($classname)
+    {
         // 自动加载项目类文件
-        $modulePath   = PRO_PATH."/".($GLOBALS['PROJECT_REQUEST_MODULE'] ? $GLOBALS['PROJECT_REQUEST_MODULE'] : APP_NAME);
+        $modulePath   = PRO_PATH."/".($GLOBALS['PROJECT_REQUEST_MODULE'] ?
+            $GLOBALS['PROJECT_REQUEST_MODULE'] :
+            APP_NAME);
         $corePath     = __NOTEPHP__."/Core";
         $autoLoadPath = array($modulePath, $corePath);
-        foreach( $autoLoadPath as $path ) {
-            if( $fileHandler = ergodicPath($path, $classname.EXTS) ) break;
+        foreach ($autoLoadPath as $path) {
+            if ($fileHandler = ergodicPath($path, $classname.EXTS)) break;
         }
         // 加载失败则返回FALSE,让队列函数继续加载
-        if( $fileHandler === false ) return false;
+        if($fileHandler === false ) return false;
     }
     // 获取脚本执行完后的最后一条错误
-    public static function LastErr () {
+    public static function LastErr()
+    {
         $err = error_get_last();
         if (empty($err))  return ;
         $errType = self::selectErrorType($err['type']);
         $debugTraceData = debug_backtrace();
-        $err = array($err['type'],$err['message'],$err['file'],$err['line']);
-        self::$errData = array($errType,$debugTraceData ,$err);
+        $err = array($err['type'], $err['message'], $err['file'], $err['line']);
+        self::$errData = array($errType, $debugTraceData, $err);
         self::writeLog();
     }
     // 写入日志
-    public static function writeLog () {
-        if( !empty(self::$errData) ) {
+    public static function writeLog()
+    {
+        if (!empty(self::$errData)) {
             Log::record(self::$errData[0] ,self::$errData[1] ,self::$errData[2]);
         }
     }
     // 打印调试跟踪信息
-    public static function printDebugMsg ($debugData) {
-        for( $i=0 ; $i<count($debugData) ; $i++ ) {
-            if(!array_key_exists('file' ,$debugData[$i]) AND !array_key_exists('line',$debugData[$i])) continue;
+    public static function printDebugMsg($debugData)
+    {
+        for ($i = 0; $i < count($debugData); $i++) {
+            if (!array_key_exists('file', $debugData[$i]) AND 
+                !array_key_exists('line',$debugData[$i])) continue;
             $echoMsg = '<span style="font-size:17px;">[ ';
             $file = $debugData[$i]['file'];
             $line = $debugData[$i]['line'];
             $function = $debugData[$i]['function'];
             $echoMsg .= "Function $function ] File : $file in line $line With ";
-            foreach($debugData[$i]['args'] as $key => $val) {
+            foreach ($debugData[$i]['args'] as $key => $val) {
                 $echoMsg .= (is_object($val) ? "Object" : is_array($val) ? "Array" : $val)." ";
             }
             echo "{$echoMsg} </span><br/>";
         }
     }
     // 选择错误类型
-    public static function selectErrorType ($code) {
+    public static function selectErrorType($code)
+    {
         $errType = null;
         switch ($code) {
         case 1 :   $errType = "E_ERROR";            break;
@@ -131,9 +141,10 @@ class NotePHP {
         }
         return $errType;
     }
-    public static function AppRun () {
-        $URI = new Url();
-        $URI->start();
+    public static function AppRun()
+    {
+        $url = new Url();
+        $url->start();
     }
 }
-?>
+

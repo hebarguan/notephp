@@ -7,7 +7,8 @@
   */
 
 // 实例化项目控制器
-function A($ctrl) {
+function A($ctrl)
+{
     $CtrlName = ucfirst(strtolower($ctrl))."Controller";
     $NewClassName = $CtrlName."\\".$CtrlName;
     spl_autoload_register(function ($ClassName) {
@@ -18,7 +19,8 @@ function A($ctrl) {
     return $instance;
 }
 // 配置常量获取函数
-function C ($val) {
+function C($val)
+{
     $split = explode(".",$val);
     $keyNum = count($split);
     $userConfFile = __COMMON__."/Conf/configure.php";
@@ -28,54 +30,57 @@ function C ($val) {
     // 默认配置文件
     $defaultConf = is_file($defaultConfFile) ? require($defaultConfFile) : array();
     $conf = array_merge($defaultConf ,$userConf);
-    if( 1 == $keyNum ) {
+    if (1 == $keyNum) {
         return $conf[$split[0]];
-    }else{
+    } else {
         return $conf[$split[0]][$split[1]];
     }
 }
 // 加载php扩展文件
-function loadFile ($filePath) {
+function loadFile($filePath)
+{
     $outlinePath = explode(".",$filePath);
     $ergodicPath = "";
-    if( $outlinePath[0] == "Custom" ) {
+    if ($outlinePath[0] == "Custom") {
         $ergodicPath = PRO_PATH."/Extends/".ucfirst($outlinePath[1])."/".$outlinePath[2];
-    }else{
+    } else {
         $ergodicPath = __NOTEPHP__."/Extends/".ucfirst($outlinePath[1])."/".$outlinePath[2];
     }
     $rPath = ergodicPath($ergodicPath ,ucfirst($outlinePath[2]).EXTS);
-    if( $rPath === false ) trigger_error("类扩展不存在" ,E_USER_ERROR);
+    if ($rPath === false) trigger_error("类扩展不存在" ,E_USER_ERROR);
     return $rPath;
 }
 // 遍历目录
-function ergodicPath ($path ,$fileNameToSearch) {
-    if(is_dir($path)) {
+function ergodicPath($path,$fileNameToSearch)
+{
+    if (is_dir($path)) {
         $fp = opendir($path);
         while ($item = readdir($fp)) {
-            if( $item == "." OR $item == ".." ) continue;
+            if ($item == "." OR $item == "..") continue;
             $secondPath = $path."/";
-            if($item == $fileNameToSearch) {
+            if ($item == $fileNameToSearch) {
                 return require_once($secondPath.$item);
-            }elseif(is_dir($loopEgiPath = $secondPath.$item)) {
+            } elseif (is_dir($loopEgiPath = $secondPath.$item)) {
                 ergodicPath($loopEgiPath ,$fileNameToSearch);
             }
         }
-    }else{
+    } else {
         return false;
     }
 }
 // 实例化模型
-function M ($model ,$bool = true) {
+function M($model ,$bool = true)
+{
     // 如$boo 为true 表示模型存在
     if ($bool) {
         $modelName = $model."Model";
         if (is_file(PRO_PATH."/".$GLOBALS['PROJECT_REQUEST_MODULE']."/Model/".$modelName.EXTS)) {
             $modelClassName = $model."Model";
             return new $modelClassName();
-        }else{
+        } else {
             trigger_error($modelName."模型类不存在" ,E_USER_ERROR);
         }
-    }else{
+    } else {
         // 表示不存在模型
         return new Model($model);
     }
@@ -86,7 +91,8 @@ function M ($model ,$bool = true) {
  * @param $data 要加密的数据
  * @param $secretKey 加密密钥
  */
-function SysCrypt($data, $secretKey) {
+function SysCrypt($data, $secretKey)
+{
     // 将加密字符串进行sha1加密为十六进制数字再转化为字符
     $key = pack('H*', sha1($secretKey));
     //为 CBC 模式创建随机的初始向量
@@ -104,7 +110,8 @@ function SysCrypt($data, $secretKey) {
     return urlencode($ciphertext_base64);
 }
 
-function SysDecrypt($cryptData, $secretKey) {
+function SysDecrypt($cryptData, $secretKey)
+{
     // --- 解密 ---
     // $iv_size 按加密模式默认是16
     $iv_size = 16;
@@ -125,7 +132,8 @@ function SysDecrypt($cryptData, $secretKey) {
  * 若要存储更大的数据,请使用RedisStorage类
  * 该函数在内部获取参数列表
  */
-function Cache() {
+function Cache()
+{
     // 获取Memcached配置
     $memcachedConf = C("MEMCACHED_CONF");
     $memInstance = new Memcached();
@@ -175,3 +183,4 @@ function Cache() {
         }
     }
 }
+
