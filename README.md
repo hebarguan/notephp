@@ -1,9 +1,41 @@
-##框架手记
-###条件查询Ｗhere
-* 字符串 ：```where("id=5");```或 ```where("name='{变量}'") ;```
-* 数组：```where(array("id" =>1,"name" => "hebar"))``` 或　```array("department"=>array("=","s10"),"salary"=>array(">",3000));```<br/>
+#框架说明
 
 
-### 条件查询Having
-* 正确：```having('SUM(SALARY) > 20');或 having("name ='{变量}'")```;
-* 错误：```having("name = $变量名")```;
+Notphp以Smarty作为模板引擎的简约型php mvc框架，同时结合Mysql+Nginx(或Apache)+Mencached个人或小型网站开发提供支持,风格结构吸取国内优秀的Thinkphp框架,你可以轻松的阅读里面的每行代码。可根据自己的需要更改里面的核心文件，或把你的想法Email给我hebarguan@gmail.com，有疑问 [这里](https://github.com/hebarguan/notephp/issues)，也欢迎大家Pull Request！
+
+#框架结构与运行
+
+##项目目录结构
+* 项目总目录`./Webapp`
+* 模块目录 `./Webapp/Home(入口文件默认定义)`
+* 模块模型目录 `./Webapp/Home/Model`
+* 模块控制器目录 `./Webapp/Home/Controller`
+* 模块模板文件目录 `./Webapp/Home/View`
+* 模块模板编译目录 `./Webapp/Home/Runtime/Compile`
+* 模块模板缓存目录 `./Webapp/Home/Runtime/Cache`
+* 模块数据缓存目录 `./Webapp/Home/Runtime/Data`
+* 项目日志记录目录 `./Webapp/Log`
+* 项目公共配置和函数目录 `./Webapp/Common`
+* 项目自定义扩展目录 `./Webapp/Extends`
+
+##框架文件运行顺序
+
+同大多数框架一样这里采用单入口文件,框架的运行文件顺序:
+
+```
+(浏览器请求)
+index.php 框架入口文件
+Tunnel.php 环境初始化文件
+(请求处理)
+Notphp.class.php 框架核心初始化类文件
+Url.class.php 核心路由处理类文件
+ControllerDriver.class.php 控制器驱动文件
+IndexController.class.php 用户默认控制器类文件
+(数据返回)
+View.class.php 核心视图类文件
+Smarty.class.php 模板引擎初始化文件
+(页面返回)
+
+```
+
+
