@@ -24,6 +24,8 @@ class Url
     private $Controller      = "";
     // 操作方法
     private $Action          = "";
+    // 路由后缀
+    private $UrlSuffix       = "";
     // 定义构造函数
     public function __construct()
     {
@@ -32,6 +34,7 @@ class Url
         $this->RequestUri  = $_SERVER['REQUEST_URI'];
         $this->UrlRewrite  = C('URL_REWRITE_RULES');
         $this->UrlMap      = C('URL_MAP_RULES');
+        $this->UrlSuffix   = C('URL_STATIC_SUFFIX');
         // 是否开启session驱动
         if (C("SESSION_DRIVER_OPEN")) {
              /*
@@ -46,7 +49,7 @@ class Url
     // 开始路由处理
     public function start ()
     {
-        $this->FullUrl = str_replace("/index.php?", "", $this->RequestUri);
+        $this->FullUrl = $this->checkUrlSuffix(str_replace("/index.php?", "", $this->RequestUri));
         // 检查是否开启路由映射
         // 是否开启路由重写,只使用模式１
         if (!empty($this->UrlRewrite) AND 1 == $this->UrlMode) {
@@ -102,6 +105,16 @@ class Url
         }
         // 将数据交给控制器驱动处理
         ControllerDriver::work($this->RequestModule, $this->Controller, $this->Action);
+    }
+    // 检测是否有路由后缀
+    public function checkUrlSuffix($url) 
+    {
+        $suffixLen = strlen($this->UrlSuffix) + 1;
+        if (substr($url, -$suffixLen) === ".{$this->UrlSuffix}") {
+            $fullUrl =  substr($url, 0, strlen($url) - $suffixLen);
+            return $fullUrl;
+        }
+        return $url;
     }
     // 路由匹配返回完整路由
     public function urlPattern()

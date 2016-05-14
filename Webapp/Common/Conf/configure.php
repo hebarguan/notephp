@@ -10,7 +10,7 @@ return array(
     //"MODULE_LIST"           => "Home,Admin,Manage",
     //"MODULE_DEFAULT"        => "Home",
     "URL_HIDE_MODULE"       => true,
-    "URL_MODE"              => 1 ,
+    "URL_MODE"              => 2 ,
     "URL_MAP_RULES"         => array(
         "/view/:id/:var/:ps/:oc/:cop"  => "/index/index",
     ),

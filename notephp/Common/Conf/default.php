@@ -23,9 +23,9 @@ return array(
     "TEMP_R_DELIM"             =>  "}" , // 模板普通结束标签
     "TEMP_L_LIB"               =>  "<" , // 模板类库起始标签
     "TEMP_R_LIB"               =>  ">" , // 模板类库结束标签
-    "TEMPLATE_ENGINE"          =>  "Smarty" , // 默认模板引擎,若使用Smarty引擎,则为Smarty
+    "TEMPLATE_ENGINE"          =>  "Smarty" , // 默认模板引擎
     "URL_HIDE_MODULE"          =>  false , // 自动隐藏路由模块
-    "URL_CASE_INSENSITIVE"     =>  "true" , // 路由不区分大小写
+    "URL_CASE_INSENSITIVE"     =>  false , // 路由不区分大小写
     "URL_MODE"                 =>  "1" , // 有两种模式,1,2 . 默认为1
     "URL_MAP_RULES"            =>  array() , // 路由映射适合路由2模式
     "URL_REWRITE_RULES"        =>  array() , // 路由重写规则适合路由1模式
@@ -39,7 +39,7 @@ return array(
     "SMARTY_RIGHT_DELIMITER"   =>  "}", // smarty 模板引擎结束标签
     "SMARTY_TEMPLATE_CACHE"    =>  false , // smarty 模板缓存
     "SMARTY_CACHE_LIFETIME"    =>  -1, // smarty模板缓存时间
-    "GET_FIELDS_LENGTH"        =>  6 , // $_GET的最大字段长度
+    "GET_FIELDS_LENGTH"        =>  6 , // 路由模式二路由重写$_GET的最大字段长度
     "SESSION_DRIVER_OPEN"      =>  false, // 是否开始session驱动
     "SESSION_EXPIRE"           =>  3600, // session默认过期时间
     "SESSION_TABLE"            =>  "", // session驱动的数据库表
@@ -53,5 +53,6 @@ return array(
         "SERVERS"    => array(array("localhost", 11211, 100)), // Mencached服务器连接池
         "EXPIRATION" => 0       // 数据键过期时间，0为持久有效
     ),
-)
-?>
+);
+
+

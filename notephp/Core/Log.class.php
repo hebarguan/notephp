@@ -31,15 +31,15 @@ class Log
             self::$LogFileHandle = fopen($logPath."/error.log","a+");
             fwrite(self::$LogFileHandle ,$recordMsg);
             fclose(self::$LogFileHandle);
-            exit();
         } else {
             // 响应404错误
             http_response_code(404);
             // php 5.3.3版本下的用header
             header(SERVER_PROTOCOL.' 404 Not Found');
             echo "<center><h2>404 Not Found</h3></center><hr/>";
-            exit;
         }
+        // 退出进程
+        exit;
     }
 }
 

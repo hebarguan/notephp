@@ -1,9 +1,12 @@
 #框架说明
 
+-----
 
 Notephp以Smarty作为模板引擎的简约型php mvc框架,同时结合Mysql+Nginx(或Apache)+Mencached个人或小型网站开发提供支持,风格结构吸取国内优秀的Thinkphp框架,你可以轻松的阅读Noetphp 核心类文件里面的每行代码。可根据自己的需要更改里面的核心文件,或把你的想法Email给我hebarguan@gmail.com,有疑问 [这里](https://github.com/hebarguan/notephp/issues),也欢迎大家Pull Request！
 
 #框架结构与运行
+
+-----
 
 ##项目目录结构
 * 项目总目录`./Webapp`
@@ -28,14 +31,12 @@ Notephp以Smarty作为模板引擎的简约型php mvc框架,同时结合Mysql+Ng
 
 index.php 框架入口文件
 Tunnel.php 环境初始化文件
-
 [核心类库文件]
 Notphp.class.php 框架核心初始化类文件
 Url.class.php 核心路由处理类文件
 ControllerDriver.class.php 控制器驱动文件
 IndexController.class.php 用户默认控制器类文件
 Model.class.php 核心模型类文件
-
 [视图模板]
 View.class.php 核心视图类文件
 Smarty.class.php 模板引擎初始化文件
@@ -72,6 +73,8 @@ location / {
 ```
 #框架使用手册
 
+-----
+
 ##入口文件常量说明
 
 `APP_NAME`模块的名称,默认是Home,多模块请参见 [模块配置](#模块配置)
@@ -95,18 +98,10 @@ return array(
     "DB_USER"               => "root" ,      // 数据库用户名
     "DB_HOST"               => "localhost",  // 数据库主机
     "DB_NAME"               => "notephp",    // 数据库名
-    "DB_PASSWORD"           => "guan",       // 数据库密码
+    "DB_PASSWORD"           => "123456",       // 数据库密码
     "URL_HIDE_MODULE"       => true,         // 开启自动隐藏模块
     "URL_MODE"              => 1 ,
     "URL_MAP_RULES"         => array(        // 模式2路由重写
-        "/view/:id/:var/:ps/:oc/:cop"  => "/index/index",
-    ),
-    "URL_REWRITE_RULES"     => array(        // 模式1的路由重写
-        "/^(\/ps)/"  => "/Index/out",
-        "/^(\/emp)/" => "/Index/index",
-    ),
-    "SUB_DOMAIN_RULES"     => array(         // 子域名部署
-        "manage.example.com"  => "Admin"     // 访问manage.example.com将指向Admin模块
     ),
 );
 ```
@@ -146,6 +141,82 @@ _**创建多模块:**_
 在入口文件中更改`APP_NAME`配置选项的值,访问`http://localhost`即可创建成功
 
 ##子域名部署
+
+*描述:*当访问某个定子域名时,要指定运行特定模块,可以使用子域名部署
+
+*配置:*
+
+```php
+return array(
+    "SUB_DOMAIN_RULES"  => array(
+        "admin.example.com"   => "Admin",
+        "manage.example.com"  => "Manage"
+    ),
+);
+```
+
+_*例子:*_
+
+```
+当访问admin.example.com时相当于访问www.example.com/Admin/
+```
+
+*提示:*开发阶段可以先用`http://localhost/admin/`代替访问测试
+
+##路由设置
+
+*描述:*路由的基本结构`http://localhost/(模块)/(控制器名)/(操作方法)`, 路由访问映射`http://localhost/  => http://location/(默认模块APP_NAME)/(默认控制器Index)/(默认操作index)`,也就是说`http://localhost/Home/` 等于访问 `http://localhost/Home/(默认控制器)Index/(默认操作)index`; `http://localhost/Home/Test/` 等于访问 `http://localhost/Home/Test/index(默认操作)`; 若开启路由自动隐藏模块,访问`http://localhost/Index/index` 等于访问 `http://localhost/(模块名)/Index/index`
+
+_*配置例子:*_
+
+```php
+return array(
+    "URL_MODE"         => 1,   // 路由模式
+    "URL_HIDE_MODULE"  => true, // 路由自动隐藏模块
+);
+```
+####路由模式
+
+#####模式一
+
+_*示例:*_`http://localhost/Home/Index/index?day=12&month=5&year=2016`
+
+_*路由重写例子:*_
+
+```php
+return array(
+    "URL_REWRITE_RULES" => array(
+        "/^(\/test)/"  => "/index/out",
+        // 访问http://localhost/test 等于访问 http://localhost/index/out
+    ),
+);
+```
+*提示:*路由重写的内容是路由`http://localhost`后面的字符串,匹配规则为正则表达式
+
+#####模式二
+
+_*示例:*_`http://localhost/Home/index/index/day/12/month/5/year/2016`
+
+_*路由映射例子:*_
+
+```php
+return array(
+    "URL_MAP_RULES" => array(
+        "/view/:day/:month/:year"  => "/index",
+        // 访问http://localhost/view/12/5/2016 等于访问http://localhost/index/day/12/motch/5/year/2015
+    ),
+);
+```
+*注意:*路由重写的GET参数是限制个数的,默认是6个即`/view/:day/:month/:year/:hour/:minute/:second/:invaild)`中的`invaild`无效,可以在配置文件添加自定义个数`GET_FIELDS_LENGTH => (int)`
+
+#####路由其它设置
+
+_*伪静态:*_配置添加`URL_STATIC_SUFFIX => (string)'xhtml'`,路由`http://localhost/home/index/index`与`http://localhost/home/index/index.xhtml`等效
+
+_*区分大小写:*_只对操作方法有效,即`http://localhost/home/index/test`与`http://localhost/home/index/Test`是有区别的,配置选项`URL_CASE_INSENSITIVE => (bool)`,默认为`false`不区分大小写
+
+
+
 
 
 

@@ -36,15 +36,15 @@ class ControllerDriver
             // 获取控制器所有操作方法
             $allMethod = get_class_methods($ControllerHandle);
             // 检测是否开启路由大小写
-            // 与匹配的方式检测，方便大小写规则
-            $ActionPattern = C("URL_CASE_INSENSITIVE") ? "/{$ActionName}/" : "/{$ActionName}/i";
-            if (!preg_match($ActionPattern ,join(" ",$allMethod))) {
-                // 不存在操作方法，放回错误
-                trigger_error("不存在动作{$ActionName}",E_USER_ERROR);
-            } else {
-                // 否则运行操作方法
-                call_user_func(array($ControllerHandle ,$ActionName));
+            $actionCaseSenstive = C("URL_CASE_INSENSITIVE");
+            if ($actionCaseSenstive) {
+                if (false === array_search($ActionName, $allMethod, true)) {
+                    // 不存在操作方法，放回错误
+                    trigger_error("不存在动作{$ActionName}",E_USER_ERROR);
+                }
             }
+            // 否则运行操作方法
+            call_user_func(array($ControllerHandle ,$ActionName));
         } else {
             trigger_error("不存在模块{$ModuleName}",E_USER_ERROR);   
         }
