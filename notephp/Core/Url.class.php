@@ -157,6 +157,7 @@ class Url
                 $GetData = join("?", $spiltQuery);
                 // 数据返回$_GET
                 parse_str($GetData, $_GET);
+                $_GET = array_unique($_GET);
             } else {
                 $_GET = array();
             }
@@ -172,7 +173,7 @@ class Url
             }
             // 返回$_GET数据
             if (!empty($this->HttpBuildQuery)) {
-                $_GET = $this->HttpBuildQuery;
+                $_GET = array_unique($this->HttpBuildQuery);
             } else {
                 $_GET = array();
             }

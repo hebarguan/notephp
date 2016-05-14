@@ -7,7 +7,7 @@ return array(
     "DB_PASSWORD"           => "guan",
     "SESSION_TABLE"         => "session",
     "SESSION_DRIVER_OPEN"   => false,
-    //"MODULE_LIST"           => "Home,Admin",
+    //"MODULE_LIST"           => "Home,Admin,Manage",
     //"MODULE_DEFAULT"        => "Home",
     "URL_HIDE_MODULE"       => true,
     "URL_MODE"              => 1 ,

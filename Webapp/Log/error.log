@@ -3788,3 +3788,13 @@ Stack trace:
 [2016-05-14 14:59:51][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
 [2016-05-14 15:16:44][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
 [2016-05-14 15:17:01][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-05-14 15:24:14][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-05-14 16:26:06][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-05-14 16:26:37][ERROR][256]:不存在模块Favicon.icoin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 49
+[2016-05-14 16:26:45][ERROR][256]:不存在模块Favicon.icoin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 49
+[2016-05-14 16:26:50][ERROR][256]:不存在模块Favicon.icoin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 49
+[2016-05-14 16:29:25][ERROR][1]:Class 'ManageController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-05-14 16:29:25][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-05-14 16:29:30][ERROR][1]:Class 'HomeController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-05-14 16:29:30][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-05-14 16:29:36][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35

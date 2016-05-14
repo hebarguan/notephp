@@ -76,11 +76,10 @@ location / {
 
 `APP_NAME`模块的名称,默认是Home,多模块请参见 [模块配置](#模块配置)
 
-`DEBUG_ON`调试是否开启,开发阶段建议为`true`表示打开,项目结束后再设置为`false`(发生错误时不显示,却返回404 Not Found或跳转到指定操作)
+`DEBUG_ON`调试选项,开发阶段要显示错误信息建议设置为`true`,项目结束后再设置为`false` 
 
-`ERROR_IGNORE_TYPE`不显示的错误类型,多个错误类型以`,`分开,设置后将不捕捉次类型的错误
+`ERROR_IGNORE_TYPE`不显示的错误类型,多个错误类型以`,`分开,设置后将不捕捉此类型的错误
 
-最后加载环境初始化文件
 
 ##配置文件说明
 
@@ -97,9 +96,7 @@ return array(
     "DB_HOST"               => "localhost",  // 数据库主机
     "DB_NAME"               => "notephp",    // 数据库名
     "DB_PASSWORD"           => "guan",       // 数据库密码
-    //"MODULE_LIST"         => "Home,Admin", // 模块列表
-    //"MODULE_DEFAULT"      => "Home",       // 默认模块
-    "URL_HIDE_MODULE"       => true,         // 开启自动隐藏模块(localhost/Home/Index/index 变为localhost/Index/index)
+    "URL_HIDE_MODULE"       => true,         // 开启自动隐藏模块
     "URL_MODE"              => 1 ,
     "URL_MAP_RULES"         => array(        // 模式2路由重写
         "/view/:id/:var/:ps/:oc/:cop"  => "/index/index",
@@ -113,7 +110,7 @@ return array(
     ),
 );
 ```
-_*配置提示:*_
+_**配置提示:**_
 
 配置数据键必须是大写字母`DB_NAME`不能写成`db_name`.
 
@@ -121,6 +118,34 @@ _*配置提示:*_
 
 ##模块配置
 
-_*使用多模块配置*_：
+_**单模块:**_
 
-如果使用多个模块在
+开启路由自动隐藏模块功能`URL_HIDE_MODULE => true`
+路由访问由`http://localhost/Home/Index/index`变为`http://localhost/Index/index`
+
+_**多模块**_：
+
+如果存在多个模块,请在配置文件里添加`MODULE_LIST`和`MODULE_DEFAULT`两个选项
+
+_*配置例子:*_
+
+```php
+    "MODULE_LIST"         => "Home,Admin,Manage", // 模块列表
+    "MODULE_DEFAULT"      => "Home",       // 默认模块,可以不设置默认是入口文件定义的APP_NAME
+```
+访问指定模块`http://localhost/Admin(模块名)/Index/index`
+
+*注意*
+
+如果开启了路由自动隐藏模块即`URL_HIDE_MODULE => true(默认是false)`,这里只对默认模块进行路由模块隐藏,将访问不了其他模块
+
+若要开启自动隐藏模块,又要使用多模块功能,请参考[子域名部署](#子域名部署)
+
+_**创建多模块:**_
+
+在入口文件中更改`APP_NAME`配置选项的值,访问`http://localhost`即可创建成功
+
+##子域名部署
+
+
+
