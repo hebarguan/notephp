@@ -80,7 +80,7 @@ class Controller
         exit;
     }
     // 模板显示
-    protected function display($Template = 0)
+    protected function display($Template = null)
     {
         // 默认模板后缀
         $TemplateSuffix = C("TEMP_DEFAULT_SUFFIX");
@@ -90,7 +90,7 @@ class Controller
             $viewPath."/".$this->action.".".$TemplateSuffix :
             $viewPath."_".$this->action.".".$TemplateSuffix; 
         // 编译模板文件
-        $complierFile = $Template ? $Template : $tempFile;
+        $complierFile = !is_null($Template) ? $Template : $tempFile;
         $this->view->set($this->templateVal);
         $this->view->asHtml($complierFile);
         exit;
@@ -98,7 +98,7 @@ class Controller
     // 显示文本或html
     protected function show($str = null)
     {
-        echo $str;
+        echo htmlspecialchars_decode($str);
         exit;
     }
     // 重定向处理

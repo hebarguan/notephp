@@ -42,7 +42,6 @@ View.class.php 核心视图类文件
 Smarty.class.php 模板引擎初始化文件
 
 (页面或数据返回)
-
 ```
 #安装/配置
 
@@ -88,7 +87,7 @@ location / {
 
 项目的公共配置文件是目录`./Webapp/Common/Conf`下的`configure.php`
 
-_*配置例子:*_
+_**配置示例:**_
 
 ```php
 <?php
@@ -105,7 +104,7 @@ return array(
     ),
 );
 ```
-_**配置提示:**_
+**配置提示:**
 
 配置数据键必须是大写字母`DB_NAME`不能写成`db_name`.
 
@@ -113,16 +112,16 @@ _**配置提示:**_
 
 ##模块配置
 
-_**单模块:**_
+####单模块
 
 开启路由自动隐藏模块功能`URL_HIDE_MODULE => true`
 路由访问由`http://localhost/Home/Index/index`变为`http://localhost/Index/index`
 
-_**多模块**_：
+####多模块
 
 如果存在多个模块,请在配置文件里添加`MODULE_LIST`和`MODULE_DEFAULT`两个选项
 
-_*配置例子:*_
+_**配置示例:**_
 
 ```php
     "MODULE_LIST"         => "Home,Admin,Manage", // 模块列表
@@ -130,21 +129,21 @@ _*配置例子:*_
 ```
 访问指定模块`http://localhost/Admin(模块名)/Index/index`
 
-*注意*
+_**注意**_
 
-如果开启了路由自动隐藏模块即`URL_HIDE_MODULE => true(默认是false)`,这里只对默认模块进行路由模块隐藏,将访问不了其他模块
+如果开启了路由自动隐藏模块即`URL_HIDE_MODULE => true(默认是false)`,这里只对默认模块进行路由模块隐藏,将访问不了其它模块
 
 若要开启自动隐藏模块,又要使用多模块功能,请参考[子域名部署](#子域名部署)
 
-_**创建多模块:**_
+####创建多模块
 
 在入口文件中更改`APP_NAME`配置选项的值,访问`http://localhost`即可创建成功
 
 ##子域名部署
 
-*描述:*当访问某个定子域名时,要指定运行特定模块,可以使用子域名部署
+**描述:**当访问某个定子域名时,要指定运行特定模块,可以使用子域名部署
 
-*配置:*
+_**配置:**_
 
 ```php
 return array(
@@ -155,19 +154,29 @@ return array(
 );
 ```
 
-_*例子:*_
+_**示例:**_
 
 ```
 当访问admin.example.com时相当于访问www.example.com/Admin/
 ```
 
-*提示:*开发阶段可以先用`http://localhost/admin/`代替访问测试
+**提示:** 开发阶段可以先用`http://localhost/admin/`代替访问测试
 
 ##路由设置
 
-*描述:*路由的基本结构`http://localhost/(模块)/(控制器名)/(操作方法)`, 路由访问映射`http://localhost/  => http://location/(默认模块APP_NAME)/(默认控制器Index)/(默认操作index)`,也就是说`http://localhost/Home/` 等于访问 `http://localhost/Home/(默认控制器)Index/(默认操作)index`; `http://localhost/Home/Test/` 等于访问 `http://localhost/Home/Test/index(默认操作)`; 若开启路由自动隐藏模块,访问`http://localhost/Index/index` 等于访问 `http://localhost/(模块名)/Index/index`
+**描述:**
 
-_*配置例子:*_
+路由的基本结构`http://localhost/(模块)/(控制器名)/(操作方法)`,
+
+路由访问映射`http://localhost/  => http://location/(默认模块APP_NAME)/(默认控制器Index)/(默认操作index)`
+
+也就是说`http://localhost/Home/` 等于访问 `http://localhost/Home/(默认控制器)Index/(默认操作)index`
+
+`http://localhost/Home/Test/` 等于访问 `http://localhost/Home/Test/index(默认操作)`
+
+若开启路由自动隐藏模块,访问`http://localhost/Index/index` 等于访问 `http://localhost/(模块名)/Index/index`
+
+_**配置示例:**_
 
 ```php
 return array(
@@ -179,9 +188,9 @@ return array(
 
 #####模式一
 
-_*示例:*_`http://localhost/Home/Index/index?day=12&month=5&year=2016`
+_**示例:**_ `http://localhost/Home/Index/index?day=12&month=5&year=2016`
 
-_*路由重写例子:*_
+_**路由重写示例:**_
 
 ```php
 return array(
@@ -195,28 +204,79 @@ return array(
 
 #####模式二
 
-_*示例:*_`http://localhost/Home/index/index/day/12/month/5/year/2016`
+_**示例:**_ `http://localhost/Home/index/index/day/12/month/5/year/2016`
 
-_*路由映射例子:*_
+_*路由映射示例:*_
 
 ```php
 return array(
     "URL_MAP_RULES" => array(
-        "/view/:day/:month/:year"  => "/index",
-        // 访问http://localhost/view/12/5/2016 等于访问http://localhost/index/day/12/motch/5/year/2015
+        "/view/:day/:month/:year"  => "/index/test",
+        // 访问http://localhost/view/12/5/2016 等同http://localhost/index/test/day/12/motch/5/year/2015
     ),
 );
 ```
-*注意:*路由重写的GET参数是限制个数的,默认是6个即`/view/:day/:month/:year/:hour/:minute/:second/:invaild)`中的`invaild`无效,可以在配置文件添加自定义个数`GET_FIELDS_LENGTH => (int)`
+**注意:** 路由重写的GET参数是限制个数的,默认是6个即`/view/:day/:month/:year/:hour/:minute/:second/:invaild)`中的`invaild`无效,可以在配置文件添加自定义个数`GET_FIELDS_LENGTH => (int)`
 
 #####路由其它设置
 
-_*伪静态:*_配置添加`URL_STATIC_SUFFIX => (string)'xhtml'`,路由`http://localhost/home/index/index`与`http://localhost/home/index/index.xhtml`等效
+**伪静态:** 配置添加`URL_STATIC_SUFFIX => (string)'xhtml'`,路由`http://localhost/home/index/index`与`http://localhost/home/index/index.xhtml`等效
 
-_*区分大小写:*_只对操作方法有效,即`http://localhost/home/index/test`与`http://localhost/home/index/Test`是有区别的,配置选项`URL_CASE_INSENSITIVE => (bool)`,默认为`false`不区分大小写
+**区分大小写:** 只对操作方法有效,即`http://localhost/home/index/test`与`http://localhost/home/index/Test`是有区别的,配置选项`URL_CASE_INSENSITIVE => (bool)`,默认为`false`不区分大小写
 
+##控制器
 
+**描述:** 控制器为处理用户数据的逻辑层,一个操作方法最多可对应一个模板文件
 
+**命名规则:** 以驼峰式命名控制器类文件，如`IndexController.class.php`且类名与控制器类名必须相同,配置参数有默认控制器`DEFAULT_CONTROLLER`，默认操作方法`DEFAULT_METHOD`;
 
+_**控制器类示例:**_
 
+```php
+<?php
+
+class IndexController extends Controller
+{
+    public function index() 
+    {
+        echo "Hi ~ You";
+    }
+}
+```
+**控制器内置操作方法**
+
+- `assign()` 模板赋值操作
+
+_*示例*_
+
+```php
+class IndexController Extends Controller
+{
+    public function index()
+    {
+        $sayHi = "Hi";
+        $toWho = "hebar";
+        $this->assign('word', $sayHi);
+        $this->assign('name', $toWho);
+        // 或使用数组模式
+        $message = array('word' => $sayHi, 'name' => $toWho);
+        $this->assign($message);
+    }
+}
+```
+- `display()` 模板显示操作,参数`$template` 默认为空,表示显示当前操作方法对应模板文件
+
+_*示例*_
+
+```php
+public function index()
+{
+    $this->assign('foo', 'hello world !'); 
+    // 显示模板
+    $this->display();
+    // 可以指定要显示模板文件,相对路径
+    $templateFile = "./Webapp/Home/Home/View/Index/test.tpl";
+    $this->display($templateFile);
+}
+```
 
