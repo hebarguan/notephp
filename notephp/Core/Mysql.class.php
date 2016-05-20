@@ -66,7 +66,7 @@ class Mysql
             $sqlSentence = "SELECT * FROM {$this->modeInstance->dbTable} WHERE id={$id}";
             $result = $this->query($sqlSentence);
             if ($this->modeInstance->dbCheck) return $result->num_rows;
-            $returndata[0] = $result->fetch_array(MYSQLI_ASSOC);
+            $returndata = $result->fetch_array(MYSQLI_ASSOC);
         } elseif (is_null($id)) { 
             //组合查询语句
             $queryString = $this->modeInstance->buildQueryString('SELECT');

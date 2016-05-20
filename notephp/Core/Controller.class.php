@@ -106,7 +106,7 @@ class Controller
     {
         if ($msg) {
             $redirectFile = C("REDIRECT_FILE");
-            $assginment = array("redirectMsg" => $msg ,"redirectTime" => $time ,"url" => $url) ;
+            $assginment = array("redirectMsg" => $msg ,"delayedTime" => $time ,"redirectUrl" => $url) ;
             $this->view->set($assginment);
             $this->view->asHtml($redirectFile);
         } else {
