@@ -326,15 +326,125 @@ return array(
 ```php
 public Function index()
 {
-    // 使用内置函数M()实例方法
-    // M函数有两个参数$table,$bool
-    // @param $table 要实例的模型或数据库表
-    // @param $bool 用户模型是否存在,默认是true,说明存在文件./Webapp/Home/Model/($table)Model.class.php
+   /* 使用内置函数M()实例方法
+    * M函数有两个参数$table,$bool
+    * @param $table 要实例的模型或数据库表
+    * @param $bool 用户模型是否存在,默认是true,说明存在文件./Webapp/Home/Model/($table)Model.class.php
+    */
     $mode = M('user');
     // 如User模型不存在
     $mode = M('user', false); // 将直接实例user数据库表,且数据库表是由小写字母组成
     $data = $mode->execute(1); // 查找id=2的数据，返回一个一维数组
     var_dump($data);
+}
+```
+**提示:**
+```php
+public Function index()
+{
+   /* 若想使用自定义数据库操作
+    * 模型提供自定义数据库操作链接柄
+    * @param $curd 
+    */
+    $mode = M('user', false); // 或使用$mode = new MOdel();
+    $curd = $mode->curd;
+    $result = $curd->query('SELECT * FROM user WHERE id = 1');
+    $data = $result->fetch_assoc();
+    var_dump($data);
+}
+```
+
+###连贯操作
+
+1. [条件方法](#条件方法)
+    * [字段查询/fields](#fields)
+    * [行数限制/limit](#limit)
+    * [条件组合/where](#where)
+    * [依据排序/order](#order)
+    * [查询数据/data](#data)
+    * [组合查询/group](#group)
+    * [包含条件/having](#having)
+    * [检测条件/check](#check)
+    * [事务滚动/trans](#trans)
+    * [预处理/stmt](#stmt)
+1. [终止方法](#终止方法)
+    * [选择查询/execute](#execute)
+    * [修改查询/save](#save)
+    * [插入数据/add](#add)
+    * [删除数据/delete](#delete)
+    * [返回SQL语句/returnSql](#returnSql)
+
+####条件方法
+
+**描述:** 该类方法用于数据库CURD筛选条件,不区分调用顺序,即`$mode->fields()->trans()`与`$mode->trans()->fields()`等效
+
+**提示:** 使用条件方法查找获取数据时，将返回一个二维数组且每个元素代表一个字段,值对应的数据行
+
+#####fields
+
+**描述:** 查找数据行指定字段
+
+**示例:**
+```php
+public function index()
+{
+   /* 不调用该方法,表示查找所有字段
+    * 参数为字符串类型,多个字段以`,`分开
+    */
+    $mode = M('employee', false);
+    $data = $mode->fields('name,salary')->execute();
+    // 等效的SQL语句为SELECT name,salary FROM employee
+   /* fields('COUNT(*) AS members')
+    * fields('SUM(salary)')
+    * 这里可以添加各种数据库字段查询函数
+    */
+}
+```
+
+#####limit
+
+**描述:** 限制查询的行数
+
+**示例**
+```php
+public function index()
+{
+   /* 该方法有连个参数$offset起始行,$rows行数
+    * 当只有一个参数的时候,表示查找前$param 行
+    */
+    $rows = $mode->limit(6)->execute(); // 将返回前6行
+    $rows = $mode->limit(3, 4)->execute(); // 从第3行起，返回4行
+}
+```
+#####where
+
+**描述:** 数据库条件查询
+
+**示例:**
+```php
+public function index()
+{
+   /* 参数方式(string)
+    * 字符串类型更接近源生的Where条件,所以将不对数据进行过滤
+    * 要使用字符串类型需要自己手动过滤数据,且要求掌握Mysql语句风格防止语法错误或漏洞
+    * 建议只对简单的数字型数据提供查询
+    * 例如Where('id=2') 大多数情况建议使用数组模式
+    */
+    $userInput = intval($_GET['id']);
+    $query = $mode->where('id='.$userInput)->execute();
+
+   /* 数组模式(array) 
+    * 下面将对各种(单字段)组合模式进行举例 
+    * 可以使用returnSql()终止方法返回SQL语句
+    */
+    $whereCondition = array('id' => 2);
+    $query = $mode->where($whereCondition)->execute(); 
+    // 结合字段查找id为2的name,salary
+    // 对应的SQL语句是 'SELECT * FROM employee WHERE id=2 ' 
+
+    $whereCondition = array('id' => array('>', 10));
+    // 对应的SQL语句是 'SELECT * FROM employee WHERE id>2 ' 
+
 }
 ```
 

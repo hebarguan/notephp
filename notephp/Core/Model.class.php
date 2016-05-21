@@ -106,7 +106,7 @@ class Model
     {
         if (!is_numeric($offset) AND !is_numeric($rows)) return false;
         if ($offset && $rows) {
-            $this->_sql['lit'] = array( $offset ,$rows ) ;
+            $this->_sql['lit'] = array($offset, $rows) ;
         } else {
             $this->_sql['lit'] = $offset;
         }
@@ -244,6 +244,7 @@ class Model
                 return $sqlString;
             }
         }
+        return $afterWreSql;
     } 
     // 组合多字段查询
     public function multiFields($condition, $rollbackField = null) 
@@ -287,7 +288,11 @@ class Model
         }
         // 条件限制
         if (!empty($limitCondition)) {
-            $sqlString .= "LIMIT $limitCondition ";
+            if (is_integer($limitCondition)) {
+                $sqlString .= "LIMIT $limitCondition ";   
+            } else {
+                $sqlString .= "LIMIT ".join(' , ', $limitCondition);
+            }
         }
         return $sqlString;
     }
