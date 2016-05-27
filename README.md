@@ -52,10 +52,10 @@ location / {
 * [配置文件](#配置文件)
 * [模块](#模块)
 * [子域名部署](#子域名部署)
-* [路由](#路由)
+* [路由模式](#路由)
 * [控制器](#控制器)
 * [模型](#模型)
-* [视图](#视图)
+* [视图/模板](#视图-模板)
 * [储存/缓存](#储存/缓存)
 * [内置函数](#内置函数)
 * [附录](#附录)
@@ -149,7 +149,7 @@ _**示例:**_
 
 **提示:** 开发阶段可以先用`http://localhost/admin/`代替访问测试
 
-##路由设置
+##路由模式
 
 **描述:**
 
@@ -170,7 +170,6 @@ return array(
     "URL_HIDE_MODULE"  => true, // 路由自动隐藏模块
 );
 ```
-####路由模式
 
 #####模式一
 
@@ -324,7 +323,7 @@ return array(
 
 **实例该类:**
 ```php
-public Function index()
+public function index()
 {
    /* 使用内置函数M()实例方法
     * M函数有两个参数$table,$bool
@@ -340,13 +339,13 @@ public Function index()
 ```
 **提示:**
 ```php
-public Function index()
+public function index()
 {
    /* 若想使用自定义数据库操作
     * 模型提供自定义数据库操作链接柄
     * @param $curd 
     */
-    $mode = M('user', false); // 或使用$mode = new MOdel();
+    $mode = M('user', false); // 或使用$mode = new Model();
     $curd = $mode->curd;
     $result = $curd->query('SELECT * FROM user WHERE id = 1');
     $data = $result->fetch_assoc();
@@ -394,6 +393,7 @@ public function index()
     $mode = M('employee', false);
     $data = $mode->fields('name,salary')->execute();
     // 等效的SQL语句为SELECT name,salary FROM employee
+    $data = $mode->fields('DISTINCT department')->execute();
    /* fields('COUNT(*) AS members')
     * fields('SUM(salary)')
     * 这里可以添加各种数据库字段查询函数
@@ -424,28 +424,107 @@ public function index()
 ```php
 public function index()
 {
-   /* 参数方式(string)
+   /* (字符串)方式
     * 字符串类型更接近源生的Where条件,所以将不对数据进行过滤
     * 要使用字符串类型需要自己手动过滤数据,且要求掌握Mysql语句风格防止语法错误或漏洞
     * 建议只对简单的数字型数据提供查询
     * 例如Where('id=2') 大多数情况建议使用数组模式
     */
     $userInput = intval($_GET['id']);
-    $query = $mode->where('id='.$userInput)->execute();
+    $query = $mode->where("id=$userInput")->execute();
 
-   /* 数组模式(array) 
+   /* (单字段)数组模式
     * 下面将对各种(单字段)组合模式进行举例 
-    * 可以使用returnSql()终止方法返回SQL语句
     */
-    $whereCondition = array('id' => 2);
-    $query = $mode->where($whereCondition)->execute(); 
-    // 结合字段查找id为2的name,salary
+    $condition = array('id' => 2);
+    $query = $mode->where($condition)->execute(); 
     // 对应的SQL语句是 'SELECT * FROM employee WHERE id=2 ' 
-
-    $whereCondition = array('id' => array('>', 10));
+    $condition = array('id' => array('>', 10));
     // 对应的SQL语句是 'SELECT * FROM employee WHERE id>2 ' 
+    $condition = array('id' => array(array('>', 3), array('<', 20), 'AND'));
+    // 对应SQL语句 'SELECT * FROM employee WHERE id > 3  AND id < 20' 
+    // 特殊条件符号NOT IN, IN
+    $condition = array('id' => array('IN', '2,5,8')); 
+    // 字符串必须要用数组模式
+    $condition = array('name' => array('IN', array('li', 'zhang', 'wu'))); 
+    // BETWEEN NOT BETWEEN举例
+    $condition = array('id' => array('BETWEEN', '1,3'));
+    // 更多特殊查询
+    $condition = array('name' => array('LIKE', '%e\n'\%''));
+    $condition = array('name' => array('REGEXP', 'guan$'));
 
+   /* (多字段)数组模式
+    * 提示：多字段与单字段唯一不同在于,多字段条件数组可以使用多个元素
+    * 注意：多字段的个数无限制,最后一个元素必须为并列符号，即AND或OR
+    * 当只有两个字段时，并列符号可以不填，默认是AND
+    * 下面对多字段进行举例
+    */
+    $condition = array(
+        'department' => 'hr',
+        'salary' => array(array('>', 5000), array('<', 20000)),
+        'id' => array(array('BETWEEN', '2,16'), array('NOT IN', '5,11')),
+        'AND'
+    );
+    // 对应SQL语句
+    'SELECT * FROM employee 
+        WHERE 
+        (department='hr') AND 
+        (salary > 5000  AND salary < 20000 ) AND
+        (id BETWEEN  2 AND 16  AND id NOT IN (5,11) ) 
+    ' 
 }
 ```
+#####order
 
+**描述:** 对数据行按指定字段排序
 
+**示例:**
+```php
+public function index() 
+{
+   /* 参数为字符串
+    * 多个字段以','分开
+    * 常见ASC升序，DESC降序
+    */
+    $query = $mode->order('salary desc')->execute();
+    // 多个字段排序
+    $query = $mode->order('on_duty asc,salary desc')->execute();
+}
+```
+#####data
+
+**描述:** 对数据进行过滤
+
+**示例:**
+```php
+public function index
+{
+   /* 参数为数组
+    * 通常用于数据修改和数据写入过滤
+    */
+    $inputData = array('name' => 'zhao', 'sex' => 1, 'salary' => 6000, 'department' => 'it');
+    $insertID = $mode->data($inputData)->add();
+    // 对数据修改
+    $updataData = array('department' => 'hr');
+    $affectedRows = $mode->data($updataData)->where(['name' => 'zhao'])->save();
+    // 对于数字型数据自增,建议使用下面方法
+    $increment = array('salary=salary+500' => '');
+    $affectedRows = $mode->data($increment)->where(['department' => 'hr'])->execute();
+}
+```
+#####group
+
+**描述:** 对字段进行按组查询
+
+**示例:**
+```php
+public function index()
+{
+   /* 参数为字符串
+    * 对于非ENUM()设置的字段同样有效
+    */
+    $query = $mode->group('name,salary')->execute();
+    // 也可以结合having使用
+    $query = $mode->fields('COUNT(*) AS members')->group('sex')->having(array('sex' => 'F'))->execute();
+}
+```
