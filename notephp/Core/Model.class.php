@@ -280,7 +280,12 @@ class Model
         if ($havingCondition) {
             // having条件与group 组合使用
             list($havingCdiKey, $havingCdiVal) = each($havingCondition);
-            $sqlString .= "HAVING $havingCdiKey = '$havingCdiVal' ";
+            if (is_string($havingCdiVal)) {
+                $sqlString .= "HAVING $havingCdiKey = '$havingCdiVal' ";
+            } else {
+                $havingCdiValType = is_numeric($havingCdiVal[1]) ? $havingCdiVal[1] : "'{$havingCdiVal[1]}'";
+                $sqlString .= "HAVING $havingCdiKey {$havingCdiVal[0]} $havingCdiValType ";
+            }
         }
         // 条件排序
         if (!empty($orderCondition)) {

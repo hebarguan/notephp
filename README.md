@@ -466,12 +466,13 @@ public function index()
         'AND'
     );
     // 对应SQL语句
-    'SELECT * FROM employee 
-        WHERE 
-        (department='hr') AND 
-        (salary > 5000  AND salary < 20000 ) AND
-        (id BETWEEN  2 AND 16  AND id NOT IN (5,11) ) 
-    ' 
+   /*'SELECT * FROM employee 
+    * WHERE 
+    * (department='hr') AND 
+    * (salary > 5000  AND salary < 20000 ) AND
+    * (id BETWEEN  2 AND 16  AND id NOT IN (5,11) ) 
+    *' 
+    */
 }
 ```
 #####order
@@ -528,3 +529,190 @@ public function index()
     $query = $mode->fields('COUNT(*) AS members')->group('sex')->having(array('sex' => 'F'))->execute();
 }
 ```
+#####having
+
+**描述:** 指定字段存在某个值
+
+**实例:** 
+```php
+public function index()
+{
+   /* 参数为键值对应数组
+    * 使用自定义符号,值为一个数据
+    * 且第一个元素是符号
+    */
+    $query = $mode->having(array('name' => 'hebar'))->execute();
+    // 对应SQL语句SELECT * FROM employee HAVING name = 'hebar' 
+    $query = $mode->having(array('id' => array('>', 12)))->execute();
+    // 对应SQL语句SELECT * FROM employee HAVING id > 12
+}
+```
+#####check
+
+**描述:** 检测数据是否存在
+
+**示例:**
+```php
+public function index()
+{
+   /* 参数为boolean类型
+    * 成功时返回查找到的行数
+    */
+    $check = $mode->Where(array('name' => 'hebar', 'password' => '12345'))->check(true)->execute();
+    // 输出int(1)
+}
+```
+#####trans
+
+**描述:** 事务滚动,紧在PDO数据库扩展下有效
+
+**示例:**
+```php
+public function index()
+{
+   /* 参数为bool类型
+    * 下面为实例
+    */
+    $query = $mode->data(array('salary=salary+500' => ''))
+        ->where(array('name' => 'hebar'))
+        ->trans(true)
+        ->execute();
+}
+```
+#####stmt
+
+**描述:** 查询预处理,紧在PDO数据库扩展下有效
+
+**示例:**
+```php
+public function index()
+{
+   /* 参数为bool类型
+    * 比较适合简单重复的查询
+    */
+    $query = $mode->where(array('id' => 1))->stmt(true)->execute();
+}
+```
+###终止方法
+
+**描述:** 终止当前数据模型操作,并返回结果
+
+#####execute
+
+**描述:** 执行数据查询
+
+**示例:** 
+```php
+public function index()
+{
+   /* 参数为数字或为空
+    * 若为数字,将返回id为该数字的数据行，且为一维数组
+    */
+    $query = $mode->execute(1);
+    //对应的SQL语句为'SELECT * FROM employee WHERE id=1'
+    // 提示：当execute()有参数时,前面的连贯操作无效
+    // 例如:
+    $query = $mode->where(['name' => 'hebar', 'id' => 1])->execute(2);
+    // 将返回(bool)false
+    
+    // 注意：若参数为空,且只有一个execute方法时,将返回该表全部数据行
+    $query = $mode->execute();
+    // 上面的语句将返回该表全部数据行
+}
+```
+#####save
+
+**描述:** 修改数据库数据
+
+**示例:**
+```php
+public function index()
+{
+   /* 参数为数组或为空
+    * 当参数为空时,要用到操作方法data存放数据
+    */
+    $data = array('salary' => 6000);
+    $update = $mode->where(['id' => 12])->save($data);
+    $dataUpdate = $mode->where(['id' => 12])->data($data)->save();
+    // 上面两种方法相同
+    // 对应的SQL语句'UPDATE employee SET salary=6000 WHERE id=12 ' 
+
+    // 使用自增修改
+    $incrementData = array('score=score+5' => '');
+    $updata = $mode->where('id=1')->data($data)->save();
+    // 对应的SQL语句'UPDATE employee SET score=score+5 WHERE id=1 ' 
+}
+```
+#####add
+
+**描述:** 添加数据行
+
+**示例:**
+```php
+public function index()
+{
+   /* 参数为数组或空
+    * 添加成功返回该行的id
+    * 若该数据库表无id字段,将返回执行结果
+    */
+    $data = array(
+        'name'   => 'hebarguan',
+        ‘sex'    => 2,
+        'salary' => 8000,
+        'mailbox'=> 'hebarguan@gmail.com',
+        on_duty' => '20140601',
+        'department' => 'it'
+    );
+    $add = $mode->add($data);
+    $dataAdd = $mode->data($data)->add();
+    // 以上两种模式效果一样
+}
+```
+#####delete
+
+**描述:** 删除数据行
+
+**示例:**
+```php
+public function index()
+{
+   /* 参数为数字或空
+    * 若参数为数字将删除id为该数字的行
+    * 删除成功返回影响行数
+    * 失败返回false
+    */
+    $delete = $mode->delete(5);
+    $conditionDelete = $mode->where('id=5')->delete();
+    // 以上的执行效果一样
+    // 对应的SQL语句 'DELETE FROM employee WHERE id=5 ' 
+
+    // 更多复杂的条件筛选请参考上面的连贯操作
+    // 只需在终止方法使用delete即可
+}
+```
+#####returnSql
+
+**描述:** 返回执行的SQL语句
+
+**示例:**
+```php
+public function index()
+{
+   /* 参数为字符串
+    * 参数选项有,execute,add,save,delete
+    * 默认是execute
+    */
+    $sql = $mode->where('id=1')->returnSql();
+    // 返回'SELECT * FROM employee WHERE id=1'
+    $sql = $mode->where('id=1')->returnSql('delete');
+    // 返回'DELETE FROM employee WHERE id=1'
+    $sql = $mode->data('salary' => 5000)->wher('id=1')->return('save');
+    // 返回'UPDATE employee SET salary=5000 WHERE id=1'
+    $sql = $mode->data(array('name' => 'hebar', 'password' => '123'))->returnSql('add');
+    // 返回'INSERT INTO employee (name, password) VALUES('hebar', '123')'
+}
+```
+
+##视图/模板
+
+
