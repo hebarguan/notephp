@@ -168,6 +168,7 @@ function Cache()
             if (!$memInstance->$deleteCmd($setKey, $delayed)) {
                 return $memInstance->getResultCode();
             }
+            return true;
         } else {
             // 若数据被设置且不为空则缓存
             //数组模式$setValue为

@@ -128,6 +128,9 @@ class DatabaseObject
     // 随用户输入数据进行转义过滤
     public function mysqlFilter($filterData)
     {
+        // 检测是否开启post，get自动过滤
+        // 防止出现双重转义
+        if (get_magic_quotes_gpc()) return $filterData;
         if (is_string($filterData)) return addslashes($filterData);
         if (is_numeric($filterData)) return $filterData;
         if (is_array($filterData)) {
