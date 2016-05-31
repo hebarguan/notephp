@@ -193,11 +193,11 @@ _**示例:**_ `http://localhost/Home/index/index/day/12/month/5/year/2016`
 _*路由映射示例:*_
 ```php
 return array(
-        "URL_MAP_RULES" => array(
-            "/view/:day/:month/:year"  => "/index/test",
-            // 访问http://localhost/view/12/5/2016 等同http://localhost/index/test/day/12/motch/5/year/2015
-        ),
-    );
+    "URL_MAP_RULES" => array(
+        "/view/:day/:month/:year"  => "/index/test",
+        // 访问http://localhost/view/12/5/2016 等同http://localhost/index/test/day/12/motch/5/year/2015
+    ),
+);
 ```
 **注意:** 路由重写的GET参数是限制个数的,默认是6个即`/view/:day/:month/:year/:hour/:minute/:second/:invaild)`中的`invaild`无效,可以在配置文件添加自定义个数`GET_FIELDS_LENGTH => (int)`
 
@@ -870,7 +870,77 @@ public function index()
 
 ##内置函数
 
+#####实例控制器`Controller()`
 
+```php
+public function index()
+{
+    // 参数为字符串，且为控制器名
+    $action = Controller('Index');
+    $action->test();
+
+    // 还有一种方法可以实例控制器
+    // 使用框架的内部的自动加载类函数
+    // 实例方法
+    $newClass = new IndexController();
+    // 这种方法采用遍历目录的方式加载类文件
+    // 与Controller函数不同在于函数采用直接加载指定文件
+    $newClass->test();
+    
+}
+```
+
+#####获取配置常量函数`C()`
+
+```php
+public function index()
+{
+    // 参数为字符串
+    // 支持多维数组常量
+    // 下面举例
+    $dbName = C('DB_NAME');
+    // 多维数组
+    // 'MY_CONF' => array('HOST' => array('PORT' => 80));
+    $myConf = C('MY_CONF.HOST.PORT');
+    // 返回:80
+}
+```
+
+#####扩展加载函数`loadFile()`
+
+**参数说明:** `loadFile('(内部或外部).(扩展类型).(扩展名)')`,内部用`Notephp`,外部`@`,自定义扩展类型`Org`,第三方`Vendor`,扩展名为扩展目录的名称,以大写字母开始,例`Smarty`
+
+**外部扩展目录:** `./Webapp/Extends/`
+
+**内部扩展目录:** `./notephp/Extends/`
+
+```php
+loadFile('@.Org.Image');
+// 目录./Webapp/Extends/Org/Image/下必须要有扩展初始文件Image.class.php
+// 加载的时候将遍历加载搜查该初始化文件
+
+loadFile('Notephp.Vendor.Smarty');
+// 加载内部的第三方扩展Smarty
+```
+
+#####加密函数`SysCrypt()`
+
+**提示:** 该函数的对应解密函数为`SysDecrypt()`
+
+```php
+/* @param $data要加密的数据
+ * @param $secretKey加密键,解密的时候要用到
+ * 该函数采用mcrypt加密，更多请参考php官网
+ */
+$fileData = file_get_content('./test.txt');
+$key = 'This is a Key for open the Encryption's Door';
+$encryptData = SysCrypt($fileData, $key);
+
+// 解密
+$decryptData = SysDecrypt($encryptData, $key);
+```
+
+##附录
 
 
 

@@ -22,4 +22,3 @@ return array(
         "manage.stando.cn"  => "Admin"
     ),
 );
-?>

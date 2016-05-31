@@ -7,34 +7,34 @@
   */
 
 // 实例化项目控制器
-function A($ctrl)
+function Controller($ctrl)
 {
-    $CtrlName = ucfirst(strtolower($ctrl))."Controller";
-    $NewClassName = $CtrlName."\\".$CtrlName;
-    spl_autoload_register(function ($ClassName) {
-        $loadClass = explode('\\' , $ClassName);
-        require_once(PRO_PATH."/lib/controller/".$loadClass[1].".class.php");
-    });
-    $instance = new $NewClassName();
-    return $instance;
+    $ctrlName = ucfirst(strtolower($ctrl))."Controller";
+    $ctrlFile = PRO_PATH."/{$GLOBALS['PROJECT_REQUEST_MODULE']}/Controller/$ctrlName".EXTS;
+    if (is_file($ctrlFile)) {
+        require_once($ctrlFile);
+    } else {
+        trigger_error('控制器类文件'.$ctrlFile.'不存在', E_USER_ERROR);
+    }
+    return new $ctrlName;
 }
 // 配置常量获取函数
 function C($val)
 {
-    $split = explode(".",$val);
-    $keyNum = count($split);
+    $split = explode(".", $val);
     $userConfFile = __COMMON__."/Conf/configure.php";
     $defaultConfFile = __NOTEPHP__."/Common/Conf/default.php"; 
     // 加载用户配置文件
     $userConf = is_file($userConfFile) ? require($userConfFile) : array();
     // 默认配置文件
     $defaultConf = is_file($defaultConfFile) ? require($defaultConfFile) : array();
-    $conf = array_merge($defaultConf ,$userConf);
-    if (1 == $keyNum) {
-        return $conf[$split[0]];
-    } else {
-        return $conf[$split[0]][$split[1]];
+    $conf = array_merge($defaultConf, $userConf);
+    while ($constName = array_shift($split)) {
+        $tmpVal = $conf[$constName];
+        $constVal = $tmpVal;
+        $conf = $tmpVal;
     }
+    return $constVal;
 }
 // 加载php扩展文件
 function loadFile($filePath)
