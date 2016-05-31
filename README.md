@@ -251,44 +251,33 @@ class IndexController Extends Controller
 
 _*示例*_
 ```php
-public function index()
-{
     $this->assign('foo', 'hello world !'); 
     // 显示模板
     $this->display();
     // 可以指定要显示模板文件,相对路径
     $templateFile = "./Webapp/Home/Home/View/Index/test.tpl";
     $this->display($templateFile);
-}
 ```
 - `show()` 输出数据内容,可以是HTML实体，或普通字符串
 
 _*实例*_
 ```php
-public function index() 
-{
     $html = "&lt;h1&gt; 标题 &lt;/h1&gl";
     // 或html字符串 $html = "<h1>标题</h1>";
     // 或
     $this->show($html);
-}
 ```
 - `dataReturn()` 返回数据,配置`DATA_RETURN_TYPE`,默认是`json`
 
 *示例*
 ```php
-public function index() 
-{
     $data = array('states' => 1, 'msg' => 'success');
     $this->dataReturn($data);
-}
 ```
 - `redirect()` 路由重定向,可以是完整路由，也可以是控制器操作方法
 
 *示例*
 ```php
-public function index() 
-{
     /*
      * @param $url 重定向路由
      * @param $msg 跳转页面的提示
@@ -300,7 +289,6 @@ public function index()
     // 跳转提示,5秒跳转到http://localhost/index/dita
     $this->redirect('/index/dita', '跳转中...', 5);
 
-}
 ```
 
 ##数据库模型
@@ -323,8 +311,6 @@ return array(
 
 **实例该类:**
 ```php
-public function index()
-{
     /* 使用内置函数M()实例方法
      * M函数有两个参数$table,$bool
      * @param $table 要实例的模型或数据库表
@@ -335,12 +321,9 @@ public function index()
     $mode = M('user', false); // 将直接实例user数据库表,且数据库表是由小写字母组成
     $data = $mode->execute(1); // 查找id=2的数据，返回一个一维数组
     var_dump($data);
-}
 ```
 **提示:**
 ```php
-public function index()
-{
     /* 若想使用自定义数据库操作
      * 模型提供自定义数据库操作链接柄
      * @param $curd 
@@ -350,7 +333,6 @@ public function index()
     $result = $curd->query('SELECT * FROM user WHERE id = 1');
     $data = $result->fetch_assoc();
     var_dump($data);
-}
 ```
 
 ###连贯操作
@@ -385,8 +367,6 @@ public function index()
 
 **示例:**
 ```php
-public function index()
-{
     /* 不调用该方法,表示查找所有字段
      * 参数为字符串类型,多个字段以`,`分开
      */
@@ -398,7 +378,6 @@ public function index()
      * fields('SUM(salary)')
      * 这里可以添加各种数据库字段查询函数
      */
-}
 ```
 
 #####limit
@@ -407,14 +386,11 @@ public function index()
 
 **示例**
 ```php
-public function index()
-{
     /* 该方法有连个参数$offset起始行,$rows行数
      * 当只有一个参数的时候,表示查找前$param 行
      */
     $rows = $mode->limit(6)->execute(); // 将返回前6行
     $rows = $mode->limit(3, 4)->execute(); // 从第3行起，返回4行
-}
 ```
 #####where
 
@@ -422,8 +398,6 @@ public function index()
 
 **示例:**
 ```php
-public function index()
-{
     /* (字符串)方式
      * 字符串类型更接近源生的Where条件,所以将不对数据进行过滤
      * 要使用字符串类型需要自己手动过滤数据,且要求掌握Mysql语句风格防止语法错误或漏洞
@@ -473,7 +447,6 @@ public function index()
      * (id BETWEEN  2 AND 16  AND id NOT IN (5,11) ) 
      *' 
      */
-}
 ```
 #####order
 
@@ -481,8 +454,6 @@ public function index()
 
 **示例:**
 ```php
-public function index() 
-{
     /* 参数为字符串
      * 多个字段以','分开
      * 常见ASC升序，DESC降序
@@ -490,7 +461,6 @@ public function index()
     $query = $mode->order('salary desc')->execute();
     // 多个字段排序
     $query = $mode->order('on_duty asc,salary desc')->execute();
-}
 ```
 #####data
 
@@ -498,8 +468,6 @@ public function index()
 
 **示例:**
 ```php
-public function index
-{
     /* 参数为数组
      * 通常用于数据修改和数据写入过滤
      */
@@ -511,7 +479,6 @@ public function index
     // 对于数字型数据自增,建议使用下面方法
     $increment = array('salary=salary+500' => '');
     $affectedRows = $mode->data($increment)->where(['department' => 'hr'])->execute();
-}
 ```
 #####group
 
@@ -519,15 +486,12 @@ public function index
 
 **示例:**
 ```php
-public function index()
-{
     /* 参数为字符串
      * 对于非ENUM()设置的字段同样有效
      */
     $query = $mode->group('name,salary')->execute();
     // 也可以结合having使用
     $query = $mode->fields('COUNT(*) AS members')->group('sex')->having(array('sex' => 'F'))->execute();
-}
 ```
 #####having
 
@@ -535,8 +499,6 @@ public function index()
 
 **实例:** 
 ```php
-public function index()
-{
     /* 参数为键值对应数组
      * 使用自定义符号,值为一个数据
      * 且第一个元素是符号
@@ -545,7 +507,6 @@ public function index()
     // 对应SQL语句SELECT * FROM employee HAVING name = 'hebar' 
     $query = $mode->having(array('id' => array('>', 12)))->execute();
     // 对应SQL语句SELECT * FROM employee HAVING id > 12
-}
 ```
 #####check
 
@@ -553,14 +514,11 @@ public function index()
 
 **示例:**
 ```php
-public function index()
-{
     /* 参数为boolean类型
      * 成功时返回查找到的行数
      */
     $check = $mode->Where(array('name' => 'hebar', 'password' => '12345'))->check(true)->execute();
     // 输出int(1)
-}
 ```
 #####trans
 
@@ -568,8 +526,6 @@ public function index()
 
 **示例:**
 ```php
-public function index()
-{
     /* 参数为bool类型
      * 下面为实例
      */
@@ -577,7 +533,6 @@ public function index()
         ->where(array('name' => 'hebar'))
         ->trans(true)
         ->execute();
-}
 ```
 #####stmt
 
@@ -585,13 +540,10 @@ public function index()
 
 **示例:**
 ```php
-public function index()
-{
     /* 参数为bool类型
      * 比较适合简单重复的查询
      */
     $query = $mode->where(array('id' => 1))->stmt(true)->execute();
-}
 ```
 ###终止方法
 
@@ -603,8 +555,6 @@ public function index()
 
 **示例:** 
 ```php
-public function index()
-{
     /* 参数为数字或为空
      * 若为数字,将返回id为该数字的数据行，且为一维数组
      */
@@ -618,7 +568,6 @@ public function index()
     // 注意：若参数为空,且只有一个execute方法时,将返回该表全部数据行
     $query = $mode->execute();
     // 上面的语句将返回该表全部数据行
-}
 ```
 #####save
 
@@ -626,8 +575,6 @@ public function index()
 
 **示例:**
 ```php
-public function index()
-{
     /* 参数为数组或为空
      * 当参数为空时,要用到操作方法data存放数据
      */
@@ -641,7 +588,6 @@ public function index()
     $incrementData = array('score=score+5' => '');
     $updata = $mode->where('id=1')->data($data)->save();
     // 对应的SQL语句'UPDATE employee SET score=score+5 WHERE id=1 ' 
-}
 ```
 #####add
 
@@ -649,8 +595,6 @@ public function index()
 
 **示例:**
 ```php
-public function index()
-{
     /* 参数为数组或空
      * 添加成功返回该行的id
      * 若该数据库表无id字段,将返回执行结果
@@ -666,7 +610,6 @@ public function index()
     $add = $mode->add($data);
     $dataAdd = $mode->data($data)->add();
     // 以上两种模式效果一样
-}
 ```
 #####delete
 
@@ -674,8 +617,6 @@ public function index()
 
 **示例:**
 ```php
-public function index()
-{
     /* 参数为数字或空
      * 若参数为数字将删除id为该数字的行
      * 删除成功返回影响行数
@@ -688,7 +629,6 @@ public function index()
 
     // 更多复杂的条件筛选请参考上面的连贯操作
     // 只需在终止方法使用delete即可
-}
 ```
 #####returnSql
 
@@ -696,8 +636,6 @@ public function index()
 
 **示例:**
 ```php
-public function index()
-{
     /* 参数为字符串
      * 参数选项有,execute,add,save,delete
      * 默认是execute
@@ -710,7 +648,6 @@ public function index()
     // 返回'UPDATE employee SET salary=5000 WHERE id=1'
     $sql = $mode->data(array('name' => 'hebar', 'password' => '123'))->returnSql('add');
     // 返回'INSERT INTO employee (name, password) VALUES('hebar', '123')'
-}
 ```
 
 ##视图/模板
@@ -754,8 +691,6 @@ return array(
 
 **示例:**
 ```php
-public function index()
-{
     /* Mencached的命令很多,这里只封装部分命令
      * 为了满足用户自定义操作,调用Cache()可返回Mencached的实例
      * 单个事件只能缓存1024kb大小的数据,要缓存大数据请使用RedisStorage类
@@ -800,7 +735,6 @@ public function index()
     $newMemcached = Cache();
     $getKeys = $newMemcached->getAllKeys();
     // 这里可以做更多多的事情
-}
 ```
 
 ####Redis缓存
@@ -905,12 +839,12 @@ public function index()
 **内部扩展目录:** `./notephp/Extends/`
 
 ```php
-loadFile('@.Org.Image');
-// 目录./Webapp/Extends/Org/Image/下必须要有扩展初始文件Image.class.php
-// 加载的时候将遍历加载搜查该初始化文件
+    loadFile('@.Org.Image');
+    // 目录./Webapp/Extends/Org/Image/下必须要有扩展初始文件Image.class.php
+    // 加载的时候将遍历加载搜查该初始化文件
 
-loadFile('Notephp.Vendor.Smarty');
-// 加载内部的第三方扩展Smarty
+    loadFile('Notephp.Vendor.Smarty');
+    // 加载内部的第三方扩展Smarty
 ```
 
 #####加密函数`SysCrypt()`
@@ -918,16 +852,16 @@ loadFile('Notephp.Vendor.Smarty');
 **提示:** 该函数的对应解密函数为`SysDecrypt()`
 
 ```php
-/* @param $data要加密的数据
- * @param $secretKey加密键,解密的时候要用到
- * 该函数采用mcrypt加密，更多请参考php官网
- */
-$fileData = file_get_content('./test.txt');
-$key = "This is a Key for open the Encryption's Door";
-$encryptData = SysCrypt($fileData, $key);
+   /* @param $data要加密的数据
+    * @param $secretKey加密键,解密的时候要用到
+    * 该函数采用mcrypt加密，更多请参考php官网
+    */
+    $fileData = file_get_content('./test.txt');
+    $key = "This is a Key for open the Encryption's Door";
+    $encryptData = SysCrypt($fileData, $key);
 
-// 解密
-$decryptData = SysDecrypt($encryptData, $key);
+    // 解密
+    $decryptData = SysDecrypt($encryptData, $key);
 ```
 
 ##附录

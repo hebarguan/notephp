@@ -43,6 +43,7 @@ return array(
     "SESSION_DRIVER_OPEN"      =>  false, // 是否开始session驱动
     "SESSION_EXPIRE"           =>  3600, // session默认过期时间
     "SESSION_TABLE"            =>  "", // session驱动的数据库表
+    "REDIRECT_FILE"            =>  "./notephp/Tpl/redirect.tpl", // 页面跳转页面
     "REDIS_CONF"               =>  array( // Redis缓存配置
         "REDIS_KEYS_EXPIRE" => -1,
         "REDIS_HOST"        => "localhost", 
