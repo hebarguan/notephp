@@ -1,7 +1,6 @@
 #框架说明
 
-
-Notephp以Smarty作为模板引擎的简约型php mvc框架,同时结合Mysql+Nginx(或Apache)+Mencached个人或小型网站开发提供支持,风格结构吸取国内优秀的Thinkphp框架,你可以轻松的阅读Noetphp 核心类文件里面的每行代码。可根据自己的需要更改里面的核心文件,或把你的想法Email给我hebarguan@gmail.com,有疑问 [这里](https://github.com/hebarguan/notephp/issues),也欢迎大家Pull Request！
+_*Notephp以Smarty作为模板引擎的简约型php mvc框架,同时结合Mysql+Nginx(或Apache)+Mencached个人或小型网站开发提供支持,风格结构吸取国内优秀的Thinkphp框架,你可以轻松的阅读Noetphp 核心类文件里面的每行代码。可根据自己的需要更改里面的核心文件,或把你的想法Email给我hebarguan@gmail.com,有疑问 [这里](https://github.com/hebarguan/notephp/issues),也欢迎大家Pull Request！*_
 
 #框架目录结构
 
@@ -664,7 +663,7 @@ return array(
 
 **提示:** 模板使用的是比较出色的Smarty模板,手册请自行参考官方文档
 
-**注意:** 在模板文件下面调用自定义函数,即`模块/Common/Function`目录下的自定义函数库,可以直接在标签内调用函数名,不需调用Smart有模板的`register_function`；如果发现`BUG`,希望能Email给我,或自行解决,Pull Request给我吧!
+**注意:** 在模板文件下面调用自定义函数,即`模块/Common/Function`目录下的自定义函数库,可以直接在标签内调用函数名；如果发现`BUG`,希望能Email给我或自行解决,然后Pull Request给我吧!
 
 
 ##储存/缓存
