@@ -50,11 +50,11 @@ location / {
 
  * [入口文件](#入口文件)
  * [配置文件](#配置文件)
- * [模块](#模块)
+ * [项目模块](#项目模块)
  * [子域名部署](#子域名部署)
  * [路由模式](#路由模式)
  * [控制器](#控制器)
- * [模型](#模型)
+ * [数据库模型](#数据库模型)
  * [视图/模板](#视图/模板)
  * [储存/缓存](#储存/缓存)
  * [内置函数](#内置函数)
@@ -98,7 +98,7 @@ return array(
 
 更多配置选项请查看核心默认配置文件`./notephp/Common/Conf/default.php`
 
-##模块
+##项目模块
 
 ####单模块
 
@@ -303,7 +303,7 @@ public function index()
 }
 ```
 
-##模型
+##数据库模型
 
 **描述:** 用于数据库操作
 
@@ -809,8 +809,6 @@ public function index()
 
 **示例:**
 ```php
-public function index() 
-{
     /* Redis缓存同样提供自定义操作链接柄
      * 链接柄为类成员$redisHandle
      * 本类提供三种缓存数据类型,String(字符串),List(列表),Set(集合)
@@ -865,7 +863,6 @@ public function index()
 
     // 删除所有缓存数据库的所有键
     $redis->clearAllDB();
-}
 ```
 
 ##内置函数
@@ -873,8 +870,6 @@ public function index()
 #####实例控制器`Controller()`
 
 ```php
-public function index()
-{
     // 参数为字符串，且为控制器名
     $action = Controller('Index');
     $action->test();
@@ -886,15 +881,11 @@ public function index()
     // 这种方法采用遍历目录的方式加载类文件
     // 与Controller函数不同在于函数采用直接加载指定文件
     $newClass->test();
-    
-}
 ```
 
 #####获取配置常量函数`C()`
 
 ```php
-public function index()
-{
     // 参数为字符串
     // 支持多维数组常量
     // 下面举例
@@ -903,7 +894,6 @@ public function index()
     // 'MY_CONF' => array('HOST' => array('PORT' => 80));
     $myConf = C('MY_CONF.HOST.PORT');
     // 返回:80
-}
 ```
 
 #####扩展加载函数`loadFile()`
@@ -933,7 +923,7 @@ loadFile('Notephp.Vendor.Smarty');
  * 该函数采用mcrypt加密，更多请参考php官网
  */
 $fileData = file_get_content('./test.txt');
-$key = 'This is a Key for open the Encryption's Door';
+$key = "This is a Key for open the Encryption's Door";
 $encryptData = SysCrypt($fileData, $key);
 
 // 解密
