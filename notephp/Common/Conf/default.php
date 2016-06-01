@@ -38,7 +38,7 @@ return array(
     "SMARTY_LEFT_DELIMITER"    =>  "{", // smarty 模板引擎开始标签
     "SMARTY_RIGHT_DELIMITER"   =>  "}", // smarty 模板引擎结束标签
     "SMARTY_TEMPLATE_CACHE"    =>  false , // smarty 模板缓存
-    "SMARTY_CACHE_LIFETIME"    =>  -1, // smarty模板缓存时间
+    "SMARTY_CACHE_LIFETIME"    =>  3600, // smarty模板缓存时间
     "GET_FIELDS_LENGTH"        =>  6 , // 路由模式二路由重写$_GET的最大字段长度
     "SESSION_DRIVER_OPEN"      =>  false, // 是否开始session驱动
     "SESSION_EXPIRE"           =>  3600, // session默认过期时间

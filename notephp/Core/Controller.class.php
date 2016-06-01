@@ -18,6 +18,10 @@ class Controller
     private $view        = "";
     // 模板值
     private $templateVal = array();
+    // 模板缓存 
+    public $caching      = null;
+    // 模板缓存时间i
+    public $cacheLifeTime= null;
     // 初始化控制器类
     public  function __construct()
     {
@@ -92,7 +96,7 @@ class Controller
         // 编译模板文件
         $complierFile = !is_null($Template) ? $Template : $tempFile;
         $this->view->set($this->templateVal);
-        $this->view->asHtml($complierFile);
+        $this->view->asHtml($complierFile, $this->caching, $this->cacheLifeTime);
         exit;
     }
     // 显示文本或html
@@ -108,7 +112,8 @@ class Controller
             $redirectFile = C("REDIRECT_FILE");
             $assginment = array("redirectMsg" => $msg ,"delayedTime" => $time ,"redirectUrl" => $url) ;
             $this->view->set($assginment);
-            $this->view->asHtml($redirectFile);
+            // 设置不缓存重定向文件
+            $this->view->asHtml($redirectFile, false, 0);
         } else {
             // 直接重定向
             header("Location:".$url);
