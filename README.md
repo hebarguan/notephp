@@ -1,6 +1,6 @@
 #框架说明
 
-_*Notephp以Smarty作为模板引擎的简约型php mvc框架,同时结合Mysql+Nginx(或Apache)+Mencached个人或小型网站开发提供支持,风格结构吸取国内优秀的Thinkphp框架,你可以轻松的阅读Noetphp 核心类文件里面的每行代码。可根据自己的需要更改里面的核心文件,或把你的想法Email给我hebarguan@gmail.com,有疑问 [这里](https://github.com/hebarguan/notephp/issues),也欢迎大家Pull Request！*_
+_*Notephp以Smarty作为模板引擎的简约型PHPMVC,框架风格结构吸取国内优秀的Thinkphp框架,你可以轻松的阅读Noetphp 核心类文件里面的每行代码。你可根据自己的需要更改里面的核心文件,添加任意有趣的东西,把它打造成你自己开发的工具,所以建议大家发挥自己想法,根据自己需要修改框架,或把你的想法Email给我hebarguan@gmail.com,有疑问 [这里](https://github.com/hebarguan/notephp/issues),也欢迎大家Pull Request！*_
 
 #框架目录结构
 
@@ -800,7 +800,7 @@ return array(
 
 ##内置函数
 
-#####实例控制器`Controller()`
+####实例控制器`Controller()`
 
 ```php
     // 参数为字符串，且为控制器名
@@ -816,7 +816,7 @@ return array(
     $newClass->test();
 ```
 
-#####获取配置常量函数`C()`
+####获取配置常量函数`C()`
 
 ```php
     // 参数为字符串
@@ -829,7 +829,7 @@ return array(
     // 返回:80
 ```
 
-#####扩展加载函数`loadFile()`
+####扩展加载函数`loadFile()`
 
 **参数说明:** `loadFile('(内部或外部).(扩展类型).(扩展名)')`,内部用`Notephp`,外部`@`,自定义扩展类型`Org`,第三方`Vendor`,扩展名为扩展目录的名称,以大写字母开始,例`Smarty`
 
@@ -846,7 +846,7 @@ return array(
     // 加载内部的第三方扩展Smarty
 ```
 
-#####加密函数`SysCrypt()`
+####加密函数`SysCrypt()`
 
 **提示:** 该函数的对应解密函数为`SysDecrypt()`
 
@@ -864,6 +864,29 @@ return array(
 ```
 
 ##附录
+
+####数据库操作安全性须知
+
+**数据库扩展PDO的过滤函数采用的是addslashes(),所以需要在转义过滤数据之前时,使用`get\_magic\_quotes\_gpc ()`函数验证是否开启了POST，GET数据自动转义，防止出现双重转义.Mysql扩展依然使用`mysqli\_real\_escape\_string()`为安全过滤函数**
+
+####框架文件运行
+
+**为了帮助了解框架的内部运行方式和更好的阅读代码，下面是框架的基本运行文件顺序:**
+```
+1.index.php  框架入口文件
+2.Tunnel.php  入口初始文件
+3.Notephp.class.php  框架初始化文件
+4.Url.class.php  路由处理文件
+5.ControllerDriver.class.php 项目控制器驱动(如果不显示页面，这是框架终止文件)
+6.View.class.php  模板初始化文件
+7.Smarty.class.php 模板引擎文件
+```
+
+####引言
+
+**由于本人的能力也是有限的，在此过程中可能出现各种不足之处，在功能上也不够完善,例如：Thinkphp上有表单令牌这些方便的功能，但这里没有，这里就需要你自己发挥创造力，添加各种有趣的东西。丰富的框架能提高开发的工作效率，但不建议过于依赖框架本身，毕竟很多的功能就像是封装在一个箱子,而你且不知道箱子里是什么,所以箱子不能拿来就用，更应该学习里面的内容，把它当做学习的例子，这样才能得到更多知识能力，所以建议大家去了解框架的源代码，查看各种各样的框架代码。
+
+
 
 
 
