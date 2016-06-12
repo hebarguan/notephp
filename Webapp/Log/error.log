@@ -4732,3 +4732,8 @@ Stack trace:
 [2016-06-12 21:38:50][ERROR][2]:array_merge(): Argument #1 is not an arrayin File/home/hebar/notephp/notephp/Common/Function/functions.php line 35
 [2016-06-12 21:39:59][ERROR][256]:不存在模块Favicon.icoin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 49
 [2016-06-12 21:41:10][ERROR][256]:不存在模块Favicon.icoin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 49
+[2016-06-12 22:16:38][ERROR][1]:Class 'AdminController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-12 22:16:38][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-12 22:16:46][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-12 22:16:55][ERROR][1]:Class 'AdminController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-12 22:16:55][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
