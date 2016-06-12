@@ -4473,3 +4473,262 @@ Stack trace:
 [2016-05-31 16:06:31][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
 [2016-05-31 16:07:46][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
 [2016-05-31 16:07:57][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-05 11:33:50][ERROR][1]:Call to a member function fetch_assoc() on a non-objectin File/home/hebar/notephp/Webapp/Home/Controller/IndexController.class.php line 115
+[2016-06-05 11:33:50][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-05 11:33:54][ERROR][1]:Call to a member function fetch_assoc() on a non-objectin File/home/hebar/notephp/Webapp/Home/Controller/IndexController.class.php line 115
+[2016-06-05 11:33:54][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-05 11:41:41][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-05 11:43:48][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-05 11:43:57][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-05 11:43:59][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-05 11:44:01][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-05 11:44:47][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-05 11:44:48][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-05 11:44:49][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-05 11:45:05][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-05 11:45:44][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-05 11:45:55][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-05 11:46:06][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-05 13:47:27][ERROR][1]:Class 'PublicController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-05 13:47:28][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-05 13:47:29][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-05 13:47:31][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-05 13:47:33][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-05 13:48:51][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-05 16:17:39][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-05 17:39:09][ERROR][1]:Class 'CacheController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-05 17:40:31][ERROR][1]:Class 'CacheController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-05 18:46:51][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-05 21:15:25][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-05 23:44:24][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-06 12:09:47][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-06 12:24:31][ERROR][1]:Class 'Changelog.txtController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-06 12:24:43][ERROR][1]:Class 'ReadmeController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-06 12:24:56][ERROR][1]:Class 'LanguageController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-06 19:31:35][ERROR][1]:Class 'CacheController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-06 22:00:32][ERROR][1]:Class 'CacheController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-06 22:28:16][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-07 01:21:02][ERROR][1]:Class 'CacheController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-07 13:27:17][ERROR][1]:Class 'CacheController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-07 15:22:53][ERROR][1]:Class 'CacheController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-07 15:46:43][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-07 17:29:48][ERROR][1]:Class 'CacheController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-07 18:14:25][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-07 20:42:39][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-07 21:19:16][ERROR][1]:Class 'Robots.txtController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-07 21:19:17][ERROR][1]:Class 'Sitemap.xmlController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-07 21:32:07][ERROR][1]:Class 'CacheController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-07 23:11:07][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-08 10:56:27][ERROR][1]:Class 'CacheController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-08 11:32:56][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-08 16:31:26][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-08 17:27:10][ERROR][1]:Class 'CacheController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-08 19:00:37][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-08 19:59:12][ERROR][1]:Class 'UserController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-08 21:29:33][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-08 21:47:46][ERROR][1]:Class 'CacheController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-09 01:47:35][ERROR][1]:Class 'CacheController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-09 12:20:25][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-09 14:46:12][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-09 19:08:50][ERROR][1]:Class 'CacheController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-09 19:40:32][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-09 21:11:22][ERROR][1]:Class 'CacheController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-09 22:36:57][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 01:05:06][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 01:11:02][ERROR][1]:Class 'CacheController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 10:56:04][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 13:10:20][ERROR][1]:Class 'CacheController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 13:23:49][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 15:51:25][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 18:20:19][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 18:35:19][ERROR][1]:Class 'PhpmyadminController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 19:54:54][ERROR][1]:Class 'PhpmyadminController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 19:54:54][ERROR][1]:Class 'PhpmyadminController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 20:49:22][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 21:11:15][ERROR][1]:Class 'CacheController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:27:30][ERROR][1]:Class 'Ncsi.txtController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:27:30][ERROR][1]:Class 'Hnap1Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:27:30][ERROR][1]:Class 'HudsonController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:27:31][ERROR][1]:Class 'ScriptController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:27:35][ERROR][1]:Class 'PhpmyadminController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:27:36][ERROR][1]:Class 'PhpmyadminController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:27:36][ERROR][1]:Class 'PmaController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:27:36][ERROR][1]:Class 'PmaController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:27:37][ERROR][1]:Class 'AdminController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:27:37][ERROR][1]:Class 'DbadminController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:27:38][ERROR][1]:Class 'MysqlController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:27:38][ERROR][1]:Class 'MyadminController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:27:39][ERROR][1]:Class 'OpenserverController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:27:39][ERROR][1]:Class 'Phpmyadmin2Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:27:39][ERROR][1]:Class 'Phpmyadmin2Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:27:40][ERROR][1]:Class 'Phpmyadmin-2Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:27:40][ERROR][1]:Class 'Php-my-adminController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:27:41][ERROR][1]:Class 'Phpmyadmin-2.2.3Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:27:41][ERROR][1]:Class 'Phpmyadmin-2.2.6Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:27:41][ERROR][1]:Class 'Phpmyadmin-2.5.1Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:27:42][ERROR][1]:Class 'Phpmyadmin-2.5.4Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:27:42][ERROR][1]:Class 'Phpmyadmin-2.5.5-rc1Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:27:43][ERROR][1]:Class 'Phpmyadmin-2.5.5-rc2Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:27:43][ERROR][1]:Class 'Phpmyadmin-2.5.5Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:27:44][ERROR][1]:Class 'Phpmyadmin-2.5.5-pl1Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:27:44][ERROR][1]:Class 'Phpmyadmin-2.5.6-rc1Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:27:44][ERROR][1]:Class 'Phpmyadmin-2.5.6-rc2Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:27:45][ERROR][1]:Class 'Phpmyadmin-2.5.6Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:27:45][ERROR][1]:Class 'Phpmyadmin-2.5.7Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:27:46][ERROR][1]:Class 'Phpmyadmin-2.5.7-pl1Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:27:46][ERROR][1]:Class 'Phpmyadmin-2.6.0-alphaController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:27:46][ERROR][1]:Class 'Phpmyadmin-2.6.0-alpha2Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:27:47][ERROR][1]:Class 'Phpmyadmin-2.6.0-beta1Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:27:47][ERROR][1]:Class 'Phpmyadmin-2.6.0-beta2Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:27:48][ERROR][1]:Class 'Phpmyadmin-2.6.0-rc1Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:27:48][ERROR][1]:Class 'Phpmyadmin-2.6.0-rc2Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:27:49][ERROR][1]:Class 'Phpmyadmin-2.6.0-rc3Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:27:49][ERROR][1]:Class 'Phpmyadmin-2.6.0Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:27:49][ERROR][1]:Class 'Phpmyadmin-2.6.0-pl1Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:27:50][ERROR][1]:Class 'Phpmyadmin-2.6.0-pl2Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:27:50][ERROR][1]:Class 'Phpmyadmin-2.6.0-pl3Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:27:51][ERROR][1]:Class 'Phpmyadmin-2.6.1-rc1Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:27:51][ERROR][1]:Class 'Phpmyadmin-2.6.1-rc2Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:27:52][ERROR][1]:Class 'Phpmyadmin-2.6.1Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:27:52][ERROR][1]:Class 'Phpmyadmin-2.6.1-pl1Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:27:52][ERROR][1]:Class 'Phpmyadmin-2.6.1-pl2Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:27:53][ERROR][1]:Class 'Phpmyadmin-2.6.1-pl3Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:27:53][ERROR][1]:Class 'Phpmyadmin-2.6.2-rc1Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:27:54][ERROR][1]:Class 'Phpmyadmin-2.6.2-beta1Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:27:54][ERROR][1]:Class 'Phpmyadmin-2.6.2-rc1Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:27:55][ERROR][1]:Class 'Phpmyadmin-2.6.2Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:27:55][ERROR][1]:Class 'Phpmyadmin-2.6.2-pl1Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:27:55][ERROR][1]:Class 'Phpmyadmin-2.6.3Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:27:56][ERROR][1]:Class 'Phpmyadmin-2.6.3-rc1Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:27:56][ERROR][1]:Class 'Phpmyadmin-2.6.3Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:27:57][ERROR][1]:Class 'Phpmyadmin-2.6.3-pl1Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:27:57][ERROR][1]:Class 'Phpmyadmin-2.6.4-rc1Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:27:58][ERROR][1]:Class 'Phpmyadmin-2.6.4-pl1Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:27:58][ERROR][1]:Class 'Phpmyadmin-2.6.4-pl2Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:27:59][ERROR][1]:Class 'Phpmyadmin-2.6.4-pl3Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:27:59][ERROR][1]:Class 'Phpmyadmin-2.6.4-pl4Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:28:00][ERROR][1]:Class 'Phpmyadmin-2.6.4Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:28:00][ERROR][1]:Class 'Phpmyadmin-2.7.0-beta1Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:28:01][ERROR][1]:Class 'Phpmyadmin-2.7.0-rc1Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:28:01][ERROR][1]:Class 'Phpmyadmin-2.7.0-pl1Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:28:02][ERROR][1]:Class 'Phpmyadmin-2.7.0-pl2Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:28:02][ERROR][1]:Class 'Phpmyadmin-2.7.0Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:28:02][ERROR][1]:Class 'Phpmyadmin-2.8.0-beta1Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:28:03][ERROR][1]:Class 'Phpmyadmin-2.8.0-rc1Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:28:03][ERROR][1]:Class 'Phpmyadmin-2.8.0-rc2Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:28:04][ERROR][1]:Class 'Phpmyadmin-2.8.0Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:28:04][ERROR][1]:Class 'Phpmyadmin-2.8.0.1Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:28:05][ERROR][1]:Class 'Phpmyadmin-2.8.0.2Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:28:05][ERROR][1]:Class 'Phpmyadmin-2.8.0.3Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:28:05][ERROR][1]:Class 'Phpmyadmin-2.8.0.4Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:28:06][ERROR][1]:Class 'Phpmyadmin-2.8.1-rc1Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:28:06][ERROR][1]:Class 'Phpmyadmin-2.8.1Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:28:07][ERROR][1]:Class 'Phpmyadmin-2.8.2Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:28:07][ERROR][1]:Class 'SqlmanagerController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:28:08][ERROR][1]:Class 'MysqlmanagerController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:28:08][ERROR][1]:Class 'PController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:28:08][ERROR][1]:Class 'Pma2005Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:28:11][ERROR][1]:Class 'Pma2005Controller' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:28:11][ERROR][1]:Class 'PhpmanagerController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:28:12][ERROR][1]:Class 'Php-myadminController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:28:12][ERROR][1]:Class 'Phpmy-adminController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:28:13][ERROR][1]:Class 'WebadminController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:28:13][ERROR][1]:Class 'SqlwebController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:28:13][ERROR][1]:Class 'WebsqlController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:28:14][ERROR][1]:Class 'WebdbController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:28:14][ERROR][1]:Class 'MysqladminController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 22:28:15][ERROR][1]:Class 'Mysql-adminController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-10 23:18:24][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-11 01:19:19][ERROR][1]:Class 'CacheController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-11 01:47:23][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-11 02:11:51][ERROR][1]:Class 'Robots.txtController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-11 02:11:51][ERROR][1]:Class 'Sitemap.xmlController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-11 13:08:14][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-11 13:26:34][ERROR][1]:Class 'CacheController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-11 15:36:10][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-11 17:31:48][ERROR][1]:Class 'CacheController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-11 17:50:07][ERROR][1]:Class 'ManagerController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-11 18:05:24][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-12 13:37:04][ERROR][1]:Class 'CacheController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-12 13:54:55][ERROR][1]:Class 'Cgi-binController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-12 19:39:06][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-12 19:39:06][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-12 19:50:20][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-12 19:50:24][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-12 19:50:38][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-12 20:09:44][ERROR][4]:syntax error, unexpected '$rPath' (T_VARIABLE)in File/home/hebar/notephp/notephp/Common/Function/functions.php line 47
+[2016-06-12 20:09:44][ERROR][4]:syntax error, unexpected '$rPath' (T_VARIABLE)in File/home/hebar/notephp/notephp/Common/Function/functions.php line 47
+[2016-06-12 20:10:15][ERROR][256]:扩展入口文件Array.php不存在in File/home/hebar/notephp/notephp/Common/Function/functions.php line 48
+[2016-06-12 20:10:15][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-12 20:11:39][ERROR][256]:扩展入口文件Smarty.php不存在in File/home/hebar/notephp/notephp/Common/Function/functions.php line 48
+[2016-06-12 20:11:39][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-12 20:13:51][ERROR][256]:扩展入口文件./Notephp/Extends/Vendor/Smarty.php不存在in File/home/hebar/notephp/notephp/Common/Function/functions.php line 48
+[2016-06-12 20:13:51][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-12 20:18:09][ERROR][256]:扩展入口文件./notephp/Extends/SmartySmarty/.php不存在in File/home/hebar/notephp/notephp/Common/Function/functions.php line 48
+[2016-06-12 20:18:09][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-12 20:21:57][ERROR][256]:扩展入口文件./notephp/Extends/SmartySmarty/class.php不存在in File/home/hebar/notephp/notephp/Common/Function/functions.php line 48
+[2016-06-12 20:21:57][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-12 20:23:19][ERROR][256]:扩展入口文件./notephp/Extends/SmartySmarty不存在in File/home/hebar/notephp/notephp/Common/Function/functions.php line 48
+[2016-06-12 20:23:19][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-12 20:23:52][ERROR][1]:Class 'Smarty.class' not foundin File/home/hebar/notephp/notephp/Core/View.class.php line 23
+[2016-06-12 20:23:52][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-12 20:25:59][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-12 21:09:37][ERROR][2]:include_once(./Webapp/Common/Conf/.php): failed to open stream: No such file or directoryin File/home/hebar/notephp/notephp/Common/Function/functions.php line 39
+[2016-06-12 21:09:37][ERROR][2]:Invalid argument supplied for foreach()in File/home/hebar/notephp/notephp/Core/Notephp.class.php line 118
+[2016-06-12 21:09:37][ERROR][2]:include_once(./Webapp/Common/Conf/.php): failed to open stream: No such file or directoryin File/home/hebar/notephp/notephp/Common/Function/functions.php line 39
+[2016-06-12 21:09:37][ERROR][2]:Invalid argument supplied for foreach()in File/home/hebar/notephp/notephp/Core/Notephp.class.php line 118
+[2016-06-12 21:10:59][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-12 21:11:01][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-12 21:17:32][ERROR][1]:Class 'AdminController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-12 21:17:32][ERROR][1]:Class 'Favicon.icoController' not foundin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 35
+[2016-06-12 21:18:05][ERROR][2]:array_merge(): Argument #1 is not an arrayin File/home/hebar/notephp/notephp/Common/Function/functions.php line 40
+[2016-06-12 21:18:05][ERROR][256]:不存在模块Favicon.icoin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 49
+[2016-06-12 21:19:13][ERROR][256]:不存在模块Favicon.icoin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 49
+[2016-06-12 21:19:39][ERROR][2]:array_merge(): Argument #2 is not an arrayin File/home/hebar/notephp/notephp/Common/Function/functions.php line 40
+[2016-06-12 21:19:39][ERROR][256]:不存在模块Favicon.icoin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 49
+[2016-06-12 21:19:41][ERROR][2]:array_merge(): Argument #2 is not an arrayin File/home/hebar/notephp/notephp/Common/Function/functions.php line 40
+[2016-06-12 21:19:41][ERROR][256]:不存在模块Favicon.icoin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 49
+[2016-06-12 21:21:01][ERROR][2]:array_merge(): Argument #2 is not an arrayin File/home/hebar/notephp/notephp/Common/Function/functions.php line 40
+[2016-06-12 21:21:01][ERROR][256]:不存在模块Favicon.icoin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 49
+[2016-06-12 21:21:02][ERROR][2]:array_merge(): Argument #2 is not an arrayin File/home/hebar/notephp/notephp/Common/Function/functions.php line 40
+[2016-06-12 21:21:02][ERROR][256]:不存在模块Favicon.icoin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 49
+[2016-06-12 21:21:04][ERROR][2]:array_merge(): Argument #2 is not an arrayin File/home/hebar/notephp/notephp/Common/Function/functions.php line 40
+[2016-06-12 21:21:04][ERROR][256]:不存在模块Favicon.icoin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 49
+[2016-06-12 21:21:41][ERROR][2]:array_merge(): Argument #2 is not an arrayin File/home/hebar/notephp/notephp/Common/Function/functions.php line 40
+[2016-06-12 21:21:41][ERROR][256]:不存在模块Favicon.icoin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 49
+[2016-06-12 21:21:43][ERROR][2]:array_merge(): Argument #2 is not an arrayin File/home/hebar/notephp/notephp/Common/Function/functions.php line 40
+[2016-06-12 21:21:43][ERROR][256]:不存在模块Favicon.icoin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 49
+[2016-06-12 21:21:54][ERROR][256]:不存在模块Favicon.icoin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 49
+[2016-06-12 21:22:23][ERROR][2]:array_merge(): Argument #2 is not an arrayin File/home/hebar/notephp/notephp/Common/Function/functions.php line 40
+[2016-06-12 21:22:23][ERROR][256]:不存在模块Favicon.icoin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 49
+[2016-06-12 21:22:58][ERROR][256]:不存在模块Favicon.icoin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 49
+[2016-06-12 21:23:02][ERROR][256]:不存在模块Favicon.icoin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 49
+[2016-06-12 21:23:15][ERROR][256]:不存在模块Favicon.icoin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 49
+[2016-06-12 21:23:17][ERROR][256]:不存在模块Favicon.icoin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 49
+[2016-06-12 21:23:29][ERROR][2]:array_merge(): Argument #2 is not an arrayin File/home/hebar/notephp/notephp/Common/Function/functions.php line 40
+[2016-06-12 21:23:29][ERROR][256]:不存在模块Favicon.icoin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 49
+[2016-06-12 21:23:30][ERROR][2]:array_merge(): Argument #2 is not an arrayin File/home/hebar/notephp/notephp/Common/Function/functions.php line 40
+[2016-06-12 21:23:30][ERROR][256]:不存在模块Favicon.icoin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 49
+[2016-06-12 21:23:38][ERROR][256]:不存在模块Favicon.icoin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 49
+[2016-06-12 21:26:10][ERROR][2]:array_merge(): Argument #1 is not an arrayin File/home/hebar/notephp/notephp/Common/Function/functions.php line 33
+[2016-06-12 21:26:10][ERROR][2]:array_merge(): Argument #1 is not an arrayin File/home/hebar/notephp/notephp/Common/Function/functions.php line 33
+[2016-06-12 21:26:12][ERROR][2]:array_merge(): Argument #1 is not an arrayin File/home/hebar/notephp/notephp/Common/Function/functions.php line 33
+[2016-06-12 21:26:12][ERROR][2]:array_merge(): Argument #1 is not an arrayin File/home/hebar/notephp/notephp/Common/Function/functions.php line 33
+[2016-06-12 21:26:39][ERROR][2]:array_merge(): Argument #1 is not an arrayin File/home/hebar/notephp/notephp/Common/Function/functions.php line 33
+[2016-06-12 21:26:39][ERROR][2]:array_merge(): Argument #1 is not an arrayin File/home/hebar/notephp/notephp/Common/Function/functions.php line 33
+[2016-06-12 21:26:42][ERROR][2]:array_merge(): Argument #1 is not an arrayin File/home/hebar/notephp/notephp/Common/Function/functions.php line 33
+[2016-06-12 21:26:42][ERROR][2]:array_merge(): Argument #1 is not an arrayin File/home/hebar/notephp/notephp/Common/Function/functions.php line 33
+[2016-06-12 21:26:54][ERROR][2]:array_merge(): Argument #1 is not an arrayin File/home/hebar/notephp/notephp/Common/Function/functions.php line 33
+[2016-06-12 21:26:54][ERROR][2]:array_merge(): Argument #1 is not an arrayin File/home/hebar/notephp/notephp/Common/Function/functions.php line 33
+[2016-06-12 21:26:55][ERROR][2]:array_merge(): Argument #1 is not an arrayin File/home/hebar/notephp/notephp/Common/Function/functions.php line 33
+[2016-06-12 21:26:55][ERROR][2]:array_merge(): Argument #1 is not an arrayin File/home/hebar/notephp/notephp/Common/Function/functions.php line 33
+[2016-06-12 21:26:57][ERROR][2]:array_merge(): Argument #1 is not an arrayin File/home/hebar/notephp/notephp/Common/Function/functions.php line 33
+[2016-06-12 21:26:57][ERROR][2]:array_merge(): Argument #1 is not an arrayin File/home/hebar/notephp/notephp/Common/Function/functions.php line 33
+[2016-06-12 21:38:47][ERROR][2]:array_merge(): Argument #1 is not an arrayin File/home/hebar/notephp/notephp/Common/Function/functions.php line 35
+[2016-06-12 21:38:47][ERROR][2]:array_merge(): Argument #1 is not an arrayin File/home/hebar/notephp/notephp/Common/Function/functions.php line 35
+[2016-06-12 21:38:49][ERROR][2]:array_merge(): Argument #1 is not an arrayin File/home/hebar/notephp/notephp/Common/Function/functions.php line 35
+[2016-06-12 21:38:49][ERROR][2]:array_merge(): Argument #1 is not an arrayin File/home/hebar/notephp/notephp/Common/Function/functions.php line 35
+[2016-06-12 21:38:50][ERROR][2]:array_merge(): Argument #1 is not an arrayin File/home/hebar/notephp/notephp/Common/Function/functions.php line 35
+[2016-06-12 21:38:50][ERROR][2]:array_merge(): Argument #1 is not an arrayin File/home/hebar/notephp/notephp/Common/Function/functions.php line 35
+[2016-06-12 21:39:59][ERROR][256]:不存在模块Favicon.icoin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 49
+[2016-06-12 21:41:10][ERROR][256]:不存在模块Favicon.icoin File/home/hebar/notephp/notephp/Core/Driver/ControllerDriver.class.php line 49

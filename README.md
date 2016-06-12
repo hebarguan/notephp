@@ -77,6 +77,8 @@ location / {
 
 **描述:** 项目的公共配置文件是目录`./Webapp/Common/Conf`下的`configure.php`
 
+**注意:** 该目录下也可以添加特定模块的配置文件,如`Admin`模块的配置文件(模块的小写)命名为`admin.php`,公共配置文件与该配置文件的相同的配置项将会被覆盖
+
 _**配置示例:**_
 ```php
 <?php
@@ -840,19 +842,19 @@ return array(
 
 ####扩展加载函数`loadFile()`
 
-**参数说明:** `loadFile('(内部或外部).(扩展类型).(扩展名)')`,内部用`Notephp`,外部`@`,自定义扩展类型`Org`,第三方`Vendor`,扩展名为扩展目录的名称,以大写字母开始,例`Smarty`
+**参数说明:** `loadFile('(内外目录名).(扩展目录名).(扩展入口文件名)')`,内部用`notephp`,外部`Webapp`
 
 **外部扩展目录:** `./Webapp/Extends/`
 
 **内部扩展目录:** `./notephp/Extends/`
 
 ```php
-    loadFile('@.Org.Image');
-    // 目录./Webapp/Extends/Org/Image/下必须要有扩展初始文件Image.class.php
-    // 加载的时候将遍历加载搜查该初始化文件
+    // 以遍历的方式加载入口文件
+    loadFile('Webapp.Image.ImageInit');
+    // 加载的时候将遍历加载目录./Webapp/Extends/Image/下查找初始化文件ImageInit.php
 
-    loadFile('Notephp.Vendor.Smarty');
-    // 加载内部的第三方扩展Smarty
+    loadFile('notephp.Smarty.Smarty.class');
+    // 加载内部的第三方扩展Smarty./notephp/Extends/Smarty/目录下的Smarty.class.php文件
 ```
 
 ####加密函数`SysCrypt()`

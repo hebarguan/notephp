@@ -19,8 +19,8 @@ class View
         if ("NoteEng" == $tempEngineSelect) {
             $this->tempEngine = new Templates();
         } else {
-            loadFile('Notephp.Vendor.'.$tempEngineSelect);
-            $this->tempEngine = new $tempEngineSelect();
+            loadFile("notephp.Smarty.$tempEngineSelect");
+            $this->tempEngine = new Smarty();
         }
         $this->tempEngine->left_delimiter = C('SMARTY_LEFT_DELIMITER');
         $this->tempEngine->right_delimiter = C('SMARTY_RIGHT_DELIMITER');

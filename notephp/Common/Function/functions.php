@@ -22,13 +22,25 @@ function Controller($ctrl)
 function C($val)
 {
     $split = explode(".", $val);
-    $userConfFile = __COMMON__."/Conf/configure.php";
+    $userConfFileName = "configure.php";
+    $userConfPath = __COMMON__."/Conf/";
+    $userConfFile = $userConfPath.$userConfFileName;
     $defaultConfFile = __NOTEPHP__."/Common/Conf/default.php"; 
     // 加载用户配置文件
     $userConf = is_file($userConfFile) ? require($userConfFile) : array();
     // 默认配置文件
     $defaultConf = is_file($defaultConfFile) ? require($defaultConfFile) : array();
     $conf = array_merge($defaultConf, $userConf);
+    // 访问特定模块
+    $moduleName = $GLOBALS['PROJECT_REQUEST_MODULE'];
+    if (APP_NAME != $moduleName && $moduleName) {
+        // 更改配置文件
+        $specifiedModuleConfFile = $userConfPath.strtolower($moduleName).".php";
+        if (is_file($specifiedModuleConfFile)) {
+            $specifiedModuleConf = include($specifiedModuleConfFile);
+            $conf = array_merge($conf, $specifiedModuleConf);
+        }
+    }
     while ($constName = array_shift($split)) {
         $tmpVal = $conf[$constName];
         $constVal = $tmpVal;
@@ -39,15 +51,13 @@ function C($val)
 // 加载php扩展文件
 function loadFile($filePath)
 {
-    $outlinePath = explode(".",$filePath);
-    $ergodicPath = "";
-    if ($outlinePath[0] == "Custom") {
-        $ergodicPath = PRO_PATH."/Extends/".ucfirst($outlinePath[1])."/".$outlinePath[2];
-    } else {
-        $ergodicPath = __NOTEPHP__."/Extends/".ucfirst($outlinePath[1])."/".$outlinePath[2];
-    }
-    $rPath = ergodicPath($ergodicPath ,ucfirst($outlinePath[2]).EXTS);
-    if ($rPath === false) trigger_error("类扩展不存在" ,E_USER_ERROR);
+    $outlinePath = explode(".", $filePath, 3);
+    $extendsRootPath = $outlinePath[0];
+    $extendsDirName = $outlinePath[1];
+    $entranceFile = $outlinePath[2].".php";
+    $ergodicPath = "./$extendsRootPath/Extends/$extendsDirName";
+    $rPath = ergodicPath($ergodicPath, $entranceFile);
+    if ($rPath === false) trigger_error("扩展入口文件{$ergodicPath}/{$entranceFile}不存在" ,E_USER_ERROR);
     return $rPath;
 }
 // 遍历目录

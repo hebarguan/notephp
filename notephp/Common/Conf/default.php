@@ -23,7 +23,7 @@ return array(
     "TEMP_R_DELIM"             =>  "}" , // 模板普通结束标签
     "TEMP_L_LIB"               =>  "<" , // 模板类库起始标签
     "TEMP_R_LIB"               =>  ">" , // 模板类库结束标签
-    "TEMPLATE_ENGINE"          =>  "Smarty" , // 默认模板引擎
+    "TEMPLATE_ENGINE"          =>  "Smarty.class" , // 模板引擎入口文件名
     "URL_HIDE_MODULE"          =>  false , // 自动隐藏路由模块
     "URL_CASE_INSENSITIVE"     =>  false , // 路由不区分大小写
     "URL_MODE"                 =>  "1" , // 有两种模式,1,2 . 默认为1
