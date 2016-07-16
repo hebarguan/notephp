@@ -26,7 +26,7 @@ return array(
     "TEMPLATE_ENGINE"          =>  "Smarty.class" , // 模板引擎入口文件名
     "URL_HIDE_MODULE"          =>  false , // 自动隐藏路由模块
     "URL_CASE_INSENSITIVE"     =>  false , // 路由不区分大小写
-    "URL_MODE"                 =>  "1" , // 有两种模式,1,2 . 默认为1
+    "URL_MODE"                 =>  1,  // 有两种模式,1,2 . 默认为1
     "URL_MAP_RULES"            =>  array() , // 路由映射适合路由2模式
     "URL_REWRITE_RULES"        =>  array() , // 路由重写规则适合路由1模式
     "URL_STATIC_SUFFIX"        =>  "html", // 路由伪静态后缀
