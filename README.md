@@ -39,7 +39,7 @@ _*若要隐藏路由中*_`index.php`：
 ```nginx
 location / {
 
-    if (!-f $request_filename) {
+    if (!-e $request_filename) {
         rewrite ^(.*)$ /index.php?$1 last;
     }
 
