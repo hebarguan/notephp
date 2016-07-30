@@ -149,4 +149,3 @@ class DatabaseObject
         return $data;
     }
 }
-

@@ -143,4 +143,3 @@ class RedisStorage
         return $this->redisHandle->flushAll();
     }
 }
-

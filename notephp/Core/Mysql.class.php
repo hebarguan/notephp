@@ -150,4 +150,3 @@ class Mysql
         return $tableData;
     }
 }
-

@@ -33,4 +33,3 @@ define("EXTS", ".class.php");
 require_once(__NOTEPHP__."/Core/Notephp".EXTS);
 // 运行初始文件
 NotePHP::initialize();
-

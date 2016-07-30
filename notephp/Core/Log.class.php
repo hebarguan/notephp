@@ -42,4 +42,3 @@ class Log
         exit;
     }
 }
-

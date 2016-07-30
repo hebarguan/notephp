@@ -1,4 +1,3 @@
-
 <?php 
   
  /*
@@ -18,4 +17,3 @@
   define("ERROR_IGNORE_TYPE","E_DEPRECATED,E_STRICT,E_NOTICE");
   // 加载初始化文件
   require_once("./notephp/Tunnel.php");
-

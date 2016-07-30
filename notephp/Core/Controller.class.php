@@ -137,4 +137,3 @@ class Controller
         trigger_error("对{$key}赋值错误，属性不存在，类".get_class($this),E_USER_ERROR);
     }
 }
-

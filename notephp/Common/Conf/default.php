@@ -55,5 +55,3 @@ return array(
         "EXPIRATION" => 0       // 数据键过期时间，0为持久有效
     ),
 );
-
-
