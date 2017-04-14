@@ -1,6 +1,6 @@
 # 框架说明
 
-_*Notephp以Smarty作为模板引擎的简约型PHPMVC,框架风格结构吸取国内优秀的Thinkphp框架,你可以轻松的阅读Noetphp 核心类文件里面的每行代码。你可根据自己的需要更改里面的核心文件,添加任意有趣的东西,把它打造成你自己开发的工具,所以建议大家发挥自己想法,根据自己需要修改框架,或把你的想法Email给我hebarguan@gmail.com,有疑问 [这里](https://github.com/hebarguan/notephp/issues),也欢迎大家Pull Request！*_
+Notephp以Smarty作为模板引擎的简约型PHPMVC,框架风格结构吸取国内优秀的Thinkphp框架,你可以轻松的阅读Noetphp 核心类文件里面的每行代码。你可根据自己的需要更改里面的核心文件,添加任意有趣的东西,把它打造成你自己开发的工具,所以建议大家发挥自己想法,根据自己需要修改框架,或把你的想法Email给我hebarguan@gmail.com,有疑问 [这里](https://github.com/hebarguan/notephp/issues),也欢迎大家Pull Request！
 
 # 框架目录结构
 
