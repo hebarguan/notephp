@@ -1,11 +1,11 @@
-#框架说明
+# 框架说明
 
 _*Notephp以Smarty作为模板引擎的简约型PHPMVC,框架风格结构吸取国内优秀的Thinkphp框架,你可以轻松的阅读Noetphp 核心类文件里面的每行代码。你可根据自己的需要更改里面的核心文件,添加任意有趣的东西,把它打造成你自己开发的工具,所以建议大家发挥自己想法,根据自己需要修改框架,或把你的想法Email给我hebarguan@gmail.com,有疑问 [这里](https://github.com/hebarguan/notephp/issues),也欢迎大家Pull Request！*_
 
-#框架目录结构
+# 框架目录结构
 
 
-##项目目录结构
+## 项目目录结构
 * 项目总目录`./Webapp`
 * 模块目录 `./Webapp/Home(入口文件默认定义)`
 * 项目日志记录目录 `./Webapp/Log`
@@ -20,14 +20,14 @@ _*Notephp以Smarty作为模板引擎的简约型PHPMVC,框架风格结构吸取�
 * 模块数据缓存目录 `./Webapp/Home/Runtime/Data`
 
 
-#安装/配置
+# 安装/配置
 
-####在Linux下：
+#### 在Linux下：
 ```ppm
 $ git clone git@github.com:hebarguan/notephp.git ~/根目录
 $ chmod -R 777 根目录
 ```
-####在windows下：
+#### 在windows下：
 
 点击 [Download ZIP](https://github.com/hebarguan/notephp/archive/master.zip)解压直接将目录文件拷贝到你的根目录下
 
@@ -45,7 +45,7 @@ location / {
 
 }
 ```
-#框架使用手册
+# 框架使用手册
 
  * [入口文件](#入口文件)
  * [配置文件](#配置文件)
@@ -59,7 +59,7 @@ location / {
  * [内置函数](#内置函数)
  * [附录](#附录)
 
-##入口文件
+## 入口文件
 
 **描述:** 框架的入口文件,在这例可以添加自己的设置和常量
 
@@ -73,7 +73,7 @@ location / {
 
 **提示:** 更改`APP_NAME`的值,重新运行,可创建新模块,多模块通过该方法创建
 
-##配置文件
+## 配置文件
 
 **描述:** 项目的公共配置文件是目录`./Webapp/Common/Conf`下的`configure.php`
 
@@ -101,14 +101,14 @@ return array(
 
 ##项目模块
 
-####单模块
+#### 单模块
 
 **描述:** 第一次运行时自动创建的模块,多模块也同样使用该方法创建,只需要更改入口文件内的`APP_NAME`即可
 
 **提示:**开启路由自动隐藏模块功能`URL_HIDE_MODULE => true`
 路由访问由`http://localhost/Home/Index/index`变为`http://localhost/Index/index`
 
-####多模块
+#### 多模块
 
 **描述:** 多用于功能块分发,例如前台模块,后台模块
 
@@ -130,7 +130,7 @@ _**注意**_
 
 
 
-##子域名部署
+## 子域名部署
 
 **描述:**当访问某个定子域名时,要指定运行特定模块,可以使用子域名部署
 
@@ -150,7 +150,7 @@ _**示例:**_
 
 **提示:** 开发阶段可以先用`http://localhost/admin/`代替访问测试
 
-##路由模式
+## 路由模式
 
 **描述:**
 
@@ -172,7 +172,7 @@ return array(
 );
 ```
 
-#####模式一
+##### 模式一
 
 _**示例:**_ `http://localhost/Home/Index/index?day=12&month=5&year=2016`
 
@@ -187,7 +187,7 @@ return array(
 ```
 *提示:*路由重写的内容是路由`http://localhost`后面的字符串,匹配规则为正则表达式
 
-#####模式二
+##### 模式二
 
 _**示例:**_ `http://localhost/Home/index/index/day/12/month/5/year/2016`
 
@@ -202,13 +202,13 @@ return array(
 ```
 **注意:** 路由重写的GET参数是限制个数的,默认是6个即`/view/:day/:month/:year/:hour/:minute/:second/:invaild)`中的`invaild`无效,可以在配置文件添加自定义个数`GET_FIELDS_LENGTH => (int)`
 
-#####路由其它设置
+##### 路由其它设置
 
 **伪静态:** 配置添加`URL_STATIC_SUFFIX => (string)'xhtml'`,路由`http://localhost/home/index/index`与`http://localhost/home/index/index.xhtml`等效
 
 **区分大小写:** 只对操作方法有效,即`http://localhost/home/index/test`与`http://localhost/home/index/Test`是有区别的,配置选项`URL_CASE_INSENSITIVE => (bool)`,默认为`false`不区分大小写
 
-##控制器
+## 控制器
 
 **描述:** 控制器为处理用户数据的逻辑层,一个操作方法最多可对应一个模板文件
 
@@ -293,7 +293,7 @@ _*实例*_
 
 ```
 
-##数据库模型
+## 数据库模型
 
 **描述:** 用于数据库操作
 
@@ -337,7 +337,7 @@ return array(
     var_dump($data);
 ```
 
-###连贯操作
+### 连贯操作
 
 1. [条件方法](#条件方法)
     * [字段查询/fields](#fields)
@@ -357,13 +357,13 @@ return array(
     * [删除数据/delete](#delete)
     * [返回SQL语句/returnSql](#returnSql)
 
-####条件方法
+#### 条件方法
 
 **描述:** 该类方法用于数据库CURD筛选条件,不区分调用顺序,即`$mode->fields()->trans()`与`$mode->trans()->fields()`等效
 
 **提示:** 使用条件方法查找获取数据时，将返回一个二维数组且每个元素代表一个字段,值对应的数据行
 
-#####fields
+##### fields
 
 **描述:** 查找数据行指定字段
 
@@ -450,7 +450,7 @@ return array(
      *' 
      */
 ```
-#####order
+##### order
 
 **描述:** 对数据行按指定字段排序
 
@@ -464,7 +464,7 @@ return array(
     // 多个字段排序
     $query = $mode->order('on_duty asc,salary desc')->execute();
 ```
-#####data
+##### data
 
 **描述:** 对数据进行过滤
 
@@ -482,7 +482,7 @@ return array(
     $increment = array('salary=salary+500' => '');
     $affectedRows = $mode->data($increment)->where(['department' => 'hr'])->execute();
 ```
-#####group
+##### group
 
 **描述:** 对字段进行按组查询
 
@@ -495,7 +495,7 @@ return array(
     // 也可以结合having使用
     $query = $mode->fields('COUNT(*) AS members')->group('sex')->having(array('sex' => 'F'))->execute();
 ```
-#####having
+##### having
 
 **描述:** 指定字段存在某个值
 
@@ -510,7 +510,7 @@ return array(
     $query = $mode->having(array('id' => array('>', 12)))->execute();
     // 对应SQL语句SELECT * FROM employee HAVING id > 12
 ```
-#####check
+##### check
 
 **描述:** 检测数据是否存在
 
@@ -522,7 +522,7 @@ return array(
     $check = $mode->Where(array('name' => 'hebar', 'password' => '12345'))->check(true)->execute();
     // 输出int(1)
 ```
-#####trans
+##### trans
 
 **描述:** 事务滚动,紧在PDO数据库扩展下有效
 
@@ -536,7 +536,7 @@ return array(
         ->trans(true)
         ->execute();
 ```
-#####stmt
+##### stmt
 
 **描述:** 查询预处理,紧在PDO数据库扩展下有效
 
@@ -547,11 +547,11 @@ return array(
      */
     $query = $mode->where(array('id' => 1))->stmt(true)->execute();
 ```
-###终止方法
+### 终止方法
 
 **描述:** 终止当前数据模型操作,并返回结果
 
-#####execute
+##### execute
 
 **描述:** 执行数据查询
 
@@ -571,7 +571,7 @@ return array(
     $query = $mode->execute();
     // 上面的语句将返回该表全部数据行
 ```
-#####save
+##### save
 
 **描述:** 修改数据库数据
 
@@ -591,7 +591,7 @@ return array(
     $updata = $mode->where('id=1')->data($data)->save();
     // 对应的SQL语句'UPDATE employee SET score=score+5 WHERE id=1 ' 
 ```
-#####add
+##### add
 
 **描述:** 添加数据行
 
@@ -613,7 +613,7 @@ return array(
     $dataAdd = $mode->data($data)->add();
     // 以上两种模式效果一样
 ```
-#####delete
+##### delete
 
 **描述:** 删除数据行
 
@@ -632,7 +632,7 @@ return array(
     // 更多复杂的条件筛选请参考上面的连贯操作
     // 只需在终止方法使用delete即可
 ```
-#####returnSql
+##### returnSql
 
 **描述:** 返回执行的SQL语句
 
@@ -652,7 +652,7 @@ return array(
     // 返回'INSERT INTO employee (name, password) VALUES('hebar', '123')'
 ```
 
-##视图模板
+## 视图模板
 
 **描述:** 用于向浏览器返回指定页面
 
@@ -677,7 +677,7 @@ return array(
 **注意:** 在模板文件下面调用自定义函数,即`模块/Common/Function`目录下的自定义函数库,可以直接在标签内调用函数名；如果发现`BUG`,希望能Email给我或自行解决,然后Pull Request给我吧!
 
 
-##储存缓存
+## 储存缓存
 
 **描述:** 对大小型数据进行缓存或储存
 
@@ -747,7 +747,7 @@ return array(
     // 这里可以做更多多的事情
 ```
 
-####Redis缓存
+#### Redis缓存
 
 **描述:** 以类封装的方式缓存,类名`RedisStorage`
 
@@ -809,9 +809,9 @@ return array(
     $redis->clearAllDB();
 ```
 
-##内置函数
+## 内置函数
 
-####实例控制器`Controller()`
+#### 实例控制器`Controller()`
 
 ```php
     // 参数为字符串，且为控制器名
@@ -827,7 +827,7 @@ return array(
     $newClass->test();
 ```
 
-####获取配置常量函数`C()`
+#### 获取配置常量函数`C()`
 
 ```php
     // 参数为字符串
@@ -840,7 +840,7 @@ return array(
     // 返回:80
 ```
 
-####扩展加载函数`loadFile()`
+#### 扩展加载函数`loadFile()`
 
 **参数说明:** `loadFile('(内外目录名).(扩展目录名).(扩展入口文件名)')`,内部用`notephp`,外部`Webapp`
 
@@ -857,7 +857,7 @@ return array(
     // 加载内部的第三方扩展Smarty./notephp/Extends/Smarty/目录下的Smarty.class.php文件
 ```
 
-####加密函数`SysCrypt()`
+#### 加密函数`SysCrypt()`
 
 **提示:** 该函数的对应解密函数为`SysDecrypt()`
 
@@ -874,13 +874,13 @@ return array(
     $decryptData = SysDecrypt($encryptData, $key);
 ```
 
-##附录
+## 附录
 
-####数据库操作安全性须知
+#### 数据库操作安全性须知
 
 _*数据库扩展PDO的过滤函数采用的是addslashes(),所以需要在转义过滤数据之前时,使用`get_magic_quotes_gpc ()`函数验证是否开启了POST，GET数据自动转义，防止出现双重转义.Mysql扩展依然使用`mysqli_real_escape_string()`为安全过滤函数*_
 
-####框架文件运行
+#### 框架文件运行
 
 **为了帮助了解框架的内部运行方式和更好的阅读代码，下面是框架的基本运行文件顺序:**
 ```
@@ -893,7 +893,7 @@ _*数据库扩展PDO的过滤函数采用的是addslashes(),所以需要在转�
 7.Smarty.class.php 模板引擎文件
 ```
 
-####引言
+#### 引言
 
 _*由于本人的能力也是有限的，在此过程中可能出现各种不足之处，在功能上也不够完善,例如：Thinkphp上有表单令牌这些方便的功能，但这里没有，这里就需要你自己发挥创造力，添加各种有趣的东西。丰富的框架能提高开发的工作效率，但不建议过于依赖框架本身，毕竟很多的功能就像是封装在一个箱子,而你且不知道箱子里是什么,所以箱子不能拿来就用，更应该学习里面的内容，把它当做学习的例子，这样才能得到更多知识能力，所以建议大家去了解框架的源代码，查看各种各样的框架代码。*_
 
