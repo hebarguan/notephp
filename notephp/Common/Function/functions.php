@@ -194,3 +194,25 @@ function Cache()
         }
     }
 }
+
+/**
+ * 计算分页
+ * 
+ * @param int $sumrows 总行
+ * @param int $limit 每页限制
+ * @return int
+ */
+function countSumPage($sumrows, $limit)
+{
+    $page = intval($sumrows/$limit);
+    $rest = $sumrows%$limit;
+    if ($page == 0) {
+        return 1;
+    } elseif ($page != 0 && $rest ==0) {
+        return $page;
+    } else {
+        return $page+1;
+    }
+}
+
+

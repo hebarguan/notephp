@@ -40,6 +40,8 @@ class Model
     );
     // 数据库链接表
     public $dbTable = null;
+    // 
+    public $queryResult = FALSE;
     // 数据链接编码
     public $connectEncoding = null;
     // 数据库表列表
@@ -56,6 +58,14 @@ class Model
     public $pretreatment = false;
     // 特殊字段查询符号
     public $specialQuerySymbol = array('NOT IN', 'IN', 'BETWEEN', 'NOT BETWEEN');
+    // 是否分页
+    public $page = FALSE;
+    // 是否计算分页
+    public $countpage = FALSE;
+    // 查询总行数
+    public $sumrows = FALSE;
+    // 查询总页数
+    public $sumpage = FALSE;
     // 是否开启持久链接
     // 定义构造函数
     public function __construct($tab = null)
@@ -85,7 +95,8 @@ class Model
     private function connect()
     {
         $curdType = ucfirst($this->curdType);
-        $this->curd = new $curdType($this,
+        $this->curd = new $curdType(
+            $this,
             $this->mysqlInfo['DB_TYPE'],
             $this->mysqlInfo['HOSTS'], 
             $this->mysqlInfo['DB_NAME'],
@@ -170,6 +181,12 @@ class Model
         }
         return $this;
     }
+    // 分页
+    public function page($page = FALSE)
+    {
+        $this->page = $page;
+        return $this;
+    }
 
     
     /**
@@ -203,12 +220,15 @@ class Model
         return $this;
     }
     // 组合query 语句查询
-    public function buildQueryString($handle = 'INSERT')
+    public function buildQueryString($handle = 'INSERT', $count = FALSE)
     {
         // 要查询的数据表
+        $this->countpage = $count;
         $table = $this->dbTable;
+        $join = $this->_sql['jon'];
         $dataCondition = $this->_sql['dat'];
         $fieldsCondition = $this->_sql['fid'];
+        $joinCondition = $this->beforeWhereQuery($join);
         $conditionString = $this->fullQueryWhere();
         switch ($handle) {
         case "INSERT":
@@ -216,7 +236,11 @@ class Model
             (".implode(',',array_keys($dataCondition))." ) VALUES ('".implode("','",$dataCondition)."')";
             break;
         case "SELECT": // 查询模式
-            $returnString = "SELECT $fieldsCondition FROM $table ";
+            if ($count === FALSE) {
+                $returnString = "SELECT $fieldsCondition FROM $table $joinCondition ";
+            } else {
+                $returnString = "SELECT COUNT(*) AS numrows FROM $table $joinCondition ";
+            }
             break;
         case "UPDATE": // 修改模式
             $returnString = "UPDATE $table SET ";
@@ -250,11 +274,9 @@ class Model
         $hc = $condition['hav'];
         $oc = $condition['ord'];
         $lc = $condition['lit'];
-        $jn = $condition['jon'];
         $afterWreSql = $this->afterWhereQuery($gc, $hc, $oc, $lc);
         $queryCommand = "WHERE";
         // 组合链表查询语句
-        $this->beforeWhereQuery($queryCommand, $jn);
         if (!empty($whereCondition)) {
             if (is_string($whereCondition)) {
                 return "$queryCommand $whereCondition $afterWreSql";
@@ -277,16 +299,15 @@ class Model
     /**
      * 链表查询条件
      * 
-     * @param string $queryCommand 原SQL语句
-     * @param string $组合查询条件
-     * @return void
+     * @param array $joinCdi 组合查询条件
+     * @return string
      */
-    protected function beforeWhereQuery(&$oSql, $joinCdi)
+    protected function beforeWhereQuery($joinCdi)
     {
+        $joinSql = '';
         if ( ! empty($joinCdi)) {
-            $jonSql = '';
             // 支持多表查询
-            foreach ($oSql as $rowJoin)
+            foreach ($joinCdi as $rowJoin)
             {
                 if ($rowJoin[2] !== FALSE) {
                     $joinSql .= strtoupper($rowJoin[2]).' JOIN '.$rowJoin[0].' ON '.$rowJoin[1].' ';
@@ -294,8 +315,8 @@ class Model
                     $joinSql .=  'INNER JOIN '.$rowJoin[0].' ON '.$rowJoin[1].' ';
                 }
             }
-            $oSql = $joinSql.$oSql;
         }
+        return $joinSql;
     }
     // 组合多字段查询
     public function multiFields($condition, $rollbackField = null) 
@@ -345,7 +366,12 @@ class Model
         // 条件限制
         if (!empty($limitCondition)) {
             if (is_integer($limitCondition)) {
-                $sqlString .= "LIMIT $limitCondition ";   
+                if ($this->page && $this->countpage === FALSE) {
+                    $offsetRow = ($this->page - 1)*$limitCondition;
+                    $sqlString .= "LIMIT {$offsetRow}, $limitCondition ";
+                } else {
+                    $sqlString .= "LIMIT $limitCondition ";   
+                }
             } else {
                 $sqlString .= "LIMIT ".join(' , ', $limitCondition);
             }
@@ -431,7 +457,15 @@ class Model
     {
         // 定义返回结果数组
         $result = $this->curd->R($id);
-        return $result;
+        if ($result === true) {
+            return $result;
+        }
+        // 计算总页
+        if ($this->page) {
+            $this->sumpage = countSumPage($this->sumrows, $this->_sql['lit']);
+        }
+        $this->queryResult = $result;
+        return $this;
     }
     // 修改表数据
     public function save()
@@ -454,4 +488,38 @@ class Model
         $result = $this->curd->C($data);
         return $result;
     }
+    // 查询一行
+    public function row($type = FALSE)
+    {
+        if ($type == FALSE) {
+            return $this->queryResult->fetch_object();
+        }
+        return $this->queryResult->fetch_assoc();
+    }
+    // 返回全部数据对象
+    public function result()
+    {
+        $results = [];
+        while ($row = $this->queryResult->fetch_object())
+        {
+            $results[] = $row;
+        }
+        return (object)$results;
+    }
+    // 返回全部数据数组
+    public function fetchArray()
+    {
+        return $this->queryResult->fetch_all(MYSQLI_ASSOC);
+    }
+    // 返回查询行数
+    public function numRows()
+    {
+        return $this->queryResult->num_rows;
+    }
+
+    public function __destruct()
+    {
+        $this->queryResult->free();
+    }
+
 } 

@@ -18,6 +18,8 @@ class Controller
     private $view        = "";
     // 模板值
     private $templateVal = array();
+    // 请求不存在参数与方法
+    private $data        = [];
     // 模板缓存 
     public $caching      = null;
     // 模板缓存时间i
@@ -120,20 +122,38 @@ class Controller
         }
         exit;
     }
+    public function __set($name, $value) 
+    {
+        $this->data[$name] = $value;
+    }
+
+    public function __get($name) 
+    {
+        if (array_key_exists($name, $this->data)) {
+            return $this->data[$name];
+        }
+        // 找不到返回错误
+        trigger_error('Undefined property via __get(): '.$name, E_USER_NOTICE);
+    }
+
+    /**  PHP 5.1.0之后版本 */
+    public function __isset($name) 
+    {
+        return isset($this->data[$name]);
+    }
+
+    /**  PHP 5.1.0之后版本 */
+    public function __unset($name) 
+    {
+        unset($this->data[$name]);
+    }
     // 对不存在的操作与成员错误处理
     public function __call($method, $arguments)
     {
-        // 不存在操作
-        trigger_error("操作方法{$method}不存在，类".get_class($this),E_USER_ERROR);
-    }
-    public function __get($key)
-    {
-        // 不存在成员属性
-        trigger_error("属性{$key}不存在,类".get_class($this),E_USER_ERROR);
-    }
-    public function __set($key, $val)
-    {
-        // 对不存在的属性赋值
-        trigger_error("对{$key}赋值错误，属性不存在，类".get_class($this),E_USER_ERROR);
+        if (array_key_exists($method, $this->data)) {
+            return $this->data[$method]($arguments);
+        }
+        // 找不到返回错误
+        trigger_error('Call to Undefined method via __call(): '.$method.' With Arguments: '.json_encode($arguments), E_USER_NOTICE);
     }
 }

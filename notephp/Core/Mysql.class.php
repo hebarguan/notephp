@@ -66,24 +66,23 @@ class Mysql
             $sqlSentence = "SELECT * FROM {$this->modeInstance->dbTable} WHERE id={$id}";
             $result = $this->query($sqlSentence);
             if ($this->modeInstance->dbCheck) return $result->num_rows;
-            $returndata = $result->fetch_array(MYSQLI_ASSOC);
         } elseif (is_null($id)) { 
-            //组合查询语句
-            $queryString = $this->modeInstance->buildQueryString('SELECT');
-            $result = $this->query($queryString);
-            if (!$result) return false;
-            if ($this->modeInstance->dbCheck) return $result->num_rows;
-            while ($row = $result->fetch_assoc()) {
-                $returndata[] = $row;
-            }
+                // 分页设置
+                if ($this->modeInstance->page !== FALSE) {
+                    $countNumSql = $this->modeInstance->buildQueryString('SELECT', true);
+                    $countResult = $this->query($countNumSql)->fetch_object();
+                    $this->modeInstance->sumrows = $countResult->numrows;
+                }
+                //组合查询语句
+                $queryString = $this->modeInstance->buildQueryString('SELECT');
+                $result = $this->query($queryString);
+                if ( ! $result) return false;
+                if ($this->modeInstance->dbCheck && $result->num_rows) {
+                    return true;
+                }
         }
-        mysqli_free_result($result);
-        // 没有查询结果返回false
-        if(empty($returndata)) {
-            return false;
-        } else {
-            return $returndata;
-        } 
+        //mysqli_free_result($result);
+        return $result;
     }
     // 数据库删除DELETE
     public function D($id = null)
