@@ -11,7 +11,7 @@
   * @param $d = $m->where(array("id"=>array("BETWEEN","2,4")))->execute();
   * @param $d = $m->where(array("name"=>"zhao"))->execute();
   * @param $d = $m->add(array("id"=>5,"name" => "老王"));
-  * @param $d = $m->where("id=5")->delete();
+  * @param $d = $m->where("id", 5)->delete();
   * @param $d = $m->fields("sex,COUNT(sex)")->group("sex")->having(array("sex"=>array("=","M")))->execute();
   * @param $d = $m->data(array("name"=>"赵"))->where("id=2")->save();
   */
@@ -19,7 +19,7 @@
 class Model
 {
     // 定义要执行的逻辑查询类成员$_sql
-    public $_sql = array(
+    protected $_sql = array(
         "fid" => "*" , //默认为查询所有字段
         "lit" => "" ,  //查询行限制
         "ord" => "" ,  //查询排序
@@ -29,6 +29,7 @@ class Model
         "dat" => "" , // 输入数据
         "gro" => "" , // 组查询
         "hav" => "" , // 与组查询并用
+        "jon" => [] , // 链表查询
     );
     // 定义数据库的用户条件权限
     private  $mysqlInfo = array(
@@ -78,8 +79,6 @@ class Model
             $this->dbTable = $tab ;
         } elseif ($callModel !== "Model" AND !empty($callModel)) {
             $this->dbTable = strtolower(explode("Model",$callModel)[0]);
-        } else {
-            trigger_error("找不到数据库表",E_USER_ERROR);
         }
     }
     // 数据库链接函数
@@ -121,10 +120,13 @@ class Model
         return $this;
     }
     // 条件组合查询或字符串查询
-    public function where($condition)
+    public function where($condition, $value = FALSE)
     {
+        if (is_string($condition) && $value === FALSE) {
+            $this->_sql['wre'] = $condition;
+        }
         if (is_string($condition)) {
-            $this->_sql['wre'] = $this->curd->mysqlFilter($condition) ;
+            $this->_sql['wre'] = [$condition => $this->curd->mysqlFilter($value)];
         }
         if (is_array($condition)) {
             // 过滤keys 与 values 
@@ -160,6 +162,28 @@ class Model
         $this->_sql['hav'] = $this->curd->mysqlFilter($hstr);
         return $this;
     }
+    // 查询表
+    public function from($table = FALSE)
+    {
+        if ($table !== FALSE) {
+            $this->dbTable = $table;
+        }
+        return $this;
+    }
+
+    
+    /**
+     * 链表查询条件
+     * 
+     * @param string $table 链表
+     * @param string $cdi 关联条件 
+     * @param string $screen 链接筛选
+     */
+    public function join($table, $cdi, $screen = FALSE)
+    {
+        $this->_sql['jon'][] = [$table, $cdi, $screen];
+        return $this;
+    }
     // 是否只执行查询
     public function check($val = false) 
     {
@@ -179,7 +203,7 @@ class Model
         return $this;
     }
     // 组合query 语句查询
-    public function buildQueryString($handle)
+    public function buildQueryString($handle = 'INSERT')
     {
         // 要查询的数据表
         $table = $this->dbTable;
@@ -226,8 +250,11 @@ class Model
         $hc = $condition['hav'];
         $oc = $condition['ord'];
         $lc = $condition['lit'];
+        $jn = $condition['jon'];
         $afterWreSql = $this->afterWhereQuery($gc, $hc, $oc, $lc);
         $queryCommand = "WHERE";
+        // 组合链表查询语句
+        $this->beforeWhereQuery($queryCommand, $jn);
         if (!empty($whereCondition)) {
             if (is_string($whereCondition)) {
                 return "$queryCommand $whereCondition $afterWreSql";
@@ -246,6 +273,30 @@ class Model
         }
         return $afterWreSql;
     } 
+
+    /**
+     * 链表查询条件
+     * 
+     * @param string $queryCommand 原SQL语句
+     * @param string $组合查询条件
+     * @return void
+     */
+    protected function beforeWhereQuery(&$oSql, $joinCdi)
+    {
+        if ( ! empty($joinCdi)) {
+            $jonSql = '';
+            // 支持多表查询
+            foreach ($oSql as $rowJoin)
+            {
+                if ($rowJoin[2] !== FALSE) {
+                    $joinSql .= strtoupper($rowJoin[2]).' JOIN '.$rowJoin[0].' ON '.$rowJoin[1].' ';
+                } else {
+                    $joinSql .=  'INNER JOIN '.$rowJoin[0].' ON '.$rowJoin[1].' ';
+                }
+            }
+            $oSql = $joinSql.$oSql;
+        }
+    }
     // 组合多字段查询
     public function multiFields($condition, $rollbackField = null) 
     {

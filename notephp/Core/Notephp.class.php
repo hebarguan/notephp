@@ -107,6 +107,7 @@ class NotePHP
     // 打印调试跟踪信息
     public static function printDebugMsg($debugData)
     {
+        header("Content-type: text/html; charset=utf-8");
         for ($i = 0; $i < count($debugData); $i++) {
             if (!array_key_exists('file', $debugData[$i]) AND 
                 !array_key_exists('line',$debugData[$i])) continue;
