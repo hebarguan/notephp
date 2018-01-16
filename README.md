@@ -704,6 +704,27 @@ class IndexController extends Controller
     $sql = $this->data(array('name' => 'hebar', 'password' => '123'))->returnSql('add');
     // 返回'INSERT INTO employee (name, password) VALUES('hebar', '123')'
 ```
+### 结果返回
+
+#### 返回查询结果
+* [返回一行(object)/row](#row())
+* [返回全部结果(object)/result](#result())
+* [返回数组结构(array)/fetchArray](#fetchArray())
+* [返回结果行数(int)/numRows](#numRows）
+```
+{
+   $result = $this->from('user')->execute();
+   // 返回结果一行，默认返回对象类型，若要返回数组带参数true
+   $row = $result->row();
+   $rowArray = $result->row(true);
+   // 返回全部结果对象
+   $resultObject = $result->result();
+   // 返回全部数据数组结构
+   $resultArray = $result->fetchArray();
+   // 返回查询的行数
+   $resultRowNum = $result->numRows();
+}
+
 
 ## 视图模板
 
@@ -862,13 +883,7 @@ return array(
     $redis->clearAllDB();
 ```
 
-### 结果返回
 
-1. [结果返回](#结果返回）
-* [返回一行(object)/row](#row())
-* [返回全部结果(object)/result](#result())
-* [返回数组结构(array)/fetchArray](#fetchArray())
-* [返回结果行数(int)/numRows](#numRows())
 
 ## 内置函数
 
