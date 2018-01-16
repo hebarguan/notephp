@@ -341,7 +341,7 @@ class IndexController extends Controller
         $this->model = new TestModel();
      }
      
-     /**
+     /*
       * 调用模型的方法，处理数据
       */
      public function index()
@@ -355,9 +355,9 @@ class IndexController extends Controller
 
 1. [条件方法](#条件方法)
     * [字段查询/fields](#fields)
-    * [行数限制/limit](#limit)
-    * [自动分页/page](#page)
-    * [选择表/from](#from)
+    * [行数限制/limit](#limit)
+    * [自动分页/page](#page)
+    * [选择表/from](#from)
     * [多表查询/join](#join)
     * [条件组合/where](#where)
     * [依据排序/order](#order)
@@ -373,6 +373,11 @@ class IndexController extends Controller
     * [插入数据/add](#add)
     * [删除数据/delete](#delete)
     * [返回SQL语句/returnSql](#returnSql)
+1. [结果返回](#结果返回)
+    * [返回一行(object)/row](#row())
+    * [返回全部结果(object)/result](#result())
+    * [返回数组结构(array)/fetchArray](#fetchArray())
+    * [返回结果行数(int)/numRows](#numRows())
 
 #### 条件方法
 
@@ -655,10 +660,10 @@ class IndexController extends Controller
      */
     $data = array(
             'name'   => 'hebarguan',
-            ‘sex'    => 2,
+            'sex'    => 2,
             'salary' => 8000,
             'mailbox'=> 'hebarguan@gmail.com',
-            on_duty' => '20140601',
+            'on_duty' => '20140601',
             'department' => 'it'
             );
     $add = $this->add($data);
