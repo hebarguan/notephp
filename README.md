@@ -355,7 +355,7 @@ class IndexController extends Controller
 
 1. [条件方法](#条件方法)
     * [字段查询/fields](#fields)
-    * [行数限制/limit](#limit)
+    * [行数限制/limit](#limit)
     * [自动分页/page](#page)
     * [选择表/from](#from)
     * [多表查询/join](#join)
@@ -373,11 +373,7 @@ class IndexController extends Controller
     * [插入数据/add](#add)
     * [删除数据/delete](#delete)
     * [返回SQL语句/returnSql](#returnSql)
-1. [结果返回](#结果返回)
-    * [返回一行(object)/row](#row())
-    * [返回全部结果(object)/result](#result())
-    * [返回数组结构(array)/fetchArray](#fetchArray())
-    * [返回结果行数(int)/numRows](#numRows())
+
 
 #### 条件方法
 
@@ -865,6 +861,14 @@ return array(
     // 删除所有缓存数据库的所有键
     $redis->clearAllDB();
 ```
+
+### 结果返回
+
+1. [结果返回](#结果返回）
+* [返回一行(object)/row](#row())
+* [返回全部结果(object)/result](#result())
+* [返回数组结构(array)/fetchArray](#fetchArray())
+* [返回结果行数(int)/numRows](#numRows())
 
 ## 内置函数
 
