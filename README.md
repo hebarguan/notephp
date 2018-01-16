@@ -1,6 +1,6 @@
 # 框架说明
 
-Notephp以Smarty作为模板引擎的简约型PHPMVC,框架风格结构吸取国内优秀的Thinkphp框架,你可以轻松的阅读Noetphp 核心类文件里面的每行代码。你可根据自己的需要更改里面的核心文件,添加任意有趣的东西,把它打造成你自己开发的工具,所以建议大家发挥自己想法,根据自己需要修改框架,或把你的想法Email给我hebarguan@gmail.com,有疑问 [这里](https://github.com/hebarguan/notephp/issues),也欢迎大家Pull Request！
+Notephp以Smarty作为模板引擎的简约型PHPMVC,框架风格结构吸取国内优秀的thinkphp框架与简约快速的Codeigniter框架,你可以轻松的阅读Noetphp 核心类文件里面的每行代码。你可根据自己的需要更改里面的核心文件,添加任意有趣的东西,把它打造成你自己开发的工具,所以建议大家发挥自己想法,根据自己需要修改框架,或把你的想法Email给我hebarguan@gmail.com,有疑问 [这里](https://github.com/hebarguan/notephp/issues),也欢迎大家Pull Request！
 
 # 框架目录结构
 
@@ -25,7 +25,7 @@ Notephp以Smarty作为模板引擎的简约型PHPMVC,框架风格结构吸取国
 #### 在Linux下：
 ```ppm
 $ git clone git@github.com:hebarguan/notephp.git ~/根目录
-$ chmod -R 777 根目录
+$ chmod -R 755 notephp
 ```
 #### 在windows下：
 
@@ -44,6 +44,12 @@ location / {
     }
 
 }
+或者：
+location / {
+
+        try_files $uri $uri/ /index.php?$uri&args;
+}
+
 ```
 # 框架使用手册
 
@@ -324,17 +330,25 @@ return array(
     $data = $mode->execute(1); // 查找id=2的数据，返回一个一维数组
     var_dump($data);
 ```
-**提示:**
+**最简洁的方法是在控制器的构造方法中自动加载:**
 ```php
-    /* 若想使用自定义数据库操作
-     * 模型提供自定义数据库操作链接柄
-     * @param $curd 
-     */
-    $mode = M('user', false); // 或使用$mode = new Model();
-    $curd = $mode->curd;
-    $result = $curd->query('SELECT * FROM user WHERE id = 1');
-    $data = $result->fetch_assoc();
-    var_dump($data);
+class IndexController extends Controller
+{
+    public funcion __construct()
+    {
+        parent::_construct();
+        // 模型目录中必须要存在TestModel.class.php文件却类名为TestModel必须
+        $this->model = new TestModel();
+     }
+     
+     /**
+      * 调用模型的方法，处理数据
+      */
+     public function index()
+     {
+         $this->model->getResult();
+     }
+}
 ```
 
 ### 连贯操作
@@ -342,7 +356,10 @@ return array(
 1. [条件方法](#条件方法)
     * [字段查询/fields](#fields)
     * [行数限制/limit](#limit)
-    * [条件组合/where](#where)
+    * [自动分页/page](#page)
+    * [选择表/from](#from)
+    * [多表查询/join](#join)
+    * [条件组合/where](#where)
     * [依据排序/order](#order)
     * [查询数据/data](#data)
     * [组合查询/group](#group)
@@ -372,10 +389,9 @@ return array(
     /* 不调用该方法,表示查找所有字段
      * 参数为字符串类型,多个字段以`,`分开
      */
-    $mode = M('employee', false);
-    $data = $mode->fields('name,salary')->execute();
+    $data = $this->fields('name,salary')->execute();
     // 等效的SQL语句为SELECT name,salary FROM employee
-    $data = $mode->fields('DISTINCT department')->execute();
+    $data = $this->fields('DISTINCT department')->execute();
     /* fields('COUNT(*) AS members')
      * fields('SUM(salary)')
      * 这里可以添加各种数据库字段查询函数
@@ -391,8 +407,42 @@ return array(
     /* 该方法有连个参数$offset起始行,$rows行数
      * 当只有一个参数的时候,表示查找前$param 行
      */
-    $rows = $mode->limit(6)->execute(); // 将返回前6行
-    $rows = $mode->limit(3, 4)->execute(); // 从第3行起，返回4行
+    $rows = $this->limit(6)->execute(); // 将返回前6行
+    $rows = $this->limit(3, 4)->execute(); // 从第3行起，返回4行
+```
+#####page
+
+**描述:** 自动读取分页数据一般结合limit使用
+
+**示例**
+```php
+    /* 查询页数
+     * @param int|string $page 页数
+     */
+    // 读取第二页，每页四行
+    $rows = $this->page(2)->limit(4)->execute();
+    // 返回查询的总页数
+    $sumpage = $this->sumpage;
+```
+#####join
+
+**描述:** 多表查询
+
+**示例**
+```php
+    $this->where('uid', 2);
+    $this->from('user As a')->join('class AS b', 'a.id=b.uid);
+    $result = $this->execute();
+    $row = $result->row();
+```
+#####from
+
+**描述:** 查询表
+
+**示例**
+```php
+    $this->from('user');
+    $this->from('user AS a, money AS b');
 ```
 #####where
 
@@ -409,10 +459,12 @@ return array(
     $userInput = intval($_GET['id']);
     $query = $mode->where("id=$userInput")->execute();
 
-    /* (单字段)数组模式
+    
+    /* (单字段)数组模式
      * 下面将对各种(单字段)组合模式进行举例 
      */
-    $condition = array('id' => 2);
+    $this->where('uid', 2)->execute();
+    $condition = array('id' => 2);
     $query = $mode->where($condition)->execute(); 
     // 对应的SQL语句是 'SELECT * FROM employee WHERE id=2 ' 
     $condition = array('id' => array('>', 10));
@@ -460,9 +512,9 @@ return array(
      * 多个字段以','分开
      * 常见ASC升序，DESC降序
      */
-    $query = $mode->order('salary desc')->execute();
+    $query = $this->order('salary desc')->execute();
     // 多个字段排序
-    $query = $mode->order('on_duty asc,salary desc')->execute();
+    $query = $this->order('on_duty asc,salary desc')->execute();
 ```
 ##### data
 
@@ -474,13 +526,13 @@ return array(
      * 通常用于数据修改和数据写入过滤
      */
     $inputData = array('name' => 'zhao', 'sex' => 1, 'salary' => 6000, 'department' => 'it');
-    $insertID = $mode->data($inputData)->add();
+    $insertID = $this->data($inputData)->add();
     // 对数据修改
     $updataData = array('department' => 'hr');
-    $affectedRows = $mode->data($updataData)->where(['name' => 'zhao'])->save();
+    $affectedRows = $this->data($updataData)->where(['name' => 'zhao'])->save();
     // 对于数字型数据自增,建议使用下面方法
     $increment = array('salary=salary+500' => '');
-    $affectedRows = $mode->data($increment)->where(['department' => 'hr'])->execute();
+    $affectedRows = $this->data($increment)->where(['department' => 'hr'])->execute();
 ```
 ##### group
 
@@ -493,7 +545,7 @@ return array(
      */
     $query = $mode->group('name,salary')->execute();
     // 也可以结合having使用
-    $query = $mode->fields('COUNT(*) AS members')->group('sex')->having(array('sex' => 'F'))->execute();
+    $query = $this->fields('COUNT(*) AS members')->group('sex')->having(array('sex' => 'F'))->execute();
 ```
 ##### having
 
@@ -505,9 +557,9 @@ return array(
      * 使用自定义符号,值为一个数据
      * 且第一个元素是符号
      */
-    $query = $mode->having(array('name' => 'hebar'))->execute();
+    $query = $this->having(array('name' => 'hebar'))->execute();
     // 对应SQL语句SELECT * FROM employee HAVING name = 'hebar' 
-    $query = $mode->having(array('id' => array('>', 12)))->execute();
+    $query = $this->having(array('id' => array('>', 12)))->execute();
     // 对应SQL语句SELECT * FROM employee HAVING id > 12
 ```
 ##### check
@@ -519,7 +571,7 @@ return array(
     /* 参数为boolean类型
      * 成功时返回查找到的行数
      */
-    $check = $mode->Where(array('name' => 'hebar', 'password' => '12345'))->check(true)->execute();
+    $check = $this->Where(array('name' => 'hebar', 'password' => '12345'))->check(true)->execute();
     // 输出int(1)
 ```
 ##### trans
@@ -531,7 +583,7 @@ return array(
     /* 参数为bool类型
      * 下面为实例
      */
-    $query = $mode->data(array('salary=salary+500' => ''))
+    $query = $this->data(array('salary=salary+500' => ''))
         ->where(array('name' => 'hebar'))
         ->trans(true)
         ->execute();
@@ -545,7 +597,7 @@ return array(
     /* 参数为bool类型
      * 比较适合简单重复的查询
      */
-    $query = $mode->where(array('id' => 1))->stmt(true)->execute();
+    $query = $this->where(array('id' => 1))->stmt(true)->execute();
 ```
 ### 终止方法
 
@@ -560,15 +612,15 @@ return array(
     /* 参数为数字或为空
      * 若为数字,将返回id为该数字的数据行，且为一维数组
      */
-    $query = $mode->execute(1);
+    $query = $this->execute(1);
     //对应的SQL语句为'SELECT * FROM employee WHERE id=1'
     // 提示：当execute()有参数时,前面的连贯操作无效
     // 例如:
-    $query = $mode->where(['name' => 'hebar', 'id' => 1])->execute(2);
+    $query = $this->where(['name' => 'hebar', 'id' => 1])->execute(2);
     // 将返回(bool)false
 
     // 注意：若参数为空,且只有一个execute方法时,将返回该表全部数据行
-    $query = $mode->execute();
+    $query = $this->execute();
     // 上面的语句将返回该表全部数据行
 ```
 ##### save
@@ -581,14 +633,14 @@ return array(
      * 当参数为空时,要用到操作方法data存放数据
      */
     $data = array('salary' => 6000);
-    $update = $mode->where(['id' => 12])->save($data);
-    $dataUpdate = $mode->where(['id' => 12])->data($data)->save();
+    $update = $this->where(['id' => 12])->save($data);
+    $dataUpdate = $this->where(['id' => 12])->data($data)->save();
     // 上面两种方法相同
     // 对应的SQL语句'UPDATE employee SET salary=6000 WHERE id=12 ' 
 
     // 使用自增修改
     $incrementData = array('score=score+5' => '');
-    $updata = $mode->where('id=1')->data($data)->save();
+    $updata = $this->where('id=1')->data($data)->save();
     // 对应的SQL语句'UPDATE employee SET score=score+5 WHERE id=1 ' 
 ```
 ##### add
@@ -609,8 +661,8 @@ return array(
             on_duty' => '20140601',
             'department' => 'it'
             );
-    $add = $mode->add($data);
-    $dataAdd = $mode->data($data)->add();
+    $add = $this->add($data);
+    $dataAdd = $this->data($data)->add();
     // 以上两种模式效果一样
 ```
 ##### delete
@@ -624,8 +676,8 @@ return array(
      * 删除成功返回影响行数
      * 失败返回false
      */
-    $delete = $mode->delete(5);
-    $conditionDelete = $mode->where('id=5')->delete();
+    $delete = $this->delete(5);
+    $conditionDelete = $this->where('id=5')->delete();
     // 以上的执行效果一样
     // 对应的SQL语句 'DELETE FROM employee WHERE id=5 ' 
 
@@ -642,13 +694,13 @@ return array(
      * 参数选项有,execute,add,save,delete
      * 默认是execute
      */
-    $sql = $mode->where('id=1')->returnSql();
+    $sql = $this->where('id=1')->returnSql();
     // 返回'SELECT * FROM employee WHERE id=1'
-    $sql = $mode->where('id=1')->returnSql('delete');
+    $sql = $this->where('id=1')->returnSql('delete');
     // 返回'DELETE FROM employee WHERE id=1'
-    $sql = $mode->data('salary' => 5000)->wher('id=1')->return('save');
+    $sql = $this->data('salary' => 5000)->wher('id=1')->return('save');
     // 返回'UPDATE employee SET salary=5000 WHERE id=1'
-    $sql = $mode->data(array('name' => 'hebar', 'password' => '123'))->returnSql('add');
+    $sql = $this->data(array('name' => 'hebar', 'password' => '123'))->returnSql('add');
     // 返回'INSERT INTO employee (name, password) VALUES('hebar', '123')'
 ```
 
