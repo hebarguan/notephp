@@ -60,7 +60,7 @@ class Log
         $logFile = $logPath.'/log-'.date('Y-m-d').'.php';
         if ( ! is_file($logFile)) {
             self::$LogFileHandle = fopen($logFile,"a+");
-            fwrite(self::$LogFileHandle, '<?php </br>');
+            fwrite(self::$LogFileHandle, '<?php ');
         }
         self::$LogFileHandle = fopen($logFile,"a+");
         fwrite(self::$LogFileHandle, $errorMsg);
